@@ -1,0 +1,1749 @@
+{
+  "passed": 82,
+  "failed": 0,
+  "results": [
+    {
+      "id": "semantic",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Estrutura semântica: header/h1, main/h2 e footer."
+        }
+      ]
+    },
+    {
+      "id": "semantic",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Estrutura semântica: header/h1, main/h2 e footer."
+        }
+      ]
+    },
+    {
+      "id": "semantic",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": false,
+          "message": "Estrutura semântica: header/h1, main/h2 e footer."
+        }
+      ]
+    },
+    {
+      "id": "equipment",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Ficha com article, h2 e parágrafo."
+        },
+        {
+          "ok": true,
+          "message": "Imagem com origem e alternativa textual descritiva (8+ caracteres)."
+        }
+      ]
+    },
+    {
+      "id": "equipment",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Ficha com article, h2 e parágrafo."
+        },
+        {
+          "ok": true,
+          "message": "Imagem com origem e alternativa textual descritiva (8+ caracteres)."
+        }
+      ]
+    },
+    {
+      "id": "equipment",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": false,
+          "message": "Ficha com article, h2 e parágrafo."
+        },
+        {
+          "ok": false,
+          "message": "Imagem com origem e alternativa textual descritiva (8+ caracteres)."
+        }
+      ]
+    },
+    {
+      "id": "form",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Formulário com campo de texto."
+        },
+        {
+          "ok": true,
+          "message": "Label associada ao campo."
+        },
+        {
+          "ok": true,
+          "message": "Botão de submissão explícito."
+        }
+      ]
+    },
+    {
+      "id": "form",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Formulário com campo de texto."
+        },
+        {
+          "ok": true,
+          "message": "Label associada ao campo."
+        },
+        {
+          "ok": true,
+          "message": "Botão de submissão explícito."
+        }
+      ]
+    },
+    {
+      "id": "form",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Formulário com campo de texto."
+        },
+        {
+          "ok": false,
+          "message": "Label associada ao campo."
+        },
+        {
+          "ok": false,
+          "message": "Botão de submissão explícito."
+        }
+      ]
+    },
+    {
+      "id": "selectors",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Dois painéis com a classe painel."
+        },
+        {
+          "ok": true,
+          "message": "Fundo comum não branco e não transparente."
+        },
+        {
+          "ok": true,
+          "message": "Texto com cor distinta e cantos de pelo menos 8px."
+        }
+      ]
+    },
+    {
+      "id": "selectors",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Dois painéis com a classe painel."
+        },
+        {
+          "ok": true,
+          "message": "Fundo comum não branco e não transparente."
+        },
+        {
+          "ok": true,
+          "message": "Texto com cor distinta e cantos de pelo menos 8px."
+        }
+      ]
+    },
+    {
+      "id": "selectors",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Dois painéis com a classe painel."
+        },
+        {
+          "ok": false,
+          "message": "Fundo comum não branco e não transparente."
+        },
+        {
+          "ok": false,
+          "message": "Texto com cor distinta e cantos de pelo menos 8px."
+        }
+      ]
+    },
+    {
+      "id": "box",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Largura exterior de 240px."
+        },
+        {
+          "ok": true,
+          "message": "Padding de 20px e borda de 4px."
+        }
+      ]
+    },
+    {
+      "id": "box",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Largura exterior de 240px."
+        },
+        {
+          "ok": true,
+          "message": "Padding de 20px e borda de 4px."
+        }
+      ]
+    },
+    {
+      "id": "box",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": false,
+          "message": "Largura exterior de 240px."
+        },
+        {
+          "ok": true,
+          "message": "Padding de 20px e borda de 4px."
+        }
+      ]
+    },
+    {
+      "id": "responsivecss",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Painel até 600px que cabe no ecrã."
+        },
+        {
+          "ok": true,
+          "message": "Botão com contorno visível ao receber foco."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "responsivecss",
+      "kind": "solution",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Painel até 600px que cabe no ecrã."
+        },
+        {
+          "ok": true,
+          "message": "Botão com contorno visível ao receber foco."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "responsivecss",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Painel até 600px que cabe no ecrã."
+        },
+        {
+          "ok": true,
+          "message": "Botão com contorno visível ao receber foco."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "responsivecss",
+      "kind": "alternative",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Painel até 600px que cabe no ecrã."
+        },
+        {
+          "ok": true,
+          "message": "Botão com contorno visível ao receber foco."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "responsivecss",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": false,
+          "message": "Painel até 600px que cabe no ecrã."
+        },
+        {
+          "ok": false,
+          "message": "Botão com contorno visível ao receber foco."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "responsivecss",
+      "kind": "starter",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": false,
+          "message": "Painel até 600px que cabe no ecrã."
+        },
+        {
+          "ok": false,
+          "message": "Botão com contorno visível ao receber foco."
+        },
+        {
+          "ok": false,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "grid3",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Galeria usa CSS Grid e contém os cartões pedidos."
+        },
+        {
+          "ok": true,
+          "message": "Colunas corretas à largura de 800px."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "grid3",
+      "kind": "solution",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Galeria usa CSS Grid e contém os cartões pedidos."
+        },
+        {
+          "ok": true,
+          "message": "Colunas corretas à largura de 360px."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "grid3",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Galeria usa CSS Grid e contém os cartões pedidos."
+        },
+        {
+          "ok": true,
+          "message": "Colunas corretas à largura de 800px."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "grid3",
+      "kind": "alternative",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Galeria usa CSS Grid e contém os cartões pedidos."
+        },
+        {
+          "ok": true,
+          "message": "Colunas corretas à largura de 360px."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "grid3",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": false,
+          "message": "Galeria usa CSS Grid e contém os cartões pedidos."
+        },
+        {
+          "ok": false,
+          "message": "Colunas corretas à largura de 800px."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "grid3",
+      "kind": "starter",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": false,
+          "message": "Galeria usa CSS Grid e contém os cartões pedidos."
+        },
+        {
+          "ok": true,
+          "message": "Colunas corretas à largura de 360px."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "areas",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Layout Grid com áreas nomeadas."
+        },
+        {
+          "ok": true,
+          "message": "Topo, menu e conteúdo presentes."
+        },
+        {
+          "ok": true,
+          "message": "Topo acima do menu e conteúdo."
+        },
+        {
+          "ok": true,
+          "message": "Menu e conteúdo adaptados à largura."
+        },
+        {
+          "ok": true,
+          "message": "Topo ocupa toda a largura."
+        }
+      ]
+    },
+    {
+      "id": "areas",
+      "kind": "solution",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Layout Grid com áreas nomeadas."
+        },
+        {
+          "ok": true,
+          "message": "Topo, menu e conteúdo presentes."
+        },
+        {
+          "ok": true,
+          "message": "Topo acima do menu e conteúdo."
+        },
+        {
+          "ok": true,
+          "message": "Menu e conteúdo adaptados à largura."
+        },
+        {
+          "ok": true,
+          "message": "Topo ocupa toda a largura."
+        }
+      ]
+    },
+    {
+      "id": "areas",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Layout Grid com áreas nomeadas."
+        },
+        {
+          "ok": true,
+          "message": "Topo, menu e conteúdo presentes."
+        },
+        {
+          "ok": true,
+          "message": "Topo acima do menu e conteúdo."
+        },
+        {
+          "ok": true,
+          "message": "Menu e conteúdo adaptados à largura."
+        },
+        {
+          "ok": true,
+          "message": "Topo ocupa toda a largura."
+        }
+      ]
+    },
+    {
+      "id": "areas",
+      "kind": "alternative",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Layout Grid com áreas nomeadas."
+        },
+        {
+          "ok": true,
+          "message": "Topo, menu e conteúdo presentes."
+        },
+        {
+          "ok": true,
+          "message": "Topo acima do menu e conteúdo."
+        },
+        {
+          "ok": true,
+          "message": "Menu e conteúdo adaptados à largura."
+        },
+        {
+          "ok": true,
+          "message": "Topo ocupa toda a largura."
+        }
+      ]
+    },
+    {
+      "id": "areas",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": false,
+          "message": "Layout Grid com áreas nomeadas."
+        },
+        {
+          "ok": true,
+          "message": "Topo, menu e conteúdo presentes."
+        },
+        {
+          "ok": true,
+          "message": "Topo acima do menu e conteúdo."
+        },
+        {
+          "ok": false,
+          "message": "Menu e conteúdo adaptados à largura."
+        },
+        {
+          "ok": false,
+          "message": "Topo ocupa toda a largura."
+        }
+      ]
+    },
+    {
+      "id": "areas",
+      "kind": "starter",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": false,
+          "message": "Layout Grid com áreas nomeadas."
+        },
+        {
+          "ok": true,
+          "message": "Topo, menu e conteúdo presentes."
+        },
+        {
+          "ok": true,
+          "message": "Topo acima do menu e conteúdo."
+        },
+        {
+          "ok": true,
+          "message": "Menu e conteúdo adaptados à largura."
+        },
+        {
+          "ok": false,
+          "message": "Topo ocupa toda a largura."
+        }
+      ]
+    },
+    {
+      "id": "responsive",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Galeria usa CSS Grid e contém os cartões pedidos."
+        },
+        {
+          "ok": true,
+          "message": "Colunas corretas à largura de 800px."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "responsive",
+      "kind": "solution",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Galeria usa CSS Grid e contém os cartões pedidos."
+        },
+        {
+          "ok": true,
+          "message": "Colunas corretas à largura de 360px."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "responsive",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Galeria usa CSS Grid e contém os cartões pedidos."
+        },
+        {
+          "ok": true,
+          "message": "Colunas corretas à largura de 800px."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "responsive",
+      "kind": "alternative",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Galeria usa CSS Grid e contém os cartões pedidos."
+        },
+        {
+          "ok": true,
+          "message": "Colunas corretas à largura de 360px."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "responsive",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Galeria usa CSS Grid e contém os cartões pedidos."
+        },
+        {
+          "ok": true,
+          "message": "Colunas corretas à largura de 800px."
+        },
+        {
+          "ok": false,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "responsive",
+      "kind": "starter",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Galeria usa CSS Grid e contém os cartões pedidos."
+        },
+        {
+          "ok": false,
+          "message": "Colunas corretas à largura de 360px."
+        },
+        {
+          "ok": false,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "align",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "A barra usa Flexbox."
+        },
+        {
+          "ok": true,
+          "message": "Distribuição nos extremos e centragem vertical."
+        }
+      ]
+    },
+    {
+      "id": "align",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "A barra usa Flexbox."
+        },
+        {
+          "ok": true,
+          "message": "Distribuição nos extremos e centragem vertical."
+        }
+      ]
+    },
+    {
+      "id": "align",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": false,
+          "message": "A barra usa Flexbox."
+        },
+        {
+          "ok": false,
+          "message": "Distribuição nos extremos e centragem vertical."
+        }
+      ]
+    },
+    {
+      "id": "wrap",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Seis cartões num contentor flex com mudança de linha."
+        },
+        {
+          "ok": true,
+          "message": "Gap de pelo menos 8px."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "wrap",
+      "kind": "solution",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Seis cartões num contentor flex com mudança de linha."
+        },
+        {
+          "ok": true,
+          "message": "Gap de pelo menos 8px."
+        },
+        {
+          "ok": true,
+          "message": "Os cartões passam para outra linha."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "wrap",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Seis cartões num contentor flex com mudança de linha."
+        },
+        {
+          "ok": true,
+          "message": "Gap de pelo menos 8px."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "wrap",
+      "kind": "alternative",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Seis cartões num contentor flex com mudança de linha."
+        },
+        {
+          "ok": true,
+          "message": "Gap de pelo menos 8px."
+        },
+        {
+          "ok": true,
+          "message": "Os cartões passam para outra linha."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "wrap",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": false,
+          "message": "Seis cartões num contentor flex com mudança de linha."
+        },
+        {
+          "ok": false,
+          "message": "Gap de pelo menos 8px."
+        },
+        {
+          "ok": false,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "wrap",
+      "kind": "starter",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": false,
+          "message": "Seis cartões num contentor flex com mudança de linha."
+        },
+        {
+          "ok": false,
+          "message": "Gap de pelo menos 8px."
+        },
+        {
+          "ok": false,
+          "message": "Os cartões passam para outra linha."
+        },
+        {
+          "ok": false,
+          "message": "Sem transbordo horizontal."
+        }
+      ]
+    },
+    {
+      "id": "controls",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Três botões num contentor flex."
+        },
+        {
+          "ok": true,
+          "message": "Eixo adaptado à largura."
+        },
+        {
+          "ok": true,
+          "message": "Espaçamento entre controlos."
+        }
+      ]
+    },
+    {
+      "id": "controls",
+      "kind": "solution",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Três botões num contentor flex."
+        },
+        {
+          "ok": true,
+          "message": "Eixo adaptado à largura."
+        },
+        {
+          "ok": true,
+          "message": "Espaçamento entre controlos."
+        }
+      ]
+    },
+    {
+      "id": "controls",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Três botões num contentor flex."
+        },
+        {
+          "ok": true,
+          "message": "Eixo adaptado à largura."
+        },
+        {
+          "ok": true,
+          "message": "Espaçamento entre controlos."
+        }
+      ]
+    },
+    {
+      "id": "controls",
+      "kind": "alternative",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Três botões num contentor flex."
+        },
+        {
+          "ok": true,
+          "message": "Eixo adaptado à largura."
+        },
+        {
+          "ok": true,
+          "message": "Espaçamento entre controlos."
+        }
+      ]
+    },
+    {
+      "id": "controls",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": false,
+          "message": "Três botões num contentor flex."
+        },
+        {
+          "ok": true,
+          "message": "Eixo adaptado à largura."
+        },
+        {
+          "ok": false,
+          "message": "Espaçamento entre controlos."
+        }
+      ]
+    },
+    {
+      "id": "controls",
+      "kind": "starter",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": false,
+          "message": "Três botões num contentor flex."
+        },
+        {
+          "ok": false,
+          "message": "Eixo adaptado à largura."
+        },
+        {
+          "ok": false,
+          "message": "Espaçamento entre controlos."
+        }
+      ]
+    },
+    {
+      "id": "functions",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Função estadoEnergia disponível."
+        },
+        {
+          "ok": true,
+          "message": "Condição correta em cinco valores, incluindo a fronteira 50."
+        },
+        {
+          "ok": true,
+          "message": "Resultado de 75 apresentado no output."
+        }
+      ]
+    },
+    {
+      "id": "functions",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Função estadoEnergia disponível."
+        },
+        {
+          "ok": true,
+          "message": "Condição correta em cinco valores, incluindo a fronteira 50."
+        },
+        {
+          "ok": true,
+          "message": "Resultado de 75 apresentado no output."
+        }
+      ]
+    },
+    {
+      "id": "functions",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Função estadoEnergia disponível."
+        },
+        {
+          "ok": false,
+          "message": "Condição correta em cinco valores, incluindo a fronteira 50."
+        },
+        {
+          "ok": false,
+          "message": "Resultado de 75 apresentado no output."
+        }
+      ]
+    },
+    {
+      "id": "arrays",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Função listarEquipamentos disponível."
+        },
+        {
+          "ok": true,
+          "message": "Lista atualizada para 3 elementos."
+        },
+        {
+          "ok": true,
+          "message": "Lista atualizada para 2 elementos."
+        },
+        {
+          "ok": true,
+          "message": "Lista atualizada para 0 elementos."
+        }
+      ]
+    },
+    {
+      "id": "arrays",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Função listarEquipamentos disponível."
+        },
+        {
+          "ok": true,
+          "message": "Lista atualizada para 3 elementos."
+        },
+        {
+          "ok": true,
+          "message": "Lista atualizada para 2 elementos."
+        },
+        {
+          "ok": true,
+          "message": "Lista atualizada para 0 elementos."
+        }
+      ]
+    },
+    {
+      "id": "arrays",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Função listarEquipamentos disponível."
+        },
+        {
+          "ok": false,
+          "message": "Lista atualizada para 3 elementos."
+        },
+        {
+          "ok": false,
+          "message": "Lista atualizada para 2 elementos."
+        },
+        {
+          "ok": true,
+          "message": "Lista atualizada para 0 elementos."
+        }
+      ]
+    },
+    {
+      "id": "events",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Botão #ativar e output #estado presentes."
+        },
+        {
+          "ok": true,
+          "message": "O primeiro clique ativa o terminal."
+        },
+        {
+          "ok": true,
+          "message": "O segundo clique volta a Em espera."
+        }
+      ]
+    },
+    {
+      "id": "events",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Botão #ativar e output #estado presentes."
+        },
+        {
+          "ok": true,
+          "message": "O primeiro clique ativa o terminal."
+        },
+        {
+          "ok": true,
+          "message": "O segundo clique volta a Em espera."
+        }
+      ]
+    },
+    {
+      "id": "events",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Botão #ativar e output #estado presentes."
+        },
+        {
+          "ok": false,
+          "message": "O primeiro clique ativa o terminal."
+        },
+        {
+          "ok": true,
+          "message": "O segundo clique volta a Em espera."
+        }
+      ]
+    },
+    {
+      "id": "debug",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Seletor CSS corrigido: padding 16px."
+        },
+        {
+          "ok": true,
+          "message": "Evento JavaScript corrigido."
+        }
+      ]
+    },
+    {
+      "id": "debug",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Seletor CSS corrigido: padding 16px."
+        },
+        {
+          "ok": true,
+          "message": "Evento JavaScript corrigido."
+        }
+      ]
+    },
+    {
+      "id": "debug",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": false,
+          "message": "Seletor CSS corrigido: padding 16px."
+        },
+        {
+          "ok": false,
+          "message": "Evento JavaScript corrigido."
+        },
+        {
+          "ok": false,
+          "message": "Uncaught TypeError: Cannot read properties of null (reading 'addEventListener')"
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Sketch p5.js, botão e contador presentes."
+        },
+        {
+          "ok": true,
+          "message": "Primeiro clique: 1 ponto."
+        },
+        {
+          "ok": true,
+          "message": "Segundo clique: 2 pontos."
+        },
+        {
+          "ok": true,
+          "message": "O desenho muda com a energia."
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Sketch p5.js, botão e contador presentes."
+        },
+        {
+          "ok": true,
+          "message": "Primeiro clique: 1 ponto."
+        },
+        {
+          "ok": true,
+          "message": "Segundo clique: 2 pontos."
+        },
+        {
+          "ok": true,
+          "message": "O desenho muda com a energia."
+        }
+      ]
+    },
+    {
+      "id": "p5",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Sketch p5.js, botão e contador presentes."
+        },
+        {
+          "ok": false,
+          "message": "Primeiro clique: 1 ponto."
+        },
+        {
+          "ok": false,
+          "message": "Segundo clique: 2 pontos."
+        },
+        {
+          "ok": false,
+          "message": "O desenho muda com a energia."
+        }
+      ]
+    },
+    {
+      "id": "integrate",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Botão #ativar e output #estado presentes."
+        },
+        {
+          "ok": true,
+          "message": "O primeiro clique ativa o terminal."
+        },
+        {
+          "ok": true,
+          "message": "O segundo clique volta a Em espera."
+        },
+        {
+          "ok": true,
+          "message": "Article com título e layout Flexbox."
+        }
+      ]
+    },
+    {
+      "id": "integrate",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Botão #ativar e output #estado presentes."
+        },
+        {
+          "ok": true,
+          "message": "O primeiro clique ativa o terminal."
+        },
+        {
+          "ok": true,
+          "message": "O segundo clique volta a Em espera."
+        },
+        {
+          "ok": true,
+          "message": "Article com título e layout Flexbox."
+        }
+      ]
+    },
+    {
+      "id": "integrate",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": false,
+          "message": "Botão #ativar e output #estado presentes."
+        },
+        {
+          "ok": false,
+          "message": "Article com título e layout Flexbox."
+        }
+      ]
+    },
+    {
+      "id": "final",
+      "kind": "solution",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Galeria usa CSS Grid e contém os cartões pedidos."
+        },
+        {
+          "ok": true,
+          "message": "Colunas corretas à largura de 800px."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        },
+        {
+          "ok": true,
+          "message": "Estrutura semântica: header/h1, main/h2 e footer."
+        },
+        {
+          "ok": true,
+          "message": "Navegação com Flexbox."
+        },
+        {
+          "ok": true,
+          "message": "Dois recursos institucionais incluídos."
+        },
+        {
+          "ok": true,
+          "message": "Filtros Todos e Web presentes."
+        },
+        {
+          "ok": true,
+          "message": "Filtro Web mostra os dois projetos web."
+        },
+        {
+          "ok": true,
+          "message": "Filtro Todos repõe os três projetos."
+        }
+      ]
+    },
+    {
+      "id": "final",
+      "kind": "solution",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Galeria usa CSS Grid e contém os cartões pedidos."
+        },
+        {
+          "ok": true,
+          "message": "Colunas corretas à largura de 360px."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        },
+        {
+          "ok": true,
+          "message": "Estrutura semântica: header/h1, main/h2 e footer."
+        },
+        {
+          "ok": true,
+          "message": "Navegação com Flexbox."
+        },
+        {
+          "ok": true,
+          "message": "Dois recursos institucionais incluídos."
+        },
+        {
+          "ok": true,
+          "message": "Filtros Todos e Web presentes."
+        },
+        {
+          "ok": true,
+          "message": "Filtro Web mostra os dois projetos web."
+        },
+        {
+          "ok": true,
+          "message": "Filtro Todos repõe os três projetos."
+        }
+      ]
+    },
+    {
+      "id": "final",
+      "kind": "alternative",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Galeria usa CSS Grid e contém os cartões pedidos."
+        },
+        {
+          "ok": true,
+          "message": "Colunas corretas à largura de 800px."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        },
+        {
+          "ok": true,
+          "message": "Estrutura semântica: header/h1, main/h2 e footer."
+        },
+        {
+          "ok": true,
+          "message": "Navegação com Flexbox."
+        },
+        {
+          "ok": true,
+          "message": "Dois recursos institucionais incluídos."
+        },
+        {
+          "ok": true,
+          "message": "Filtros Todos e Web presentes."
+        },
+        {
+          "ok": true,
+          "message": "Filtro Web mostra os dois projetos web."
+        },
+        {
+          "ok": true,
+          "message": "Filtro Todos repõe os três projetos."
+        }
+      ]
+    },
+    {
+      "id": "final",
+      "kind": "alternative",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": true,
+          "message": "Galeria usa CSS Grid e contém os cartões pedidos."
+        },
+        {
+          "ok": true,
+          "message": "Colunas corretas à largura de 360px."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        },
+        {
+          "ok": true,
+          "message": "Estrutura semântica: header/h1, main/h2 e footer."
+        },
+        {
+          "ok": true,
+          "message": "Navegação com Flexbox."
+        },
+        {
+          "ok": true,
+          "message": "Dois recursos institucionais incluídos."
+        },
+        {
+          "ok": true,
+          "message": "Filtros Todos e Web presentes."
+        },
+        {
+          "ok": true,
+          "message": "Filtro Web mostra os dois projetos web."
+        },
+        {
+          "ok": true,
+          "message": "Filtro Todos repõe os três projetos."
+        }
+      ]
+    },
+    {
+      "id": "final",
+      "kind": "starter",
+      "width": 800,
+      "ok": true,
+      "rows": [
+        {
+          "ok": false,
+          "message": "Galeria usa CSS Grid e contém os cartões pedidos."
+        },
+        {
+          "ok": false,
+          "message": "Colunas corretas à largura de 800px."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        },
+        {
+          "ok": true,
+          "message": "Estrutura semântica: header/h1, main/h2 e footer."
+        },
+        {
+          "ok": false,
+          "message": "Navegação com Flexbox."
+        },
+        {
+          "ok": true,
+          "message": "Dois recursos institucionais incluídos."
+        },
+        {
+          "ok": true,
+          "message": "Filtros Todos e Web presentes."
+        },
+        {
+          "ok": false,
+          "message": "Filtro Web mostra os dois projetos web."
+        },
+        {
+          "ok": true,
+          "message": "Filtro Todos repõe os três projetos."
+        }
+      ]
+    },
+    {
+      "id": "final",
+      "kind": "starter",
+      "width": 360,
+      "ok": true,
+      "rows": [
+        {
+          "ok": false,
+          "message": "Galeria usa CSS Grid e contém os cartões pedidos."
+        },
+        {
+          "ok": true,
+          "message": "Colunas corretas à largura de 360px."
+        },
+        {
+          "ok": true,
+          "message": "Sem transbordo horizontal."
+        },
+        {
+          "ok": true,
+          "message": "Estrutura semântica: header/h1, main/h2 e footer."
+        },
+        {
+          "ok": false,
+          "message": "Navegação com Flexbox."
+        },
+        {
+          "ok": true,
+          "message": "Dois recursos institucionais incluídos."
+        },
+        {
+          "ok": true,
+          "message": "Filtros Todos e Web presentes."
+        },
+        {
+          "ok": false,
+          "message": "Filtro Web mostra os dois projetos web."
+        },
+        {
+          "ok": true,
+          "message": "Filtro Todos repõe os três projetos."
+        }
+      ]
+    },
+    {
+      "id": "budget",
+      "ok": true,
+      "error": "Uncaught Error: Execução interrompida: verifica ciclos e recursão."
+    },
+    {
+      "id": "budget",
+      "ok": true,
+      "error": "Uncaught Error: Execução interrompida: verifica ciclos e recursão."
+    },
+    {
+      "id": "budget",
+      "ok": true,
+      "error": "Uncaught RangeError: Maximum call stack size exceeded"
+    },
+    {
+      "id": "sandbox",
+      "ok": true
+    }
+  ]
+}

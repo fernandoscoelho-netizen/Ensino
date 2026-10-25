@@ -1,0 +1,8 @@
+import test from 'node:test';import assert from 'node:assert/strict';
+import {SPAWN,entryDoor,canStand,pathTo,topics} from '../src/map.js';
+import {blank} from '../src/storage.js';
+import {beginSession} from '../src/entry.js';
+import {newCameraState,orbitCamera,zoomCamera,cameraPosition} from '../src/camera.js';
+test('cada sessão recomeça na entrada e mantém código e competências',()=>{const state=blank();state.position={x:topics[0].x,z:topics[0].z};state.completed=['semantic'];state.drafts.semantic={html:'<main>Projeto</main>',css:'',js:''};beginSession(state);assert.deepEqual(state.position,SPAWN);assert.deepEqual(state.completed,['semantic']);assert.equal(state.drafts.semantic.html,'<main>Projeto</main>');});
+test('porta fechada bloqueia passagem física e percurso; aberta permite acesso',()=>{assert.ok(canStand(SPAWN.x,SPAWN.z,[],true));assert.equal(canStand(entryDoor.x,entryDoor.z,[],true),false);assert.equal(canStand(entryDoor.x,entryDoor.z,[],false),true);assert.equal(pathTo(SPAWN,topics[0].approach,[],true).length,0);assert.ok(pathTo(SPAWN,topics[0].approach,[],false).length>0);});
+test('câmara orbita em dois eixos e aproxima com limites estáveis',()=>{const c=newCameraState('overview'),target={x:0,y:0,z:0},original=cameraPosition(c,target);orbitCamera(c,90,60);const changed=cameraPosition(c,target);assert.notEqual(original.x,changed.x);assert.notEqual(original.y,changed.y);assert.notEqual(original.z,changed.z);const before=c.distance;zoomCamera(c,-200);assert.ok(c.distance<before);orbitCamera(c,0,100000);assert.ok(c.pitch<=1.52);orbitCamera(c,0,-100000);assert.ok(c.pitch>=.22);zoomCamera(c,100000);assert.equal(c.distance,85);zoomCamera(c,-100000);assert.equal(c.distance,4);});
