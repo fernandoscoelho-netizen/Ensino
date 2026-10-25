@@ -1,0 +1,5666 @@
+{
+ "versao": 1,
+ "meta": {
+  "titulo": "CTE AERT3 · planta interpretada para o jogo",
+  "fonte": "Escola Secundária de Rio Tinto · Planta de mobiliário (Desigual, 15-09-2025), escala 1:100, folha única",
+  "data_leitura": "2026-10-24",
+  "unidade": "metro",
+  "origem": "canto exterior superior esquerdo do bloco principal",
+  "eixos": "x para a direita da folha; y para baixo da folha. «Superior», «inferior», «esquerda» e «direita» referem-se à folha.",
+  "aviso": "Interpretação de uma planta 2D para um jogo. Não é um modelo BIM nem uma conversão 3D exata: a planta não define alturas, materiais nem volumes. Medidas em planta lidas à escala; alturas são cotas da legenda ou estimativas editáveis.",
+  "validacao_escala": [
+   {
+    "cota": "2328",
+    "medido": 2.33,
+    "local": "Sala E1, afastamento entre mesas"
+   },
+   {
+    "cota": "1090",
+    "medido": 1.08,
+    "local": "Sala E1"
+   },
+   {
+    "cota": "2808",
+    "medido": 2.81,
+    "local": "Sala E1"
+   }
+  ],
+  "legenda_lida": [
+   {
+    "codigo": "CALLERO DUPLO GRATNELLS SSET13",
+    "descricao": "Carro duplo de tabuleiros (Gratnells SSET13)"
+   },
+   {
+    "codigo": "E32CPLUS",
+    "descricao": "Carro de carregamento EU Aver E32C (32 dispositivos)"
+   },
+   {
+    "codigo": "RSET 01 Rover",
+    "descricao": "Rover com 3 tabuleiros F25"
+   },
+   {
+    "codigo": "PROMETHEAN 86\"",
+    "descricao": "Ecrã interativo Promethean 86\""
+   },
+   {
+    "codigo": "B1800900",
+    "descricao": "Bancada 1800×750×900 mm com blocos elétricos e armário de 4 portas"
+   },
+   {
+    "codigo": "VTR 750 D",
+    "descricao": "Mesa Verd 750×700×750 mm"
+   },
+   {
+    "codigo": "VTR F16 70",
+    "descricao": "Mesa Verd 1600×700×740 mm"
+   },
+   {
+    "codigo": "VTS 140 70R",
+    "descricao": "Mesa Verd 1400×700×750 mm com púlpito à direita"
+   },
+   {
+    "codigo": "BT11200900-SCPU",
+    "descricao": "Bancada técnica 1200×750×900 mm, suporte para monitor"
+   },
+   {
+    "codigo": "BT11200900-SBGCPU",
+    "descricao": "Bancada técnica 1200×750×900 mm, prateleira superior com iluminação, suporte para monitor"
+   },
+   {
+    "codigo": "N3L TDD 41D",
+    "descricao": "Mesa para professor, altura 1050 mm, diâmetro 600 mm"
+   },
+   {
+    "codigo": "VTR 140 50",
+    "descricao": "Mesa Verd 1400×500×750 mm"
+   },
+   {
+    "codigo": "N4M 109 5N0",
+    "descricao": "FrameFour Bench 3222×1200×1050 mm"
+   },
+   {
+    "codigo": "N4M 109 5H0",
+    "descricao": "FrameFour Bench 2400×1200×1050 mm"
+   },
+   {
+    "codigo": "GAC100",
+    "descricao": "Bancada Actiflex 1500×900×780 mm"
+   },
+   {
+    "codigo": "N3L T50 030",
+    "descricao": "Mesa B-Free 1600×600×780 mm"
+   },
+   {
+    "codigo": "AAC115",
+    "descricao": "Armário curvo Actiflex Wave"
+   },
+   {
+    "codigo": "MESA DIAMOND",
+    "descricao": "Mesa Diamond (conjunto hexagonal)"
+   }
+  ],
+  "nao_legivel": [
+   "funções dos compartimentos do núcleo, além da arrecadação",
+   "tipo dos elementos a construir",
+   "pé-direito, alturas de portas e janelas",
+   "piso superior"
+  ],
+  "imagem_referencia": {
+   "ficheiro": "planta-referencia.jpg",
+   "limites": [
+    -1.2,
+    -5.0,
+    23.8,
+    23.2
+   ]
+  }
+ },
+ "alturas": {
+  "peDireito": {
+   "v": 3.0,
+   "origem": "estimado"
+  },
+  "porta": {
+   "v": 2.1,
+   "origem": "estimado"
+  },
+  "janelaPeitoril": {
+   "v": 0.9,
+   "origem": "estimado"
+  },
+  "janelaAltura": {
+   "v": 1.6,
+   "origem": "estimado"
+  },
+  "cadeiraAssento": {
+   "v": 0.45,
+   "origem": "estimado"
+  },
+  "cadeiraEncosto": {
+   "v": 0.85,
+   "origem": "estimado"
+  },
+  "quadroEletrico": {
+   "v": 1.3,
+   "origem": "estimado",
+   "nota": "altura do centro"
+  }
+ },
+ "bloco": {
+  "r": [
+   0,
+   0,
+   22.59,
+   22.27
+  ],
+  "origem": "medido"
+ },
+ "volumes": {
+  "rects": [
+   [
+    0,
+    0,
+    22.59,
+    22.27
+   ],
+   [
+    11.28,
+    -3.87,
+    15.23,
+    0.0
+   ]
+  ],
+  "regra": "paredes = volumes − espaços − vãos de porta",
+  "origem": "medido"
+ },
+ "entrada_pilares": [
+  {
+   "r": [
+    11.28,
+    -3.87,
+    11.63,
+    -2.37
+   ],
+   "origem": "observado"
+  },
+  {
+   "r": [
+    14.89,
+    -3.87,
+    15.23,
+    -2.37
+   ],
+   "origem": "observado"
+  }
+ ],
+ "exterior": {
+  "rects": [
+   [
+    7.0,
+    -11.0,
+    19.6,
+    -3.87
+   ],
+   [
+    15.23,
+    -3.87,
+    19.6,
+    -0.73
+   ]
+  ],
+  "rampa": {
+   "r": [
+    15.24,
+    -2.13,
+    18.24,
+    -0.73
+   ],
+   "origem": "observado (rampa com seta)"
+  },
+  "origem": "estimado",
+  "nota": "área exterior aproximada; fora do âmbito da planta"
+ },
+ "espacos": [
+  {
+   "id": "entrada",
+   "nome": "Entrada",
+   "tipo": "circulacao",
+   "rects": [
+    [
+     11.63,
+     -3.52,
+     14.89,
+     0.0
+    ]
+   ],
+   "origem": "medido",
+   "nome_origem": "texto da planta"
+  },
+  {
+   "id": "corredor",
+   "nome": "Corredor",
+   "tipo": "circulacao",
+   "rects": [
+    [
+     11.66,
+     0.515,
+     14.83,
+     6.29
+    ]
+   ],
+   "origem": "medido",
+   "nome_origem": "nome atribuído"
+  },
+  {
+   "id": "atrio",
+   "nome": "Átrio",
+   "tipo": "circulacao",
+   "rects": [
+    [
+     8.04,
+     6.29,
+     14.83,
+     9.72
+    ]
+   ],
+   "origem": "medido",
+   "nome_origem": "nome atribuído"
+  },
+  {
+   "id": "passagem_esq",
+   "nome": "Passagem esquerda",
+   "tipo": "circulacao",
+   "rects": [
+    [
+     8.04,
+     9.72,
+     9.51,
+     16.14
+    ]
+   ],
+   "origem": "medido",
+   "nome_origem": "nome atribuído"
+  },
+  {
+   "id": "passagem_dir",
+   "nome": "Passagem direita",
+   "tipo": "circulacao",
+   "rects": [
+    [
+     13.21,
+     9.72,
+     14.83,
+     14.53
+    ]
+   ],
+   "origem": "medido",
+   "nome_origem": "nome atribuído"
+  },
+  {
+   "id": "sala_e6",
+   "nome": "Sala E6",
+   "tipo": "sala",
+   "rects": [
+    [
+     0.83,
+     0.515,
+     7.64,
+     7.31
+    ]
+   ],
+   "origem": "medido",
+   "nome_origem": "texto da planta"
+  },
+  {
+   "id": "sala_e5",
+   "nome": "Sala E5",
+   "tipo": "sala",
+   "rects": [
+    [
+     0.83,
+     7.72,
+     7.64,
+     14.53
+    ]
+   ],
+   "origem": "medido",
+   "nome_origem": "texto da planta"
+  },
+  {
+   "id": "sala_e4",
+   "nome": "Sala E4",
+   "tipo": "sala",
+   "rects": [
+    [
+     0.83,
+     14.95,
+     7.64,
+     21.76
+    ]
+   ],
+   "origem": "medido",
+   "nome_origem": "texto da planta"
+  },
+  {
+   "id": "sala_e1",
+   "nome": "Sala E1",
+   "tipo": "sala",
+   "rects": [
+    [
+     15.26,
+     0.515,
+     22.07,
+     7.31
+    ]
+   ],
+   "origem": "medido",
+   "nome_origem": "texto da planta"
+  },
+  {
+   "id": "sala_e2",
+   "nome": "Sala E2",
+   "tipo": "sala",
+   "rects": [
+    [
+     15.26,
+     7.72,
+     22.07,
+     14.53
+    ]
+   ],
+   "origem": "medido",
+   "nome_origem": "texto da planta"
+  },
+  {
+   "id": "sala_e3",
+   "nome": "Sala E3",
+   "tipo": "sala",
+   "rects": [
+    [
+     13.38,
+     14.95,
+     22.07,
+     21.76
+    ],
+    [
+     11.66,
+     16.35,
+     13.38,
+     21.76
+    ]
+   ],
+   "origem": "medido",
+   "nome_origem": "texto da planta"
+  },
+  {
+   "id": "lab_e61",
+   "nome": "Lab Apoio E6.1",
+   "tipo": "laboratorio",
+   "rects": [
+    [
+     8.04,
+     0.515,
+     11.24,
+     5.91
+    ]
+   ],
+   "origem": "medido",
+   "nome_origem": "texto da planta"
+  },
+  {
+   "id": "lab_31",
+   "nome": "Lab Apoio 3.1",
+   "tipo": "laboratorio",
+   "rects": [
+    [
+     8.04,
+     16.35,
+     11.24,
+     21.76
+    ]
+   ],
+   "origem": "medido",
+   "nome_origem": "texto da planta"
+  },
+  {
+   "id": "escadas",
+   "nome": "Escadas (acesso ao piso superior)",
+   "tipo": "fora_de_jogo",
+   "rects": [
+    [
+     11.53,
+     9.78,
+     13.21,
+     14.55
+    ]
+   ],
+   "origem": "medido",
+   "nome_origem": "interpretado do desenho"
+  },
+  {
+   "id": "arrecadacao",
+   "nome": "Arrecadação",
+   "tipo": "fora_de_jogo",
+   "rects": [
+    [
+     9.69,
+     9.86,
+     11.38,
+     12.6
+    ]
+   ],
+   "origem": "medido",
+   "nome_origem": "texto da planta (4,38 m²)"
+  },
+  {
+   "id": "compartimento",
+   "nome": "Compartimento (função não indicada)",
+   "tipo": "fora_de_jogo",
+   "rects": [
+    [
+     9.69,
+     12.75,
+     11.38,
+     14.55
+    ]
+   ],
+   "origem": "medido",
+   "nome_origem": "sem nome na planta"
+  },
+  {
+   "id": "tecnico",
+   "nome": "Compartimento técnico",
+   "tipo": "fora_de_jogo",
+   "rects": [
+    [
+     9.69,
+     14.76,
+     13.21,
+     16.14
+    ]
+   ],
+   "origem": "medido",
+   "nome_origem": "interpretado (quadro elétrico na parede)"
+  }
+ ],
+ "paredes": {
+  "rects": [
+   [
+    11.3,
+    -3.85,
+    15.25,
+    -3.5
+   ],
+   [
+    11.3,
+    -3.5,
+    11.65,
+    6.3
+   ],
+   [
+    14.9,
+    -3.5,
+    15.25,
+    14.95
+   ],
+   [
+    0.0,
+    0.0,
+    11.3,
+    0.5
+   ],
+   [
+    11.65,
+    0.0,
+    14.9,
+    0.5
+   ],
+   [
+    15.25,
+    0.0,
+    22.6,
+    0.5
+   ],
+   [
+    0.0,
+    0.5,
+    0.85,
+    22.25
+   ],
+   [
+    7.65,
+    0.5,
+    8.05,
+    22.25
+   ],
+   [
+    11.25,
+    0.5,
+    11.3,
+    6.3
+   ],
+   [
+    14.85,
+    0.5,
+    14.9,
+    14.95
+   ],
+   [
+    22.05,
+    0.5,
+    22.6,
+    22.25
+   ],
+   [
+    8.05,
+    5.9,
+    11.25,
+    6.3
+   ],
+   [
+    0.85,
+    7.3,
+    7.65,
+    7.7
+   ],
+   [
+    15.25,
+    7.3,
+    22.05,
+    7.7
+   ],
+   [
+    9.5,
+    9.7,
+    13.2,
+    9.8
+   ],
+   [
+    9.5,
+    9.8,
+    11.55,
+    9.85
+   ],
+   [
+    9.5,
+    9.85,
+    9.7,
+    16.35
+   ],
+   [
+    11.4,
+    9.85,
+    11.55,
+    14.75
+   ],
+   [
+    9.7,
+    12.6,
+    11.4,
+    12.75
+   ],
+   [
+    0.85,
+    14.55,
+    7.65,
+    14.95
+   ],
+   [
+    9.7,
+    14.55,
+    11.4,
+    14.75
+   ],
+   [
+    11.55,
+    14.55,
+    14.85,
+    14.75
+   ],
+   [
+    15.25,
+    14.55,
+    22.05,
+    14.95
+   ],
+   [
+    13.2,
+    14.75,
+    14.85,
+    14.95
+   ],
+   [
+    13.2,
+    14.95,
+    13.4,
+    16.35
+   ],
+   [
+    8.05,
+    16.15,
+    9.5,
+    16.35
+   ],
+   [
+    9.7,
+    16.15,
+    13.2,
+    16.35
+   ],
+   [
+    11.25,
+    16.35,
+    11.65,
+    22.25
+   ],
+   [
+    0.85,
+    21.75,
+    7.65,
+    22.25
+   ],
+   [
+    8.05,
+    21.75,
+    11.25,
+    22.25
+   ],
+   [
+    11.65,
+    21.75,
+    22.05,
+    22.25
+   ]
+  ],
+  "origem": "derivado",
+  "nota": "contorno do bloco medido, menos espaços e vãos; inclui espessuras lidas nas linhas do desenho"
+ },
+ "nucleo_fechado": {
+  "rects": [
+   [
+    11.55,
+    9.8,
+    13.2,
+    14.55
+   ],
+   [
+    9.7,
+    9.85,
+    11.4,
+    12.6
+   ],
+   [
+    9.7,
+    12.75,
+    11.4,
+    14.55
+   ],
+   [
+    9.7,
+    14.75,
+    13.2,
+    16.15
+   ]
+  ],
+  "nota": "espaços sem acesso no jogo"
+ },
+ "portas": [
+  {
+   "id": "p_exterior",
+   "liga": [
+    "exterior",
+    "entrada"
+   ],
+   "vao": [
+    11.63,
+    -3.87,
+    14.89,
+    -3.52
+   ],
+   "folhas": 2,
+   "largura": 3.26,
+   "origem": "interpretado",
+   "nota": "interpretado: frente envidraçada com seta de entrada; largura útil não detalhada",
+   "jogavel": true
+  },
+  {
+   "id": "p_rampa",
+   "liga": [
+    "exterior",
+    "entrada"
+   ],
+   "vao": [
+    14.89,
+    -2.13,
+    15.23,
+    -0.73
+   ],
+   "folhas": 0,
+   "largura": 1.4,
+   "origem": "interpretado",
+   "nota": "interpretado: acesso lateral pela rampa (seta desenhada)",
+   "jogavel": true
+  },
+  {
+   "id": "p_entrada",
+   "liga": [
+    "entrada",
+    "corredor"
+   ],
+   "vao": [
+    12.27,
+    0.0,
+    14.24,
+    0.515
+   ],
+   "folhas": 2,
+   "largura": 1.97,
+   "origem": "observado",
+   "nota": "observado: vão de 1,97 m e duas folhas com arcos",
+   "jogavel": true
+  },
+  {
+   "id": "p_e6",
+   "liga": [
+    "sala_e6",
+    "atrio"
+   ],
+   "vao": [
+    7.64,
+    6.37,
+    8.04,
+    7.22
+   ],
+   "folhas": 1,
+   "largura": 0.85,
+   "origem": "observado",
+   "nota": "observado",
+   "jogavel": true
+  },
+  {
+   "id": "p_e5",
+   "liga": [
+    "sala_e5",
+    "passagem_esq"
+   ],
+   "vao": [
+    7.64,
+    13.61,
+    8.04,
+    14.45
+   ],
+   "folhas": 1,
+   "largura": 0.84,
+   "origem": "observado",
+   "nota": "observado",
+   "jogavel": true
+  },
+  {
+   "id": "p_e4",
+   "liga": [
+    "sala_e4",
+    "passagem_esq"
+   ],
+   "vao": [
+    7.64,
+    15.03,
+    8.04,
+    15.88
+   ],
+   "folhas": 1,
+   "largura": 0.85,
+   "origem": "observado",
+   "nota": "observado",
+   "jogavel": true
+  },
+  {
+   "id": "p_e1",
+   "liga": [
+    "sala_e1",
+    "atrio"
+   ],
+   "vao": [
+    14.83,
+    6.4,
+    15.26,
+    7.25
+   ],
+   "folhas": 1,
+   "largura": 0.85,
+   "origem": "observado",
+   "nota": "observado",
+   "jogavel": true
+  },
+  {
+   "id": "p_e2",
+   "liga": [
+    "sala_e2",
+    "passagem_dir"
+   ],
+   "vao": [
+    14.83,
+    13.61,
+    15.26,
+    14.45
+   ],
+   "folhas": 1,
+   "largura": 0.84,
+   "origem": "observado",
+   "nota": "observado",
+   "jogavel": true
+  },
+  {
+   "id": "p_e3",
+   "liga": [
+    "sala_e3",
+    "passagem_dir"
+   ],
+   "vao": [
+    13.45,
+    14.53,
+    14.31,
+    14.95
+   ],
+   "folhas": 1,
+   "largura": 0.86,
+   "origem": "observado",
+   "nota": "observado",
+   "jogavel": true
+  },
+  {
+   "id": "p_e61",
+   "liga": [
+    "lab_e61",
+    "atrio"
+   ],
+   "vao": [
+    8.12,
+    5.91,
+    8.98,
+    6.29
+   ],
+   "folhas": 1,
+   "largura": 0.86,
+   "origem": "observado",
+   "nota": "observado",
+   "jogavel": true
+  },
+  {
+   "id": "p_31",
+   "liga": [
+    "lab_31",
+    "passagem_esq"
+   ],
+   "vao": [
+    8.13,
+    16.14,
+    8.98,
+    16.35
+   ],
+   "folhas": 1,
+   "largura": 0.85,
+   "origem": "observado",
+   "nota": "observado",
+   "jogavel": true
+  },
+  {
+   "id": "p_31_e3",
+   "liga": [
+    "lab_31",
+    "sala_e3"
+   ],
+   "vao": [
+    11.24,
+    16.49,
+    11.66,
+    17.35
+   ],
+   "folhas": 1,
+   "largura": 0.86,
+   "origem": "observado",
+   "nota": "observado: vão nas duas faces da parede e folha desenhada",
+   "jogavel": true
+  },
+  {
+   "id": "p_escadas",
+   "liga": [
+    "escadas",
+    "atrio"
+   ],
+   "vao": [
+    11.62,
+    9.72,
+    13.12,
+    9.78
+   ],
+   "folhas": 2,
+   "largura": 1.5,
+   "origem": "observado",
+   "nota": "observado a tracejado (estado da porta não indicado)",
+   "jogavel": false
+  },
+  {
+   "id": "p_arrecadacao",
+   "liga": [
+    "arrecadacao",
+    "passagem_esq"
+   ],
+   "vao": [
+    9.51,
+    9.97,
+    9.69,
+    10.85
+   ],
+   "folhas": 1,
+   "largura": 0.88,
+   "origem": "observado",
+   "nota": "observado (arco)",
+   "jogavel": false
+  },
+  {
+   "id": "p_compartimento",
+   "liga": [
+    "compartimento",
+    "passagem_esq"
+   ],
+   "vao": [
+    9.51,
+    13.62,
+    9.69,
+    14.47
+   ],
+   "folhas": 1,
+   "largura": 0.85,
+   "origem": "observado",
+   "nota": "observado (arco)",
+   "jogavel": false
+  },
+  {
+   "id": "p_tecnico",
+   "liga": [
+    "tecnico",
+    "passagem_esq"
+   ],
+   "vao": [
+    9.51,
+    14.78,
+    9.69,
+    15.62
+   ],
+   "folhas": 1,
+   "largura": 0.84,
+   "origem": "observado",
+   "nota": "observado (arco)",
+   "jogavel": false
+  }
+ ],
+ "janelas": [
+  {
+   "fachada": "superior",
+   "de": 1.52,
+   "ate": 3.35,
+   "face_interior": 0.515,
+   "face_exterior": 0.0,
+   "eixo": "x",
+   "origem": "observado"
+  },
+  {
+   "fachada": "superior",
+   "de": 5.13,
+   "ate": 6.96,
+   "face_interior": 0.515,
+   "face_exterior": 0.0,
+   "eixo": "x",
+   "origem": "observado"
+  },
+  {
+   "fachada": "superior",
+   "de": 8.74,
+   "ate": 10.57,
+   "face_interior": 0.515,
+   "face_exterior": 0.0,
+   "eixo": "x",
+   "origem": "observado"
+  },
+  {
+   "fachada": "superior",
+   "de": 15.96,
+   "ate": 17.79,
+   "face_interior": 0.515,
+   "face_exterior": 0.0,
+   "eixo": "x",
+   "origem": "observado"
+  },
+  {
+   "fachada": "superior",
+   "de": 19.57,
+   "ate": 21.4,
+   "face_interior": 0.515,
+   "face_exterior": 0.0,
+   "eixo": "x",
+   "origem": "observado"
+  },
+  {
+   "fachada": "inferior",
+   "de": 1.52,
+   "ate": 3.35,
+   "face_interior": 21.76,
+   "face_exterior": 22.27,
+   "eixo": "x",
+   "origem": "observado"
+  },
+  {
+   "fachada": "inferior",
+   "de": 5.13,
+   "ate": 6.96,
+   "face_interior": 21.76,
+   "face_exterior": 22.27,
+   "eixo": "x",
+   "origem": "observado"
+  },
+  {
+   "fachada": "inferior",
+   "de": 8.74,
+   "ate": 10.57,
+   "face_interior": 21.76,
+   "face_exterior": 22.27,
+   "eixo": "x",
+   "origem": "observado"
+  },
+  {
+   "fachada": "inferior",
+   "de": 12.35,
+   "ate": 14.18,
+   "face_interior": 21.76,
+   "face_exterior": 22.27,
+   "eixo": "x",
+   "origem": "observado"
+  },
+  {
+   "fachada": "inferior",
+   "de": 15.96,
+   "ate": 17.79,
+   "face_interior": 21.76,
+   "face_exterior": 22.27,
+   "eixo": "x",
+   "origem": "observado"
+  },
+  {
+   "fachada": "inferior",
+   "de": 19.57,
+   "ate": 21.4,
+   "face_interior": 21.76,
+   "face_exterior": 22.27,
+   "eixo": "x",
+   "origem": "observado"
+  },
+  {
+   "fachada": "esquerda",
+   "de": 7.97,
+   "ate": 9.2,
+   "face_interior": 0.83,
+   "face_exterior": 0.0,
+   "eixo": "y",
+   "origem": "observado"
+  },
+  {
+   "fachada": "esquerda",
+   "de": 12.02,
+   "ate": 13.85,
+   "face_interior": 0.83,
+   "face_exterior": 0.0,
+   "eixo": "y",
+   "origem": "observado"
+  },
+  {
+   "fachada": "direita",
+   "de": 7.97,
+   "ate": 9.2,
+   "face_interior": 22.07,
+   "face_exterior": 22.59,
+   "eixo": "y",
+   "origem": "observado"
+  },
+  {
+   "fachada": "direita",
+   "de": 12.02,
+   "ate": 13.85,
+   "face_interior": 22.07,
+   "face_exterior": 22.59,
+   "eixo": "y",
+   "origem": "observado"
+  },
+  {
+   "fachada": "entrada_esq",
+   "de": -2.37,
+   "ate": -0.48,
+   "face_interior": 11.63,
+   "face_exterior": 11.28,
+   "eixo": "y",
+   "origem": "interpretado"
+  }
+ ],
+ "quadros_eletricos": [
+  {
+   "r": [
+    7.65,
+    5.35,
+    7.76,
+    5.77
+   ],
+   "origem": "observado",
+   "fonte": "cor «Quadro elétrico» da legenda"
+  },
+  {
+   "r": [
+    7.65,
+    12.59,
+    7.76,
+    13.01
+   ],
+   "origem": "observado",
+   "fonte": "cor «Quadro elétrico» da legenda"
+  },
+  {
+   "r": [
+    7.65,
+    16.48,
+    7.76,
+    16.91
+   ],
+   "origem": "observado",
+   "fonte": "cor «Quadro elétrico» da legenda"
+  },
+  {
+   "r": [
+    13.26,
+    14.96,
+    13.38,
+    15.38
+   ],
+   "origem": "observado",
+   "fonte": "cor «Quadro elétrico» da legenda"
+  },
+  {
+   "r": [
+    15.14,
+    5.35,
+    15.26,
+    5.78
+   ],
+   "origem": "observado",
+   "fonte": "cor «Quadro elétrico» da legenda"
+  },
+  {
+   "r": [
+    15.14,
+    12.57,
+    15.26,
+    12.99
+   ],
+   "origem": "observado",
+   "fonte": "cor «Quadro elétrico» da legenda"
+  },
+  {
+   "r": [
+    9.24,
+    16.22,
+    9.67,
+    16.33
+   ],
+   "origem": "observado",
+   "fonte": "cor «Quadro elétrico» da legenda"
+  },
+  {
+   "r": [
+    9.58,
+    5.93,
+    10.0,
+    6.04
+   ],
+   "origem": "observado",
+   "fonte": "cor «Quadro elétrico» da legenda"
+  },
+  {
+   "r": [
+    10.51,
+    14.58,
+    11.39,
+    14.86
+   ],
+   "origem": "observado",
+   "fonte": "cor «Quadro elétrico» da legenda"
+  }
+ ],
+ "mobiliario": [
+  {
+   "id": "m001",
+   "tipo": "bancada_armario",
+   "codigo": "B1800900",
+   "descricao": "Bancada 1800×750×900 mm com blocos elétricos e armário de 4 portas",
+   "espaco": "sala_e4",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    2.659,
+    18.727,
+    4.454,
+    19.48
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m002",
+   "tipo": "bancada_armario",
+   "codigo": "B1800900",
+   "descricao": "Bancada 1800×750×900 mm com blocos elétricos e armário de 4 portas",
+   "espaco": "sala_e4",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    4.496,
+    18.727,
+    6.291,
+    19.48
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m003",
+   "tipo": "bancada_armario",
+   "codigo": "B1800900",
+   "descricao": "Bancada 1800×750×900 mm com blocos elétricos e armário de 4 portas",
+   "espaco": "sala_e4",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    2.659,
+    17.889,
+    4.454,
+    18.634
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m004",
+   "tipo": "bancada_armario",
+   "codigo": "B1800900",
+   "descricao": "Bancada 1800×750×900 mm com blocos elétricos e armário de 4 portas",
+   "espaco": "sala_e4",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    4.496,
+    17.889,
+    6.291,
+    18.634
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m005",
+   "tipo": "bancada_armario",
+   "codigo": "B1800900",
+   "descricao": "Bancada 1800×750×900 mm com blocos elétricos e armário de 4 portas",
+   "espaco": "sala_e4",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    2.448,
+    20.987,
+    4.242,
+    21.733
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m006",
+   "tipo": "bancada_armario",
+   "codigo": "B1800900",
+   "descricao": "Bancada 1800×750×900 mm com blocos elétricos e armário de 4 portas",
+   "espaco": "sala_e4",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    4.285,
+    20.987,
+    6.088,
+    21.733
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m007",
+   "tipo": "bancada_armario",
+   "codigo": "B1800900",
+   "descricao": "Bancada 1800×750×900 mm com blocos elétricos e armário de 4 portas",
+   "espaco": "sala_e4",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    2.194,
+    14.968,
+    3.988,
+    15.721
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m008",
+   "tipo": "bancada_armario",
+   "codigo": "B1800900",
+   "descricao": "Bancada 1800×750×900 mm com blocos elétricos e armário de 4 portas",
+   "espaco": "sala_e4",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    4.031,
+    14.968,
+    5.834,
+    15.721
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m009",
+   "tipo": "bancada_armario",
+   "codigo": "B1800900",
+   "descricao": "Bancada 1800×750×900 mm com blocos elétricos e armário de 4 portas",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    4.09,
+    10.938,
+    4.835,
+    12.741
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m010",
+   "tipo": "bancada_armario",
+   "codigo": "B1800900",
+   "descricao": "Bancada 1800×750×900 mm com blocos elétricos e armário de 4 portas",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    4.09,
+    9.1,
+    4.835,
+    10.904
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m011",
+   "tipo": "bancada_armario",
+   "codigo": "B1800900",
+   "descricao": "Bancada 1800×750×900 mm com blocos elétricos e armário de 4 portas",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    3.252,
+    10.938,
+    3.997,
+    12.741
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m012",
+   "tipo": "bancada_armario",
+   "codigo": "B1800900",
+   "descricao": "Bancada 1800×750×900 mm com blocos elétricos e armário de 4 portas",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    3.252,
+    9.1,
+    3.997,
+    10.904
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m013",
+   "tipo": "mesa",
+   "codigo": "VTR F16 70",
+   "descricao": "Mesa Verd 1600×700×740 mm",
+   "espaco": "sala_e4",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    6.918,
+    17.973,
+    7.621,
+    19.574
+   ],
+   "altura": {
+    "v": 0.74,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m014",
+   "tipo": "mesa",
+   "codigo": "VTR F16 70",
+   "descricao": "Mesa Verd 1600×700×740 mm",
+   "espaco": "sala_e4",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    6.918,
+    16.356,
+    7.621,
+    17.956
+   ],
+   "altura": {
+    "v": 0.74,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m015",
+   "tipo": "mesa",
+   "codigo": "VTR F16 70",
+   "descricao": "Mesa Verd 1600×700×740 mm",
+   "espaco": "sala_e4",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    6.918,
+    19.599,
+    7.621,
+    21.199
+   ],
+   "altura": {
+    "v": 0.74,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m016",
+   "tipo": "mesa",
+   "codigo": "VTR F16 70",
+   "descricao": "Mesa Verd 1600×700×740 mm",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    0.847,
+    11.496,
+    1.55,
+    13.097
+   ],
+   "altura": {
+    "v": 0.74,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m017",
+   "tipo": "mesa",
+   "codigo": "VTR F16 70",
+   "descricao": "Mesa Verd 1600×700×740 mm",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    0.847,
+    9.871,
+    1.55,
+    11.471
+   ],
+   "altura": {
+    "v": 0.74,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m018",
+   "tipo": "carro",
+   "codigo": "CALLERO DUPLO GRATNELLS SSET13",
+   "descricao": "Carro duplo de tabuleiros (Gratnells SSET13)",
+   "espaco": "sala_e4",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    0.864,
+    15.713,
+    1.296,
+    16.407
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m019",
+   "tipo": "carro",
+   "codigo": "CALLERO DUPLO GRATNELLS SSET13",
+   "descricao": "Carro duplo de tabuleiros (Gratnells SSET13)",
+   "espaco": "sala_e4",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    0.864,
+    14.968,
+    1.296,
+    15.653
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m020",
+   "tipo": "carro",
+   "codigo": "CALLERO DUPLO GRATNELLS SSET13",
+   "descricao": "Carro duplo de tabuleiros (Gratnells SSET13)",
+   "espaco": "sala_e4",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    1.702,
+    21.225,
+    2.397,
+    21.656
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m021",
+   "tipo": "carro",
+   "codigo": "CALLERO DUPLO GRATNELLS SSET13",
+   "descricao": "Carro duplo de tabuleiros (Gratnells SSET13)",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    0.89,
+    9.278,
+    1.584,
+    9.701
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m022",
+   "tipo": "carro",
+   "codigo": "CALLERO DUPLO GRATNELLS SSET13",
+   "descricao": "Carro duplo de tabuleiros (Gratnells SSET13)",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    11.795,
+    21.258,
+    12.489,
+    21.682
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m023",
+   "tipo": "carro",
+   "codigo": "CALLERO DUPLO GRATNELLS SSET13",
+   "descricao": "Carro duplo de tabuleiros (Gratnells SSET13)",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    12.523,
+    21.258,
+    13.217,
+    21.682
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m024",
+   "tipo": "carro",
+   "codigo": "CALLERO DUPLO GRATNELLS SSET13",
+   "descricao": "Carro duplo de tabuleiros (Gratnells SSET13)",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    13.251,
+    21.258,
+    13.945,
+    21.682
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m025",
+   "tipo": "carro",
+   "codigo": "CALLERO DUPLO GRATNELLS SSET13",
+   "descricao": "Carro duplo de tabuleiros (Gratnells SSET13)",
+   "espaco": "sala_e2",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    19.948,
+    14.019,
+    20.634,
+    14.451
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m026",
+   "tipo": "carro",
+   "codigo": "CALLERO DUPLO GRATNELLS SSET13",
+   "descricao": "Carro duplo de tabuleiros (Gratnells SSET13)",
+   "espaco": "sala_e6",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    1.813,
+    6.797,
+    2.507,
+    7.221
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m027",
+   "tipo": "carro",
+   "codigo": "CALLERO DUPLO GRATNELLS SSET13",
+   "descricao": "Carro duplo de tabuleiros (Gratnells SSET13)",
+   "espaco": "sala_e6",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    3.421,
+    0.727,
+    4.107,
+    1.15
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m028",
+   "tipo": "carro",
+   "codigo": "CALLERO DUPLO GRATNELLS SSET13",
+   "descricao": "Carro duplo de tabuleiros (Gratnells SSET13)",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    20.236,
+    4.037,
+    20.659,
+    4.723
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m029",
+   "tipo": "carro",
+   "codigo": "CALLERO DUPLO GRATNELLS SSET13",
+   "descricao": "Carro duplo de tabuleiros (Gratnells SSET13)",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    20.236,
+    2.141,
+    20.659,
+    2.826
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m030",
+   "tipo": "carro",
+   "codigo": "CALLERO DUPLO GRATNELLS SSET13",
+   "descricao": "Carro duplo de tabuleiros (Gratnells SSET13)",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    16.756,
+    4.037,
+    17.188,
+    4.723
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m031",
+   "tipo": "carro",
+   "codigo": "CALLERO DUPLO GRATNELLS SSET13",
+   "descricao": "Carro duplo de tabuleiros (Gratnells SSET13)",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    16.756,
+    2.141,
+    17.188,
+    2.826
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m032",
+   "tipo": "carro",
+   "codigo": "CALLERO DUPLO GRATNELLS SSET13",
+   "descricao": "Carro duplo de tabuleiros (Gratnells SSET13)",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    0.932,
+    13.799,
+    1.364,
+    14.494
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m033",
+   "tipo": "carregador",
+   "codigo": "E32CPLUS",
+   "descricao": "Carro de carregamento EU Aver E32C (32 dispositivos)",
+   "espaco": "sala_e4",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    0.957,
+    21.021,
+    1.601,
+    21.656
+   ],
+   "altura": {
+    "v": 1.0,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m034",
+   "tipo": "carregador",
+   "codigo": "E32CPLUS",
+   "descricao": "Carro de carregamento EU Aver E32C (32 dispositivos)",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    11.735,
+    20.234,
+    12.379,
+    20.869
+   ],
+   "altura": {
+    "v": 1.0,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m035",
+   "tipo": "carregador",
+   "codigo": "E32CPLUS",
+   "descricao": "Carro de carregamento EU Aver E32C (32 dispositivos)",
+   "espaco": "sala_e2",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    21.379,
+    13.859,
+    22.031,
+    14.494
+   ],
+   "altura": {
+    "v": 1.0,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m036",
+   "tipo": "carregador",
+   "codigo": "E32CPLUS",
+   "descricao": "Carro de carregamento EU Aver E32C (32 dispositivos)",
+   "espaco": "sala_e6",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    1.067,
+    6.594,
+    1.711,
+    7.221
+   ],
+   "altura": {
+    "v": 1.0,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m037",
+   "tipo": "carregador",
+   "codigo": "E32CPLUS",
+   "descricao": "Carro de carregamento EU Aver E32C (32 dispositivos)",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    21.396,
+    6.679,
+    22.039,
+    7.305
+   ],
+   "altura": {
+    "v": 1.0,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m038",
+   "tipo": "mesa",
+   "codigo": "VTR 750 D",
+   "descricao": "Mesa Verd 750×700×750 mm",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    1.499,
+    13.816,
+    2.244,
+    14.519
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m039",
+   "tipo": "mesa",
+   "codigo": "VTR 750 D",
+   "descricao": "Mesa Verd 750×700×750 mm",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    2.261,
+    13.816,
+    3.015,
+    14.519
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m040",
+   "tipo": "mesa",
+   "codigo": "VTR 750 D",
+   "descricao": "Mesa Verd 750×700×750 mm",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    3.023,
+    13.816,
+    3.777,
+    14.519
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m041",
+   "tipo": "mesa",
+   "codigo": "VTR 750 D",
+   "descricao": "Mesa Verd 750×700×750 mm",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    3.794,
+    13.816,
+    4.539,
+    14.519
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m042",
+   "tipo": "mesa",
+   "codigo": "VTR 750 D",
+   "descricao": "Mesa Verd 750×700×750 mm",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    4.556,
+    13.816,
+    5.309,
+    14.519
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m043",
+   "tipo": "mesa",
+   "codigo": "VTR 750 D",
+   "descricao": "Mesa Verd 750×700×750 mm",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    5.318,
+    13.816,
+    6.071,
+    14.519
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m044",
+   "tipo": "mesa",
+   "codigo": "VTR 750 D",
+   "descricao": "Mesa Verd 750×700×750 mm",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    6.893,
+    12.335,
+    7.595,
+    13.088
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m045",
+   "tipo": "mesa",
+   "codigo": "VTR 750 D",
+   "descricao": "Mesa Verd 750×700×750 mm",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    6.893,
+    11.573,
+    7.595,
+    12.326
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m046",
+   "tipo": "mesa",
+   "codigo": "VTR 750 D",
+   "descricao": "Mesa Verd 750×700×750 mm",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    6.893,
+    10.811,
+    7.595,
+    11.556
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m047",
+   "tipo": "mesa",
+   "codigo": "VTR 750 D",
+   "descricao": "Mesa Verd 750×700×750 mm",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    6.893,
+    10.04,
+    7.595,
+    10.794
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m048",
+   "tipo": "mesa",
+   "codigo": "VTR 750 D",
+   "descricao": "Mesa Verd 750×700×750 mm",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    6.893,
+    9.278,
+    7.595,
+    10.032
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m049",
+   "tipo": "mesa",
+   "codigo": "VTR 750 D",
+   "descricao": "Mesa Verd 750×700×750 mm",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    6.893,
+    8.516,
+    7.595,
+    9.261
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m050",
+   "tipo": "mesa",
+   "codigo": "VTR 750 D",
+   "descricao": "Mesa Verd 750×700×750 mm",
+   "espaco": "sala_e5",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    6.893,
+    7.746,
+    7.595,
+    8.499
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m051",
+   "tipo": "bancada_tecnica",
+   "codigo": "BT11200900-SCPU",
+   "descricao": "Bancada técnica 1200×750×900 mm, suporte para monitor",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    12.836,
+    18.854,
+    13.581,
+    20.056
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m052",
+   "tipo": "bancada_tecnica",
+   "codigo": "BT11200900-SBGCPU",
+   "descricao": "Bancada técnica 1200×750×900 mm, prateleira superior com iluminação, suporte para monitor",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    15.545,
+    20.505,
+    16.291,
+    21.707
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m053",
+   "tipo": "bancada_tecnica",
+   "codigo": "BT11200900-SBGCPU",
+   "descricao": "Bancada técnica 1200×750×900 mm, prateleira superior com iluminação, suporte para monitor",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    15.545,
+    19.277,
+    16.291,
+    20.471
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m054",
+   "tipo": "bancada_tecnica",
+   "codigo": "BT11200900-SBGCPU",
+   "descricao": "Bancada técnica 1200×750×900 mm, prateleira superior com iluminação, suporte para monitor",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    16.316,
+    20.505,
+    17.061,
+    21.707
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m055",
+   "tipo": "bancada_tecnica",
+   "codigo": "BT11200900-SBGCPU",
+   "descricao": "Bancada técnica 1200×750×900 mm, prateleira superior com iluminação, suporte para monitor",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    16.316,
+    19.277,
+    17.061,
+    20.471
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m056",
+   "tipo": "bancada_tecnica",
+   "codigo": "BT11200900-SBGCPU",
+   "descricao": "Bancada técnica 1200×750×900 mm, prateleira superior com iluminação, suporte para monitor",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    19.127,
+    20.505,
+    19.872,
+    21.707
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m057",
+   "tipo": "bancada_tecnica",
+   "codigo": "BT11200900-SBGCPU",
+   "descricao": "Bancada técnica 1200×750×900 mm, prateleira superior com iluminação, suporte para monitor",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    19.127,
+    19.277,
+    19.872,
+    20.471
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m058",
+   "tipo": "bancada_tecnica",
+   "codigo": "BT11200900-SBGCPU",
+   "descricao": "Bancada técnica 1200×750×900 mm, prateleira superior com iluminação, suporte para monitor",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    19.897,
+    20.505,
+    20.642,
+    21.707
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m059",
+   "tipo": "bancada_tecnica",
+   "codigo": "BT11200900-SBGCPU",
+   "descricao": "Bancada técnica 1200×750×900 mm, prateleira superior com iluminação, suporte para monitor",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    19.897,
+    19.277,
+    20.642,
+    20.471
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m060",
+   "tipo": "bancada_tecnica",
+   "codigo": "BT11200900-SBGCPU",
+   "descricao": "Bancada técnica 1200×750×900 mm, prateleira superior com iluminação, suporte para monitor",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    15.545,
+    16.229,
+    16.291,
+    17.431
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m061",
+   "tipo": "bancada_tecnica",
+   "codigo": "BT11200900-SBGCPU",
+   "descricao": "Bancada técnica 1200×750×900 mm, prateleira superior com iluminação, suporte para monitor",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    15.545,
+    15.002,
+    16.291,
+    16.204
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m062",
+   "tipo": "bancada_tecnica",
+   "codigo": "BT11200900-SBGCPU",
+   "descricao": "Bancada técnica 1200×750×900 mm, prateleira superior com iluminação, suporte para monitor",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    16.316,
+    16.229,
+    17.061,
+    17.431
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m063",
+   "tipo": "bancada_tecnica",
+   "codigo": "BT11200900-SBGCPU",
+   "descricao": "Bancada técnica 1200×750×900 mm, prateleira superior com iluminação, suporte para monitor",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    16.316,
+    15.002,
+    17.061,
+    16.204
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m064",
+   "tipo": "bancada_tecnica",
+   "codigo": "BT11200900-SBGCPU",
+   "descricao": "Bancada técnica 1200×750×900 mm, prateleira superior com iluminação, suporte para monitor",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    19.127,
+    16.229,
+    19.872,
+    17.431
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m065",
+   "tipo": "bancada_tecnica",
+   "codigo": "BT11200900-SBGCPU",
+   "descricao": "Bancada técnica 1200×750×900 mm, prateleira superior com iluminação, suporte para monitor",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    19.127,
+    15.002,
+    19.872,
+    16.204
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m066",
+   "tipo": "bancada_tecnica",
+   "codigo": "BT11200900-SBGCPU",
+   "descricao": "Bancada técnica 1200×750×900 mm, prateleira superior com iluminação, suporte para monitor",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    19.897,
+    16.229,
+    20.642,
+    17.431
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m067",
+   "tipo": "bancada_tecnica",
+   "codigo": "BT11200900-SBGCPU",
+   "descricao": "Bancada técnica 1200×750×900 mm, prateleira superior com iluminação, suporte para monitor",
+   "espaco": "sala_e3",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    19.897,
+    15.002,
+    20.642,
+    16.204
+   ],
+   "altura": {
+    "v": 0.9,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m068",
+   "tipo": "bancada_alta",
+   "codigo": "N4M 109 5N0",
+   "descricao": "FrameFour Bench 3222×1200×1050 mm",
+   "espaco": "sala_e2",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    16.011,
+    10.946,
+    19.237,
+    12.148
+   ],
+   "altura": {
+    "v": 1.05,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m069",
+   "tipo": "bancada_alta",
+   "codigo": "N4M 109 5H0",
+   "descricao": "FrameFour Bench 2400×1200×1050 mm",
+   "espaco": "sala_e2",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    20.117,
+    10.946,
+    21.32,
+    13.342
+   ],
+   "altura": {
+    "v": 1.05,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m070",
+   "tipo": "bancada_rodada",
+   "codigo": "GAC100",
+   "descricao": "Bancada Actiflex 1500×900×780 mm",
+   "espaco": "sala_e6",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "quad": [
+    [
+     2.473,
+     6.442
+    ],
+    [
+     1.719,
+     5.951
+    ],
+    [
+     2.541,
+     4.698
+    ],
+    [
+     3.294,
+     5.189
+    ]
+   ],
+   "altura": {
+    "v": 0.78,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m071",
+   "tipo": "bancada_rodada",
+   "codigo": "GAC100",
+   "descricao": "Bancada Actiflex 1500×900×780 mm",
+   "espaco": "sala_e6",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "quad": [
+    [
+     5.927,
+     6.442
+    ],
+    [
+     6.681,
+     5.951
+    ],
+    [
+     5.868,
+     4.698
+    ],
+    [
+     5.115,
+     5.189
+    ]
+   ],
+   "altura": {
+    "v": 0.78,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m072",
+   "tipo": "mesa",
+   "codigo": "N3L T50 030",
+   "descricao": "Mesa B-Free 1600×600×780 mm",
+   "espaco": "sala_e6",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    6.672,
+    2.429,
+    7.274,
+    4.029
+   ],
+   "altura": {
+    "v": 0.78,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m073",
+   "tipo": "mesa",
+   "codigo": "N3L T50 030",
+   "descricao": "Mesa B-Free 1600×600×780 mm",
+   "espaco": "sala_e6",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    6.672,
+    0.811,
+    7.274,
+    2.412
+   ],
+   "altura": {
+    "v": 0.78,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m074",
+   "tipo": "mesa",
+   "codigo": "N3L T50 030",
+   "descricao": "Mesa B-Free 1600×600×780 mm",
+   "espaco": "sala_e6",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    4.573,
+    0.566,
+    6.173,
+    1.159
+   ],
+   "altura": {
+    "v": 0.78,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m075",
+   "tipo": "mesa",
+   "codigo": "VTR 140 50",
+   "descricao": "Mesa Verd 1400×500×750 mm",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    18.136,
+    2.175,
+    18.636,
+    3.572
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m076",
+   "tipo": "mesa",
+   "codigo": "VTR 140 50",
+   "descricao": "Mesa Verd 1400×500×750 mm",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    15.308,
+    0.566,
+    15.808,
+    1.963
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m077",
+   "tipo": "mesa",
+   "codigo": "VTR 140 50",
+   "descricao": "Mesa Verd 1400×500×750 mm",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    17.281,
+    0.566,
+    18.678,
+    1.074
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m078",
+   "tipo": "mesa",
+   "codigo": "VTR 140 50",
+   "descricao": "Mesa Verd 1400×500×750 mm",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    18.136,
+    3.572,
+    18.636,
+    4.969
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m079",
+   "tipo": "mesa",
+   "codigo": "VTR 140 50",
+   "descricao": "Mesa Verd 1400×500×750 mm",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    15.308,
+    3.368,
+    15.808,
+    4.765
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m080",
+   "tipo": "mesa",
+   "codigo": "VTR 140 50",
+   "descricao": "Mesa Verd 1400×500×750 mm",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    15.308,
+    4.765,
+    15.808,
+    6.162
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m081",
+   "tipo": "mesa",
+   "codigo": "VTR 140 50",
+   "descricao": "Mesa Verd 1400×500×750 mm",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    15.308,
+    1.963,
+    15.808,
+    3.368
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m082",
+   "tipo": "mesa",
+   "codigo": "VTR 140 50",
+   "descricao": "Mesa Verd 1400×500×750 mm",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    18.678,
+    0.566,
+    20.075,
+    1.074
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m083",
+   "tipo": "mesa",
+   "codigo": "VTR 140 50",
+   "descricao": "Mesa Verd 1400×500×750 mm",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    21.531,
+    0.566,
+    22.031,
+    1.963
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m084",
+   "tipo": "mesa",
+   "codigo": "VTR 140 50",
+   "descricao": "Mesa Verd 1400×500×750 mm",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    21.531,
+    3.368,
+    22.031,
+    4.765
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m085",
+   "tipo": "mesa",
+   "codigo": "VTR 140 50",
+   "descricao": "Mesa Verd 1400×500×750 mm",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    21.531,
+    4.765,
+    22.031,
+    6.162
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m086",
+   "tipo": "mesa",
+   "codigo": "VTR 140 50",
+   "descricao": "Mesa Verd 1400×500×750 mm",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    21.531,
+    1.963,
+    22.031,
+    3.368
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m087",
+   "tipo": "mesa",
+   "codigo": "VTR 140 50",
+   "descricao": "Mesa Verd 1400×500×750 mm",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    18.72,
+    2.175,
+    19.22,
+    3.572
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m088",
+   "tipo": "mesa",
+   "codigo": "VTR 140 50",
+   "descricao": "Mesa Verd 1400×500×750 mm",
+   "espaco": "sala_e1",
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF",
+   "r": [
+    18.72,
+    3.572,
+    19.22,
+    4.969
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   }
+  },
+  {
+   "id": "m089",
+   "tipo": "mesa_professor",
+   "codigo": "VTS 140 70R",
+   "descricao": "Mesa Verd 1400×700×750 mm com púlpito à direita",
+   "espaco": "sala_e5",
+   "r": [
+    0.839,
+    7.864,
+    2.862,
+    8.906
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   },
+   "nota": "contorno inclui o púlpito e a zona da cadeira"
+  },
+  {
+   "id": "m090",
+   "tipo": "mesa_professor",
+   "codigo": "VTS 140 70R",
+   "descricao": "Mesa Verd 1400×700×750 mm com púlpito à direita",
+   "espaco": "sala_e4",
+   "r": [
+    1.127,
+    18.304,
+    2.168,
+    20.327
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 0.75,
+    "origem": "cota",
+    "fonte": "legenda (LxPxA)"
+   },
+   "nota": "contorno inclui o púlpito e a zona da cadeira"
+  },
+  {
+   "id": "m091",
+   "tipo": "ecra",
+   "codigo": "PROMETHEAN 86\"",
+   "descricao": "Ecrã interativo Promethean 86\"",
+   "espaco": "sala_e4",
+   "r": [
+    1.008,
+    16.534,
+    1.635,
+    18.558
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 1.0,
+    "origem": "estimado"
+   },
+   "normal": [
+    1,
+    0
+   ],
+   "ecra": {
+    "largura": {
+     "v": 2.024,
+     "origem": "medido"
+    },
+    "alturaEcra": {
+     "v": 1.07,
+     "origem": "estimado",
+     "nota": "86\" 16:9"
+    },
+    "centro": {
+     "v": 1.45,
+     "origem": "estimado"
+    }
+   }
+  },
+  {
+   "id": "m092",
+   "tipo": "ecra",
+   "codigo": "PROMETHEAN 86\"",
+   "descricao": "Ecrã interativo Promethean 86\"",
+   "espaco": "sala_e6",
+   "r": [
+    3.142,
+    6.577,
+    5.165,
+    7.204
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 1.0,
+    "origem": "estimado"
+   },
+   "normal": [
+    0,
+    -1
+   ],
+   "ecra": {
+    "largura": {
+     "v": 2.023,
+     "origem": "medido"
+    },
+    "alturaEcra": {
+     "v": 1.07,
+     "origem": "estimado",
+     "nota": "86\" 16:9"
+    },
+    "centro": {
+     "v": 1.45,
+     "origem": "estimado"
+    }
+   }
+  },
+  {
+   "id": "m093",
+   "tipo": "ecra",
+   "codigo": "PROMETHEAN 86\"",
+   "descricao": "Ecrã interativo Promethean 86\"",
+   "espaco": "sala_e5",
+   "r": [
+    3.701,
+    7.839,
+    5.724,
+    8.474
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 1.0,
+    "origem": "estimado"
+   },
+   "normal": [
+    0,
+    1
+   ],
+   "ecra": {
+    "largura": {
+     "v": 2.023,
+     "origem": "medido"
+    },
+    "alturaEcra": {
+     "v": 1.07,
+     "origem": "estimado",
+     "nota": "86\" 16:9"
+    },
+    "centro": {
+     "v": 1.45,
+     "origem": "estimado"
+    }
+   }
+  },
+  {
+   "id": "m094",
+   "tipo": "ecra",
+   "codigo": "PROMETHEAN 86\"",
+   "descricao": "Ecrã interativo Promethean 86\"",
+   "espaco": "sala_e3",
+   "r": [
+    11.786,
+    17.643,
+    12.413,
+    19.667
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 1.0,
+    "origem": "estimado"
+   },
+   "normal": [
+    1,
+    0
+   ],
+   "ecra": {
+    "largura": {
+     "v": 2.024,
+     "origem": "medido"
+    },
+    "alturaEcra": {
+     "v": 1.07,
+     "origem": "estimado",
+     "nota": "86\" 16:9"
+    },
+    "centro": {
+     "v": 1.45,
+     "origem": "estimado"
+    }
+   }
+  },
+  {
+   "id": "m095",
+   "tipo": "ecra",
+   "codigo": "PROMETHEAN 86\"",
+   "descricao": "Ecrã interativo Promethean 86\"",
+   "espaco": "sala_e2",
+   "r": [
+    17.467,
+    13.859,
+    19.491,
+    14.485
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 1.0,
+    "origem": "estimado"
+   },
+   "normal": [
+    0,
+    -1
+   ],
+   "ecra": {
+    "largura": {
+     "v": 2.024,
+     "origem": "medido"
+    },
+    "alturaEcra": {
+     "v": 1.07,
+     "origem": "estimado",
+     "nota": "86\" 16:9"
+    },
+    "centro": {
+     "v": 1.45,
+     "origem": "estimado"
+    }
+   }
+  },
+  {
+   "id": "m096",
+   "tipo": "ecra",
+   "codigo": "PROMETHEAN 86\"",
+   "descricao": "Ecrã interativo Promethean 86\"",
+   "espaco": "sala_e1",
+   "r": [
+    18.043,
+    6.662,
+    20.067,
+    7.288
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 1.0,
+    "origem": "estimado"
+   },
+   "normal": [
+    0,
+    -1
+   ],
+   "ecra": {
+    "largura": {
+     "v": 2.024,
+     "origem": "medido"
+    },
+    "alturaEcra": {
+     "v": 1.07,
+     "origem": "estimado",
+     "nota": "86\" 16:9"
+    },
+    "centro": {
+     "v": 1.45,
+     "origem": "estimado"
+    }
+   }
+  },
+  {
+   "id": "m097",
+   "tipo": "rover",
+   "codigo": "RSET 01 Rover",
+   "descricao": "Rover com 3 tabuleiros F25",
+   "espaco": "sala_e6",
+   "r": [
+    3.743,
+    2.886,
+    4.31,
+    3.648
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m098",
+   "tipo": "rover",
+   "codigo": "RSET 01 Rover",
+   "descricao": "Rover com 3 tabuleiros F25",
+   "espaco": "sala_e6",
+   "r": [
+    5.208,
+    2.886,
+    5.775,
+    3.648
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m099",
+   "tipo": "rover",
+   "codigo": "RSET 01 Rover",
+   "descricao": "Rover com 3 tabuleiros F25",
+   "espaco": "sala_e5",
+   "r": [
+    5.572,
+    8.584,
+    6.139,
+    9.337
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m100",
+   "tipo": "rover",
+   "codigo": "RSET 01 Rover",
+   "descricao": "Rover com 3 tabuleiros F25",
+   "espaco": "sala_e5",
+   "r": [
+    5.572,
+    10.345,
+    6.139,
+    11.098
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m101",
+   "tipo": "rover",
+   "codigo": "RSET 01 Rover",
+   "descricao": "Rover com 3 tabuleiros F25",
+   "espaco": "sala_e5",
+   "r": [
+    5.572,
+    12.097,
+    6.139,
+    12.859
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m102",
+   "tipo": "rover",
+   "codigo": "RSET 01 Rover",
+   "descricao": "Rover com 3 tabuleiros F25",
+   "espaco": "sala_e4",
+   "r": [
+    6.037,
+    16.441,
+    6.605,
+    17.203
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m103",
+   "tipo": "rover",
+   "codigo": "RSET 01 Rover",
+   "descricao": "Rover com 3 tabuleiros F25",
+   "espaco": "sala_e4",
+   "r": [
+    6.037,
+    19.811,
+    6.605,
+    20.573
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m104",
+   "tipo": "rover",
+   "codigo": "RSET 01 Rover",
+   "descricao": "Rover com 3 tabuleiros F25",
+   "espaco": "sala_e3",
+   "r": [
+    14.225,
+    16.145,
+    14.792,
+    16.907
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m105",
+   "tipo": "rover",
+   "codigo": "RSET 01 Rover",
+   "descricao": "Rover com 3 tabuleiros F25",
+   "espaco": "sala_e3",
+   "r": [
+    14.225,
+    18.109,
+    14.792,
+    18.871
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m106",
+   "tipo": "rover",
+   "codigo": "RSET 01 Rover",
+   "descricao": "Rover com 3 tabuleiros F25",
+   "espaco": "sala_e3",
+   "r": [
+    14.225,
+    20.065,
+    14.792,
+    20.827
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m107",
+   "tipo": "rover",
+   "codigo": "RSET 01 Rover",
+   "descricao": "Rover com 3 tabuleiros F25",
+   "espaco": "sala_e1",
+   "r": [
+    17.298,
+    6.518,
+    17.865,
+    7.271
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m108",
+   "tipo": "rover",
+   "codigo": "RSET 01 Rover",
+   "descricao": "Rover com 3 tabuleiros F25",
+   "espaco": "sala_e3",
+   "r": [
+    17.815,
+    16.145,
+    18.373,
+    16.907
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m109",
+   "tipo": "rover",
+   "codigo": "RSET 01 Rover",
+   "descricao": "Rover com 3 tabuleiros F25",
+   "espaco": "sala_e3",
+   "r": [
+    17.815,
+    18.109,
+    18.373,
+    18.871
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m110",
+   "tipo": "rover",
+   "codigo": "RSET 01 Rover",
+   "descricao": "Rover com 3 tabuleiros F25",
+   "espaco": "sala_e3",
+   "r": [
+    17.815,
+    20.065,
+    18.373,
+    20.827
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m111",
+   "tipo": "rover",
+   "codigo": "RSET 01 Rover",
+   "descricao": "Rover com 3 tabuleiros F25",
+   "espaco": "sala_e1",
+   "r": [
+    20.253,
+    6.518,
+    20.82,
+    7.271
+   ],
+   "origem": "observado",
+   "fonte": "cor da legenda; contorno dos traços medido no PDF",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m112",
+   "tipo": "mesa_redonda",
+   "codigo": "N3L TDD 41D",
+   "descricao": "Mesa para professor, altura 1050 mm, diâmetro 600 mm",
+   "espaco": "sala_e2",
+   "c": [
+    17.12,
+    13.82
+   ],
+   "raio": 0.3,
+   "altura": {
+    "v": 1.05,
+    "origem": "cota",
+    "fonte": "legenda"
+   },
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF"
+  },
+  {
+   "id": "m113",
+   "tipo": "mesa_redonda",
+   "codigo": "N3L TDD 41D",
+   "descricao": "Mesa para professor, altura 1050 mm, diâmetro 600 mm",
+   "espaco": "sala_e6",
+   "c": [
+    5.195,
+    6.386
+   ],
+   "raio": 0.3,
+   "altura": {
+    "v": 1.05,
+    "origem": "cota",
+    "fonte": "legenda"
+   },
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF"
+  },
+  {
+   "id": "m114",
+   "tipo": "mesa_redonda",
+   "codigo": "N3L TDD 41D",
+   "descricao": "Mesa para professor, altura 1050 mm, diâmetro 600 mm",
+   "espaco": "sala_e1",
+   "c": [
+    20.087,
+    5.739
+   ],
+   "raio": 0.3,
+   "altura": {
+    "v": 1.05,
+    "origem": "cota",
+    "fonte": "legenda"
+   },
+   "origem": "observado",
+   "fonte": "cor da legenda; posição medida no PDF"
+  },
+  {
+   "id": "m115",
+   "tipo": "mesa_diamond",
+   "codigo": "MESA DIAMOND",
+   "descricao": "Mesa Diamond (conjunto hexagonal)",
+   "espaco": "sala_e6",
+   "c": [
+    2.215,
+    1.865
+   ],
+   "raio": 0.918,
+   "r": [
+    1.296,
+    1.006,
+    3.133,
+    2.725
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "estimado"
+   },
+   "origem": "observado",
+   "fonte": "cor da legenda; forma simplificada a hexágono"
+  },
+  {
+   "id": "m116",
+   "tipo": "mesa_diamond",
+   "codigo": "MESA DIAMOND",
+   "descricao": "Mesa Diamond (conjunto hexagonal)",
+   "espaco": "sala_e6",
+   "c": [
+    2.215,
+    3.631
+   ],
+   "raio": 0.918,
+   "r": [
+    1.296,
+    2.776,
+    3.133,
+    4.486
+   ],
+   "altura": {
+    "v": 0.75,
+    "origem": "estimado"
+   },
+   "origem": "observado",
+   "fonte": "cor da legenda; forma simplificada a hexágono"
+  },
+  {
+   "id": "m117",
+   "tipo": "armario_curvo",
+   "codigo": "AAC115",
+   "descricao": "Armário curvo Actiflex Wave",
+   "espaco": "sala_e6",
+   "arco": {
+    "c": [
+     4.226,
+     5.52
+    ],
+    "raioExt": 1.27,
+    "raioInt": 0.72,
+    "angulo": 115
+   },
+   "r": [
+    2.981,
+    4.249,
+    5.47,
+    5.917
+   ],
+   "altura": {
+    "v": 0.8,
+    "origem": "estimado"
+   },
+   "origem": "interpretado",
+   "fonte": "cor da legenda; arco ajustado ao contorno (forma aproximada)"
+  }
+ ],
+ "cadeiras": {
+  "lista": [
+   {
+    "c": [
+     6.901,
+     16.754
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     3.197,
+     17.808
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     3.912,
+     17.808
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     5.038,
+     17.808
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     5.754,
+     17.808
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     3.197,
+     19.556
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     3.912,
+     19.556
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     5.038,
+     19.556
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     5.754,
+     19.556
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     2.985,
+     20.907
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     3.7,
+     20.907
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     4.831,
+     20.907
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     5.542,
+     20.907
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     2.731,
+     15.802
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     3.451,
+     15.802
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     4.577,
+     15.802
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     5.288,
+     15.802
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     6.901,
+     17.559
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     6.901,
+     18.375
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     6.901,
+     19.175
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     6.901,
+     19.997
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     6.901,
+     20.797
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e4"
+   },
+   {
+    "c": [
+     3.171,
+     10.603
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     3.171,
+     10.002
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     3.171,
+     9.396
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     3.171,
+     12.444
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     3.171,
+     11.839
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     3.171,
+     11.238
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     4.92,
+     10.603
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     4.92,
+     10.002
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     4.92,
+     9.396
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     4.92,
+     12.444
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     4.92,
+     11.839
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     4.92,
+     11.238
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     1.872,
+     13.77
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     2.634,
+     13.77
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     3.4,
+     13.77
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     4.166,
+     13.77
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     4.928,
+     13.77
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     5.694,
+     13.77
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     6.85,
+     12.715
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     6.85,
+     11.95
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     6.85,
+     11.183
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     6.85,
+     10.416
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     6.85,
+     9.651
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     6.85,
+     8.889
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     6.85,
+     8.123
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     12.756,
+     19.451
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e3"
+   },
+   {
+    "c": [
+     15.465,
+     21.106
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e3"
+   },
+   {
+    "c": [
+     15.465,
+     19.874
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e3"
+   },
+   {
+    "c": [
+     17.141,
+     21.106
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e3"
+   },
+   {
+    "c": [
+     17.141,
+     19.874
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e3"
+   },
+   {
+    "c": [
+     19.046,
+     21.106
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e3"
+   },
+   {
+    "c": [
+     19.046,
+     19.874
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e3"
+   },
+   {
+    "c": [
+     20.723,
+     21.106
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e3"
+   },
+   {
+    "c": [
+     20.723,
+     19.874
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e3"
+   },
+   {
+    "c": [
+     15.465,
+     16.834
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e3"
+   },
+   {
+    "c": [
+     15.465,
+     15.598
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e3"
+   },
+   {
+    "c": [
+     17.141,
+     16.834
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e3"
+   },
+   {
+    "c": [
+     17.141,
+     15.598
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e3"
+   },
+   {
+    "c": [
+     19.046,
+     16.834
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e3"
+   },
+   {
+    "c": [
+     19.046,
+     15.598
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e3"
+   },
+   {
+    "c": [
+     20.723,
+     16.834
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e3"
+   },
+   {
+    "c": [
+     20.723,
+     15.598
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e3"
+   },
+   {
+    "c": [
+     16.803,
+     14.168
+    ],
+    "rot": 2.801,
+    "espaco": "sala_e2"
+   },
+   {
+    "c": [
+     17.218,
+     12.229
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e2"
+   },
+   {
+    "c": [
+     18.758,
+     12.229
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e2"
+   },
+   {
+    "c": [
+     18.03,
+     12.229
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e2"
+   },
+   {
+    "c": [
+     16.493,
+     10.866
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e2"
+   },
+   {
+    "c": [
+     17.218,
+     10.866
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e2"
+   },
+   {
+    "c": [
+     18.758,
+     10.866
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e2"
+   },
+   {
+    "c": [
+     18.03,
+     10.866
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e2"
+   },
+   {
+    "c": [
+     21.4,
+     12.144
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e2"
+   },
+   {
+    "c": [
+     21.4,
+     12.898
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e2"
+   },
+   {
+    "c": [
+     20.041,
+     12.144
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e2"
+   },
+   {
+    "c": [
+     20.041,
+     12.898
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e2"
+   },
+   {
+    "c": [
+     21.4,
+     11.395
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e2"
+   },
+   {
+    "c": [
+     20.041,
+     11.395
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e2"
+   },
+   {
+    "c": [
+     20.723,
+     10.866
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e2"
+   },
+   {
+    "c": [
+     5.551,
+     6.607
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e6"
+   },
+   {
+    "c": [
+     6.592,
+     2.873
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e6"
+   },
+   {
+    "c": [
+     6.592,
+     3.584
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e6"
+   },
+   {
+    "c": [
+     6.592,
+     1.256
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e6"
+   },
+   {
+    "c": [
+     6.592,
+     1.967
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e6"
+   },
+   {
+    "c": [
+     5.017,
+     1.243
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e6"
+   },
+   {
+    "c": [
+     5.728,
+     1.243
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e6"
+   },
+   {
+    "c": [
+     1.821,
+     1.345
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e6"
+   },
+   {
+    "c": [
+     1.33,
+     2.166
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e6"
+   },
+   {
+    "c": [
+     2.609,
+     1.345
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e6"
+   },
+   {
+    "c": [
+     3.099,
+     2.166
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e6"
+   },
+   {
+    "c": [
+     1.821,
+     4.152
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e6"
+   },
+   {
+    "c": [
+     1.33,
+     3.326
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e6"
+   },
+   {
+    "c": [
+     2.609,
+     4.152
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e6"
+   },
+   {
+    "c": [
+     3.099,
+     3.326
+    ],
+    "rot": 0.0,
+    "espaco": "sala_e6"
+   },
+   {
+    "c": [
+     16.493,
+     12.229
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e2"
+   },
+   {
+    "c": [
+     18.077,
+     3.208
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     18.085,
+     2.538
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     15.858,
+     1.599
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     15.858,
+     0.93
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     18.314,
+     1.125
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     17.645,
+     1.125
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     18.077,
+     4.604
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     18.077,
+     3.936
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     15.858,
+     4.401
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     15.858,
+     3.732
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     15.858,
+     5.13
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     19.855,
+     6.146
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     15.858,
+     3.0
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     15.858,
+     2.332
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     15.858,
+     5.803
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     19.711,
+     1.125
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     19.042,
+     1.125
+    ],
+    "rot": 3.142,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     21.472,
+     1.599
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     21.472,
+     0.93
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     21.472,
+     4.401
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     21.472,
+     3.732
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     21.472,
+     5.13
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     21.472,
+     3.0
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     21.472,
+     2.332
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     21.472,
+     5.803
+    ],
+    "rot": 1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     19.271,
+     3.208
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     19.271,
+     2.538
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     19.271,
+     4.604
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     19.271,
+     3.936
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e1"
+   },
+   {
+    "c": [
+     1.571,
+     12.694
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     1.571,
+     11.894
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     1.571,
+     11.073
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e5"
+   },
+   {
+    "c": [
+     1.575,
+     10.277
+    ],
+    "rot": -1.571,
+    "espaco": "sala_e5"
+   }
+  ],
+  "origem": "observado",
+  "nota": "símbolos de cadeira; orientação inferida pela mesa mais próxima; não bloqueiam o movimento (simplificação de jogo)"
+ },
+ "a_construir": [
+  {
+   "id": "c_e61_a",
+   "espaco": "lab_e61",
+   "r": [
+    10.67,
+    0.52,
+    11.24,
+    5.34
+   ],
+   "origem": "observado",
+   "tipo": "não especificado",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   },
+   "nota": "legenda «Construir»; a planta não indica o tipo de móvel"
+  },
+  {
+   "id": "c_e61_b",
+   "espaco": "lab_e61",
+   "r": [
+    9.31,
+    5.34,
+    11.24,
+    5.9
+   ],
+   "origem": "observado",
+   "tipo": "não especificado",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   },
+   "nota": "legenda «Construir»; a planta não indica o tipo de móvel"
+  },
+  {
+   "id": "c_31_a",
+   "espaco": "lab_31",
+   "r": [
+    8.05,
+    17.77,
+    8.63,
+    21.74
+   ],
+   "origem": "observado",
+   "tipo": "não especificado",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   },
+   "nota": "legenda «Construir»; a planta não indica o tipo de móvel"
+  },
+  {
+   "id": "c_31_b",
+   "espaco": "lab_31",
+   "r": [
+    10.54,
+    17.77,
+    11.24,
+    21.74
+   ],
+   "origem": "observado",
+   "tipo": "não especificado",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   },
+   "nota": "legenda «Construir»; a planta não indica o tipo de móvel"
+  },
+  {
+   "id": "c_31_c",
+   "espaco": "lab_31",
+   "r": [
+    9.16,
+    16.36,
+    10.15,
+    16.94
+   ],
+   "origem": "observado",
+   "tipo": "não especificado",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   },
+   "nota": "legenda «Construir»; a planta não indica o tipo de móvel"
+  },
+  {
+   "id": "c_e3",
+   "espaco": "sala_e3",
+   "r": [
+    21.47,
+    14.95,
+    22.07,
+    21.76
+   ],
+   "origem": "observado",
+   "tipo": "não especificado",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   },
+   "nota": "legenda «Construir»; a planta não indica o tipo de móvel"
+  },
+  {
+   "id": "c_corredor",
+   "espaco": "corredor",
+   "r": [
+    11.66,
+    2.09,
+    12.06,
+    6.29
+   ],
+   "origem": "observado",
+   "tipo": "não especificado",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   },
+   "nota": "legenda «Construir»; a planta não indica o tipo de móvel"
+  },
+  {
+   "id": "c_atrio",
+   "espaco": "atrio",
+   "r": [
+    9.48,
+    6.29,
+    12.06,
+    6.89
+   ],
+   "origem": "observado",
+   "tipo": "não especificado",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   },
+   "nota": "legenda «Construir»; a planta não indica o tipo de móvel"
+  }
+ ],
+ "existente_sem_tipo": [
+  {
+   "id": "x_e61",
+   "espaco": "lab_e61",
+   "r": [
+    8.05,
+    0.52,
+    8.75,
+    4.52
+   ],
+   "nota": "contorno negro (existente) com indicação a tracejado vermelho; tipo não indicado",
+   "origem": "observado",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "x_e6_pelicula",
+   "espaco": "sala_e6",
+   "r": [
+    7.3,
+    0.71,
+    7.5,
+    5.82
+   ],
+   "nota": "painel junto à parede com a indicação «PELÍCULA 3M»",
+   "origem": "observado",
+   "altura": {
+    "v": 0.9,
+    "origem": "estimado"
+   }
+  }
+ ],
+ "escadas": {
+  "area": [
+   9.51,
+   9.72,
+   13.21,
+   16.14
+  ],
+  "lancos": [
+   {
+    "id": "lanco_dir",
+    "r": [
+     11.53,
+     9.86,
+     13.21,
+     12.75
+    ],
+    "degraus": 11,
+    "sobe": "para baixo na folha",
+    "origem": "observado (linhas de degrau e seta)"
+   },
+   {
+    "id": "lanco_esq",
+    "r": [
+     9.69,
+     9.86,
+     11.38,
+     12.75
+    ],
+    "degraus": 10,
+    "sobe": "para cima na folha",
+    "origem": "observado (linhas de degrau e seta)"
+   }
+  ],
+  "patamar": {
+   "r": [
+    9.69,
+    12.75,
+    13.21,
+    13.1
+   ],
+   "origem": "interpretado"
+  },
+  "espelho": {
+   "v": 0.17,
+   "origem": "estimado"
+  },
+  "cobertor": {
+   "v": 0.3,
+   "origem": "medido",
+   "nota": "espaçamento das linhas de degrau ≈ 0,30 m"
+  },
+  "jogavel": false,
+  "nota": "Escada de dois lanços para um piso superior não documentado. Representada como referência; acesso vedado no jogo."
+ },
+ "inicio": {
+  "x": 13.26,
+  "y": -7.2,
+  "rot": 0.0,
+  "origem": "ficcional"
+ },
+ "limites": {
+  "nota": "Área jogável: exterior aproximado, entrada, corredor, átrio, passagens, seis salas e dois laboratórios. Escadas e compartimentos técnicos fechados.",
+  "barreiras": [
+   {
+    "id": "b_escadas",
+    "r": [
+     11.62,
+     9.55,
+     13.12,
+     9.72
+    ],
+    "tipo": "fita e sinal",
+    "origem": "ficcional"
+   },
+   {
+    "id": "b_ext_sup",
+    "r": [
+     7.0,
+     -11.1,
+     19.6,
+     -11.0
+    ],
+    "tipo": "vedação baixa",
+    "origem": "ficcional"
+   },
+   {
+    "id": "b_ext_esq",
+    "r": [
+     6.9,
+     -11.0,
+     7.0,
+     -3.87
+    ],
+    "tipo": "vedação baixa",
+    "origem": "ficcional"
+   },
+   {
+    "id": "b_ext_dir",
+    "r": [
+     19.6,
+     -11.0,
+     19.7,
+     -0.73
+    ],
+    "tipo": "vedação baixa",
+    "origem": "ficcional"
+   }
+  ]
+ },
+ "ecras_observados": [
+  {
+   "id": "m091",
+   "espaco": "sala_e4",
+   "r": [
+    1.008,
+    16.534,
+    1.635,
+    18.558
+   ],
+   "normal": [
+    1,
+    0
+   ],
+   "largura": {
+    "v": 2.024,
+    "origem": "medido"
+   },
+   "alturaEcra": {
+    "v": 1.07,
+    "origem": "estimado",
+    "nota": "86\" 16:9"
+   },
+   "centro": {
+    "v": 1.45,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m092",
+   "espaco": "sala_e6",
+   "r": [
+    3.142,
+    6.577,
+    5.165,
+    7.204
+   ],
+   "normal": [
+    0,
+    -1
+   ],
+   "largura": {
+    "v": 2.023,
+    "origem": "medido"
+   },
+   "alturaEcra": {
+    "v": 1.07,
+    "origem": "estimado",
+    "nota": "86\" 16:9"
+   },
+   "centro": {
+    "v": 1.45,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m093",
+   "espaco": "sala_e5",
+   "r": [
+    3.701,
+    7.839,
+    5.724,
+    8.474
+   ],
+   "normal": [
+    0,
+    1
+   ],
+   "largura": {
+    "v": 2.023,
+    "origem": "medido"
+   },
+   "alturaEcra": {
+    "v": 1.07,
+    "origem": "estimado",
+    "nota": "86\" 16:9"
+   },
+   "centro": {
+    "v": 1.45,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m094",
+   "espaco": "sala_e3",
+   "r": [
+    11.786,
+    17.643,
+    12.413,
+    19.667
+   ],
+   "normal": [
+    1,
+    0
+   ],
+   "largura": {
+    "v": 2.024,
+    "origem": "medido"
+   },
+   "alturaEcra": {
+    "v": 1.07,
+    "origem": "estimado",
+    "nota": "86\" 16:9"
+   },
+   "centro": {
+    "v": 1.45,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m095",
+   "espaco": "sala_e2",
+   "r": [
+    17.467,
+    13.859,
+    19.491,
+    14.485
+   ],
+   "normal": [
+    0,
+    -1
+   ],
+   "largura": {
+    "v": 2.024,
+    "origem": "medido"
+   },
+   "alturaEcra": {
+    "v": 1.07,
+    "origem": "estimado",
+    "nota": "86\" 16:9"
+   },
+   "centro": {
+    "v": 1.45,
+    "origem": "estimado"
+   }
+  },
+  {
+   "id": "m096",
+   "espaco": "sala_e1",
+   "r": [
+    18.043,
+    6.662,
+    20.067,
+    7.288
+   ],
+   "normal": [
+    0,
+    -1
+   ],
+   "largura": {
+    "v": 2.024,
+    "origem": "medido"
+   },
+   "alturaEcra": {
+    "v": 1.07,
+    "origem": "estimado",
+    "nota": "86\" 16:9"
+   },
+   "centro": {
+    "v": 1.45,
+    "origem": "estimado"
+   }
+  }
+ ],
+ "consolas": [
+  {
+   "missao": "tut",
+   "espaco": "entrada",
+   "parede": [
+    11.63,
+    -3.0
+   ],
+   "normal": [
+    1,
+    0
+   ],
+   "ponto": [
+    12.35,
+    -3.0
+   ],
+   "raio": 1.3,
+   "origem": "ficcional",
+   "posicao": "colocada na face interior do pilar esquerdo da entrada"
+  },
+  {
+   "missao": "m1",
+   "espaco": "sala_e1",
+   "parede": [
+    15.86,
+    7.31
+   ],
+   "normal": [
+    0,
+    -1
+   ],
+   "ponto": [
+    15.86,
+    6.56
+   ],
+   "raio": 1.2,
+   "origem": "ficcional",
+   "posicao": "calculada: parede mais próxima da porta com chão livre e alcançável à frente"
+  },
+  {
+   "missao": "m2",
+   "espaco": "sala_e2",
+   "parede": [
+    15.86,
+    14.53
+   ],
+   "normal": [
+    0,
+    -1
+   ],
+   "ponto": [
+    15.86,
+    13.78
+   ],
+   "raio": 1.2,
+   "origem": "ficcional",
+   "posicao": "calculada: parede mais próxima da porta com chão livre e alcançável à frente"
+  },
+  {
+   "missao": "m3",
+   "espaco": "sala_e3",
+   "parede": [
+    13.38,
+    15.55
+   ],
+   "normal": [
+    1,
+    0
+   ],
+   "ponto": [
+    14.13,
+    15.55
+   ],
+   "raio": 1.2,
+   "origem": "ficcional",
+   "posicao": "calculada: parede mais próxima da porta com chão livre e alcançável à frente"
+  },
+  {
+   "missao": "m4",
+   "espaco": "sala_e4",
+   "parede": [
+    7.04,
+    14.95
+   ],
+   "normal": [
+    0,
+    1
+   ],
+   "ponto": [
+    7.04,
+    15.7
+   ],
+   "raio": 1.2,
+   "origem": "ficcional",
+   "posicao": "calculada: parede mais próxima da porta com chão livre e alcançável à frente"
+  },
+  {
+   "missao": "m5",
+   "espaco": "sala_e5",
+   "parede": [
+    7.04,
+    14.53
+   ],
+   "normal": [
+    0,
+    -1
+   ],
+   "ponto": [
+    7.04,
+    13.78
+   ],
+   "raio": 1.2,
+   "origem": "ficcional",
+   "posicao": "calculada: parede mais próxima da porta com chão livre e alcançável à frente"
+  },
+  {
+   "missao": "m6",
+   "espaco": "sala_e6",
+   "parede": [
+    7.04,
+    7.31
+   ],
+   "normal": [
+    0,
+    -1
+   ],
+   "ponto": [
+    7.04,
+    6.56
+   ],
+   "raio": 1.2,
+   "origem": "ficcional",
+   "posicao": "calculada: parede mais próxima da porta com chão livre e alcançável à frente"
+  },
+  {
+   "missao": "extra",
+   "espaco": "lab_31",
+   "parede": [
+    8.04,
+    16.95
+   ],
+   "normal": [
+    1,
+    0
+   ],
+   "ponto": [
+    8.79,
+    16.95
+   ],
+   "raio": 1.2,
+   "origem": "ficcional",
+   "posicao": "calculada: parede mais próxima da porta com chão livre e alcançável à frente"
+  },
+  {
+   "missao": "final",
+   "espaco": "lab_e61",
+   "parede": [
+    8.04,
+    5.31
+   ],
+   "normal": [
+    1,
+    0
+   ],
+   "ponto": [
+    8.79,
+    5.31
+   ],
+   "raio": 1.2,
+   "origem": "ficcional",
+   "posicao": "calculada: parede mais próxima da porta com chão livre e alcançável à frente"
+  }
+ ],
+ "ficcionais": {
+  "ecras_jogo": [
+   {
+    "missao": "tut",
+    "parede": [
+     11.63,
+     -3.12
+    ],
+    "normal": [
+     1,
+     0
+    ],
+    "largura": 1.3,
+    "altura": 0.8,
+    "centro": 2.2
+   },
+   {
+    "missao": "extra",
+    "parede": [
+     11.24,
+     19.75
+    ],
+    "normal": [
+     -1,
+     0
+    ],
+    "largura": 2.6,
+    "altura": 1.3,
+    "centro": 1.9
+   },
+   {
+    "missao": "final",
+    "parede": [
+     8.04,
+     2.52
+    ],
+    "normal": [
+     1,
+     0
+    ],
+    "largura": 2.6,
+    "altura": 1.4,
+    "centro": 1.9
+   }
+  ],
+  "caixas_m3": {
+   "missao": "m3",
+   "sobre": "m051",
+   "nota": "caixas animadas sobre a bancada técnica observada junto ao ecrã"
+  },
+  "luzes_m5": {
+   "missao": "m5",
+   "zonas": [
+    {
+     "id": "a",
+     "c": [
+      2.25,
+      11.3
+     ]
+    },
+    {
+     "id": "b",
+     "c": [
+      4.05,
+      10.9
+     ]
+    },
+    {
+     "id": "c",
+     "c": [
+      6.35,
+      10.4
+     ]
+    }
+   ],
+   "altura": 2.6
+  },
+  "impressora_m6": {
+   "missao": "m6",
+   "r": [
+    5.85,
+    6.88,
+    6.4,
+    7.31
+   ]
+  },
+  "quadro_missoes": {
+   "parede": [
+    10.5,
+    9.72
+   ],
+   "normal": [
+    0,
+    -1
+   ],
+   "largura": 1.75,
+   "altura": 1.15,
+   "centro": 1.6
+  },
+  "sinal_orientacao": {
+   "parede": [
+    13.97,
+    9.72
+   ],
+   "normal": [
+    0,
+    -1
+   ],
+   "largura": 1.5,
+   "altura": 0.5,
+   "centro": 2.45,
+   "esquerda": "← E1 · E2 · E3",
+   "direita": "E4 · E5 · E6 →",
+   "labs": "Labs de apoio E6.1 e 3.1 →"
+  },
+  "placa_logo": {
+   "parede": [
+    14.89,
+    -3.12
+   ],
+   "normal": [
+    -1,
+    0
+   ],
+   "largura": 1.0,
+   "altura": 1.0,
+   "centro": 1.8
+  },
+  "totem_financiamento": {
+   "c": [
+    10.0,
+    -6.6
+   ],
+   "largura": 2.7
+  },
+  "origem": "ficcional"
+ },
+ "missoes": [
+  {
+   "id": "tut",
+   "espaco": "entrada",
+   "porta": null,
+   "ecra": null,
+   "funcao": "Tutorial: movimento, terminal e primeira etiqueta HTML",
+   "origem": "proposta",
+   "nota": "função pedagógica proposta para o jogo; não é a função real confirmada da sala"
+  },
+  {
+   "id": "m1",
+   "espaco": "sala_e1",
+   "porta": "p_e1",
+   "ecra": "sala_e1",
+   "funcao": "HTML: estrutura, elementos semânticos e atributos",
+   "origem": "proposta",
+   "nota": "função pedagógica proposta para o jogo; não é a função real confirmada da sala"
+  },
+  {
+   "id": "m2",
+   "espaco": "sala_e2",
+   "porta": "p_e2",
+   "ecra": "sala_e2",
+   "funcao": "CSS: seletores, cores e modelo de caixa",
+   "origem": "proposta",
+   "nota": "função pedagógica proposta para o jogo; não é a função real confirmada da sala"
+  },
+  {
+   "id": "m3",
+   "espaco": "sala_e3",
+   "porta": "p_e3",
+   "ecra": "sala_e3",
+   "funcao": "CSS Flexbox",
+   "origem": "proposta",
+   "nota": "função pedagógica proposta para o jogo; não é a função real confirmada da sala"
+  },
+  {
+   "id": "m4",
+   "espaco": "sala_e4",
+   "porta": "p_e4",
+   "ecra": "sala_e4",
+   "funcao": "CSS Grid",
+   "origem": "proposta",
+   "nota": "função pedagógica proposta para o jogo; não é a função real confirmada da sala"
+  },
+  {
+   "id": "m5",
+   "espaco": "sala_e5",
+   "porta": "p_e5",
+   "ecra": "sala_e5",
+   "funcao": "JavaScript: variáveis, eventos e DOM",
+   "origem": "proposta",
+   "nota": "função pedagógica proposta para o jogo; não é a função real confirmada da sala"
+  },
+  {
+   "id": "m6",
+   "espaco": "sala_e6",
+   "porta": "p_e6",
+   "ecra": "sala_e6",
+   "funcao": "Formulários e validação",
+   "origem": "proposta",
+   "nota": "função pedagógica proposta para o jogo; não é a função real confirmada da sala"
+  },
+  {
+   "id": "extra",
+   "espaco": "lab_31",
+   "porta": "p_31",
+   "ecra": null,
+   "funcao": "Desafios extra (visita com desafios opcionais)",
+   "origem": "proposta",
+   "nota": "função pedagógica proposta para o jogo; não é a função real confirmada da sala"
+  },
+  {
+   "id": "final",
+   "espaco": "lab_e61",
+   "porta": "p_e61",
+   "ecra": null,
+   "funcao": "Desafio final (visita com desafio de transferência)",
+   "origem": "proposta",
+   "nota": "função pedagógica proposta para o jogo; não é a função real confirmada da sala"
+  }
+ ],
+ "verificacao": {
+  "resultado": [
+   {
+    "alvo": "entrada",
+    "alcancavel": true
+   },
+   {
+    "alvo": "corredor",
+    "alcancavel": true
+   },
+   {
+    "alvo": "atrio",
+    "alcancavel": true
+   },
+   {
+    "alvo": "passagem_esq",
+    "alcancavel": true
+   },
+   {
+    "alvo": "passagem_dir",
+    "alcancavel": true
+   },
+   {
+    "alvo": "sala_e6",
+    "alcancavel": true
+   },
+   {
+    "alvo": "sala_e5",
+    "alcancavel": true
+   },
+   {
+    "alvo": "sala_e4",
+    "alcancavel": true
+   },
+   {
+    "alvo": "sala_e1",
+    "alcancavel": true
+   },
+   {
+    "alvo": "sala_e2",
+    "alcancavel": true
+   },
+   {
+    "alvo": "sala_e3",
+    "alcancavel": true
+   },
+   {
+    "alvo": "lab_e61",
+    "alcancavel": true
+   },
+   {
+    "alvo": "lab_31",
+    "alcancavel": true
+   },
+   {
+    "alvo": "consola_tut",
+    "alcancavel": true
+   },
+   {
+    "alvo": "consola_m1",
+    "alcancavel": true
+   },
+   {
+    "alvo": "consola_m2",
+    "alcancavel": true
+   },
+   {
+    "alvo": "consola_m3",
+    "alcancavel": true
+   },
+   {
+    "alvo": "consola_m4",
+    "alcancavel": true
+   },
+   {
+    "alvo": "consola_m5",
+    "alcancavel": true
+   },
+   {
+    "alvo": "consola_m6",
+    "alcancavel": true
+   },
+   {
+    "alvo": "consola_extra",
+    "alcancavel": true
+   },
+   {
+    "alvo": "consola_final",
+    "alcancavel": true
+   }
+  ],
+  "metodo": "pesquisa em largura na grelha de 5 cm, com o raio do aluno (0,28 m)"
+ },
+ "resumo": {
+  "mobiliario": {
+   "bancada_armario": 12,
+   "mesa": 35,
+   "carro": 15,
+   "carregador": 5,
+   "bancada_tecnica": 17,
+   "bancada_alta": 2,
+   "bancada_rodada": 2,
+   "mesa_professor": 2,
+   "ecra": 6,
+   "rover": 15
+  },
+  "cadeiras": 128,
+  "paredes": 31
+ }
+}

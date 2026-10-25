@@ -1,0 +1,147 @@
+<canvas id="mundo" tabindex="0" aria-label="Edifício do CTE em 3D. Usa WASD ou as setas para andar e E para interagir."></canvas>
+
+<div id="hudEsq" class="hud vidro" hidden>
+  <img data-img="logo" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Agrupamento de Escolas de Rio Tinto n.º 3">
+  <div><div class="quem" id="hudNome">Aluno</div><div class="onde" id="hudSala">Exterior</div></div>
+</div>
+<div id="hudDir" class="hud vidro" hidden>
+  <div class="prog"><span id="hudProg">0 de 24 níveis</span><div class="barra"><i id="hudBarra" style="width:0%"></i></div></div>
+  <button class="btn btn-hud" data-acao="planta" title="Mapa 2D (M)">Mapa 2D</button>
+  <button class="btn btn-hud" data-acao="menu" title="Menu (Esc)">Menu</button>
+</div>
+<div id="interacao" class="hud vidro" hidden>
+  <div><div class="t1" id="intT1"></div><div class="t2" id="intT2"></div></div>
+  <button class="btn btn-ambar btn-sm" data-acao="usar">Abrir <kbd>E</kbd></button>
+</div>
+<canvas id="minimapa" width="360" height="400" hidden title="Abrir a planta"></canvas>
+<div id="toque" hidden><div id="joy"><i></i></div><button id="btnUsar" class="btn btn-ambar" data-acao="usar">Usar</button></div>
+<button id="vistaSala" class="btn btn-ambar" data-acao="voltarTerminal" hidden>Voltar ao terminal</button>
+
+<section id="planta" hidden aria-label="Mapa 2D do CTE">
+  <header class="mapa-topo">
+    <div class="mapa-tit"><p class="eyebrow mb-0">Planta interpretada · CTE AERT3</p><h2>Mapa 2D</h2></div>
+    <nav id="mapaAbas" class="nav nav-pills mapa-abas" role="tablist">
+      <button class="nav-link active" data-aba="mapa" role="tab" aria-selected="true">Mapa jogável</button>
+      <button class="nav-link" data-aba="comparar" role="tab" aria-selected="false">Comparar com a planta</button>
+      <button class="nav-link" data-aba="ligacoes" role="tab" aria-selected="false">Ligações</button>
+      <button class="nav-link" data-aba="dados" role="tab" aria-selected="false">Dados e origem</button>
+    </nav>
+    <div class="d-flex gap-2 ms-auto">
+      <button class="btn btn-primary btn-sm" data-acao="fecharPlanta" id="btnFecharPlanta">Voltar ao 3D <kbd>M</kbd></button>
+      <button class="btn btn-outline-primary btn-sm" data-acao="menu">Menu</button>
+    </div>
+  </header>
+  <div class="mapa-corpo">
+    <div class="mapa-area">
+      <canvas id="plantaCanvas" aria-label="Mapa 2D. Arrasta para deslocar, usa a roda do rato para aproximar, clica num elemento para ver a origem."></canvas>
+      <div class="mapa-ferr mapa-ferr-sup">
+        <div id="mapaComp" class="mapa-comp" hidden>
+          <div class="seg" id="mapaModoComp" role="group" aria-label="Modo de comparação"><button data-modo="sobrepor" aria-pressed="true">Sobrepor</button><button data-modo="lado" aria-pressed="false">Lado a lado</button></div>
+          <label class="mapa-opac"><span>Mapa interpretado</span><input id="mapaOpac" type="range" min="0" max="100" value="55" aria-label="Opacidade do mapa interpretado"></label>
+        </div>
+        <details class="mapa-camadas"><summary>Camadas</summary>
+          <div id="mapaCamadas">
+            <label><input type="checkbox" data-camada="arq" checked> Arquitetura</label>
+            <label><input type="checkbox" data-camada="mob" checked> Mobiliário observado</label>
+            <label><input type="checkbox" data-camada="constr" checked> Elementos a construir</label>
+            <label><input type="checkbox" data-camada="jogo" checked> Objetos do jogo</label>
+            <label><input type="checkbox" data-camada="limites" checked> Limites da área de jogo</label>
+            <label><input type="checkbox" data-camada="alcance"> Área alcançável</label>
+            <label><input type="checkbox" data-camada="rotulos" checked> Nomes</label>
+          </div>
+        </details>
+      </div>
+      <div class="mapa-ferr mapa-ferr-inf" id="mapaZoom">
+        <button class="btn btn-light btn-sm" data-z="mais" aria-label="Aproximar">+</button>
+        <button class="btn btn-light btn-sm" data-z="menos" aria-label="Afastar">−</button>
+        <button class="btn btn-light btn-sm" data-z="ajustar">Ajustar</button>
+        <button class="btn btn-light btn-sm" data-z="aluno">Seguir o aluno</button>
+      </div>
+      <p id="mapaDicaJogo" class="mapa-dica"><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> andar · <kbd>E</kbd> consola · clicar numa sala para ir à consola</p>
+    </div>
+    <aside id="mapaLado" class="mapa-lado" aria-live="polite"></aside>
+  </div>
+</section>
+
+<section id="inicio" aria-label="Início">
+  <div class="inicio-corpo">
+    <div class="inicio-col">
+      <div class="inicio-marca">
+        <img data-img="logo" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Agrupamento de Escolas de Rio Tinto n.º 3">
+        <div><p class="eyebrow mb-1">Centro Tecnológico Especializado · AERT3</p><h1>CTE <span>Online</span></h1></div>
+      </div>
+      <p class="inicio-lead">Uma falha informática deixou o CTE em modo de segurança. Percorre as salas E1 a E6, resolve os desafios de HTML, CSS e JavaScript e volta a ligar cada espaço. O teu código muda a própria sala.</p>
+      <div class="cartao-inicio">
+        <div><label for="iNome" class="form-label mb-1">O teu nome</label><input id="iNome" class="form-control" autocomplete="off" maxlength="40" placeholder="Nome e apelido"></div>
+        <div class="linha-av"><span class="small fw-bold">Camisola</span><div class="amostras" data-av="camisola"></div></div>
+        <div class="linha-av"><span class="small fw-bold">Cabelo</span><div class="amostras" data-av="cabelo"></div></div>
+        <div class="linha-av"><span class="small fw-bold">Pele</span><div class="amostras" data-av="pele"></div></div>
+        <div class="d-flex flex-wrap gap-3 align-items-center">
+          <div><label for="iQual" class="form-label mb-1">Gráficos</label><select id="iQual" class="form-select form-select-sm"><option value="baixa">Baixa (computadores fracos)</option><option value="normal">Normal (portáteis da escola)</option><option value="alta">Alta (sombras suaves)</option></select></div>
+          <div class="form-check mt-3"><input class="form-check-input" type="checkbox" id="iReduzir"><label class="form-check-label" for="iReduzir">Reduzir movimento</label></div>
+        </div>
+      </div>
+      <div id="avisoWebgl" class="aviso-webgl" hidden>Este computador não consegue mostrar 3D. Podes jogar na planta 2D: as missões são as mesmas.</div>
+      <div class="inicio-acoes">
+        <button class="btn btn-ambar btn-lg" data-acao="entrar" id="btnEntrar">Entrar no CTE</button>
+        <button class="btn btn-outline-light btn-lg" data-acao="entrarPlanta">Mapa 2D</button>
+        <button class="btn btn-link link-light" data-acao="creditos">Créditos</button>
+      </div>
+      <div class="inicio-teclas"><span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> andar</span><span><kbd>Shift</kbd> correr</span><span><kbd>E</kbd> interagir</span><span>arrastar para rodar</span><span><kbd>V</kbd> 1.ª pessoa</span><span><kbd>M</kbd> planta</span><span><kbd>Esc</kbd> menu</span></div>
+    </div>
+    <div></div>
+  </div>
+  <div class="faixa-fin"><img data-img="barra" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Pessoas 2030, Portugal 2030, Cofinanciado pela União Europeia, Operação de Importância Estratégica, ANQEP e EQAVET"></div>
+</section>
+
+<div class="offcanvas offcanvas-end" id="terminal" tabindex="-1" data-bs-backdrop="false" data-bs-scroll="true" aria-labelledby="tTitulo">
+  <div class="offcanvas-header">
+    <div class="t-titulo"><p class="eyebrow mb-0" id="tEyebrow"></p><h2 id="tTitulo"></h2></div>
+    <nav class="niveis" id="tNiveis" aria-label="Níveis"></nav>
+    <button class="btn btn-outline-primary btn-sm" data-acao="verSala">Ver na sala</button>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar o terminal"></button>
+  </div>
+  <div class="offcanvas-body" id="tCorpo"></div>
+</div>
+
+<div class="modal fade" id="menuModal" tabindex="-1" aria-labelledby="menuTitulo" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered"><div class="modal-content">
+    <div class="modal-header"><h2 class="modal-title fs-5" id="menuTitulo">Menu</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button></div>
+    <div class="modal-body">
+      <div class="menu-grid">
+        <button class="btn btn-primary" data-acao="continuar">Continuar <kbd>Esc</kbd></button>
+        <button class="btn btn-outline-primary" data-acao="planta">Mapa 2D e comparação com a planta <kbd>M</kbd></button>
+        <button class="btn btn-outline-primary" data-acao="camara">Trocar vista (1.ª / 3.ª pessoa) <kbd>V</kbd></button>
+        <button class="btn btn-outline-primary" data-acao="voltarEntrada">Voltar à entrada</button>
+        <button class="btn btn-outline-primary" data-acao="personagem">Mudar a personagem</button>
+        <button class="btn btn-outline-primary" data-acao="professor">Relatório do professor</button>
+        <button class="btn btn-outline-primary" data-acao="creditos">Créditos</button>
+      </div>
+      <div class="form-check form-switch mt-3"><input class="form-check-input" type="checkbox" id="mReduzir"><label class="form-check-label" for="mReduzir">Reduzir movimento</label></div>
+      <p class="small text-secondary mt-3 mb-0">O progresso fica guardado neste navegador. Para o levar para outro computador, usa o código de progresso no relatório do professor.</p>
+    </div>
+  </div></div>
+</div>
+
+<div class="modal fade" id="profModal" tabindex="-1" aria-labelledby="profTitulo" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-scrollable"><div class="modal-content">
+    <div class="modal-header"><h2 class="modal-title fs-5" id="profTitulo">Relatório do professor</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button></div>
+    <div class="modal-body" id="profCorpo"></div>
+    <div class="faixa-fin"><img data-img="barra" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Pessoas 2030, Portugal 2030, Cofinanciado pela União Europeia, Operação de Importância Estratégica, ANQEP e EQAVET"></div>
+  </div></div>
+</div>
+
+<div class="modal fade" id="creditosModal" tabindex="-1" aria-labelledby="credTitulo" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered"><div class="modal-content">
+    <div class="modal-header"><h2 class="modal-title fs-5" id="credTitulo">Créditos</h2><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button></div>
+    <div class="modal-body d-grid gap-3">
+      <div class="creditos-logos"><img class="aert" data-img="logo" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Agrupamento de Escolas de Rio Tinto n.º 3"><div><h3 class="h5 fw-bold mb-1">CTE Online</h3><p class="mb-0">Jogo educativo de HTML, CSS e JavaScript para o Centro Tecnológico Especializado do Agrupamento de Escolas de Rio Tinto n.º 3, na Escola Secundária de Rio Tinto.</p></div></div>
+      <p class="mb-0 small text-secondary">O edifício e o mobiliário são uma interpretação da planta de mobiliário do CTE (escala 1:100, 15-09-2025). Não é um modelo BIM: alturas e materiais não definidos na planta são estimativas. As funções das salas no jogo são propostas. Feito com Three.js e Bootstrap.</p>
+      <div class="creditos-barra"><img data-img="barra" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Pessoas 2030, Portugal 2030, Cofinanciado pela União Europeia, Operação de Importância Estratégica, ANQEP e EQAVET"></div>
+    </div>
+  </div></div>
+</div>
+
+<div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3" style="margin-top:calc(58px + env(safe-area-inset-top,0px))">
+  <div id="toast" class="toast align-items-center" role="status" aria-live="polite" aria-atomic="true" data-bs-delay="3500"><div class="toast-body fw-bold" id="toastTxt"></div></div>
+</div>
