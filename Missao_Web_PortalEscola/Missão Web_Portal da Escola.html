@@ -1,0 +1,1845 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Missão Web</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Planta da escola como mapa de progresso; cada missão é uma bancada de três painéis: missão, código, resultado. */
+:root{
+  --bg:#E6ECEA; --surface:#FFFFFF; --surface-2:#F2F6F4; --ink:#132321; --muted:#536664; --line:#C3D1CE;
+  --chalk:#1C5A4A; --chalk-ink:#FFFFFF; --chalk-soft:#D5E7DF;
+  --sun:#E2A82C; --sun-soft:#FBEBC4; --sun-ink:#3A2A00;
+  --ok:#21734A; --ok-bg:#E0F0E6; --err:#B3392A; --err-bg:#F7E3DF; --warn:#8F5500; --warn-bg:#FAEED6;
+  --code-bg:#10201E; --code-ink:#D8E7E3; --code-dim:#86A39D; --code-mark:#F2C14E; --code-line:#23413C;
+  --room-on:#CBE5D7; --room-off:#E0E6E4;
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",sans-serif;
+  --f-body:"Atkinson Hyperlegible","Segoe UI",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1716; --surface:#142220; --surface-2:#192A28; --ink:#E2EEEA; --muted:#94AAA6; --line:#2B403C;
+    --chalk:#5CBF98; --chalk-ink:#05231A; --chalk-soft:#1E3A31;
+    --sun:#F0BE4E; --sun-soft:#3A3018; --sun-ink:#F8E3B0;
+    --ok:#62C48D; --ok-bg:#15301F; --err:#F08A78; --err-bg:#3A1C17; --warn:#F0B35A; --warn-bg:#36290F;
+    --code-bg:#091312; --code-ink:#D8E7E3; --code-dim:#7C978F; --code-mark:#F2C14E; --code-line:#1D3531;
+    --room-on:#22493B; --room-off:#1B2927;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D1716; --surface:#142220; --surface-2:#192A28; --ink:#E2EEEA; --muted:#94AAA6; --line:#2B403C;
+  --chalk:#5CBF98; --chalk-ink:#05231A; --chalk-soft:#1E3A31;
+  --sun:#F0BE4E; --sun-soft:#3A3018; --sun-ink:#F8E3B0;
+  --ok:#62C48D; --ok-bg:#15301F; --err:#F08A78; --err-bg:#3A1C17; --warn:#F0B35A; --warn-bg:#36290F;
+  --code-bg:#091312; --code-ink:#D8E7E3; --code-dim:#7C978F; --code-mark:#F2C14E; --code-line:#1D3531;
+  --room-on:#22493B; --room-off:#1B2927;
+  color-scheme:dark;
+}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5}
+*{box-sizing:border-box}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.15}
+p{margin:0}
+code{font-family:var(--f-mono);font-size:.88em;background:var(--surface-2);border:1px solid var(--line);border-radius:4px;padding:0 .3em;white-space:nowrap}
+button{font:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+#app{min-height:100%}
+
+.btn{display:inline-flex;align-items:center;gap:.4em;font:700 .92rem/1.2 var(--f-body);padding:.55rem .9rem;border-radius:8px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;white-space:nowrap}
+.btn:hover{border-color:var(--chalk)}
+.btn[disabled]{opacity:.55;cursor:not-allowed}
+.btn-primary{background:var(--chalk);border-color:var(--chalk);color:var(--chalk-ink)}
+.btn-primary:hover{filter:brightness(1.08)}
+.btn-ghost{background:transparent;border-color:transparent;color:var(--muted)}
+.btn-ghost:hover{color:var(--ink);border-color:var(--line)}
+.btn-danger{background:var(--err);border-color:var(--err);color:var(--surface)}
+.eyebrow{font:700 .74rem/1.2 var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- topo ---------- */
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;padding-block:14px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));border-bottom:1.5px solid var(--line);background:var(--surface)}
+.brand{display:flex;align-items:center;gap:12px;margin-right:auto}
+.mark{width:42px;height:42px;border-radius:10px;background:var(--chalk);color:var(--chalk-ink);display:grid;place-items:center;font:800 1rem var(--f-display);letter-spacing:-.02em}
+.brand h1{font-size:1.5rem;font-weight:800;letter-spacing:-.02em}
+.who{display:flex;align-items:center;gap:8px}
+.who label{font-weight:700;font-size:.9rem;color:var(--muted)}
+.who input{font:inherit;padding:.45rem .6rem;border-radius:8px;border:1.5px solid var(--line);background:var(--surface-2);color:var(--ink);width:12rem;max-width:44vw}
+.prog{display:grid;gap:4px;min-width:150px}
+.prog span{font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.bar{height:8px;border-radius:99px;background:var(--surface-2);border:1px solid var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--sun);transition:width .6s ease}
+
+/* ---------- mapa ---------- */
+.map-screen{max-width:1180px;margin:0 auto;padding-block:24px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:24px}
+.story{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 24px;align-items:end}
+.story h2{font-size:clamp(1.6rem,3.4vw,2.4rem);font-weight:800;letter-spacing:-.02em;max-width:22ch}
+.story p{color:var(--muted);max-width:62ch;grid-column:1}
+.story .legend{grid-column:2;grid-row:1 / span 2;display:grid;gap:6px;font-size:.85rem;color:var(--muted)}
+.legend span{display:flex;align-items:center;gap:8px}
+.legend i{width:16px;height:12px;border-radius:3px;border:1.5px solid var(--ink);display:inline-block}
+.legend .l-off{background:repeating-linear-gradient(45deg,var(--room-off) 0 3px,var(--line) 3px 5px)}
+.legend .l-open{background:var(--surface);border-style:dashed;border-color:var(--chalk)}
+.legend .l-on{background:var(--room-on)}
+.plan{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:12px;overflow-x:auto}
+.plan svg{display:block;width:100%;min-width:620px;height:auto}
+.wall{fill:var(--surface-2);stroke:var(--ink);stroke-width:3}
+.hatch-line{stroke:var(--line);stroke-width:3}
+.room .floor{fill:var(--room-off);stroke:var(--ink);stroke-width:2;transition:fill .8s ease}
+.room .hatch{fill:url(#hatch);transition:opacity .8s ease}
+.room .art{opacity:.28;transition:opacity .8s ease}
+.room .art .s{stroke:var(--ink);stroke-width:2;fill:none}
+.room .art .f1{fill:var(--chalk)} .room .art .f2{fill:var(--sun)} .room .art .f3{fill:var(--ink)} .room .art .f4{fill:var(--surface)}
+.room .name{font:800 17px var(--f-display);fill:var(--ink)}
+.room .state{font:700 11px var(--f-body);fill:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.room .pip{fill:var(--surface);stroke:var(--ink);stroke-width:1.5}
+.room .pip.on{fill:var(--sun)}
+.room.clickable{cursor:pointer}
+.room.clickable:hover .floor,.room.clickable:focus-visible .floor{stroke:var(--chalk);stroke-width:3}
+.room:focus{outline:none}
+.room.open .floor{fill:var(--surface);stroke:var(--chalk);stroke-dasharray:7 5}
+.room.open .hatch{opacity:.35}
+.room.open .art{opacity:.45}
+.room.done .floor{fill:var(--room-on)}
+.room.done .hatch{opacity:0}
+.room.done .art{opacity:1}
+.room.done .state{fill:var(--ok)}
+.room.just .floor{animation:glow 1.6s ease 2}
+@keyframes glow{50%{fill:var(--sun-soft);stroke:var(--sun);stroke-width:4}}
+.door{stroke:var(--surface-2);stroke-width:5}
+.portal-num{font:800 44px var(--f-display);fill:var(--ink);font-variant-numeric:tabular-nums}
+.portal-lbl{font:700 12px var(--f-body);fill:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+
+.mlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px}
+.mcard{background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:10px;align-content:start}
+.mcard.locked{background:transparent;border-style:dashed}
+.mcard .row{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.mcard h3{font-size:1.15rem;font-weight:800}
+.mcard .learn{font-size:.9rem;color:var(--muted)}
+.mnum{font:800 .8rem var(--f-display);color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.pill{font:700 .74rem/1 var(--f-body);padding:.35rem .55rem;border-radius:99px;border:1.5px solid var(--line);color:var(--muted);white-space:nowrap}
+.pill.p-done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+.pill.p-go{background:var(--sun-soft);border-color:var(--sun);color:var(--sun-ink)}
+.badges{display:flex;flex-wrap:wrap;gap:6px}
+.badge{display:inline-flex;align-items:center;gap:5px;font:700 .76rem/1 var(--f-body);padding:.32rem .55rem;border-radius:6px;border:1.5px dashed var(--line);color:var(--muted)}
+.badge svg{width:13px;height:13px}
+.badge.on{border-style:solid;border-color:var(--chalk);background:var(--chalk-soft);color:var(--ink)}
+.mcard .btn{justify-self:start}
+
+/* ---------- missão ---------- */
+.mission{display:flex;flex-direction:column;min-height:100%}
+@media (min-width:1100px){ .mission{height:100%} }
+.mbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));background:var(--surface);border-bottom:1.5px solid var(--line)}
+.mtitle{margin-right:auto;min-width:0}
+.mtitle h1{font-size:1.25rem;font-weight:800}
+.levels{display:flex;gap:6px;flex-wrap:wrap}
+.lvl{display:flex;align-items:center;gap:8px;padding:.4rem .7rem;border-radius:8px;border:1.5px solid var(--line);background:var(--surface-2);color:var(--ink);cursor:pointer;font:700 .86rem var(--f-body)}
+.lvl .dot{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--ink);display:grid;place-items:center;font:800 .68rem var(--f-display)}
+.lvl.done .dot{background:var(--sun);border-color:var(--sun);color:var(--sun-ink)}
+.lvl[aria-current="true"]{background:var(--chalk);border-color:var(--chalk);color:var(--chalk-ink)}
+.lvl[aria-current="true"] .dot{border-color:var(--chalk-ink)}
+.lvl[disabled]{opacity:.45;cursor:not-allowed}
+
+.bench{flex:1;min-height:0;display:grid;gap:12px;padding-block:12px;padding-left:max(12px,env(safe-area-inset-left,0px));padding-right:max(12px,env(safe-area-inset-right,0px));grid-template-columns:minmax(270px,.85fr) minmax(0,1.25fr) minmax(0,1.15fr)}
+.pane{background:var(--surface);border:1.5px solid var(--line);border-radius:12px;display:flex;flex-direction:column;min-height:0;min-width:0;overflow:hidden}
+.pane-h{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;padding:8px 12px;border-bottom:1.5px solid var(--line);min-height:46px}
+.pane-h .ttl{font:800 .8rem var(--f-display);letter-spacing:.08em;text-transform:uppercase}
+.pane-h .kind{font-size:.82rem;color:var(--muted);font-weight:700}
+.pane-b{padding:14px;overflow:auto;flex:1;min-height:0;display:grid;gap:14px;align-content:start}
+.brief h2{font-size:1.3rem;font-weight:800}
+.brief .sit,.brief .obj{max-width:62ch}
+.brief .obj{background:var(--sun-soft);color:var(--sun-ink);border-radius:8px;padding:10px 12px}
+.lbl{font:800 .75rem var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.req{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.req li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;align-items:start;font-size:.95rem}
+.req .mk{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--line);margin-top:2px;display:grid;place-items:center;font:800 .75rem var(--f-display)}
+.req li.ok .mk{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+.req li.ok .mk::after{content:"✓"}
+.req li.fail .mk{border-color:var(--err);color:var(--err)}
+.req li.fail .mk::after{content:"!"}
+.feedback{border-radius:8px;padding:10px 12px;font-size:.95rem;border:1.5px solid transparent}
+.feedback:empty{display:none}
+.feedback.f-err{background:var(--err-bg);border-color:var(--err)}
+.feedback.f-warn{background:var(--warn-bg);border-color:var(--warn)}
+.feedback.f-ok{background:var(--ok-bg);border-color:var(--ok)}
+.feedback.f-info{background:var(--surface-2);border-color:var(--line)}
+.feedback strong{display:block;margin-bottom:2px}
+.hints{display:grid;gap:8px}
+.hint{border-left:3px solid var(--chalk);background:var(--surface-2);padding:8px 10px;border-radius:0 8px 8px 0;font-size:.93rem;display:grid;gap:6px}
+.hint b{font:800 .72rem var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:var(--chalk)}
+.hint pre{margin:0;background:var(--code-bg);color:var(--code-ink);font:400 .8rem/1.5 var(--f-mono);padding:8px 10px;border-radius:6px;overflow-x:auto}
+.success{display:grid;gap:10px;border:1.5px solid var(--ok);background:var(--ok-bg);border-radius:10px;padding:12px}
+.success .win{font:800 1.1rem var(--f-display);color:var(--ok)}
+.success label{font-weight:700}
+.success .q{font-size:.92rem;color:var(--muted)}
+.success textarea{font:inherit;font-size:.95rem;min-height:90px;resize:vertical;border-radius:8px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);padding:8px}
+.success .acts{display:flex;flex-wrap:wrap;gap:8px}
+
+.tabs{display:flex;gap:4px;flex-wrap:wrap}
+.tab{font:700 .78rem var(--f-mono);padding:.3rem .55rem;border-radius:6px;border:1.5px solid var(--line);background:var(--surface-2);color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--code-bg);color:var(--code-ink);border-color:var(--code-bg)}
+.tab .ro{font-family:var(--f-body);font-weight:400}
+.code .pane-b{background:var(--code-bg);color:var(--code-ink);padding:0;display:flex;flex-direction:column;gap:0}
+.codeview{display:flex;flex-direction:column;flex:1;min-height:0}
+.codeview[hidden]{display:none!important}
+.controls{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;padding:12px;border-bottom:1px solid var(--code-line);background:var(--code-bg)}
+.ctl{display:grid;gap:4px;font:700 .78rem var(--f-body);color:var(--code-dim)}
+.ctl select,.ctl input[type=text]{font:500 .85rem var(--f-mono);padding:.4rem .5rem;border-radius:6px;border:1.5px solid var(--code-line);background:var(--code-line);color:var(--code-ink);width:100%;min-width:0}
+.ctl input[type=range]{width:100%;accent-color:var(--code-mark)}
+.ctl output{font:600 .82rem var(--f-mono);color:var(--code-mark)}
+pre.src{margin:0;padding:12px 14px;font:400 .86rem/1.65 var(--f-mono);color:var(--code-ink);white-space:pre;overflow:auto;flex:1;min-height:0;tab-size:2}
+pre.src mark{background:rgba(242,193,78,.18);color:var(--code-mark);border-radius:3px;padding:0 2px}
+pre.src mark:empty{display:inline-block;min-width:1.2ch;height:1.1em;vertical-align:-2px;border-bottom:2px solid var(--code-mark);background:transparent}
+pre.src.ro{color:var(--code-dim)}
+input.blank{font:600 .86rem/1.3 var(--f-mono);color:var(--code-mark);background:rgba(242,193,78,.12);border:0;border-bottom:2px solid var(--code-mark);border-radius:3px 3px 0 0;padding:0 3px;margin:0 1px;min-width:3ch}
+input.blank:focus{outline:2px solid var(--code-mark);outline-offset:1px}
+input.blank.filled{background:transparent}
+textarea.editor{flex:1;min-height:300px;width:100%;resize:none;border:0;background:var(--code-bg);color:var(--code-ink);font:400 .86rem/1.65 var(--f-mono);padding:12px 14px;white-space:pre;overflow:auto;tab-size:2;caret-color:var(--code-mark)}
+textarea.editor:focus{outline:none;box-shadow:inset 0 0 0 2px var(--code-line)}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 12px;border-top:1.5px solid var(--line)}
+.actions .tip{font-size:.8rem;color:var(--muted);margin-left:auto}
+
+.seg{display:inline-flex;border:1.5px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;background:var(--surface);color:var(--muted);padding:.3rem .65rem;font:700 .8rem var(--f-body);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--surface)}
+.stage{flex:1;min-height:320px;background:var(--surface-2);overflow:auto;display:flex;justify-content:center;padding:10px}
+.stage iframe{border:0;background:#fff;width:100%;height:100%;min-height:300px;border-radius:6px;box-shadow:0 0 0 1px var(--line)}
+.stage.phone iframe{width:360px;flex:none}
+.console{border-top:1.5px solid var(--line);max-height:30%;min-height:72px;display:flex;flex-direction:column}
+.console-h{font:800 .72rem var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:6px 12px 2px}
+.console ol{list-style:none;margin:0;padding:2px 12px 8px;overflow:auto;font:400 .8rem/1.5 var(--f-mono);display:grid;gap:2px}
+.console li.c-error{color:var(--err)}
+.console li.c-warn{color:var(--warn)}
+.console li.c-info{color:var(--muted)}
+.console li.c-empty{color:var(--muted);font-family:var(--f-body)}
+
+@media (max-width:1099px){
+  .bench{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .brief{grid-column:1 / -1}
+  .brief .pane-b{max-height:none}
+  .code,.result{min-height:520px}
+}
+@media (max-width:760px){
+  .bench{grid-template-columns:minmax(0,1fr)}
+  .code,.result{min-height:460px}
+  .story{grid-template-columns:minmax(0,1fr)}
+  .story .legend{grid-column:1;grid-row:auto;display:flex;flex-wrap:wrap;gap:12px}
+  .stage.phone iframe{width:100%}
+}
+
+/* ---------- relatório ---------- */
+.teacher{max-width:1100px;margin:0 auto;padding-block:24px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:22px}
+.teacher h2{font-size:1.7rem;font-weight:800}
+.teacher section{background:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:16px;display:grid;gap:12px}
+.teacher h3{font-size:1.1rem;font-weight:800}
+.teacher .muted{color:var(--muted);font-size:.93rem;max-width:70ch}
+.tbl-wrap{overflow-x:auto}
+table.rep{border-collapse:collapse;width:100%;font-size:.9rem;min-width:640px}
+table.rep th,table.rep td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+table.rep th{font:800 .72rem var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+table.rep td.num{font-variant-numeric:tabular-nums;text-align:right}
+table.rep th.num{text-align:right}
+table.rep .expl{max-width:40ch;color:var(--muted);font-style:italic}
+.teacher textarea{font:400 .8rem/1.4 var(--f-mono);width:100%;min-height:90px;border-radius:8px;border:1.5px solid var(--line);background:var(--surface-2);color:var(--ink);padding:8px;resize:vertical}
+.teacher .acts{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.switch{display:flex;align-items:center;gap:10px;font-weight:700}
+.switch input{width:20px;height:20px;accent-color:var(--chalk)}
+.confirm{display:flex;flex-wrap:wrap;gap:8px;align-items:center;background:var(--err-bg);border:1.5px solid var(--err);border-radius:8px;padding:10px}
+
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(18px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--surface);padding:.7rem 1rem;border-radius:10px;font-weight:700;box-shadow:0 8px 24px rgba(0,0,0,.25);z-index:50;max-width:calc(100% - 32px)}
+.toast[hidden]{display:none!important}
+.testframe{position:fixed;left:-30000px;top:0;height:2000px;border:0;visibility:hidden;pointer-events:none}
+@media (prefers-reduced-motion:reduce){ *{animation:none!important;transition:none!important} }
+</style>
+
+<div id="app"></div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+"use strict";
+/* =========================================================
+   Imagens disponíveis dentro das páginas dos alunos
+   ========================================================= */
+function makeArt(kind){
+  let seed = kind.length * 97 + 13;
+  const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+  const W = 480, H = 240;
+  const cols = ['#1d5c4b','#e2a82c','#b3392a','#3d6f9e','#7a5a9e','#4f8a3c'];
+  let s = '';
+  if (kind === 'biblioteca' || kind === 'sala-estudo') {
+    s += `<rect width="${W}" height="${H}" fill="#e8f1ee"/>`;
+    if (kind === 'biblioteca') {
+      for (let r = 0; r < 3; r++) {
+        const y = 70 + r * 66;
+        let x = 40;
+        while (x < 430) {
+          const w = 10 + Math.floor(rnd() * 14), h = 34 + Math.floor(rnd() * 20);
+          s += `<rect x="${x}" y="${y - h}" width="${w}" height="${h}" rx="2" fill="${cols[Math.floor(rnd() * cols.length)]}"/>`;
+          x += w + 3;
+        }
+        s += `<rect x="30" y="${y}" width="420" height="7" fill="#7a5a3a"/>`;
+      }
+    } else {
+      for (let i = 0; i < 3; i++) {
+        const x = 40 + i * 145;
+        s += `<rect x="${x}" y="150" width="120" height="12" rx="3" fill="#7a5a3a"/><rect x="${x + 10}" y="162" width="6" height="50" fill="#7a5a3a"/><rect x="${x + 104}" y="162" width="6" height="50" fill="#7a5a3a"/>`;
+        s += `<rect x="${x + 30}" y="104" width="60" height="40" rx="4" fill="#2b3b44"/><rect x="${x + 34}" y="108" width="52" height="32" fill="#9ed3c4"/><rect x="${x + 22}" y="144" width="76" height="6" rx="2" fill="#2b3b44"/>`;
+      }
+      s += `<rect x="40" y="30" width="400" height="44" rx="6" fill="#ffffff" stroke="#1d5c4b" stroke-width="3"/><text x="240" y="59" font-family="sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="#1d5c4b">Silêncio, por favor</text>`;
+    }
+  } else if (kind === 'clube') {
+    s += `<rect width="${W}" height="${H}" fill="#fdf3dc"/><path d="M20 40 Q240 90 460 40" stroke="#5a4a2a" stroke-width="2" fill="none"/>`;
+    for (let i = 0; i < 9; i++) {
+      const x = 40 + i * 48, y = 40 + Math.sin((i / 8) * Math.PI) * 24;
+      s += `<path d="M${x} ${y} l18 0 l-9 26 z" fill="${cols[i % cols.length]}"/>`;
+    }
+    s += `<circle cx="150" cy="160" r="42" fill="#1d5c4b"/><rect x="230" y="120" width="90" height="80" rx="10" fill="#e2a82c"/><path d="M380 200 l40 -80 l40 80 z" fill="#3d6f9e"/>`;
+  } else {
+    s += `<rect width="${W}" height="${H}" fill="#e6ecea"/><path d="M60 190 L170 90 L250 160 L320 110 L420 190 Z" fill="#9fbfb4"/><circle cx="360" cy="70" r="26" fill="#e2a82c"/><text x="240" y="225" font-family="sans-serif" font-size="16" text-anchor="middle" fill="#536664">imagem de exemplo</text>`;
+  }
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${s}</svg>`;
+  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+}
+const IMGS = {
+  'biblioteca.svg': makeArt('biblioteca'),
+  'sala-estudo.svg': makeArt('sala-estudo'),
+  'clube.svg': makeArt('clube'),
+  'imagem.svg': makeArt('imagem')
+};
+
+/* =========================================================
+   Código injetado na área de pré-visualização (corre isolado)
+   ========================================================= */
+function mwHook(cfg){
+  var T = cfg.token;
+  function send(type, data){ try { parent.postMessage({ __mw: T, type: type, data: data }, '*'); } catch (e) {} }
+  window.__mwErrors = [];
+  window.addEventListener('error', function(e){
+    var ln = e.lineno ? e.lineno - cfg.offset : 0;
+    var m = (e.message || 'Erro') + (ln > 0 && cfg.offset > 0 ? ' (linha ' + ln + ')' : '');
+    window.__mwErrors.push(m); send('error', m);
+  });
+  ['log','info','warn','error'].forEach(function(k){
+    var o = console[k];
+    console[k] = function(){
+      var p = [];
+      for (var i = 0; i < arguments.length; i++) {
+        var x = arguments[i];
+        try { p.push(typeof x === 'object' && x !== null ? JSON.stringify(x) : String(x)); } catch (_) { p.push(String(x)); }
+      }
+      send('log', { k: k, t: p.join(' ') });
+      try { o.apply(console, arguments); } catch (_) {}
+    };
+  });
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a') : null;
+    if (!a) return;
+    var h = (a.getAttribute('href') || '').trim();
+    if (h.charAt(0) === '#' && h.length > 1) return;
+    e.preventDefault();
+    send('log', { k: 'info', t: h ? 'Esta ligação abriria: ' + h : 'Esta ligação não tem endereço (href).' });
+  }, true);
+  function fixImgs(){
+    var list = document.querySelectorAll('img');
+    for (var i = 0; i < list.length; i++) {
+      var img = list[i], s = (img.getAttribute('src') || '').trim();
+      if (!s || /^(data:|blob:)/.test(s)) continue;
+      var key = s.split('/').pop();
+      img.setAttribute('data-mw-src', s);
+      img.src = cfg.imgs[key] || cfg.imgs['imagem.svg'];
+    }
+  }
+  document.addEventListener('DOMContentLoaded', fixImgs);
+  if (cfg.mode === 'preview') {
+    window.addEventListener('submit', function(e){
+      if (!e.defaultPrevented) {
+        e.preventDefault();
+        send('log', { k: 'warn', t: 'O formulário foi enviado e a página teria recarregado. Usa evento.preventDefault() para o impedir.' });
+      }
+    });
+  }
+}
+
+function mwHelpers(){
+  var Z = { left:0, right:0, top:0, bottom:0, width:0, height:0 };
+  function q(s, root){ return (root || document).querySelector(s); }
+  function qa(s, root){ return Array.prototype.slice.call((root || document).querySelectorAll(s)); }
+  function r(el){ return el ? el.getBoundingClientRect() : Z; }
+  function cs(el){ return el ? getComputedStyle(el) : {}; }
+  function text(el){ return el ? (el.textContent || '').replace(/\s+/g, ' ').trim() : ''; }
+  function overflow(){ return document.documentElement.scrollWidth > window.innerWidth + 1; }
+  return {
+    q: q, qa: qa, r: r, cs: cs, text: text, overflow: overflow,
+    ok: function(c, fix){ return { ok: !!c, fix: fix }; },
+    wait: function(ms){ return new Promise(function(res){ setTimeout(res, ms); }); },
+    num: function(t){ var m = String(t).match(/-?\d+(?:[.,]\d+)?/); return m ? parseFloat(m[0].replace(',', '.')) : NaN; },
+    submit: function(form){ var e = new Event('submit', { bubbles: true, cancelable: true }); form.dispatchEvent(e); return e.defaultPrevented; },
+    change: function(el, v){ el.value = v; el.dispatchEvent(new Event('input', { bubbles: true })); el.dispatchEvent(new Event('change', { bubbles: true })); },
+    visible: function(el){
+      if (!el || el.hidden) return false;
+      var s = getComputedStyle(el); if (s.display === 'none' || s.visibility === 'hidden') return false;
+      var b = el.getBoundingClientRect(); return b.width > 0 && b.height > 0;
+    },
+    menu: function(){
+      var m = q('.menu'), lg = q('.logo'), ul = q('.ligacoes'), as = qa('.ligacoes a');
+      var mr = r(m), lr = r(lg), ur = r(ul), st = cs(m);
+      var pl = (parseFloat(st.paddingLeft) || 0) + (parseFloat(st.borderLeftWidth) || 0);
+      var pr = (parseFloat(st.paddingRight) || 0) + (parseFloat(st.borderRightWidth) || 0);
+      var a0 = as.length ? r(as[0]) : Z, aN = as.length ? r(as[as.length - 1]) : Z;
+      var inRow = !!(m && lg && ul) && ur.top < lr.bottom - 2 && ur.left >= lr.right - 1;
+      var left = Math.abs(lr.left - (mr.left + pl)) < 4;
+      var right = Math.abs((mr.right - pr) - aN.right) < 4 && a0.left - lr.right > 30;
+      var cy = Math.abs((lr.top + lr.height / 2) - (a0.top + a0.height / 2)) < 2.5;
+      var linksRow = as.length > 1 && Math.abs(r(as[0]).top - r(as[1]).top) < 2 && r(as[1]).left > r(as[0]).right - 1;
+      var gap = as.length > 1 ? r(as[1]).left - r(as[0]).right : 0;
+      var fits = !overflow() && as.every(function(a){ return r(a).right <= window.innerWidth + 1; }) && lr.right <= window.innerWidth + 1;
+      return { inRow: inRow, left: left, right: right, cy: cy, linksRow: linksRow, gap: gap, fits: fits };
+    },
+    mural: function(){
+      var m = q('.mural'), st = cs(m), mr = r(m);
+      var all = qa('.cartao'), d = q('.destaque');
+      var normal = all.filter(function(c){ return !c.classList.contains('destaque'); });
+      var lefts = {}; normal.forEach(function(c){ lefts[Math.round(r(c).left)] = 1; });
+      var ws = normal.map(function(c){ return r(c).width; });
+      var pl = (parseFloat(st.paddingLeft) || 0) + (parseFloat(st.borderLeftWidth) || 0);
+      var pr = (parseFloat(st.paddingRight) || 0) + (parseFloat(st.borderRightWidth) || 0);
+      var inner = mr.width - pl - pr;
+      var rightMost = normal.length ? Math.max.apply(null, normal.map(function(c){ return r(c).right; })) : 0;
+      var cw = normal.length ? r(normal[0]).width : 0;
+      var gap = parseFloat(st.columnGap); if (isNaN(gap)) gap = 0;
+      var rowGap = parseFloat(st.rowGap); if (isNaN(rowGap)) rowGap = 0;
+      return {
+        isGrid: /grid/.test(st.display || ''),
+        cols: Object.keys(lefts).length,
+        equal: ws.length > 0 && Math.max.apply(null, ws) - Math.min.apply(null, ws) < 2,
+        fills: Math.abs(rightMost - (mr.right - pr)) < 3,
+        gap: gap, rowGap: rowGap, cw: cw, dw: r(d).width, inner: inner,
+        full: d ? Math.abs(r(d).width - inner) < 3 : false
+      };
+    }
+  };
+}
+
+function mwRunCheck(cfg, helpers, check){
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      var T = helpers();
+      Promise.resolve().then(function(){ return check(T); }).then(function(items){
+        parent.postMessage({ __mw: cfg.token, type: 'result', data: items, errors: window.__mwErrors || [] }, '*');
+      }, function(e){
+        parent.postMessage({ __mw: cfg.token, type: 'result', data: null, crash: String(e && e.message || e), errors: window.__mwErrors || [] }, '*');
+      });
+    }, 80);
+  });
+}
+
+const BASE_CSS = `*{box-sizing:border-box}
+body{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;margin:0;padding:16px;color:#1b2526;background:#fff;line-height:1.45}
+img{max-width:100%;height:auto}`;
+
+/* =========================================================
+   Conteúdo das missões
+   ========================================================= */
+const M1CSS = `header{border-bottom:3px solid #1d5c4b;padding-bottom:8px;margin-bottom:12px}
+h1{margin:0 0 4px;font-size:1.6rem;color:#123b31}
+h2{font-size:1.15rem;margin:14px 0 6px}
+img{display:block;border-radius:8px;margin:8px 0;width:100%;max-width:420px}
+li{margin:2px 0}
+a{color:#1d5c4b;font-weight:700}`;
+
+const M2HTML = `<nav class="menu">
+  <a class="logo" href="#">EV · Escola do Vale</a>
+  <ul class="ligacoes">
+    <li><a href="#biblioteca">Biblioteca</a></li>
+    <li><a href="#mural">Mural</a></li>
+    <li><a href="#loja">Loja</a></li>
+    <li><a href="#secretaria">Secretaria</a></li>
+  </ul>
+</nav>
+<main class="conteudo">
+  <h1>Bem-vindo ao portal</h1>
+  <p>Escolhe um espaço no menu para começar.</p>
+</main>`;
+const M2CSS = `body{padding:0}
+.menu{background:#1d5c4b;padding:10px 16px}
+.logo{color:#fff;font-weight:800;font-size:1.4rem;text-decoration:none;padding:6px 0;white-space:nowrap}
+.ligacoes{list-style:none;margin:0;padding:0}
+.ligacoes a{display:block;color:#fff;text-decoration:none;padding:6px 12px;border-radius:6px;background:rgba(255,255,255,.14)}
+.conteudo{padding:16px}`;
+
+const M3HTML = `<h1>Mural de atividades</h1>
+<section class="mural">
+  <article class="cartao">
+    <span class="data">5 nov</span>
+    <h3>Clube de Robótica</h3>
+    <p>Construção de um robô seguidor de linha.</p>
+  </article>
+  <article class="cartao destaque">
+    <span class="data">12 a 16 nov</span>
+    <h3>Feira do Livro</h3>
+    <p>Livros a preços especiais no átrio, com sessões de autógrafos.</p>
+  </article>
+  <article class="cartao">
+    <span class="data">20 nov</span>
+    <h3>Corta-mato escolar</h3>
+    <p>Inscrições abertas para todos os escalões.</p>
+  </article>
+  <article class="cartao">
+    <span class="data">27 nov</span>
+    <h3>Teatro: ensaio aberto</h3>
+    <p>O grupo de teatro mostra a peça de Natal.</p>
+  </article>
+  <article class="cartao">
+    <span class="data">Todas as quartas</span>
+    <h3>Horta escolar</h3>
+    <p>Plantação de favas e alfaces.</p>
+  </article>
+  <article class="cartao">
+    <span class="data">Até 30 nov</span>
+    <h3>Jornal da escola</h3>
+    <p>Envia a tua notícia para a edição de dezembro.</p>
+  </article>
+</section>`;
+const M3CSS = `h1{margin:0 0 12px;font-size:1.5rem;color:#123b31}
+.cartao{background:#f3f7f6;border:2px solid #cfe0db;border-radius:10px;padding:12px}
+.cartao h3{margin:4px 0}
+.cartao p{margin:0;font-size:.95rem}
+.data{font-size:.78rem;font-weight:700;color:#1d5c4b;text-transform:uppercase;letter-spacing:.04em}
+.destaque{background:#fff4d6;border-color:#e2a82c}`;
+
+const M4HTML = `<h1>Loja da Escola</h1>
+<div class="caixa">
+  <label for="produto">Material</label>
+  <select id="produto">
+    <option value="1.20">Caderno A4 · 1,20 €</option>
+    <option value="0.65">Caneta azul · 0,65 €</option>
+    <option value="0.90">Régua de 30 cm · 0,90 €</option>
+  </select>
+  <label for="quantidade">Quantidade</label>
+  <input id="quantidade" type="number" min="0" value="1">
+  <button id="calcular" type="button">Calcular</button>
+  <p id="total">Total: —</p>
+</div>`;
+const M4HTML3 = `<h1>Loja da Escola</h1>
+<div class="caixa">
+  <label for="produto">Material</label>
+  <select id="produto">
+    <option value="1.20">Caderno A4 · 1,20 €</option>
+    <option value="0.65">Caneta azul · 0,65 €</option>
+    <option value="0.90">Régua de 30 cm · 0,90 €</option>
+  </select>
+  <label for="quantidade">Quantidade</label>
+  <input id="quantidade" type="number" min="0" value="1">
+  <label class="opcao"><input id="saco" type="checkbox"> Saco reutilizável (+0,50 €)</label>
+  <p id="total">Total: —</p>
+</div>`;
+const M4CSS = `h1{margin:0 0 12px;font-size:1.5rem;color:#123b31}
+.caixa{display:grid;gap:8px;max-width:320px}
+label{font-weight:600}
+.opcao{font-weight:400;display:flex;gap:8px;align-items:center}
+select,input,button{font:inherit;padding:6px}
+button{background:#1d5c4b;color:#fff;border:0;border-radius:6px;padding:8px;cursor:pointer}
+#total{font-size:1.3rem;font-weight:700;margin:6px 0 0}`;
+
+const M5HTML = `<h1>Secretaria · Inscrições</h1>
+<form id="inscricao" novalidate>
+  <label for="nome">Nome completo</label>
+  <input id="nome" autocomplete="off">
+  <label for="email">Email</label>
+  <input id="email" type="email" autocomplete="off">
+  <label for="ano">Ano de escolaridade</label>
+  <select id="ano">
+    <option value="">Escolhe o ano</option>
+    <option>7.º ano</option>
+    <option>8.º ano</option>
+    <option>9.º ano</option>
+    <option>10.º ano</option>
+    <option>11.º ano</option>
+    <option>12.º ano</option>
+  </select>
+  <label for="atividade">Atividade</label>
+  <select id="atividade">
+    <option>Clube de Robótica</option>
+    <option>Teatro</option>
+    <option>Desporto Escolar</option>
+    <option>Jornal da Escola</option>
+  </select>
+  <button type="submit">Inscrever</button>
+</form>
+<p id="mensagem" role="status"></p>
+<section id="resumo" hidden></section>`;
+const M5CSS = `h1{margin:0 0 12px;font-size:1.5rem;color:#123b31}
+form{display:grid;gap:6px;max-width:340px}
+label{font-weight:600;margin-top:4px}
+input,select,button{font:inherit;padding:6px}
+button{background:#1d5c4b;color:#fff;border:0;border-radius:6px;padding:8px;margin-top:8px;cursor:pointer}
+.erro{color:#b3392a;font-weight:700}
+.sucesso{color:#21734a;font-weight:700}
+#resumo{margin-top:8px;padding:10px;border:2px solid #21734a;border-radius:8px;background:#e0f0e6;max-width:340px}
+table{border-collapse:collapse;width:100%;max-width:420px}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid #ccd}
+tr.ok td:nth-child(2){color:#21734a;font-weight:700}
+tr.falha{background:#f7e3df}
+tr.falha td:nth-child(2){color:#b3392a;font-weight:700}`;
+
+const MISSIONS = [
+{
+  id:'m1', n:1, room:'Biblioteca', title:'Recuperar a biblioteca',
+  learn:'Estrutura HTML, elementos semânticos e atributos',
+  levels:[
+  {
+    id:'m1l1', kind:'explorar', editable:['html'], title:'A página sem forma',
+    sit:'O título, a lista de livros e a ligação para o catálogo aparecem como texto solto. O navegador não sabe o que cada parte é.',
+    obj:'Usa os controlos para escolher os elementos e atributos certos. Repara no que muda no código e na página.',
+    base:{ css:M1CSS },
+    req:['O título principal usa `<h1>`','Os livros estão numa lista (`<ul>` ou `<ol>`)','A imagem tem texto alternativo (`alt`)','A ligação tem um endereço completo (`href`)'],
+    controls:[
+      {id:'tit', label:'Elemento do título', type:'select', options:['p','h2','h1'], value:'p'},
+      {id:'lista', label:'Contentor da lista', type:'select', options:['div','ul','ol'], value:'div'},
+      {id:'alt', label:'Texto alternativo da imagem', type:'text', value:'', ph:'Descreve a imagem'},
+      {id:'href', label:'Endereço da ligação', type:'select', options:['','#','https://www.rbe.mec.pt'], value:''}
+    ],
+    template: v => `<header>
+  <${v.tit}>Biblioteca da Escola</${v.tit}>
+  <p>Livros, revistas, jogos e computadores para todos.</p>
+</header>
+<main>
+  <img src="biblioteca.svg" alt="${String(v.alt).replace(/"/g,'&quot;')}">
+  <h2>Livros em destaque</h2>
+  <${v.lista}>
+    <li>Os Lusíadas · Luís de Camões</li>
+    <li>A Aia · Eça de Queirós</li>
+    <li>O Cavaleiro da Dinamarca · Sophia de Mello Breyner Andresen</li>
+  </${v.lista}>
+  <a href="${v.href}">Pesquisar no catálogo</a>
+</main>`,
+    hints:[
+      'Cada elemento HTML diz ao navegador o que o conteúdo é. Um título não é só texto grande: é `<h1>`. Uma lista agrupa itens `<li>`.',
+      'Experimenta `h1` no título e `ul` ou `ol` na lista. Escreve no alt uma frase que descreva a imagem e escolhe um endereço começado por `https://`.',
+      {t:'Numa página da cantina, ficaria assim:', code:'<h1>Cantina</h1>\n<ul>\n  <li>Sopa de legumes</li>\n</ul>\n<img src="cantina.svg" alt="Tabuleiro com sopa e pão">\n<a href="https://www.exemplo.pt">Ver ementa</a>'}
+    ],
+    check: function(T){
+      var h1 = T.q('header h1'), list = T.q('main ul, main ol'), img = T.q('main img'), a = T.q('main a');
+      var alt = img ? (img.getAttribute('alt') || '').trim() : '';
+      var href = a ? (a.getAttribute('href') || '').trim() : '';
+      return [
+        T.ok(h1 && T.text(h1), 'O título da página ainda não é o título principal. Qual é o elemento de título mais importante?'),
+        T.ok(list && T.qa('li', list).length >= 3, 'Os livros ainda não estão numa lista. Os itens <li> precisam de um contentor de lista.'),
+        T.ok(alt.length >= 5, 'A imagem precisa de um texto alternativo que a descreva, para quem não a consegue ver.'),
+        T.ok(/^https?:\/\/\S+\.\S+/.test(href), 'A ligação ainda não leva a lado nenhum. O href deve ter um endereço completo, começado por https://.')
+      ];
+    },
+    explain:'Porque é que a imagem precisa de um texto alternativo? Que diferença notaste entre ul e ol?'
+  },
+  {
+    id:'m1l2', kind:'completar', editable:['html'], title:'Espaços em branco',
+    sit:'A página da biblioteca tem espaços em branco no código: faltam nomes de elementos e de atributos.',
+    obj:'Preenche os espaços para que a imagem, a lista e a ligação funcionem, dentro da zona principal da página.',
+    base:{ css:M1CSS },
+    req:['O conteúdo principal está dentro de `<main>`','A imagem tem origem (`src`) e texto alternativo (`alt`)','As novidades estão numa lista `<ul>` ou `<ol>`','A ligação usa o atributo `href`'],
+    code:`<header>
+  <h1>Biblioteca da Escola</h1>
+  <p>Livros, revistas, jogos e computadores para todos.</p>
+</header>
+<{{sec}}>
+  <img {{a1}}="biblioteca.svg" {{a2}}="Estantes com livros coloridos">
+  <h2>Novidades de outubro</h2>
+  <{{l1}}>
+    <li>Ulisses · Maria Alberta Menéres</li>
+    <li>A Fada Oriana · Sophia de Mello Breyner Andresen</li>
+    <li>O Gato Malhado e a Andorinha Sinhá · Jorge Amado</li>
+  </{{l2}}>
+  <a {{a3}}="https://www.rbe.mec.pt">Rede de Bibliotecas Escolares</a>
+</{{sec2}}>`,
+    blanks:{sec:6,a1:4,a2:4,l1:3,l2:3,a3:5,sec2:6},
+    precheck: b => {
+      const t = k => (b[k] || '').trim();
+      if (t('sec') !== t('sec2')) return `A etiqueta de abertura <${t('sec') || '…'}> e a de fecho </${t('sec2') || '…'}> têm de ter o mesmo nome.`;
+      if (t('l1') !== t('l2')) return `A lista abre com <${t('l1') || '…'}> e fecha com </${t('l2') || '…'}>. Abertura e fecho têm de coincidir.`;
+      return null;
+    },
+    hints:[
+      'Os elementos semânticos (`<header>`, `<main>`, `<footer>`) dizem que papel tem cada zona da página. Os atributos acrescentam informação a um elemento, na forma `nome="valor"`.',
+      'A zona principal é `main`. A imagem precisa de `src` (o ficheiro) e `alt` (a descrição). A lista pode ser `ul`. A ligação guarda o endereço em `href`.',
+      {t:'Numa página do ginásio, ficaria assim:', code:'<main>\n  <img src="ginasio.svg" alt="Pavilhão com balizas">\n  <ul>\n    <li>Futsal</li>\n  </ul>\n  <a href="https://www.exemplo.pt">Horário</a>\n</main>'}
+    ],
+    check: function(T){
+      var img = T.q('main img');
+      var src = img ? (img.getAttribute('data-mw-src') || img.getAttribute('src') || '') : '';
+      var alt = img ? (img.getAttribute('alt') || '').trim() : '';
+      var list = T.q('main ul, main ol'), a = T.q('main a');
+      return [
+        T.ok(T.q('main h2') && img, 'A imagem e o título das novidades têm de ficar dentro do elemento da zona principal: main.'),
+        T.ok(src && alt, 'A imagem precisa de dois atributos: um com o ficheiro a mostrar e outro com a descrição.'),
+        T.ok(list && T.qa('li', list).length >= 3, 'Os itens <li> não estão dentro de uma lista. Que elemento cria uma lista com marcas?'),
+        T.ok(a && (a.getAttribute('href') || '').indexOf('http') === 0, 'A ligação não tem endereço. Que atributo guarda o destino de uma ligação?')
+      ];
+    },
+    explain:'Para que serve o elemento main? O que acontece se a etiqueta de abertura e a de fecho não coincidirem?'
+  },
+  {
+    id:'m1l3', kind:'construir', editable:['html'], title:'A sala de estudo',
+    sit:'A sala de estudo da biblioteca precisa de uma página nova, feita de raiz.',
+    obj:'Escreve o HTML com cabeçalho, descrição, imagem (ficheiro sala-estudo.svg), lista de horários e uma ligação para reservar computador.',
+    base:{ css:M1CSS },
+    starter:{ html:`<!-- Página da Sala de Estudo
+     Precisa de: cabeçalho com título, descrição,
+     imagem (sala-estudo.svg), lista de horários
+     e ligação para reservar um computador. -->
+
+` },
+    req:['Há um `<header>` com um título `<h1>`','Há um parágrafo de descrição','O conteúdo está dentro de `<main>`','A imagem tem `src` e um `alt` descritivo','Uma lista com pelo menos 3 horários','Uma ligação com endereço para reservar computador'],
+    hints:[
+      'Uma página bem estruturada tem um cabeçalho (`<header>`) com o título e uma zona principal (`<main>`) com o conteúdo.',
+      'Vais precisar de: `header`, `h1`, `p`, `main`, `img` com `src="sala-estudo.svg"` e `alt`, `ul` com vários `li`, e `a` com `href`.',
+      {t:'Esqueleto de outra página (preenche com o teu conteúdo):', code:'<header>\n  <h1>…</h1>\n  <p>…</p>\n</header>\n<main>\n  <img src="…" alt="…">\n  <ul>\n    <li>…</li>\n  </ul>\n  <a href="…">…</a>\n</main>'}
+    ],
+    check: function(T){
+      var h = T.q('header h1');
+      var p = T.qa('p').filter(function(x){ return T.text(x).length >= 20; });
+      var img = T.q('img');
+      var alt = img ? (img.getAttribute('alt') || '').trim() : '';
+      var src = img ? (img.getAttribute('data-mw-src') || img.getAttribute('src') || '') : '';
+      var list = T.q('ul, ol'), items = list ? T.qa('li', list).length : 0;
+      var a = T.q('a[href]'), href = a ? a.getAttribute('href').trim() : '';
+      return [
+        T.ok(h && T.text(h), 'Falta um <header> com um título <h1> lá dentro.'),
+        T.ok(p.length > 0, 'Falta um parágrafo <p> que descreva a sala (pelo menos uma frase).'),
+        T.ok(T.q('main ul, main ol') && T.q('main img'), 'A imagem e a lista devem estar dentro de <main>.'),
+        T.ok(src && alt.length >= 5, 'A imagem precisa de src (usa sala-estudo.svg) e de um alt que a descreva.'),
+        T.ok(items >= 3, 'A lista de horários precisa de pelo menos 3 itens <li>.'),
+        T.ok(href && href !== '#', 'A ligação para reservar computador precisa de um endereço no href.')
+      ];
+    },
+    explain:'Como organizaste a página? Que elementos escolheste e porquê?'
+  }]
+},
+{
+  id:'m2', n:2, room:'Corredor principal', title:'Arrumar a barra de navegação',
+  learn:'Flexbox: display, justify-content, align-items e gap',
+  levels:[
+  {
+    id:'m2l1', kind:'explorar', editable:['css'], title:'O menu ficou desarrumado',
+    sit:'O logótipo e o grupo de ligações do menu aparecem empilhados.',
+    obj:'Coloca o logótipo à esquerda, as ligações à direita e todos os elementos centrados na vertical.',
+    base:{ html:M2HTML, css:M2CSS + '\n.ligacoes{display:flex;gap:8px}' },
+    req:['O logótipo e as ligações estão na mesma linha','Logótipo à esquerda, ligações à direita','Tudo centrado na vertical'],
+    controls:[
+      {id:'d', label:'display', type:'select', options:['block','flex'], value:'block'},
+      {id:'j', label:'justify-content', type:'select', options:['flex-start','center','flex-end','space-between','space-around'], value:'flex-start'},
+      {id:'a', label:'align-items', type:'select', options:['stretch','flex-start','center','flex-end'], value:'stretch'}
+    ],
+    template: v => `.menu {
+  display: ${v.d};
+  justify-content: ${v.j};
+  align-items: ${v.a};
+}`,
+    hints:[
+      'Com `display: flex`, um elemento passa a ser um contentor flexível e coloca os filhos lado a lado, ao longo de um eixo principal (horizontal).',
+      '`justify-content` distribui o espaço no eixo principal (horizontal). `align-items` alinha os filhos no eixo transversal (vertical).',
+      {t:'Num rodapé, ficaria assim:', code:'.rodape {\n  display: flex;\n  justify-content: space-around;\n  align-items: flex-end;\n}'}
+    ],
+    check: function(T){
+      var s = T.menu();
+      return [
+        T.ok(s.inRow, 'O logótipo e as ligações ainda estão empilhados. O contentor .menu precisa de colocar os filhos em linha.'),
+        T.ok(s.inRow && s.left && s.right, 'Os elementos já estão em linha. Falta distribuir o espaço entre o logótipo e o grupo de ligações.'),
+        T.ok(s.inRow && s.cy, 'O logótipo e as ligações não estão centrados na vertical. Experimenta outro valor de align-items.')
+      ];
+    },
+    explain:'O que faz justify-content e o que faz align-items? Em que eixo trabalha cada um?'
+  },
+  {
+    id:'m2l2', kind:'completar', editable:['css'], title:'Dois contentores',
+    sit:'O menu está todo desarrumado: até as ligações aparecem umas por baixo das outras.',
+    obj:'Completa as regras dos dois contentores flexíveis: .menu e .ligacoes.',
+    base:{ html:M2HTML, css:M2CSS },
+    req:['Logótipo e ligações na mesma linha, nos extremos','Tudo centrado na vertical','As ligações ficam lado a lado','Há pelo menos 8px entre ligações'],
+    code:`.menu {
+  display: {{d}};
+  justify-content: {{j}};
+  align-items: {{a}};
+}
+
+.ligacoes {
+  display: {{d2}};
+  gap: {{g}};
+}`,
+    blanks:{d:5,j:13,a:7,d2:5,g:5},
+    hints:[
+      'O menu tem dois contentores flexíveis: `.menu` (logótipo e grupo de ligações) e `.ligacoes` (as quatro ligações). Cada um organiza os seus filhos.',
+      'Para afastar os extremos usa `space-between`; para centrar na vertical, `center`. O espaço entre ligações define-se com `gap`, com unidades, por exemplo `12px`.',
+      {t:'Numa barra de ferramentas, ficaria assim:', code:'.barra {\n  display: flex;\n  justify-content: space-between;\n  align-items: flex-end;\n}\n.icones {\n  display: flex;\n  gap: 4px;\n}'}
+    ],
+    check: function(T){
+      var s = T.menu();
+      return [
+        T.ok(s.inRow && s.left && s.right, s.inRow ? 'Os elementos já estão em linha. Falta distribuir o espaço entre o logótipo e o grupo de ligações.' : 'O logótipo e as ligações ainda estão empilhados. Revê o display do .menu.'),
+        T.ok(s.inRow && s.cy, 'O logótipo e as ligações não estão centrados na vertical.'),
+        T.ok(s.linksRow, 'As ligações continuam umas por baixo das outras. O contentor .ligacoes também precisa de ser flexível.'),
+        T.ok(s.linksRow && s.gap >= 8, 'As ligações estão coladas. O gap precisa de um número e de uma unidade, por exemplo 12px.')
+      ];
+    },
+    explain:'Porque é que o menu precisa de dois contentores flexíveis?'
+  },
+  {
+    id:'m2l3', kind:'construir', editable:['css'], title:'Menu no telemóvel',
+    sit:'Muitos alunos abrem o portal no telemóvel e o menu sai do ecrã.',
+    obj:'Escreve as regras do menu de raiz e adapta-o a ecrãs estreitos. Usa o botão Telemóvel, por cima do resultado, para ver o efeito.',
+    base:{ html:M2HTML, css:M2CSS },
+    starter:{ css:`/* Escreve as regras do menu. */
+.menu {
+
+}
+
+.ligacoes {
+
+}
+
+/* Num ecrã estreito, o menu tem de caber sem sair para o lado.
+   Podes usar flex-wrap e/ou uma regra @media. */
+@media (max-width: 480px) {
+
+}
+` },
+    widths:[900,360],
+    req:['Ecrã largo: logótipo à esquerda, ligações à direita','Ecrã largo: tudo centrado na vertical','As ligações ficam lado a lado','Telemóvel (360px): nada sai do ecrã'],
+    hints:[
+      'Num ecrã estreito não há espaço para tudo numa linha. `flex-wrap: wrap` deixa os elementos passarem para a linha seguinte. Uma regra `@media (max-width: 480px) { … }` só se aplica a ecrãs estreitos.',
+      'Reutiliza o que fizeste no nível 2 e acrescenta `flex-wrap: wrap` ao `.menu` e às `.ligacoes`. Dentro do `@media` podes, por exemplo, usar `flex-direction: column` no `.menu`.',
+      {t:'Numa galeria de fotografias, ficaria assim:', code:'.galeria {\n  display: flex;\n  flex-wrap: wrap;\n  gap: 8px;\n}\n@media (max-width: 480px) {\n  .galeria { flex-direction: column; }\n}'}
+    ],
+    check: function(T){
+      var s = T.menu(), wide = window.innerWidth > 600;
+      return [
+        T.ok(!wide || (s.inRow && s.left && s.right), 'No ecrã largo, o logótipo deve ficar à esquerda e as ligações à direita, na mesma linha.'),
+        T.ok(!wide || (s.inRow && s.cy), 'No ecrã largo, o logótipo e as ligações não estão centrados na vertical.'),
+        T.ok(s.linksRow, wide ? 'As ligações não estão lado a lado no ecrã largo.' : 'No telemóvel, as ligações ficaram umas por baixo das outras. Deixa-as lado a lado e a passar para a linha seguinte.'),
+        T.ok(wide || s.fits, 'No telemóvel, o menu sai do ecrã. Experimenta flex-wrap: wrap para deixar os elementos mudarem de linha.')
+      ];
+    },
+    explain:'O que muda no menu quando o ecrã fica estreito? Que propriedade resolveu o problema?'
+  }]
+},
+{
+  id:'m3', n:3, room:'Mural de atividades', title:'Reconstruir o mural',
+  learn:'Grid: colunas, espaçamento e posicionamento',
+  levels:[
+  {
+    id:'m3l1', kind:'explorar', editable:['css'], title:'Cartões empilhados',
+    sit:'Os cartões do mural estão empilhados, colados uns aos outros.',
+    obj:'Organiza o mural numa grelha de 3 colunas iguais que ocupe toda a largura, com espaço entre cartões.',
+    base:{ html:M3HTML, css:M3CSS },
+    req:['O mural é uma grelha','Três colunas por linha','Colunas iguais que ocupam a largura toda','Pelo menos 16px entre cartões'],
+    controls:[
+      {id:'d', label:'display', type:'select', options:['block','grid'], value:'block'},
+      {id:'c', label:'grid-template-columns', type:'select', options:['1fr','1fr 1fr','200px 200px 200px','1fr 2fr 1fr','repeat(3, 1fr)'], value:'1fr'},
+      {id:'g', label:'gap', type:'range', min:0, max:40, step:4, value:0, unit:'px'}
+    ],
+    template: v => `.mural {
+  display: ${v.d};
+  grid-template-columns: ${v.c};
+  gap: ${v.g}px;
+}`,
+    hints:[
+      '`display: grid` transforma o contentor numa grelha. `grid-template-columns` diz quantas colunas existem e qual a largura de cada uma.',
+      'A unidade `fr` reparte o espaço livre: `1fr 1fr` são duas colunas iguais. `repeat(3, 1fr)` é o mesmo que `1fr 1fr 1fr`. O `gap` afasta os cartões.',
+      {t:'Numa galeria de duas colunas, ficaria assim:', code:'.galeria {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 24px;\n}'}
+    ],
+    check: function(T){
+      var g = T.mural();
+      return [
+        T.ok(g.isGrid, 'Os cartões continuam empilhados. O contentor .mural ainda não é uma grelha.'),
+        T.ok(g.isGrid && g.cols === 3, 'A grelha tem de ter 3 colunas. Olha para o valor de grid-template-columns.'),
+        T.ok(g.cols === 3 && g.equal && g.fills, 'As colunas têm de ter a mesma largura e ocupar o mural todo. A unidade fr divide o espaço disponível.'),
+        T.ok(g.isGrid && g.gap >= 16, 'Os cartões estão demasiado juntos. Aumenta o gap para pelo menos 16px.')
+      ];
+    },
+    explain:'Porque é que 200px 200px 200px não ocupa o mural todo, e repeat(3, 1fr) ocupa?'
+  },
+  {
+    id:'m3l2', kind:'completar', editable:['css'], title:'O cartão em destaque',
+    sit:'A Feira do Livro é a atividade do mês e merece mais espaço no mural.',
+    obj:'Completa a grelha de 3 colunas e faz o cartão em destaque ocupar 2 colunas.',
+    base:{ html:M3HTML, css:M3CSS },
+    req:['O mural é uma grelha','Três colunas iguais','Pelo menos 12px entre cartões','O cartão em destaque ocupa 2 colunas'],
+    code:`.mural {
+  display: {{d}};
+  grid-template-columns: repeat({{n}}, 1fr);
+  gap: {{g}};
+}
+
+.destaque {
+  grid-column: span {{s}};
+}`,
+    blanks:{d:5,n:2,g:5,s:2},
+    hints:[
+      'Os filhos de uma grelha podem ocupar mais do que uma coluna. `grid-column: span 2` estica um elemento por duas colunas.',
+      'O mural tem 3 colunas. O destaque deve ocupar `span 2`. O gap precisa de unidade, por exemplo `16px`.',
+      {t:'Numa grelha de fotografias, ficaria assim:', code:'.fotos {\n  display: grid;\n  grid-template-columns: repeat(4, 1fr);\n  gap: 8px;\n}\n.foto-grande {\n  grid-column: span 3;\n}'}
+    ],
+    check: function(T){
+      var g = T.mural();
+      return [
+        T.ok(g.isGrid, 'O contentor .mural ainda não é uma grelha.'),
+        T.ok(g.isGrid && g.cols === 3 && g.equal, 'A grelha precisa de 3 colunas iguais. Quantas vezes se repete 1fr?'),
+        T.ok(g.isGrid && g.gap >= 12, 'Os cartões estão demasiado juntos. O gap precisa de número e unidade, por exemplo 16px.'),
+        T.ok(g.cols === 3 && Math.abs(g.dw - (2 * g.cw + g.gap)) < 3, 'O cartão em destaque tem de ocupar exatamente 2 colunas.')
+      ];
+    },
+    explain:'Como é que a grelha decide onde colocar o cartão em destaque e os cartões seguintes?'
+  },
+  {
+    id:'m3l3', kind:'construir', editable:['css'], title:'Mural para todos os ecrãs',
+    sit:'O mural aparece no quadro interativo da sala e no telemóvel dos alunos.',
+    obj:'Cria uma grelha que decide sozinha quantas colunas cabem. O cartão em destaque ocupa sempre a linha toda. Testa com o botão Telemóvel.',
+    base:{ html:M3HTML, css:M3CSS },
+    starter:{ css:`/* O mural tem de se adaptar ao espaço disponível,
+   sem dizeres um número fixo de colunas. */
+.mural {
+
+}
+
+.destaque {
+
+}
+` },
+    widths:[900,360],
+    req:['É uma grelha com pelo menos 12px entre cartões','Ecrã largo (900px): pelo menos 3 cartões por linha','Telemóvel (360px): um cartão por linha','O cartão em destaque ocupa a linha toda','Nada sai do ecrã'],
+    hints:[
+      'Uma grelha pode decidir sozinha quantas colunas cabem. `repeat(auto-fit, minmax(200px, 1fr))` cria tantas colunas de pelo menos 200px quantas couberem.',
+      'Para o destaque ocupar a linha toda, seja qual for o número de colunas, usa as linhas da grelha: `grid-column: 1 / -1` vai da primeira à última linha.',
+      {t:'Numa montra de produtos, ficaria assim:', code:'.produtos {\n  display: grid;\n  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));\n  gap: 12px;\n}\n.aviso {\n  grid-column: 1 / -1;\n}'}
+    ],
+    check: function(T){
+      var g = T.mural(), wide = window.innerWidth > 600;
+      return [
+        T.ok(g.isGrid && g.gap >= 12 && g.rowGap >= 12, 'O mural tem de ser uma grelha com espaço (gap) de pelo menos 12px.'),
+        T.ok(!wide || g.cols >= 3, 'No ecrã largo cabem pelo menos 3 cartões por linha. A grelha ainda não aproveita o espaço.'),
+        T.ok(wide || g.cols === 1, 'No telemóvel, cada cartão deve ocupar uma linha. Usa colunas com largura mínima (minmax).'),
+        T.ok(g.full, wide ? 'No ecrã largo, o cartão em destaque não ocupa a linha toda.' : 'No telemóvel, o cartão em destaque não ocupa a largura toda.'),
+        T.ok(!T.overflow(), 'Há conteúdo a sair do ecrã. Confirma que o destaque não cria colunas a mais.')
+      ];
+    },
+    explain:'Como é que a tua grelha decide o número de colunas? O que faz 1 / -1?'
+  }]
+},
+{
+  id:'m4', n:4, room:'Loja', title:'Reabrir a loja',
+  learn:'Variáveis, números, operações, eventos e DOM',
+  levels:[
+  {
+    id:'m4l1', kind:'explorar', editable:['js'], title:'Contas trocadas',
+    sit:'A calculadora da loja dá valores estranhos.',
+    obj:'Calcula quanto custam 4 cadernos a 1,20 € cada e mostra o total com duas casas decimais.',
+    base:{ html:M4HTML, css:M4CSS },
+    req:['O total é o custo de 4 cadernos','O total aparece com duas casas decimais'],
+    controls:[
+      {id:'q', label:'Quantidade', type:'range', min:1, max:10, step:1, value:1, unit:''},
+      {id:'op', label:'Operação', type:'select', options:['+','-','*','/'], value:'+'},
+      {id:'f', label:'Como mostrar o total', type:'select', options:['total','Math.round(total)','total.toFixed(2)'], value:'total'}
+    ],
+    template: v => `// Quanto custam os cadernos?
+const preco = 1.20;
+const quantidade = ${v.q};
+const total = preco ${v.op} quantidade;
+
+document.querySelector('#total').textContent =
+  'Total: ' + ${v.f} + ' €';`,
+    hints:[
+      'Uma variável guarda um valor com um nome: `const preco = 1.20`. Com os operadores `+ - * /` fazes contas com essas variáveis.',
+      'O custo de várias unidades obtém-se a multiplicar: `*`. As contas com casas decimais nem sempre são exatas (1.2 × 3 dá 3.5999…), por isso usa `toFixed(2)` para mostrar sempre duas casas.',
+      {t:'Para bilhetes de autocarro, ficaria assim:', code:'const precoBilhete = 2.5;\nconst pessoas = 3;\nconst custo = precoBilhete * pessoas;\nconsole.log(custo.toFixed(2)); // "7.50"'}
+    ],
+    check: function(T){
+      var t = T.text(T.q('#total')), n = T.num(t);
+      var fix = 'O total ainda não é o custo de 4 cadernos a 1,20 €. Confirma a quantidade e a operação.';
+      if (Math.abs(n - 5.2) < 0.001) fix = 'Estás a somar o preço à quantidade. Que operação dá o custo de várias unidades iguais?';
+      else if (n === 5) fix = 'O valor foi arredondado para um número inteiro. Os preços precisam das casas decimais.';
+      return [
+        T.ok(Math.abs(n - 4.8) < 0.001, fix),
+        T.ok(/4[.,]80/.test(t), Math.abs(n - 4.8) < 0.001 ? 'O valor está certo, mas um preço mostra-se sempre com duas casas decimais (4.80).' : 'Quando o cálculo estiver certo, mostra o total com duas casas decimais.')
+      ];
+    },
+    explain:'Porque é que é preciso toFixed(2) para mostrar preços?'
+  },
+  {
+    id:'m4l2', kind:'completar', editable:['js'], title:'O botão Calcular',
+    sit:'O botão Calcular não faz nada.',
+    obj:'Completa o código para que, ao clicar no botão, apareça o total do material escolhido com a quantidade indicada.',
+    base:{ html:M4HTML, css:M4CSS },
+    req:['O total muda quando se clica em Calcular','A quantidade é lida corretamente','O cálculo está certo (3 canetas custam 1,95 €)','O total tem duas casas decimais (5 cadernos: 6.00 €)'],
+    code:`const botao = document.querySelector('#calcular');
+
+botao.addEventListener('{{ev}}', function () {
+  const preco = Number(document.querySelector('#produto').value);
+  const quantidade = Number(document.querySelector('{{sel}}').value);
+  const total = preco {{op}} quantidade;
+  document.querySelector('#total').textContent =
+    'Total: ' + total.{{fmt}}(2) + ' €';
+});`,
+    blanks:{ev:5,sel:11,op:1,fmt:7},
+    hints:[
+      'Um evento é algo que acontece na página (um clique, uma tecla). `addEventListener` diz que função corre quando esse evento acontece. `document.querySelector` encontra um elemento pelo seletor CSS.',
+      'O evento de clique chama-se `click`. O campo da quantidade tem `id="quantidade"`, por isso o seletor é `#quantidade`. A operação é `*` e o método das casas decimais é `toFixed`.',
+      {t:'Num botão que duplica um valor, ficaria assim:', code:"const botao = document.querySelector('#dobrar');\nbotao.addEventListener('click', function () {\n  const a = Number(document.querySelector('#valor').value);\n  document.querySelector('#saida').textContent = (a * 2).toFixed(2);\n});"}
+    ],
+    check: async function(T){
+      var sel = T.q('#produto'), q = T.q('#quantidade'), b = T.q('#calcular'), out = T.q('#total');
+      var before = T.text(out);
+      sel.value = '0.65'; q.value = '3'; b.click(); await T.wait(30);
+      var t1 = T.text(out);
+      sel.value = '1.20'; q.value = '5'; b.click(); await T.wait(30);
+      var t2 = T.text(out);
+      var changed = t1 !== before;
+      return [
+        T.ok(changed, 'Quando se clica em Calcular, nada muda. Que evento acontece quando se clica num botão?'),
+        T.ok(changed && !/NaN|undefined|null/.test(t1), 'O total mostra NaN: o programa não conseguiu ler a quantidade. Confirma o seletor do campo (começa por #).'),
+        T.ok(Math.abs(T.num(t1) - 1.95) < 0.001, 'O cálculo não dá o custo das unidades. Que operação multiplica o preço pela quantidade?'),
+        T.ok(/6[.,]00/.test(t2), 'O total tem de aparecer com duas casas decimais. Que método de números faz isso?')
+      ];
+    },
+    explain:'O que acontece, passo a passo, quando se clica em Calcular?'
+  },
+  {
+    id:'m4l3', kind:'construir', editable:['js'], title:'Total automático',
+    sit:'A loja quer um total que se atualiza sozinho e um saco reutilizável opcional.',
+    obj:'Escreve o JavaScript que atualiza o total sempre que se muda o material, a quantidade ou o saco (+0,50 €). Já não há botão.',
+    base:{ html:M4HTML3, css:M4CSS },
+    starter:{ js:`// O total deve atualizar sozinho sempre que se muda
+// o material, a quantidade ou o saco reutilizável.
+// Preço do saco: 0,50 €
+// Elementos: #produto, #quantidade, #saco, #total
+
+` },
+    req:['Ao mudar a quantidade, o total atualiza','Ao mudar o material, o total atualiza','O saco acrescenta 0,50 € e retira-os quando se desmarca','O total tem duas casas decimais e o símbolo €'],
+    hints:[
+      'Os campos de formulário avisam quando mudam: o evento `input` acontece a cada alteração e `change` quando a escolha fica feita. Uma caixa de verificação tem a propriedade `checked` (true ou false).',
+      'Cria uma função `atualizar()` que lê os três controlos, calcula e escreve o total. Liga essa função ao evento `input` (ou `change`) do material, da quantidade e do saco. Converte os valores com `Number()` antes de somar.',
+      {t:'Num pedido de pizza, ficaria assim:', code:"function atualizar() {\n  let preco = Number(tamanho.value) * 2;\n  if (extra.checked) {\n    preco = preco + 1;\n  }\n  saida.textContent = preco.toFixed(2) + ' €';\n}\ntamanho.addEventListener('input', atualizar);\nextra.addEventListener('change', atualizar);"}
+    ],
+    check: async function(T){
+      var sel = T.q('#produto'), q = T.q('#quantidade'), saco = T.q('#saco'), out = T.q('#total');
+      T.change(sel, '0.65'); await T.wait(20);
+      T.change(q, '4'); await T.wait(30);
+      var t1 = T.text(out);
+      T.change(sel, '0.90'); await T.wait(30);
+      var t2 = T.text(out);
+      saco.click(); await T.wait(30);
+      var t3 = T.text(out);
+      saco.click(); await T.wait(30);
+      var t4 = T.text(out);
+      return [
+        T.ok(Math.abs(T.num(t1) - 2.6) < 0.001, 'Ao escrever a quantidade 4 com canetas (0,65 €), o total devia passar a 2.60 €. O campo da quantidade precisa de um evento.'),
+        T.ok(Math.abs(T.num(t2) - 3.6) < 0.001, 'Ao escolher a régua (0,90 €) com 4 unidades, o total devia passar a 3.60 €. O material também precisa de um evento.'),
+        T.ok(Math.abs(T.num(t3) - 4.1) < 0.001 && Math.abs(T.num(t4) - 3.6) < 0.001, /3[.,]60\s*0[.,]5|3[.,]600[.,]5/.test(t3) ? 'O saco foi colado ao texto em vez de somado. Converte com Number() antes de somar.' : 'Ao marcar o saco, o total devia subir 0,50 € (4.10 €) e voltar a 3.60 € ao desmarcar.'),
+        T.ok(/\d[.,]\d{2}\s*€/.test(t2), 'Mostra o total com duas casas decimais seguidas do símbolo €, por exemplo 3.60 €.')
+      ];
+    },
+    explain:'Porque é que é preciso Number() antes de somar? Que eventos usaste e porquê?'
+  }]
+},
+{
+  id:'m5', n:5, room:'Secretaria', title:'Ativar a secretaria',
+  learn:'Inputs, condições, evento submit e mensagens de feedback',
+  levels:[
+  {
+    id:'m5l1', kind:'explorar', editable:['js'], title:'Nomes de uma letra',
+    sit:'A secretaria recebe inscrições com nomes de uma só letra.',
+    obj:'Ajusta a condição para aceitar apenas nomes com pelo menos 3 letras. A tabela do resultado mostra os testes.',
+    base:{ html:`<h1>Verificar nomes</h1>
+<p>A função validarNome é testada com estes nomes:</p>
+<table id="testes">
+  <thead><tr><th>Nome</th><th>Resultado</th><th>Esperado</th></tr></thead>
+  <tbody></tbody>
+</table>`, css:M5CSS },
+    after:`(function(){
+  var casos=[['Ana','válido'],['Rui','válido'],['Maria Silva','válido'],['Al','inválido'],['','inválido'],['  Jo  ','inválido']];
+  var tb=document.querySelector('#testes tbody');
+  casos.forEach(function(c){
+    var r; try { r = validarNome(c[0]); } catch(e) { r = 'erro'; }
+    var tr=document.createElement('tr'); tr.className = r===c[1] ? 'ok' : 'falha';
+    tr.innerHTML='<td>«'+c[0]+'»</td><td>'+r+'</td><td>'+c[1]+'</td>';
+    tb.appendChild(tr);
+  });
+})();`,
+    req:['Nomes com 3 ou mais letras são válidos','Nomes mais curtos são inválidos'],
+    controls:[
+      {id:'op', label:'Comparação', type:'select', options:['<','>','>=','==='], value:'<'},
+      {id:'n', label:'Número de letras', type:'range', min:0, max:6, step:1, value:1, unit:''}
+    ],
+    template: v => `function validarNome(nome) {
+  if (nome.trim().length ${v.op} ${v.n}) {
+    return 'válido';
+  } else {
+    return 'inválido';
+  }
+}`,
+    hints:[
+      'Uma condição (`if`) escolhe entre dois caminhos. A comparação dá verdadeiro ou falso: `>`, `>=`, `<`, `===`.',
+      '`trim()` tira os espaços das pontas e `length` conta os caracteres. "Pelo menos 3" escreve-se `>= 3` (ou `> 2`).',
+      {t:'Para verificar a idade de voto, ficaria assim:', code:"function podeVotar(idade) {\n  if (idade >= 18) {\n    return 'sim';\n  } else {\n    return 'não';\n  }\n}"}
+    ],
+    check: function(T){
+      var rows = T.qa('#testes tbody tr');
+      var ok = function(i){ return rows[i] && rows[i].className === 'ok'; };
+      return [
+        T.ok(rows.length === 6 && ok(0) && ok(1) && ok(2), 'Há nomes com 3 ou mais letras a serem recusados. Olha para as linhas vermelhas da tabela.'),
+        T.ok(rows.length === 6 && ok(3) && ok(4) && ok(5), 'Há nomes demasiado curtos a serem aceites. Olha para as linhas vermelhas da tabela.')
+      ];
+    },
+    explain:'Que comparação escolheste? Porque é que «  Jo  » é inválido?'
+  },
+  {
+    id:'m5l2', kind:'completar', editable:['js'], title:'Enviar sem recarregar',
+    sit:'O formulário de inscrição recarrega a página e aceita emails sem @.',
+    obj:'Completa o código que trata o envio do formulário e mostra mensagens de erro ou de sucesso.',
+    base:{ html:M5HTML, css:M5CSS },
+    req:['Aparece uma mensagem ao submeter','A página não recarrega (`preventDefault`)','Um email sem @ é recusado','Uma inscrição válida mostra sucesso'],
+    code:`const form = document.querySelector('#inscricao');
+const mensagem = document.querySelector('#mensagem');
+
+form.addEventListener('{{ev}}', function (evento) {
+  evento.{{pd}}();
+  const nome = document.querySelector('#nome').value.trim();
+  const email = document.querySelector('#email').value.trim();
+
+  if (nome.length < 3) {
+    mensagem.textContent = 'Escreve o teu nome completo.';
+    mensagem.className = 'erro';
+  } else if ({{cond}}) {
+    mensagem.textContent = 'O email tem de ter @.';
+    mensagem.className = 'erro';
+  } else {
+    mensagem.textContent = 'Inscrição recebida, ' + nome + '!';
+    mensagem.className = '{{cls}}';
+  }
+});`,
+    blanks:{ev:6,pd:14,cond:22,cls:7},
+    hints:[
+      'Quando se envia um formulário acontece o evento `submit`. Por defeito, o navegador recarrega a página; `evento.preventDefault()` impede isso.',
+      "O evento é `submit` e o método é `preventDefault`. Para saber se falta o @ usa `!email.includes('@')` (o `!` quer dizer «não»). A classe de sucesso chama-se `sucesso`.",
+      {t:'Num formulário de código postal, ficaria assim:', code:"form.addEventListener('submit', function (evento) {\n  evento.preventDefault();\n  if (!codigo.includes('-')) {\n    aviso.textContent = 'Falta o hífen.';\n    aviso.className = 'erro';\n  }\n});"}
+    ],
+    check: async function(T){
+      var f = T.q('#inscricao'), msg = T.q('#mensagem'), nome = T.q('#nome'), email = T.q('#email');
+      nome.value = ''; email.value = '';
+      var prevented = T.submit(f); await T.wait(20);
+      var m1 = T.text(msg);
+      nome.value = 'Beatriz Lopes'; email.value = 'beatriz.escola.pt';
+      T.submit(f); await T.wait(20);
+      var c2 = msg.className;
+      email.value = 'beatriz@escola.pt';
+      T.submit(f); await T.wait(20);
+      var m3 = T.text(msg), c3 = msg.className;
+      return [
+        T.ok(m1.length > 0, 'Ao submeter o formulário não aparece nenhuma mensagem. Que evento acontece quando se envia um formulário?'),
+        T.ok(prevented, 'O formulário recarrega a página e a mensagem perde-se. Falta impedir o comportamento por defeito do evento.'),
+        T.ok(/\berro\b/.test(c2), 'Um email sem @ está a ser aceite. A condição deve ser verdadeira quando o email NÃO inclui @.'),
+        T.ok(/\bsucesso\b/.test(c3) && m3.indexOf('Beatriz') >= 0, 'Uma inscrição válida deve mostrar a mensagem com a classe sucesso.')
+      ];
+    },
+    explain:'O que aconteceria sem preventDefault()? Para que serve o ! na condição do email?'
+  },
+  {
+    id:'m5l3', kind:'construir', editable:['js'], title:'Inscrição completa',
+    sit:'A secretaria precisa de validar todos os campos e confirmar cada inscrição.',
+    obj:'Valida o nome (3 ou mais letras), o email (com @ e ponto) e o ano. Se estiver tudo certo, mostra em #resumo o nome, o ano e a atividade.',
+    base:{ html:M5HTML, css:M5CSS },
+    starter:{ js:`// Valida a inscrição quando o formulário é submetido.
+// Regras: nome com pelo menos 3 letras, email com @ e ponto,
+// ano escolhido. Se estiver tudo certo, mostra o resumo.
+// Elementos: #inscricao, #nome, #email, #ano, #atividade,
+//            #mensagem (classes "erro" ou "sucesso"), #resumo
+
+` },
+    req:['A página não recarrega ao submeter','Um nome curto é recusado','Um email sem @ ou sem ponto é recusado','Um ano por escolher é recusado','Uma inscrição válida mostra o resumo com nome, ano e atividade','Depois de um erro, o resumo volta a esconder-se'],
+    hints:[
+      'Valida um campo de cada vez com `if` / `else if` e mostra o resumo apenas no `else` final, quando está tudo certo. `elemento.hidden = true` esconde um elemento.',
+      "Lê os valores com `.value.trim()`. O email precisa de `includes('@')` e `includes('.')`. O ano é inválido quando o valor é `''`. No sucesso escreve o resumo com `textContent` e faz `resumo.hidden = false`; nos erros, `resumo.hidden = true`.",
+      {t:'Esqueleto (completa com as tuas condições):', code:"form.addEventListener('submit', function (evento) {\n  evento.preventDefault();\n  // ler os valores…\n  if (/* nome curto */) {\n    // mensagem de erro e esconder o resumo\n  } else if (/* email inválido */) {\n    // …\n  } else {\n    // mensagem de sucesso e mostrar o resumo\n  }\n});"}
+    ],
+    check: async function(T){
+      var f = T.q('#inscricao'), msg = T.q('#mensagem'), res = T.q('#resumo');
+      var nome = T.q('#nome'), email = T.q('#email'), ano = T.q('#ano'), act = T.q('#atividade');
+      function isErr(){ return msg.classList.contains('erro') && T.text(msg).length > 0; }
+      async function go(n, e, a, at){ nome.value = n; email.value = e; ano.value = a; act.value = at; var p = T.submit(f); await T.wait(25); return p; }
+      var p1 = await go('Jo', 'tomas@escola.pt', '9.º ano', 'Teatro');
+      var shortName = isErr() && !T.visible(res);
+      await go('Tomás Reis', 'tomas.escola.pt', '9.º ano', 'Teatro'); var e1 = isErr();
+      await go('Tomás Reis', 'tomas@escola', '9.º ano', 'Teatro'); var e2 = isErr();
+      await go('Tomás Reis', 'tomas@escola.pt', '', 'Teatro'); var noYear = isErr() && !T.visible(res);
+      await go('Tomás Reis', 'tomas@escola.pt', '9.º ano', 'Teatro');
+      var rt = T.text(res);
+      var okSum = T.visible(res) && rt.indexOf('Tomás Reis') >= 0 && rt.indexOf('9.º ano') >= 0 && rt.indexOf('Teatro') >= 0 && !msg.classList.contains('erro');
+      await go('', 'tomas@escola.pt', '9.º ano', 'Teatro');
+      var hides = isErr() && !T.visible(res);
+      return [
+        T.ok(p1, 'A página recarrega ao submeter. Trata o evento submit e impede o comportamento por defeito.'),
+        T.ok(shortName, 'O nome «Jo» devia ser recusado: mensagem com a classe erro e resumo escondido.'),
+        T.ok(e1 && e2, !e1 ? 'Um email sem @ está a ser aceite.' : 'Um email sem ponto (tomas@escola) está a ser aceite.'),
+        T.ok(noYear, 'Quando o ano fica por escolher, a inscrição devia ser recusada. O valor da opção «Escolhe o ano» é vazio.'),
+        T.ok(okSum, 'Uma inscrição válida deve mostrar #resumo (hidden = false) com o nome, o ano e a atividade.'),
+        T.ok(hides, 'Depois de uma inscrição válida, um erro novo deve esconder outra vez o resumo.')
+      ];
+    },
+    explain:'Por que ordem verificas os campos? Porque é que o resumo deve esconder-se depois de um erro?'
+  }]
+}
+];
+
+const FINAL = {
+  id:'final', n:6, room:'Sala dos clubes', title:'Página de um clube escolar', final:true,
+  learn:'Transferir: HTML, CSS e JavaScript numa página nova',
+  levels:[{
+    id:'final', kind:'construir', editable:['html','css','js'], title:'O teu clube',
+    sit:'O portal está de volta. Falta a página da sala dos clubes, e és tu que a crias.',
+    obj:'Cria a página de um clube escolar à tua escolha (robótica, xadrez, fotografia, teatro…). Não há código de partida nem solução para copiar: aplica o que aprendeste.',
+    base:{},
+    starter:{
+      html:`<!-- A página do teu clube escolar.
+     Imagem disponível: clube.svg -->
+
+`,
+      css:`/* Estilos da página do clube */
+
+`,
+      js:`// Formulário de inscrição no clube
+
+`
+    },
+    widths:[900,360],
+    req:['Estrutura: `<header>` com `<h1>`, `<main>`, imagem com `alt` e uma ligação','Um menu em flexbox com pelo menos 3 ligações','Uma grelha (grid) com pelo menos 3 elementos','Um formulário que avisa quando está vazio e confirma quando está preenchido, sem recarregar','Telemóvel (360px): nada sai do ecrã'],
+    hints:[
+      'Recorda as missões: estrutura com `header`, `main` e atributos (1); menu com flexbox (2); grelha de cartões (3); eventos e DOM (4); formulários e condições (5).',
+      'Planeia antes de escrever: primeiro o HTML completo, depois o CSS do menu e da grelha, por fim o JavaScript do formulário. Testa depois de cada parte e usa o modo Telemóvel.',
+      'Lista de verificação: um `nav` com 3 ou mais ligações; uma secção com 3 ou mais cartões; um `form` com um campo de texto e um elemento para a mensagem; uma imagem com `alt`.'
+    ],
+    check: async function(T){
+      var miss = [];
+      if (!T.q('header h1')) miss.push('<header> com <h1>');
+      if (!T.q('main')) miss.push('<main>');
+      var img = T.q('img'); if (!img || (img.getAttribute('alt') || '').trim().length < 5) miss.push('imagem com alt');
+      var a = T.q('a[href]'); if (!a) miss.push('ligação com href');
+      var all = T.qa('body *');
+      var flexNav = all.some(function(el){ var d = T.cs(el).display; return (d === 'flex' || d === 'inline-flex') && el.querySelectorAll('a').length >= 3; });
+      var grid = all.some(function(el){ var d = T.cs(el).display; return (d === 'grid' || d === 'inline-grid') && el.children.length >= 3; });
+      var form = T.q('form'), formOk = false, why = 'Falta um <form>.';
+      if (form) {
+        var fields = T.qa('input, textarea, select', form).filter(function(f){ return !/^(submit|button|reset|hidden|checkbox|radio|image)$/.test(f.type); });
+        if (!fields.length) { why = 'O formulário precisa de pelo menos um campo para preencher.'; }
+        else {
+          fields.forEach(function(f){ if (f.tagName === 'SELECT') f.selectedIndex = 0; else f.value = ''; });
+          var before = document.body.innerText;
+          var p1 = T.submit(form); await T.wait(40);
+          var t1 = document.body.innerText;
+          fields.forEach(function(f){
+            if (f.tagName === 'SELECT') f.selectedIndex = f.options.length - 1;
+            else if (f.type === 'email') f.value = 'aluno@escola.pt';
+            else if (f.type === 'number') f.value = '12';
+            else if (f.type === 'tel') f.value = '912345678';
+            else if (f.type === 'date') f.value = '2026-11-05';
+            else f.value = 'Ana Martins';
+          });
+          var p2 = T.submit(form); await T.wait(40);
+          var t2 = document.body.innerText;
+          formOk = p1 && p2 && t1 !== before && t2 !== t1;
+          if (!p1 || !p2) why = 'O formulário recarrega a página. Trata o evento submit com preventDefault().';
+          else if (t1 === before) why = 'Com os campos vazios, o formulário não mostra nenhum aviso.';
+          else why = 'Com os campos preenchidos, a mensagem devia mudar para uma confirmação.';
+        }
+      }
+      var wide = window.innerWidth > 600;
+      return [
+        T.ok(!miss.length, 'Falta na estrutura: ' + miss.join(', ') + '.'),
+        T.ok(flexNav, 'Não encontrei um contentor flexível com pelo menos 3 ligações (o menu).'),
+        T.ok(grid, 'Não encontrei uma grelha (display: grid) com pelo menos 3 elementos.'),
+        T.ok(formOk, why),
+        T.ok(wide || !T.overflow(), 'No telemóvel, há conteúdo a sair do ecrã.')
+      ];
+    },
+    explain:'Que decisões tomaste nesta página que não estavam em nenhuma missão? O que mudarias se o clube crescesse?'
+  }]
+};
+const ALL = [...MISSIONS, FINAL];
+ALL.forEach(m => m.levels.forEach((L, i) => { L.mission = m; L.index = i; }));
+
+/* =========================================================
+   Estado
+   ========================================================= */
+const KEY = 'missao-web-v1';
+const blankState = () => ({ v:1, nome:'', unlockAll:false, lv:{}, cel:{} });
+function loadState(){
+  try { const t = localStorage.getItem(KEY); if (t) { const o = JSON.parse(t); if (o && o.v === 1) return Object.assign(blankState(), o); } } catch (e) {}
+  return blankState();
+}
+let S = loadState();
+let saveTimer;
+function save(){ clearTimeout(saveTimer); saveTimer = setTimeout(() => { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }, 250); }
+function ls(id){ return S.lv[id] || (S.lv[id] = { done:false, att:0, hints:0, expl:'', code:null, vals:null, blanks:null }); }
+const isDone = id => !!(S.lv[id] && S.lv[id].done);
+const works = m => isDone(m.levels[0].id) && isDone(m.levels[1].id);
+const complete = m => m.levels.every(L => isDone(L.id));
+const explains = m => m.levels.filter(L => S.lv[L.id] && (S.lv[L.id].expl || '').trim().length >= 40).length >= 2;
+function missionUnlocked(i){
+  if (S.unlockAll || i === 0) return true;
+  if (i === 5) return MISSIONS.every(works);
+  return works(MISSIONS[i - 1]);
+}
+function levelUnlocked(m, j){ return S.unlockAll || j === 0 || isDone(m.levels[j - 1].id); }
+function levelsDone(){ let n = 0; MISSIONS.forEach(m => m.levels.forEach(L => { if (isDone(L.id)) n++; })); return n; }
+
+/* =========================================================
+   Utilitários
+   ========================================================= */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const fmt = s => esc(s).replace(/`([^`]+)`/g, '<code>$1</code>');
+let toastTimer;
+function toast(msg){ const t = $('#toast'); t.textContent = msg; t.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 3800); }
+const debounce = (fn, ms) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; };
+
+/* =========================================================
+   Montagem da página do aluno
+   ========================================================= */
+function valsOf(L){
+  const v = {}; L.controls.forEach(c => { v[c.id] = c.value; });
+  const s = ls(L.id); if (s.vals) Object.assign(v, s.vals);
+  return v;
+}
+function fillBlanks(code, b){ return code.replace(/\{\{(\w+)\}\}/g, (m, k) => (b && b[k] ? String(b[k]).trim() : '')); }
+function currentCode(L){
+  const s = ls(L.id), f = L.editable[0];
+  if (L.kind === 'explorar') return { [f]: L.template(valsOf(L)) };
+  if (L.kind === 'completar') return { [f]: fillBlanks(L.code, s.blanks || {}) };
+  const c = {}; L.editable.forEach(k => { c[k] = (s.code && s.code[k] != null) ? s.code[k] : L.starter[k]; });
+  return c;
+}
+function buildDoc(L, code, mode, token){
+  const ed = L.editable, b = L.base || {};
+  const html = ed.includes('html') ? code.html : (b.html || '');
+  const css = ed.includes('css') ? code.css : '';
+  const js = ed.includes('js') ? code.js : (b.js || '');
+  const cfg = { token, mode, offset: 0, imgs: IMGS };
+  const hook = () => '<script>(' + mwHook.toString() + ')(' + JSON.stringify(cfg) + ');<\/script>';
+  let doc = '<!doctype html><html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Resultado</title><style>' + BASE_CSS + '\n' + (b.css || '') + '</style><style>\n' + css + '\n</style>';
+  const headStart = doc;
+  doc += hook() + '</head><body>\n' + html + '\n';
+  if (js) {
+    const pre = doc + '<script>\n';
+    cfg.offset = pre.split('\n').length - 1;
+    doc = headStart + hook() + '</head><body>\n' + html + '\n<script>\n' + js + '\n<\/script>';
+  }
+  if (L.after) doc += '<script>' + L.after + '<\/script>';
+  if (mode === 'test') doc += '<script>(' + mwRunCheck.toString() + ')(' + JSON.stringify({ token }) + ',' + mwHelpers.toString() + ',' + L.check.toString() + ');<\/script>';
+  return doc + '</body></html>';
+}
+
+let seq = 0, previewToken = null;
+const pending = {};
+window.addEventListener('message', e => {
+  const d = e.data; if (!d || typeof d !== 'object' || !d.__mw) return;
+  if (pending[d.__mw] && d.type === 'result') { pending[d.__mw](d); return; }
+  if (d.__mw === previewToken) {
+    if (d.type === 'error') logLine('error', d.data);
+    else if (d.type === 'log') logLine(d.data.k, d.data.t);
+  }
+});
+function testAt(L, code, w){
+  return new Promise(res => {
+    const token = 't' + (++seq) + Math.random().toString(36).slice(2, 7);
+    const f = document.createElement('iframe');
+    f.setAttribute('sandbox', 'allow-scripts allow-forms');
+    f.setAttribute('aria-hidden', 'true'); f.tabIndex = -1;
+    f.className = 'testframe'; f.style.width = w + 'px';
+    const tm = setTimeout(() => { if (pending[token]) pending[token]({ timeout:true }); }, 6000);
+    pending[token] = d => { clearTimeout(tm); delete pending[token]; f.remove(); res(d); };
+    f.srcdoc = buildDoc(L, code, 'test', token);
+    document.body.appendChild(f);
+  });
+}
+
+/* =========================================================
+   Ecrã: mapa
+   ========================================================= */
+const ROOMS = [
+  { mi:0, x:20, y:20, w:250, h:175, door:'b' },
+  { mi:2, x:285, y:20, w:250, h:175, door:'b' },
+  { mi:5, x:550, y:20, w:250, h:175, door:'b' },
+  { mi:1, x:20, y:210, w:780, h:55 },
+  { mi:3, x:20, y:280, w:250, h:170, door:'t' },
+  { mi:4, x:285, y:280, w:250, h:170, door:'t' }
+];
+function roomArt(mi, w, h){
+  const cx = w / 2;
+  switch (mi) {
+    case 0: { let s = ''; [88, 122, 156].forEach((y, r) => { let x = cx - 70; const ws = [9, 12, 8, 14, 10, 9, 13, 8, 11, 12]; ws.forEach((bw, i) => { const bh = 18 + ((i * 7 + r * 5) % 11); s += `<rect class="${['f1','f2','f3'][(i + r) % 3]}" x="${x}" y="${y - bh}" width="${bw}" height="${bh}" rx="1.5"/>`; x += bw + 3; }); s += `<line class="s" x1="${cx - 76}" y1="${y + 1}" x2="${cx + 76}" y2="${y + 1}"/>`; }); return s; }
+    case 1: return `<rect class="s" x="${cx - 120}" y="17" width="330" height="24" rx="5"/><rect class="f1" x="${cx - 112}" y="23" width="54" height="12" rx="3"/>` + [0,1,2,3].map(i => `<rect class="f2" x="${cx + 60 + i * 36}" y="24" width="30" height="10" rx="3"/>`).join('');
+    case 2: { let s = ''; for (let r = 0; r < 2; r++) for (let c = 0; c < 3; c++) { if (r === 0 && c === 2) continue; const wide = r === 0 && c === 1; s += `<rect class="${wide ? 'f2' : 'f4'} s" x="${cx - 75 + c * 52}" y="${70 + r * 46}" width="${wide ? 98 : 46}" height="38" rx="4"/>`; } return s; }
+    case 3: return `<rect class="s" x="${cx - 70}" y="110" width="140" height="34" rx="4"/><rect class="f1" x="${cx - 70}" y="104" width="140" height="8"/><path class="f2" d="M${cx + 20} 64 h40 l12 14 l-12 14 h-40 z"/><circle class="f3" cx="${cx + 30}" cy="78" r="3"/><circle class="f2 s" cx="${cx - 40}" cy="92" r="9"/><circle class="f2 s" cx="${cx - 22}" cy="96" r="9"/>`;
+    case 4: return `<rect class="s" x="${cx - 80}" y="120" width="160" height="22" rx="3"/><rect class="f4 s" x="${cx - 36}" y="58" width="56" height="58" rx="3"/>` + [0,1,2].map(i => `<line class="s" x1="${cx - 28}" y1="${72 + i * 12}" x2="${cx + 10}" y2="${72 + i * 12}"/>`).join('') + `<path class="s" d="M${cx + 34} 92 l8 9 l16 -20" style="stroke:var(--chalk);stroke-width:4"/>`;
+    case 5: return `<path class="s" d="M${cx - 90} 62 Q${cx} 84 ${cx + 90} 62"/>` + [0,1,2,3,4,5].map(i => { const x = cx - 80 + i * 30, y = 64 + Math.sin(i / 5 * Math.PI) * 10; return `<path class="${['f1','f2','f3'][i % 3]}" d="M${x} ${y} l14 0 l-7 18 z"/>`; }).join('') + `<path class="f2 s" d="M${cx} 100 l9 18 l20 3 l-15 14 l4 20 l-18 -10 l-18 10 l4 -20 l-15 -14 l20 -3 z"/>`;
+  }
+  return '';
+}
+function renderMap(){
+  const done = levelsDone(), pct = Math.round((done + (isDone('final') ? 1 : 0)) / 16 * 100);
+  let roomsSvg = '';
+  const just = [];
+  ROOMS.forEach(R => {
+    const m = ALL[R.mi], unlocked = missionUnlocked(R.mi), comp = complete(m);
+    const n = m.levels.filter(L => isDone(L.id)).length;
+    let cls = 'room', state = 'Offline';
+    if (comp) { cls += ' done'; state = m.final ? 'Página criada' : 'Reativado'; if (!S.cel[m.id]) { cls += ' just'; just.push(m); } }
+    else if (unlocked) { cls += ' open'; state = n ? `Em curso · ${n} de ${m.levels.length}` : 'Disponível'; }
+    else state = 'Bloqueado';
+    cls += ' clickable';
+    const pips = m.levels.length > 1 ? m.levels.map((L, i) => `<circle class="pip${isDone(L.id) ? ' on' : ''}" cx="${R.w - 22 - (m.levels.length - 1 - i) * 16}" cy="${R.h > 60 ? 24 : 27}" r="5"/>`).join('') : '';
+    const labelY = R.h > 60 ? 30 : 26;
+    roomsSvg += `<g class="${cls}" transform="translate(${R.x} ${R.y})" data-act="open" data-m="${R.mi}" tabindex="0" role="button" aria-label="${esc(m.room)}: ${esc(state)}">
+      <rect class="floor" width="${R.w}" height="${R.h}" rx="4"/>
+      <rect class="hatch" width="${R.w}" height="${R.h}" rx="4"/>
+      <g class="art">${roomArt(R.mi, R.w, R.h)}</g>
+      <text class="name" x="16" y="${labelY}">${esc(m.room)}</text>
+      <text class="state" x="${R.h > 60 ? 16 : 16}" y="${R.h > 60 ? labelY + 18 : labelY + 16}">${esc(state)}</text>
+      ${pips}
+    </g>`;
+    if (R.door === 'b') roomsSvg += `<line class="door" x1="${R.x + R.w / 2 - 20}" y1="${R.y + R.h}" x2="${R.x + R.w / 2 + 20}" y2="${R.y + R.h}"/>`;
+    if (R.door === 't') roomsSvg += `<line class="door" x1="${R.x + R.w / 2 - 20}" y1="${R.y}" x2="${R.x + R.w / 2 + 20}" y2="${R.y}"/>`;
+  });
+  const portaria = `<g transform="translate(550 280)"><rect width="250" height="170" rx="4" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/>
+    <text class="portal-lbl" x="16" y="30">Portaria · portal</text>
+    <text class="portal-num" x="16" y="92">${pct}%</text>
+    <text class="portal-lbl" x="16" y="114">online</text>
+    <rect x="16" y="132" width="218" height="10" rx="5" fill="var(--surface-2)" stroke="var(--line)"/>
+    <rect x="16" y="132" width="${Math.max(0, 218 * pct / 100)}" height="10" rx="5" fill="var(--sun)"/></g>
+    <line class="door" x1="655" y1="280" x2="695" y2="280"/>`;
+
+  const cards = ALL.map((m, i) => {
+    const unlocked = missionUnlocked(i), comp = complete(m);
+    const n = m.levels.filter(L => isDone(L.id)).length;
+    const pill = comp ? `<span class="pill p-done">Concluída</span>` : unlocked ? `<span class="pill p-go">${n ? `${n} de ${m.levels.length} níveis` : 'Disponível'}</span>` : `<span class="pill">Bloqueada</span>`;
+    const badges = m.final
+      ? badge('Transfere', isDone('final'), 'Criou uma página nova com tudo o que aprendeu')
+      : badge('Funciona', works(m), 'Níveis Explorar e Completar concluídos') + badge('Explica', explains(m), 'Explicou a solução em pelo menos 2 níveis') + badge('Adapta', isDone(m.levels[2].id), 'Resolveu o nível Construir');
+    const lockMsg = m.final ? 'Conclui os níveis 1 e 2 de todas as missões.' : `Conclui os níveis 1 e 2 da Missão ${i}.`;
+    return `<article class="mcard${unlocked ? '' : ' locked'}">
+      <div class="row"><span class="mnum">${m.final ? 'Desafio final' : 'Missão ' + m.n} · ${esc(m.room)}</span>${pill}</div>
+      <h3>${esc(m.title)}</h3>
+      <p class="learn">${esc(m.learn)}</p>
+      <div class="badges">${badges}</div>
+      ${unlocked ? `<button class="btn ${comp ? '' : 'btn-primary'}" data-act="open" data-m="${i}">${comp ? 'Rever' : n ? 'Continuar' : 'Começar'}</button>` : `<p class="learn">${lockMsg}</p>`}
+    </article>`;
+  }).join('');
+
+  $('#app').innerHTML = `${topBar()}
+  <main class="map-screen">
+    <div class="story">
+      <h2>O portal da Escola do Vale foi abaixo.</h2>
+      <p>Cada espaço da escola só volta a funcionar quando o seu código for reparado. Escolhe uma sala no mapa, resolve os desafios e vê-a acender. Podes experimentar à vontade: não há vidas a perder.</p>
+      <div class="legend" aria-hidden="true"><span><i class="l-off"></i>Offline</span><span><i class="l-open"></i>Disponível</span><span><i class="l-on"></i>Reativado</span></div>
+    </div>
+    <div class="plan">
+      <svg viewBox="0 0 820 470" role="group" aria-label="Mapa da escola">
+        <defs><pattern id="hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line class="hatch-line" x1="0" y1="0" x2="0" y2="9"/></pattern></defs>
+        <rect class="wall" x="8" y="8" width="804" height="454" rx="8"/>
+        ${roomsSvg}${portaria}
+      </svg>
+    </div>
+    <div class="mlist">${cards}</div>
+  </main>`;
+  bindTop();
+  if (just.length) {
+    just.forEach(m => { S.cel[m.id] = true; });
+    save();
+    const m = just[just.length - 1];
+    toast(m.final ? 'A sala dos clubes já tem página. O portal está completo.' : `${m.room}: espaço reativado.`);
+  }
+}
+function badge(label, on, title){
+  const icon = on ? '<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 7.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>' : '<svg viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+  return `<span class="badge${on ? ' on' : ''}" title="${esc(title)}">${icon}${esc(label)}</span>`;
+}
+function topBar(){
+  const done = levelsDone();
+  return `<header class="top">
+    <div class="brand"><div class="mark">MW</div><div><p class="eyebrow">Escola do Vale · reconstruir a escola digital</p><h1>Missão Web</h1></div></div>
+    <div class="who"><label for="nome">Aluno</label><input id="nome" value="${esc(S.nome)}" placeholder="O teu nome" autocomplete="off"></div>
+    <div class="prog"><span>${done} de 15 níveis${isDone('final') ? ' · desafio final feito' : ''}</span><div class="bar"><i style="width:${(done / 15) * 100}%"></i></div></div>
+    <button class="btn" data-act="teacher">Relatório do professor</button>
+  </header>`;
+}
+function bindTop(){
+  const n = $('#nome'); if (n) n.addEventListener('input', () => { S.nome = n.value; save(); });
+}
+
+/* =========================================================
+   Ecrã: missão
+   ========================================================= */
+let cur = null; // { m, L, file }
+function openMission(mi, li){
+  const m = ALL[mi];
+  if (!missionUnlocked(mi)) { toast(mi === 5 ? 'Conclui primeiro os níveis 1 e 2 de todas as missões.' : `Conclui primeiro os níveis 1 e 2 da Missão ${mi}.`); return; }
+  if (li == null) { li = m.levels.findIndex(L => !isDone(L.id)); if (li < 0) li = 0; }
+  if (!levelUnlocked(m, li)) li = 0;
+  const L = m.levels[li];
+  cur = { m, mi, L, file: L.editable[0], phone: cur && cur.phone };
+  renderMission();
+  window.scrollTo(0, 0);
+}
+function kindLabel(k){ return { explorar:'Explorar', completar:'Completar', construir:'Construir' }[k]; }
+function renderMission(){
+  const { m, L } = cur, s = ls(L.id);
+  const lvls = m.levels.map((X, j) => {
+    const un = levelUnlocked(m, j);
+    const lab = m.final ? 'Desafio final' : kindLabel(X.kind);
+    return `<button class="lvl${isDone(X.id) ? ' done' : ''}" data-act="level" data-l="${j}" ${un ? '' : 'disabled title="Conclui o nível anterior"'} aria-current="${X === L}"><span class="dot">${isDone(X.id) ? '✓' : j + 1}</span>${lab}</button>`;
+  }).join('');
+  const tabs = [];
+  L.editable.forEach(f => tabs.push({ id:f, label: f === 'html' ? 'HTML' : f === 'css' ? 'CSS' : 'JavaScript', ro:false }));
+  if (L.base && L.base.html && !L.editable.includes('html')) tabs.push({ id:'ro-html', label:'HTML', ro:true });
+  if (L.base && L.base.css && !L.editable.includes('css')) tabs.push({ id:'ro-css', label:'CSS', ro:true });
+  const autoRun = L.kind === 'explorar' || !L.editable.includes('js');
+
+  $('#app').innerHTML = `<div class="mission">
+    <header class="mbar">
+      <button class="btn btn-ghost" data-act="map">← Mapa</button>
+      <div class="mtitle"><p class="eyebrow">${m.final ? 'Desafio final' : 'Missão ' + m.n} · ${esc(m.room)}</p><h1>${esc(m.title)}</h1></div>
+      <nav class="levels" aria-label="Níveis">${lvls}</nav>
+    </header>
+    <div class="bench">
+      <section class="pane brief" aria-label="Missão">
+        <div class="pane-h"><span class="ttl">Missão</span><span class="kind">${m.final ? 'Transferir o que aprendeste' : 'Nível ' + (L.index + 1) + ' · ' + kindLabel(L.kind)}</span></div>
+        <div class="pane-b">
+          <h2>${esc(L.title)}</h2>
+          <p class="sit"><strong>Situação.</strong> ${fmt(L.sit)}</p>
+          <p class="obj"><strong>Objetivo.</strong> ${fmt(L.obj)}</p>
+          <div><h3 class="lbl">Requisitos</h3><ul class="req" id="req">${L.req.map(r => `<li class="${s.done ? 'ok' : ''}"><span class="mk"></span><span>${fmt(r)}</span></li>`).join('')}</ul></div>
+          <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+          <div id="success"></div>
+          <div class="hints"><h3 class="lbl">Pistas</h3><div id="hintlist" class="hints"></div><button class="btn" id="hintbtn" data-act="hint"></button></div>
+        </div>
+      </section>
+      <section class="pane code" aria-label="Código">
+        <div class="pane-h"><span class="ttl">Código</span><div class="tabs" role="tablist">${tabs.map(t => `<button class="tab" role="tab" data-act="tab" data-f="${t.id}" aria-selected="${t.id === cur.file}">${t.label}${t.ro ? ' <span class="ro">· só leitura</span>' : ''}</button>`).join('')}</div></div>
+        <div class="pane-b" id="codebody"></div>
+        <div class="actions">
+          <button class="btn" data-act="run">Executar</button>
+          <button class="btn btn-primary" data-act="test" id="testbtn">Testar</button>
+          ${L.kind === 'explorar' ? '' : `<button class="btn btn-ghost" data-act="reset" id="resetbtn">Repor código</button>`}
+          <span class="tip">${autoRun ? 'O resultado atualiza enquanto escreves.' : 'O JavaScript corre quando carregas em Executar (Ctrl + Enter).'}</span>
+        </div>
+      </section>
+      <section class="pane result" aria-label="Resultado">
+        <div class="pane-h"><span class="ttl">Resultado</span><div class="seg" role="group" aria-label="Largura"><button data-act="width" data-w="wide" aria-pressed="${!cur.phone}">Largo</button><button data-act="width" data-w="phone" aria-pressed="${!!cur.phone}">Telemóvel</button></div></div>
+        <div class="stage${cur.phone ? ' phone' : ''}" id="stage"><iframe id="preview" sandbox="allow-scripts allow-forms" title="Resultado do teu código"></iframe></div>
+        <div class="console"><div class="console-h">Consola</div><ol id="conlog"><li class="c-empty">Sem mensagens.</li></ol></div>
+      </section>
+    </div>
+  </div>`;
+  renderCodeBody();
+  renderHints();
+  if (s.done) showSuccess(false);
+  runPreview();
+}
+
+function renderCodeBody(){
+  const { L } = cur, s = ls(L.id), body = $('#codebody');
+  let h = '';
+  // vistas editáveis
+  L.editable.forEach(f => {
+    h += `<div class="codeview" data-view="${f}" ${f === cur.file ? '' : 'hidden'}>`;
+    if (L.kind === 'explorar') {
+      const v = valsOf(L);
+      h += `<div class="controls">${L.controls.map(c => {
+        if (c.type === 'select') return `<label class="ctl"><span>${esc(c.label)}</span><select id="c-${c.id}" data-c="${c.id}">${c.options.map(o => `<option value="${esc(o)}" ${String(v[c.id]) === String(o) ? 'selected' : ''}>${o === '' ? '(vazio)' : esc(o)}</option>`).join('')}</select></label>`;
+        if (c.type === 'range') return `<label class="ctl"><span>${esc(c.label)} <output id="o-${c.id}">${esc(v[c.id])}${c.unit || ''}</output></span><input type="range" id="c-${c.id}" data-c="${c.id}" min="${c.min}" max="${c.max}" step="${c.step}" value="${esc(v[c.id])}"></label>`;
+        return `<label class="ctl"><span>${esc(c.label)}</span><input type="text" id="c-${c.id}" data-c="${c.id}" value="${esc(v[c.id])}" placeholder="${esc(c.ph || '')}" autocomplete="off"></label>`;
+      }).join('')}</div><pre class="src" id="gen"></pre>`;
+    } else if (L.kind === 'completar') {
+      const b = s.blanks || {};
+      let k = 0;
+      const parts = L.code.split(/\{\{(\w+)\}\}/);
+      h += `<pre class="src" id="blankcode">` + parts.map((p, i) => {
+        if (i % 2 === 0) return esc(p);
+        k++;
+        const val = b[p] || '';
+        return `<input class="blank${val ? ' filled' : ''}" id="b-${p}" data-b="${p}" value="${esc(val)}" style="width:${Math.max(L.blanks[p] || 4, val.length) + 1.5}ch" spellcheck="false" autocomplete="off" autocapitalize="off" aria-label="Espaço em branco ${k}">`;
+      }).join('') + `</pre>`;
+    } else {
+      const c = currentCode(L)[f];
+      h += `<textarea class="editor" id="ed-${f}" data-ed="${f}" spellcheck="false" autocomplete="off" autocapitalize="off" wrap="off" aria-label="Editor de ${f.toUpperCase()}">${esc(c)}</textarea>`;
+    }
+    h += `</div>`;
+  });
+  if (L.base && L.base.html && !L.editable.includes('html')) h += `<div class="codeview" data-view="ro-html" ${cur.file === 'ro-html' ? '' : 'hidden'}><pre class="src ro">${esc(L.base.html)}</pre></div>`;
+  if (L.base && L.base.css && !L.editable.includes('css')) h += `<div class="codeview" data-view="ro-css" ${cur.file === 'ro-css' ? '' : 'hidden'}><pre class="src ro">${esc(L.base.css)}</pre></div>`;
+  body.innerHTML = h;
+  if (L.kind === 'explorar') updateGen();
+  if (L.kind === 'completar') { const first = $$('input.blank', body).find(i => !i.value); if (first && window.innerWidth > 760) first.focus({ preventScroll:true }); }
+}
+function updateGen(){
+  const { L } = cur, v = valsOf(L), mv = {};
+  Object.keys(v).forEach(k => { mv[k] = '\u0001' + v[k] + '\u0002'; });
+  const g = $('#gen'); if (!g) return;
+  g.innerHTML = esc(L.template(mv)).replace(/\u0001/g, '<mark>').replace(/\u0002/g, '</mark>');
+}
+
+const HINT_LABELS = ['Recordar o conceito', 'Sugestão', 'Exemplo semelhante'];
+function renderHints(){
+  const { L } = cur, s = ls(L.id), n = Math.min(s.hints || 0, L.hints.length);
+  $('#hintlist').innerHTML = L.hints.slice(0, n).map((h, i) => {
+    const label = cur.m.final && i === 2 ? 'Lista de verificação' : HINT_LABELS[i];
+    if (typeof h === 'string') return `<div class="hint"><b>${label}</b><span>${fmt(h)}</span></div>`;
+    return `<div class="hint"><b>${label}</b><span>${fmt(h.t)}</span><pre>${esc(h.code)}</pre></div>`;
+  }).join('');
+  const btn = $('#hintbtn');
+  if (n >= L.hints.length) btn.hidden = true;
+  else { btn.hidden = false; btn.textContent = `Mostrar pista ${n + 1} de ${L.hints.length}`; }
+}
+
+function logLine(kind, text){
+  const ol = $('#conlog'); if (!ol) return;
+  const e = ol.querySelector('.c-empty'); if (e) e.remove();
+  const li = document.createElement('li'); li.className = 'c-' + (kind === 'log' ? 'log' : kind);
+  li.textContent = (kind === 'error' ? 'Erro: ' : '') + text;
+  ol.appendChild(li); ol.scrollTop = ol.scrollHeight;
+}
+function runPreview(){
+  if (!cur) return;
+  const f = $('#preview'); if (!f) return;
+  previewToken = 'p' + (++seq) + Math.random().toString(36).slice(2, 7);
+  $('#conlog').innerHTML = '<li class="c-empty">Sem mensagens.</li>';
+  f.srcdoc = buildDoc(cur.L, currentCode(cur.L), 'preview', previewToken);
+}
+const runSoon = debounce(runPreview, 450);
+
+function setFeedback(kind, title, text){
+  const fb = $('#feedback'); fb.className = 'feedback f-' + kind;
+  fb.innerHTML = `<strong>${esc(title)}</strong>${fmt(text)}`;
+}
+async function runTest(){
+  const { L } = cur, s = ls(L.id), btn = $('#testbtn');
+  btn.disabled = true; btn.textContent = 'A testar…';
+  s.att = (s.att || 0) + 1; save();
+  runPreview();
+  const code = currentCode(L);
+  const pre = L.precheck ? L.precheck(ls(L.id).blanks || {}) : null;
+  const widths = L.widths || [800];
+  const results = [];
+  for (const w of widths) results.push(await testAt(L, code, w));
+  btn.disabled = false; btn.textContent = 'Testar';
+  if (cur.L !== L) return;
+  const lis = $$('#req li');
+  if (results.some(r => r.timeout)) {
+    lis.forEach(li => { li.className = ''; });
+    setFeedback('warn', 'O teste não terminou.', 'O código demorou demasiado a correr. Pode haver um ciclo que nunca acaba. Revê o código e testa outra vez.');
+    return;
+  }
+  const errors = [...new Set(results.flatMap(r => r.errors || []))];
+  if (results.some(r => !r.data)) {
+    lis.forEach(li => { li.className = 'fail'; });
+    setFeedback('err', 'Não foi possível verificar a página.', errors.length ? 'O navegador encontrou um erro: ' + errors[0] : 'Falta algum elemento que a missão espera. Confirma que não apagaste nem mudaste o nome a elementos do HTML fornecido.');
+    return;
+  }
+  const items = L.req.map((_, i) => {
+    let ok = true, fix = '';
+    results.forEach(r => { const it = r.data[i]; if (!it || !it.ok) { ok = false; if (!fix) fix = (it && it.fix) || 'Requisito por cumprir.'; } });
+    return { ok, fix };
+  });
+  items.forEach((it, i) => { if (lis[i]) lis[i].className = it.ok ? 'ok' : 'fail'; });
+  const allOk = items.every(it => it.ok) && !pre && !errors.length;
+  if (!allOk) {
+    if (pre) setFeedback('err', 'Há etiquetas que não coincidem.', pre);
+    else if (errors.length) setFeedback('err', 'O navegador encontrou um erro no teu código.', errors[0] + (errors.length > 1 ? ` (e mais ${errors.length - 1})` : '') + '. Corrige-o e testa outra vez.');
+    else {
+      const nOk = items.filter(it => it.ok).length;
+      setFeedback(nOk ? 'warn' : 'err', nOk ? `${nOk} de ${items.length} requisitos cumpridos.` : 'Ainda não está.', items.find(it => !it.ok).fix);
+    }
+    return;
+  }
+  const first = !s.done;
+  s.done = true;
+  if (L.editable.length && L.kind === 'construir') s.code = Object.assign({}, s.code || {}, code);
+  save();
+  setFeedback('ok', 'Todos os requisitos cumpridos.', first ? 'O navegador mostra a página como pedido.' : 'Continua a funcionar.');
+  updateLevelTabs();
+  showSuccess(first);
+}
+function updateLevelTabs(){
+  const { m } = cur;
+  $$('.lvl').forEach((b, j) => {
+    const X = m.levels[j];
+    b.classList.toggle('done', isDone(X.id));
+    b.querySelector('.dot').textContent = isDone(X.id) ? '✓' : j + 1;
+    b.disabled = !levelUnlocked(m, j);
+    if (!b.disabled) b.removeAttribute('title');
+  });
+}
+function showSuccess(fresh){
+  const { m, L } = cur, s = ls(L.id), last = L.index === m.levels.length - 1;
+  let note = '';
+  if (fresh && complete(m)) note = m.final ? 'O portal da escola está completo.' : `Missão concluída: ${m.room.toLowerCase()} reativado no mapa.`;
+  else if (fresh && L.index === 1 && !m.final && MISSIONS[m.n] && !complete(m)) note = `A Missão ${m.n + 1} ficou desbloqueada.`;
+  $('#success').innerHTML = `<div class="success">
+    <p class="win">${m.final ? 'Desafio final concluído.' : 'Nível concluído.'}</p>
+    ${note ? `<p>${esc(note)}</p>` : ''}
+    <label for="expl">Explica a tua solução</label>
+    <p class="q">${esc(L.explain)}</p>
+    <textarea id="expl" placeholder="Escreve por palavras tuas…">${esc(s.expl || '')}</textarea>
+    <div class="acts">
+      <button class="btn" data-act="saveexpl">Guardar explicação</button>
+      ${last ? `<button class="btn btn-primary" data-act="map">Voltar ao mapa</button>` : `<button class="btn btn-primary" data-act="level" data-l="${L.index + 1}">Nível seguinte →</button>`}
+    </div>
+  </div>`;
+}
+
+/* =========================================================
+   Ecrã: relatório do professor
+   ========================================================= */
+let confirmReset = false;
+function renderTeacher(){
+  const rows = ALL.flatMap(m => m.levels.map(L => {
+    const s = S.lv[L.id] || {};
+    return `<tr><td>${m.final ? 'Final' : 'M' + m.n + ' · ' + (L.index + 1)}</td><td>${esc(L.title)}</td><td>${s.done ? 'Concluído' : (s.att ? 'Em curso' : '—')}</td><td class="num">${s.att || 0}</td><td class="num">${Math.min(s.hints || 0, L.hints.length)}</td><td class="expl">${s.expl ? esc(s.expl) : '—'}</td></tr>`;
+  })).join('');
+  const dist = MISSIONS.map(m => `<tr><td>Missão ${m.n} · ${esc(m.room)}</td><td>${works(m) ? 'Sim' : 'Não'}</td><td>${explains(m) ? 'Sim' : 'Não'}</td><td>${isDone(m.levels[2].id) ? 'Sim' : 'Não'}</td></tr>`).join('');
+  $('#app').innerHTML = `${topBar()}
+  <main class="teacher">
+    <div><button class="btn btn-ghost" data-act="map">← Mapa</button></div>
+    <div><p class="eyebrow">Para o professor</p><h2>Relatório de ${esc(S.nome || 'aluno sem nome')}</h2></div>
+    <section>
+      <h3>Níveis</h3>
+      <p class="muted">As tentativas contam cada vez que o aluno carrega em Testar. Errar não é penalizado; o número serve para perceber onde houve mais dificuldade. As pistas vão de 0 a 3 por nível.</p>
+      <div class="tbl-wrap"><table class="rep"><thead><tr><th>Nível</th><th>Desafio</th><th>Estado</th><th class="num">Tentativas</th><th class="num">Pistas</th><th>Explicação do aluno</th></tr></thead><tbody>${rows}</tbody></table></div>
+    </section>
+    <section>
+      <h3>Distinções</h3>
+      <p class="muted">Funciona: níveis Explorar e Completar concluídos. Explica: explicação com pelo menos 40 caracteres em 2 ou mais níveis. Adapta: nível Construir resolvido. Nenhuma distinção depende da rapidez.</p>
+      <div class="tbl-wrap"><table class="rep"><thead><tr><th>Missão</th><th>Funciona</th><th>Explica</th><th>Adapta</th></tr></thead><tbody>${dist}<tr><td>Desafio final</td><td colspan="3">${isDone('final') ? 'Concluído (Transfere)' : 'Por concluir'}</td></tr></tbody></table></div>
+    </section>
+    <section>
+      <h3>Guardar e levar o progresso</h3>
+      <p class="muted">O progresso fica guardado neste navegador. Para continuar noutro computador, ou para entregar ao professor, copia o código de progresso e cola-o no outro lado.</p>
+      <label class="lbl" for="exp">Código de progresso</label>
+      <textarea id="exp" readonly>${esc(exportCode())}</textarea>
+      <div class="acts"><button class="btn" data-act="copy">Copiar código</button></div>
+      <label class="lbl" for="imp">Carregar progresso</label>
+      <textarea id="imp" placeholder="Cola aqui um código de progresso"></textarea>
+      <div class="acts"><button class="btn btn-primary" data-act="import">Carregar</button></div>
+    </section>
+    <section>
+      <h3>Opções da turma</h3>
+      <label class="switch"><input type="checkbox" id="unlock" ${S.unlockAll ? 'checked' : ''}> Desbloquear todas as missões e níveis</label>
+      <p class="muted">Útil para o professor rever os desafios ou quando a turma retoma o trabalho a meio.</p>
+      <div class="acts" id="resetbox">${confirmReset ? `<div class="confirm"><span>Isto apaga todo o progresso deste aluno neste navegador.</span><button class="btn btn-danger" data-act="reset-yes">Apagar progresso</button><button class="btn" data-act="reset-no">Cancelar</button></div>` : `<button class="btn" data-act="reset-ask">Apagar progresso…</button>`}</div>
+    </section>
+  </main>`;
+  bindTop();
+  $('#unlock').addEventListener('change', e => { S.unlockAll = e.target.checked; save(); toast(S.unlockAll ? 'Todas as missões estão desbloqueadas.' : 'As missões voltam a desbloquear por ordem.'); });
+}
+function exportCode(){
+  try { return 'MW1.' + btoa(unescape(encodeURIComponent(JSON.stringify(S)))); } catch (e) { return ''; }
+}
+function importCode(t){
+  t = (t || '').trim();
+  if (!t.startsWith('MW1.')) throw new Error('formato');
+  const o = JSON.parse(decodeURIComponent(escape(atob(t.slice(4)))));
+  if (!o || o.v !== 1 || typeof o.lv !== 'object') throw new Error('formato');
+  S = Object.assign(blankState(), o); save();
+}
+
+/* =========================================================
+   Eventos
+   ========================================================= */
+let view = 'map';
+function go(v){ view = v; if (v === 'map') { cur = null; renderMap(); } else if (v === 'teacher') { cur = null; renderTeacher(); } window.scrollTo(0, 0); }
+
+document.addEventListener('click', async e => {
+  const el = e.target.closest('[data-act]'); if (!el) return;
+  const act = el.dataset.act;
+  if (act === 'map') return go('map');
+  if (act === 'teacher') { confirmReset = false; return go('teacher'); }
+  if (act === 'open') { view = 'mission'; return openMission(+el.dataset.m); }
+  if (act === 'level') { if (el.disabled) return; return openMission(cur.mi, +el.dataset.l); }
+  if (act === 'tab') {
+    cur.file = el.dataset.f;
+    $$('.tab').forEach(t => t.setAttribute('aria-selected', String(t.dataset.f === cur.file)));
+    $$('.codeview').forEach(v => { v.hidden = v.dataset.view !== cur.file; });
+    return;
+  }
+  if (act === 'width') {
+    cur.phone = el.dataset.w === 'phone';
+    $('#stage').classList.toggle('phone', cur.phone);
+    $$('.seg button').forEach(b => b.setAttribute('aria-pressed', String((b.dataset.w === 'phone') === cur.phone)));
+    return;
+  }
+  if (act === 'run') return runPreview();
+  if (act === 'test') return runTest();
+  if (act === 'hint') { const s = ls(cur.L.id); s.hints = Math.min((s.hints || 0) + 1, cur.L.hints.length); save(); renderHints(); return; }
+  if (act === 'reset') {
+    if (el.dataset.armed !== '1') { el.dataset.armed = '1'; el.textContent = 'Confirmar: repor código'; el.classList.remove('btn-ghost'); setTimeout(() => { if (el.isConnected) { el.dataset.armed = ''; el.textContent = 'Repor código'; el.classList.add('btn-ghost'); } }, 4000); return; }
+    const s = ls(cur.L.id); s.code = null; s.blanks = null; save(); renderCodeBody(); runPreview();
+    el.dataset.armed = ''; el.textContent = 'Repor código'; el.classList.add('btn-ghost');
+    return;
+  }
+  if (act === 'saveexpl') { const s = ls(cur.L.id); s.expl = $('#expl').value; save(); toast('Explicação guardada.'); return; }
+  if (act === 'copy') {
+    const ta = $('#exp');
+    try { await navigator.clipboard.writeText(ta.value); toast('Código copiado.'); }
+    catch (err) { ta.focus(); ta.select(); toast('Seleciona o código e copia-o com Ctrl + C.'); }
+    return;
+  }
+  if (act === 'import') {
+    try { importCode($('#imp').value); toast('Progresso carregado.'); renderTeacher(); }
+    catch (err) { toast('Este código não é válido. Confirma que copiaste o código todo, começado por MW1.'); }
+    return;
+  }
+  if (act === 'reset-ask') { confirmReset = true; return renderTeacher(); }
+  if (act === 'reset-no') { confirmReset = false; return renderTeacher(); }
+  if (act === 'reset-yes') { const nome = S.nome; S = blankState(); S.nome = nome; save(); confirmReset = false; toast('Progresso apagado.'); return renderTeacher(); }
+});
+document.addEventListener('keydown', e => {
+  const room = e.target.closest && e.target.closest('.room[data-act="open"]');
+  if (room && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); view = 'mission'; openMission(+room.dataset.m); return; }
+  if (cur && (e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); runPreview(); return; }
+  if (e.target.matches && e.target.matches('textarea.editor')) {
+    const ta = e.target;
+    if (e.key === 'Tab' && !e.shiftKey) {
+      e.preventDefault();
+      const s = ta.selectionStart, en = ta.selectionEnd;
+      ta.setRangeText('  ', s, en, 'end'); ta.dispatchEvent(new Event('input', { bubbles:true }));
+    } else if (e.key === 'Enter' && !e.ctrlKey && !e.metaKey) {
+      const s = ta.selectionStart, line = ta.value.slice(0, s).split('\n').pop();
+      const ind = (line.match(/^\s*/) || [''])[0] + (/[{(\[>]\s*$/.test(line) && !/^\s*<\//.test(line) ? '  ' : '');
+      if (ind) { e.preventDefault(); ta.setRangeText('\n' + ind, s, ta.selectionEnd, 'end'); ta.dispatchEvent(new Event('input', { bubbles:true })); }
+    }
+  }
+});
+document.addEventListener('input', e => {
+  if (!cur) return;
+  const t = e.target, L = cur.L, s = ls(L.id);
+  if (t.dataset.c) {
+    s.vals = Object.assign({}, s.vals || {}, { [t.dataset.c]: t.value });
+    const ctl = L.controls.find(c => c.id === t.dataset.c);
+    const out = $('#o-' + t.dataset.c); if (out) out.textContent = t.value + (ctl.unit || '');
+    save(); updateGen(); runSoon();
+  } else if (t.dataset.b) {
+    s.blanks = Object.assign({}, s.blanks || {}, { [t.dataset.b]: t.value });
+    t.style.width = Math.max(L.blanks[t.dataset.b] || 4, t.value.length) + 1.5 + 'ch';
+    t.classList.toggle('filled', !!t.value);
+    save();
+    if (!L.editable.includes('js')) runSoon();
+  } else if (t.dataset.ed) {
+    s.code = Object.assign({}, s.code || {}, { [t.dataset.ed]: t.value });
+    save();
+    if (!L.editable.includes('js')) runSoon();
+  }
+});
+document.addEventListener('change', e => { if (cur && e.target.dataset && e.target.dataset.c && e.target.tagName === 'SELECT') { /* tratado em input */ } });
+
+renderMap();
+</script>
+
+</body></html>
