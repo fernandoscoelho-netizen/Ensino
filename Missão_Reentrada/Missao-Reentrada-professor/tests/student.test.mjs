@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {cleanStudent,isIdentified,sameStudent,studentFileStem,studentInitials} from '../src/student.js';
+test('normaliza identificação preservando nomes e acentos',()=>{const s=cleanStudent({name:'  Ana   Luís  ',group:' TEAC 1 ',number:'n.º 12'});assert.deepEqual(s,{name:'Ana Luís',group:'TEAC 1',number:'12'});assert(isIdentified(s));assert.equal(studentInitials(s),'AL');});
+test('exige nome e turma',()=>{assert(!isIdentified(cleanStudent({name:'Ana'})));assert(!isIdentified(cleanStudent({group:'TEAC'})));});
+test('nome de ficheiro seguro e identificável',()=>{assert.equal(studentFileStem({name:'Ana Luís',group:'TEAC 1',number:'12'}),'reentrada-ana-luis-teac-1-n12');assert(!studentFileStem({name:'../../nome',group:'C:/turma',number:'12'}).includes('/'));});
+test('compara a identidade sem diferenças de maiúsculas',()=>assert(sameStudent({name:'Ana Luís',group:'TEAC 1',number:'12'},{name:'ana luís',group:'teac 1',number:'12'})));

@@ -1,0 +1,14 @@
+MISSÃO REENTRADA — ACESSO PRIVADO DO PROFESSOR
+
+Palavra-passe: Aurora-up_1MzQLZi2A
+
+Distribuir aos alunos apenas missao-reentrada-alunos.zip.
+Não entregar este ficheiro nem o pacote missao-reentrada-professor.zip aos alunos.
+
+O acesso docente bloqueia ao fechar a área, ao escolher Bloquear agora e após cinco minutos sem interação. As soluções e o guia não são carregados em texto aberto antes do desbloqueio.
+
+Para alterar a palavra-passe de distribuição, editar private/teacher-access.json na cópia do professor e voltar a preparar o projeto; a palavra-passe deve ter pelo menos 12 caracteres. Podes também pedir a alteração nesta conversa.
+
+Extrair o novo pacote dos alunos para uma pasta nova. Não o misturar com a antiga distribuição que incluía código-fonte e guia sem proteção.
+
+A aplicação continua local, com abertura direta pelo index.html. A proteção da interface não substitui autenticação de servidor nem impede alterações deliberadas aos ficheiros por um utilizador com conhecimentos técnicos.

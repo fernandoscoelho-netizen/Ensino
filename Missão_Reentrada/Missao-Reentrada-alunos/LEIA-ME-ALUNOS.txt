@@ -1,0 +1,17 @@
+MISSÃO REENTRADA
+
+1. Descompactar todo o ZIP para uma pasta nova.
+2. Abrir index.html no Chrome ou Edge.
+3. Manter a pasta dist junto do index.
+4. Identificar o aluno e começar a missão.
+5. Exportar o progresso no fim da aula.
+
+A área Professor é reservada ao docente e exige palavra-passe.
+
+PAINEL DE BORDO
+Os instrumentos e gráficos apresentam valores simulados.
+Luz de cabine muda a iluminação; Fixar leituras pausa os valores;
+Autoteste verifica os instrumentos cenográficos.
+Recolher painel dá mais espaço para trabalhar no código.
+Preferências permite reduzir movimento e utilizar modo 2D.
+O progresso real depende da validação dos desafios.

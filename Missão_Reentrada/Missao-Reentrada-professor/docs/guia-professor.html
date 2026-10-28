@@ -1,0 +1,437 @@
+<!doctype html><html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Guia do professor · Missão REENTRADA</title><style>body{max-width:1000px;margin:40px auto;padding:0 24px;font:16px/1.7 system-ui,sans-serif;background:#0b111b;color:#e9eef6}a{color:#79e3ef}h1{font-size:34px}h2{margin-top:38px;color:#a7e8f1}h3{margin-top:25px}p,li{color:#c2cede}table{border-collapse:collapse;width:100%;font-size:14px}td,th{border:1px solid #425467;padding:10px;text-align:left}pre{background:#142335;padding:15px;overflow:auto;font:14px/1.6 monospace}details{border:1px solid #35485b;padding:14px;margin:12px 0}summary{cursor:pointer;font-weight:600}code{color:#c7edee}button{font:inherit}section{scroll-margin-top:20px}@media print{body{color:#111;background:white;font-size:11pt}p,li{color:#111}a,h2{color:#124e65}pre{white-space:pre-wrap;background:#eee;color:#111}details{break-inside:avoid}} </style></head><body><a id="back-to-console" href="../index.html">← Voltar à consola</a><script>if(location.pathname.includes("/dist/docs/"))document.getElementById("back-to-console").href="../../index.html";</script><h1>Guia do professor</h1><p>Missão REENTRADA · TIC, MO3 — Criação de páginas WEB · Curso profissional TEAC.</p><p>Atividade complementar à sebenta fornecida. Não substitui todos os seus capítulos nem o projeto de três páginas.</p><h2>Preparação e organização</h2><ol><li>Abrir o index.html da pasta principal diretamente no navegador. A pasta dist deve manter-se junto desse ficheiro. O servidor local é uma alternativa opcional para utilização em rede.</li><li>Experimentar um desafio antes da aula. Confirmar a abertura da sebenta e a gravação do progresso.</li><li>Apresentar a premissa: recuperamos interfaces Web simuladas, sem controlar um veículo real.</li><li>Começar por uma demonstração de executar, observar e validar. O CSS de suporte dos primeiros desafios é fornecido.</li><li>Usar as pistas e a documentação como instrumentos normais de aprendizagem.</li><li>Terminar cada aula com exportação de progresso JSON. Em computadores partilhados, cada aluno importa o seu ficheiro no início; a gravação do navegador não separa utilizadores.</li></ol><p>Pressuposto: alunos iniciantes, com conhecimentos de utilização de navegador e editor. Proposta de 7–10 aulas de 50 minutos. A soma inicial dos desafios é 365 minutos; discussão e revisão podem aumentar este tempo. Ajustar após uma aula piloto.</p><h3>Plano sugerido</h3><table><tr><th>Bloco</th><th>Etapas</th><th>Foco</th></tr><tr><td>1–2</td><td>1–3</td><td>Estrutura, conteúdo, tabelas e formulários</td></tr><tr><td>3–4</td><td>4–5</td><td>Modelo de caixa, cartões e Flexbox</td></tr><tr><td>5–6</td><td>6–7</td><td>Grid e responsividade</td></tr><tr><td>7–8</td><td>8–10</td><td>DOM, eventos e condições</td></tr><tr><td>9–10, se necessário</td><td>11–12</td><td>Integração, reflexão e entrega</td></tr></table><h2>Acesso reservado ao professor</h2><p>Distribuir apenas missao-reentrada-alunos.zip. A palavra-passe encontra-se nos materiais privados entregues ao professor e não deve acompanhar o pacote dos alunos.</p><p>Escolher Professor e introduzir a palavra-passe. A área bloqueia ao fechar a janela, ao escolher Bloquear agora, ao sair do separador ou após cinco minutos de inatividade. A palavra-passe e os materiais desbloqueados não são guardados no progresso do aluno.</p><p>Para alterar a palavra-passe de distribuição, editar private/teacher-access.json na cópia do professor e executar a preparação do projeto. Distribuir depois os ficheiros atualizados. A abertura do jogo pelos alunos continua a dispensar Node.js e servidor.</p><h2>Identificação, registo e exportação</h2><p>O arranque pede nome e turma; o número na turma é opcional. Os campos voltam a aparecer em cada abertura para confirmação. Os dados ficam no navegador e nos ficheiros entregues, sem criação de conta ou envio para um servidor.</p><p>A exportação JSON contém student, sessionStartedAt e firstOpenedAt, além de código, progresso, diário e respostas. Os nomes dos ficheiros seguem o padrão reentrada-nome-turma-nnumero. O ZIP inclui identificacao.json e um LEIA-ME identificado.</p><p>Num computador partilhado, ao indicar dados diferentes a aplicação permite exportar o trabalho anterior, corrigir apenas a identificação ou começar uma nova missão. O professor deve orientar esta escolha. O registo é formativo e editável; não é um sistema de autenticação nem uma base central de alunos.</p><h2>Abertura e ambiente gráfico</h2><p>A missão começa com uma aproximação à cápsula Aurora em Three.js, com cerca de quatro segundos e opção de saltar. O aluno pode preencher o formulário durante a animação. O cabeçalho apresenta uma vista da cabine, estrelas em movimento e instrumentos de interface, comunicações e navegação. Os estados acompanham a validação dos desafios. O botão Vista exterior mostra a cápsula em órbita. O modo 2D e o movimento reduzido preservam a aprendizagem.</p><h2>Avaliação proposta · 20 valores</h2><p>Pesos ajustáveis. Esta proposta não é apresentada como uma grelha curricular oficial. A conclusão automática fornece evidências técnicas; não determina a nota.</p><table><tr><th>Critério</th><th>Valores</th><th>Evidência</th></tr><tr><td>HTML e semântica</td><td>3</td><td>Documento, hierarquia, listas, ligações e imagens adequados.</td></tr><tr><td>Tabelas e formulários</td><td>2</td><td>Cabeçalhos de dados e etiquetas corretamente associados.</td></tr><tr><td>CSS e cartões</td><td>3</td><td>Classes reutilizáveis, modelo de caixa e apresentação legível.</td></tr><tr><td>Flexbox</td><td>2</td><td>Contentor, eixos, distribuição, quebra e itens compreendidos.</td></tr><tr><td>Grid</td><td>2</td><td>Colunas, frações, espaçamento e destaque bem aplicados.</td></tr><tr><td>Responsividade</td><td>2</td><td>Comportamento verificado em 1024, 768 e 375 px.</td></tr><tr><td>JavaScript</td><td>3</td><td>Eventos, DOM e condições com estados consistentes.</td></tr><tr><td>Correção, documentação e reflexão</td><td>3</td><td>Identifica erros, adapta fontes e explica decisões concretas.</td></tr></table><p>Descritores transversais: 0% — sem evidência; 50% — resultado parcial, explicação incompleta; 75% — funcional, com pequenas falhas; 100% — funcional, adequado e explicado. Aplicar estes níveis ao peso de cada critério e adaptar à avaliação da escola.</p><p>Não penalizar automaticamente tentativas, consulta de fontes ou pistas. Solicitar uma pequena alteração ao vivo para verificar a compreensão. A reflexão final exige leitura humana.</p><h2>Diferenciação</h2><ul><li>Apoio: trabalhar em pares, reduzir a quantidade de conteúdo, fornecer esquema HTML e explicitar seletores.</li><li>Consolidação: pedir previsões antes da execução, comparar row/column e testar uma alteração de cada vez.</li><li>Aprofundamento: Grid auto-fit/minmax, aria-expanded, estados adicionais, organização de comandos e comparação fundamentada de soluções.</li><li>Acessibilidade: fonte ajustável, ampliação dos painéis, operação por teclado, movimento reduzido e modo 2D.</li></ul><h2>Música ambiente espacial</h2><p>O botão Música no topo liga «Órbita tranquila», uma composição generativa original com acordes lentos e reverberação. Não tem voz nem percussão. Começa desligada, com volume inicial de 20%, ajustável nas Preferências. Pausa ao sair do separador e volta a iniciar apenas por escolha do utilizador. O som de confirmação é independente. A música funciona sem ficheiros ou serviços externos.</p><h2>Banco de perguntas aleatórias</h2><p>O banco inicial contém 48 perguntas, quatro por etapa. Em cada etapa são sorteadas duas perguntas e a ordem das opções é baralhada. O sorteio e as respostas ficam guardados no progresso. Atualizar a página não muda a ronda.</p><p>O comando «Sortear outras perguntas» evita as duas perguntas da ronda anterior quando existem alternativas suficientes. Conserva até 20 rondas anteriores por etapa. As respostas e o histórico são incluídos na exportação JSON e no ZIP.</p><p>A prática é formativa e não bloqueia o avanço técnico da missão. Após verificar uma resposta, é apresentada uma explicação e a referência à sebenta. O aluno pode continuar a praticar numa nova ronda.</p><h3>Editar e carregar perguntas</h3><ol><li>Abrir a área Professor e escolher «Exportar banco JSON».</li><li>Editar o ficheiro num editor de texto, preservando version: 1 e a lista questions.</li><li>Cada pergunta tem id único, lesson (1–12), prompt, choices (opções com id e text), correct (id da opção certa), explanation e reference.</li><li>Incluir entre duas e seis opções por pergunta e pelo menos duas perguntas por etapa. Limite de 500 perguntas por banco.</li><li>Usar «Carregar banco JSON» e confirmar a substituição. O código dos desafios mantém-se, mas as rondas de perguntas são reiniciadas. Exportar antes para conservar o histórico.</li></ol><p>O banco personalizado permanece neste navegador e acompanha a exportação de progresso. Para distribuir o mesmo banco a toda a turma, carregar o ficheiro em cada instalação ou substituir src/questions.json e reconstruir a aplicação. Como as respostas corretas são distribuídas, este recurso não é apropriado para exames que exijam segredo das soluções.</p><h2>Entregas</h2><p>Exportação JSON para retomar a missão. Exportação ZIP para entregar HTML, CSS e JavaScript por etapa, diário e progresso. Os ficheiros index.html exportados ligam os ficheiros CSS e JS locais. A avaliação do uso de documentação e da autonomia deve recorrer também à observação em aula.</p><h2>Mapa de desafios e soluções</h2><section id="etapa-1"><h3>1. Recuperar a identificação</h3><p><strong>Objetivo:</strong> Construir a estrutura de uma página HTML e distinguir o título do documento do título apresentado no ecrã.</p><p><strong>Sebenta:</strong> capítulo 2, pp. 8–11. <strong>Tempo:</strong> 20 minutos, provisório.</p><p><strong>Pré-requisitos:</strong> Utilizar um editor e um navegador.</p><p><strong>Enunciado:</strong> Completa a página: define o idioma português, a codificação UTF-8, um título no separador, um título principal e um parágrafo com a identificação da missão.</p><p><strong>Erro frequente:</strong> Confundir title com h1 ou colocar conteúdo visível em head.</p><p><strong>Extensão:</strong> Acrescenta um h2 com a identificação do operador. Explica a diferença entre title e h1.</p><p><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Basic_HTML_syntax">Estrutura de um documento HTML</a></p><details><summary>Pistas graduais</summary><ol><li>Distingue o conteúdo de head do conteúdo de body.</li><li>O idioma é um atributo de html; charset pertence a uma tag meta.</li><li>Usa &lt;html lang=&quot;pt-PT&quot;&gt;, &lt;meta charset=&quot;UTF-8&quot;&gt; e elementos title, h1 e p.</li></ol></details><details><summary>Solução de referência e explicação</summary><p>Construir a estrutura de uma página HTML e distinguir o título do documento do título apresentado no ecrã. A solução é um exemplo possível; os validadores aceitam outras formas de obter o comportamento exigido.</p><pre>&lt;!doctype html&gt;
+&lt;html lang=&quot;pt-PT&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Aurora · Missão REENTRADA&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Cápsula Aurora&lt;/h1&gt;
+    &lt;p&gt;Missão REENTRADA. Terminal de manutenção recuperado.&lt;/p&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><pre>body { margin: 0; padding: 24px; background: #0e1b2a; color: #e7f0f8; font: 16px/1.65 system-ui, sans-serif; }
+main { max-width: 920px; margin: auto; }
+h1 { font-size: 28px; line-height: 1.2; }
+h2 { font-size: 22px; }
+p { color: #bdcddd; }
+a { color: #79e3ef; }
+button { padding: 10px 16px; border: 1px solid #79e3ef; border-radius: 5px; background: #79e3ef; color: #0c2630; font: inherit; cursor: pointer; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+input { font: inherit; padding: 8px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #425469; }
+label { display: inline-block; margin: 8px 0; }
+</pre><pre>// Este desafio não necessita de JavaScript.
+</pre></details></section><section id="etapa-2"><h3>2. Restabelecer os procedimentos</h3><p><strong>Objetivo:</strong> Organizar conteúdo com semântica, listas, hiperligações e imagens acessíveis.</p><p><strong>Sebenta:</strong> capítulo 3 e 6, pp. 12–28. <strong>Tempo:</strong> 25 minutos, provisório.</p><p><strong>Pré-requisitos:</strong> Aprendizagens das etapas anteriores.</p><p><strong>Enunciado:</strong> Dentro de uma section, cria um título, uma lista com pelo menos três procedimentos, uma ligação externa com texto descritivo e uma imagem da Terra com descrição alternativa. Podes usar uma imagem SVG em data URL.</p><p><strong>Erro frequente:</strong> Criar li fora da lista ou usar uma ligação sem texto descritivo.</p><p><strong>Extensão:</strong> Acrescenta uma ligação interna para a lista de verificação e explica o propósito do texto alternativo.</p><p><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/Headings_and_paragraphs">Listas e estrutura de conteúdo</a></p><details><summary>Pistas graduais</summary><ol><li>Uma lista ordenada é adequada a procedimentos sequenciais.</li><li>Os itens li ficam dentro de ol ou ul. A imagem precisa de src e alt.</li><li>Cria três li, uma ligação a com href HTTPS e uma imagem img com alt que descreva o conteúdo.</li></ol></details><details><summary>Solução de referência e explicação</summary><p>Organizar conteúdo com semântica, listas, hiperligações e imagens acessíveis. A solução é um exemplo possível; os validadores aceitam outras formas de obter o comportamento exigido.</p><pre>&lt;!doctype html&gt;
+&lt;html lang=&quot;pt-PT&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Aurora · terminal&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Procedimentos de bordo&lt;/h1&gt;
+    &lt;section&gt;
+      &lt;h2&gt;Lista de recuperação&lt;/h2&gt;
+      &lt;ol&gt;&lt;li&gt;Identificar o terminal&lt;/li&gt;&lt;li&gt;Recuperar os painéis&lt;/li&gt;&lt;li&gt;Testar os comandos&lt;/li&gt;&lt;/ol&gt;
+      &lt;p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML&quot;&gt;Consultar a documentação HTML&lt;/a&gt;&lt;/p&gt;
+      &lt;img src=&#39;data:image/svg+xml,%3Csvg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;120&quot; height=&quot;120&quot; viewBox=&quot;0 0 120 120&quot;%3E%3Ccircle cx=&quot;60&quot; cy=&quot;60&quot; r=&quot;50&quot; fill=&quot;%23277caa&quot;/%3E%3Cpath d=&quot;M25 38L55 23 80 43 62 60 35 57ZM64 69L90 65 84 92 69 99Z&quot; fill=&quot;%2395c4a0&quot;/%3E%3C/svg%3E&#39; alt=&quot;Ilustração da Terra, destino da missão&quot; width=&quot;120&quot;&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><pre>body { margin: 0; padding: 24px; background: #0e1b2a; color: #e7f0f8; font: 16px/1.65 system-ui, sans-serif; }
+main { max-width: 920px; margin: auto; }
+h1 { font-size: 28px; line-height: 1.2; }
+h2 { font-size: 22px; }
+p { color: #bdcddd; }
+a { color: #79e3ef; }
+button { padding: 10px 16px; border: 1px solid #79e3ef; border-radius: 5px; background: #79e3ef; color: #0c2630; font: inherit; cursor: pointer; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+input { font: inherit; padding: 8px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #425469; }
+label { display: inline-block; margin: 8px 0; }
+</pre><pre>// Este desafio não necessita de JavaScript.
+</pre></details></section><section id="etapa-3"><h3>3. Reconstruir o diagnóstico</h3><p><strong>Objetivo:</strong> Apresentar dados tabulares e associar etiquetas aos campos de um formulário.</p><p><strong>Sebenta:</strong> capítulo 4 e 5, pp. 29–42. <strong>Tempo:</strong> 30 minutos, provisório.</p><p><strong>Pré-requisitos:</strong> Aprendizagens das etapas anteriores.</p><p><strong>Enunciado:</strong> Constrói uma tabela com thead, tbody, duas colunas e duas linhas de dados. Acrescenta um formulário com um campo obrigatório para o operador, label associada e botão de envio.</p><p><strong>Erro frequente:</strong> O for da label não coincide com o id do campo.</p><p><strong>Extensão:</strong> Acrescenta um select para o turno. A gravação do formulário será uma extensão JavaScript; o envio externo está desativado nesta simulação.</p><p><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content/HTML_table_basics">Tabelas HTML</a> · <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms/Your_first_form">Formulários</a></p><details><summary>Pistas graduais</summary><ol><li>Separa o cabeçalho da tabela dos dados.</li><li>O atributo for da label deve coincidir com o id do input.</li><li>Usa thead com th, tbody com tr/td, e form com label, input required e button type=&quot;submit&quot;.</li></ol></details><details><summary>Solução de referência e explicação</summary><p>Apresentar dados tabulares e associar etiquetas aos campos de um formulário. A solução é um exemplo possível; os validadores aceitam outras formas de obter o comportamento exigido.</p><pre>&lt;!doctype html&gt;
+&lt;html lang=&quot;pt-PT&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Aurora · terminal&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Diagnóstico da cápsula&lt;/h1&gt;
+    &lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th scope=&quot;col&quot;&gt;Sistema&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;Valor&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+      &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Energia&lt;/td&gt;&lt;td&gt;92 %&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Temperatura&lt;/td&gt;&lt;td&gt;22 °C&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;form&gt;&lt;label for=&quot;operador&quot;&gt;Operador&lt;/label&gt;
+      &lt;input id=&quot;operador&quot; name=&quot;operador&quot; required&gt;
+      &lt;button type=&quot;submit&quot;&gt;Registar&lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><pre>body { margin: 0; padding: 24px; background: #0e1b2a; color: #e7f0f8; font: 16px/1.65 system-ui, sans-serif; }
+main { max-width: 920px; margin: auto; }
+h1 { font-size: 28px; line-height: 1.2; }
+h2 { font-size: 22px; }
+p { color: #bdcddd; }
+a { color: #79e3ef; }
+button { padding: 10px 16px; border: 1px solid #79e3ef; border-radius: 5px; background: #79e3ef; color: #0c2630; font: inherit; cursor: pointer; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+input { font: inherit; padding: 8px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #425469; }
+label { display: inline-block; margin: 8px 0; }
+</pre><pre>// Este desafio não necessita de JavaScript.
+</pre></details></section><section id="etapa-4"><h3>4. Construir um cartão</h3><p><strong>Objetivo:</strong> Construir um cartão reutilizável e distinguir padding, border, margin e conteúdo.</p><p><strong>Sebenta:</strong> capítulo 11 e 12, pp. 73–81. <strong>Tempo:</strong> 25 minutos, provisório.</p><p><strong>Pré-requisitos:</strong> Aprendizagens das etapas anteriores.</p><p><strong>Enunciado:</strong> Estiliza .cartao com fundo próprio, padding de pelo menos 16 px, contorno visível, cantos arredondados e box-sizing: border-box. Mantém o título, valor, unidade, estado e botão.</p><p><strong>Erro frequente:</strong> Esquecer solid no contorno ou confundir padding com margin.</p><p><strong>Extensão:</strong> Duplica o cartão para a temperatura sem duplicar as regras CSS. Usa as ferramentas do navegador para observar o modelo de caixa.</p><p><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Styling_basics/Box_model">Modelo de caixa</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/How_to/Layout_cookbook/Card">Padrão de cartão</a></p><details><summary>Pistas graduais</summary><ol><li>O cartão é um componente; a sua classe permite reutilizar o estilo.</li><li>Padding é espaço interior. A borda precisa de espessura, estilo e cor.</li><li>Experimenta padding: 20px; border: 1px solid #49657c; border-radius: 12px; box-sizing: border-box; e um background.</li></ol></details><details><summary>Solução de referência e explicação</summary><p>Construir um cartão reutilizável e distinguir padding, border, margin e conteúdo. A solução é um exemplo possível; os validadores aceitam outras formas de obter o comportamento exigido.</p><pre>&lt;!doctype html&gt;
+&lt;html lang=&quot;pt-PT&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Aurora · terminal&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Instrumento de energia&lt;/h1&gt;
+    &lt;article class=&quot;cartao&quot;&gt;
+      &lt;h2&gt;Energia&lt;/h2&gt;
+      &lt;p&gt;&lt;strong&gt;92&lt;/strong&gt; %&lt;/p&gt;
+      &lt;p&gt;Reserva disponível&lt;/p&gt;
+      &lt;button&gt;Diagnóstico&lt;/button&gt;
+    &lt;/article&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><pre>body { margin: 0; padding: 24px; background: #0e1b2a; color: #e7f0f8; font: 16px/1.65 system-ui, sans-serif; }
+main { max-width: 920px; margin: auto; }
+h1 { font-size: 28px; line-height: 1.2; }
+h2 { font-size: 22px; }
+p { color: #bdcddd; }
+a { color: #79e3ef; }
+button { padding: 10px 16px; border: 1px solid #79e3ef; border-radius: 5px; background: #79e3ef; color: #0c2630; font: inherit; cursor: pointer; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+input { font: inherit; padding: 8px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #425469; }
+label { display: inline-block; margin: 8px 0; }
+.cartao { box-sizing: border-box; background: #192e40; padding: 20px; border: 1px solid #49657c; border-radius: 12px; }
+.cartao h2 { margin-top: 0; }
+</pre><pre>// Este desafio não necessita de JavaScript.
+</pre></details></section><section id="etapa-5"><h3>5. Organizar com Flexbox</h3><p><strong>Objetivo:</strong> Distinguir contentor e itens, organizar uma dimensão e controlar a distribuição do espaço.</p><p><strong>Sebenta:</strong> capítulo 13, pp. 82–89. <strong>Tempo:</strong> 35 minutos, provisório.</p><p><strong>Pré-requisitos:</strong> Aprendizagens das etapas anteriores.</p><p><strong>Enunciado:</strong> Aplica Flexbox a .cartoes, com gap de pelo menos 12 px, flex-wrap: wrap e alinhamento explícito nos dois eixos. Usa flex: 1 nos cartões. Experimenta row e column e explica os eixos no diário.</p><p><strong>Erro frequente:</strong> Aplicar display: flex aos cartões em vez do contentor.</p><p><strong>Extensão:</strong> Organiza o título e o estado de um cartão numa linha e os respetivos botões noutra. Compara row e column no diário.</p><p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts">Conceitos de Flexbox</a></p><details><summary>Pistas graduais</summary><ol><li>display: flex aplica-se ao pai dos cartões.</li><li>justify-content atua no eixo principal; align-items no transversal. Os eixos dependem de flex-direction.</li><li>Em .cartoes usa display: flex, gap, flex-wrap e os alinhamentos; em .cartao usa flex: 1.</li></ol></details><details><summary>Solução de referência e explicação</summary><p>Distinguir contentor e itens, organizar uma dimensão e controlar a distribuição do espaço. A solução é um exemplo possível; os validadores aceitam outras formas de obter o comportamento exigido.</p><pre>&lt;!doctype html&gt;
+&lt;html lang=&quot;pt-PT&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Aurora · terminal&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Sistemas essenciais&lt;/h1&gt;
+    &lt;div class=&quot;cartoes&quot;&gt;
+      &lt;article class=&quot;cartao&quot;&gt;&lt;h2&gt;Energia&lt;/h2&gt;&lt;p&gt;92 % · disponível&lt;/p&gt;&lt;button&gt;Diagnóstico&lt;/button&gt;&lt;/article&gt;
+      &lt;article class=&quot;cartao&quot;&gt;&lt;h2&gt;Comunicações&lt;/h2&gt;&lt;p&gt;Ligação estável&lt;/p&gt;&lt;button&gt;Diagnóstico&lt;/button&gt;&lt;/article&gt;
+      &lt;article class=&quot;cartao&quot;&gt;&lt;h2&gt;Navegação&lt;/h2&gt;&lt;p&gt;Rota confirmada&lt;/p&gt;&lt;button&gt;Diagnóstico&lt;/button&gt;&lt;/article&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><pre>body { margin: 0; padding: 24px; background: #0e1b2a; color: #e7f0f8; font: 16px/1.65 system-ui, sans-serif; }
+main { max-width: 920px; margin: auto; }
+h1 { font-size: 28px; line-height: 1.2; }
+h2 { font-size: 22px; }
+p { color: #bdcddd; }
+a { color: #79e3ef; }
+button { padding: 10px 16px; border: 1px solid #79e3ef; border-radius: 5px; background: #79e3ef; color: #0c2630; font: inherit; cursor: pointer; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+input { font: inherit; padding: 8px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #425469; }
+label { display: inline-block; margin: 8px 0; }
+.cartao { box-sizing: border-box; background: #192e40; padding: 20px; border: 1px solid #49657c; border-radius: 12px; }
+.cartao h2 { margin-top: 0; }
+.cartoes { display: flex; flex-direction: row; justify-content: space-between; align-items: stretch; gap: 16px; flex-wrap: wrap; }
+.cartao { flex: 1; min-width: 160px; }
+</pre><pre>// Este desafio não necessita de JavaScript.
+</pre></details></section><section id="etapa-6"><h3>6. Reconstruir com Grid</h3><p><strong>Objetivo:</strong> Controlar uma disposição bidimensional com Grid, fr, repeat() e span.</p><p><strong>Sebenta:</strong> capítulo 14, pp. 90–96. <strong>Tempo:</strong> 35 minutos, provisório.</p><p><strong>Pré-requisitos:</strong> Aprendizagens das etapas anteriores.</p><p><strong>Enunciado:</strong> Transforma .painel numa grelha de três colunas iguais, com gap de pelo menos 12 px. Faz .destaque ocupar duas colunas. Experimenta depois duas e quatro colunas antes de repor as três.</p><p><strong>Erro frequente:</strong> Definir colunas sem ativar display: grid no contentor.</p><p><strong>Extensão:</strong> Usa Flexbox dentro de um cartão para alinhar os seus comandos. Explica por que escolheste Grid para o painel.</p><p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Basic_concepts">Conceitos de Grid</a></p><details><summary>Pistas graduais</summary><ol><li>Grid organiza linhas e colunas a partir do contentor.</li><li>repeat(3, 1fr) cria três colunas com a mesma fração do espaço disponível.</li><li>Usa display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; e grid-column: span 2 no destaque.</li></ol></details><details><summary>Solução de referência e explicação</summary><p>Controlar uma disposição bidimensional com Grid, fr, repeat() e span. A solução é um exemplo possível; os validadores aceitam outras formas de obter o comportamento exigido.</p><pre>&lt;!doctype html&gt;
+&lt;html lang=&quot;pt-PT&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Aurora · terminal&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Consola de diagnóstico&lt;/h1&gt;
+    &lt;div class=&quot;painel&quot;&gt;
+      &lt;article class=&quot;cartao destaque&quot;&gt;&lt;h2&gt;Energia&lt;/h2&gt;&lt;p&gt;Pronto para diagnóstico&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;cartao&quot;&gt;&lt;h2&gt;Comunicações&lt;/h2&gt;&lt;p&gt;Pronto para diagnóstico&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;cartao&quot;&gt;&lt;h2&gt;Navegação&lt;/h2&gt;&lt;p&gt;Pronto para diagnóstico&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;cartao&quot;&gt;&lt;h2&gt;Temperatura&lt;/h2&gt;&lt;p&gt;Pronto para diagnóstico&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;cartao&quot;&gt;&lt;h2&gt;Escudo térmico&lt;/h2&gt;&lt;p&gt;Pronto para diagnóstico&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;cartao&quot;&gt;&lt;h2&gt;Paraquedas&lt;/h2&gt;&lt;p&gt;Pronto para diagnóstico&lt;/p&gt;&lt;/article&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><pre>body { margin: 0; padding: 24px; background: #0e1b2a; color: #e7f0f8; font: 16px/1.65 system-ui, sans-serif; }
+main { max-width: 920px; margin: auto; }
+h1 { font-size: 28px; line-height: 1.2; }
+h2 { font-size: 22px; }
+p { color: #bdcddd; }
+a { color: #79e3ef; }
+button { padding: 10px 16px; border: 1px solid #79e3ef; border-radius: 5px; background: #79e3ef; color: #0c2630; font: inherit; cursor: pointer; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+input { font: inherit; padding: 8px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #425469; }
+label { display: inline-block; margin: 8px 0; }
+.cartao { box-sizing: border-box; background: #192e40; padding: 20px; border: 1px solid #49657c; border-radius: 12px; }
+.cartao h2 { margin-top: 0; }
+.painel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.destaque { grid-column: span 2; }
+</pre><pre>// Este desafio não necessita de JavaScript.
+</pre></details></section><section id="etapa-7"><h3>7. Adaptar o terminal</h3><p><strong>Objetivo:</strong> Utilizar viewport, media queries e disposições flexíveis, verificando várias larguras.</p><p><strong>Sebenta:</strong> capítulo 15, pp. 97–102. <strong>Tempo:</strong> 35 minutos, provisório.</p><p><strong>Pré-requisitos:</strong> Aprendizagens das etapas anteriores.</p><p><strong>Enunciado:</strong> Mantém três colunas em 1024 px, passa a duas em 768 px e a uma em 375 px. Ajusta .destaque na largura mais estreita e evita deslocamento horizontal. Usa o seletor da pré-visualização para testar.</p><p><strong>Erro frequente:</strong> Manter span 2 numa grelha que passou a ter uma coluna.</p><p><strong>Extensão:</strong> Explora repeat(auto-fit, minmax(180px, 1fr)). Compara esta abordagem com os pontos de quebra explícitos (sebenta, p. 100).</p><p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Using">Media queries</a></p><details><summary>Pistas graduais</summary><ol><li>Uma media query aplica regras apenas quando a sua condição se verifica.</li><li>Em 768 px altera as colunas; em 480 px altera-as novamente e remove o span do destaque.</li><li>Usa @media (max-width: 768px) com repeat(2, 1fr); e @media (max-width: 480px) com 1fr e grid-column: auto no destaque.</li></ol></details><details><summary>Solução de referência e explicação</summary><p>Utilizar viewport, media queries e disposições flexíveis, verificando várias larguras. A solução é um exemplo possível; os validadores aceitam outras formas de obter o comportamento exigido.</p><pre>&lt;!doctype html&gt;
+&lt;html lang=&quot;pt-PT&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Aurora · terminal&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Terminal de emergência&lt;/h1&gt;
+    &lt;div class=&quot;painel&quot;&gt;
+      &lt;article class=&quot;cartao destaque&quot;&gt;&lt;h2&gt;Energia&lt;/h2&gt;&lt;p&gt;Pronto para diagnóstico&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;cartao&quot;&gt;&lt;h2&gt;Comunicações&lt;/h2&gt;&lt;p&gt;Pronto para diagnóstico&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;cartao&quot;&gt;&lt;h2&gt;Navegação&lt;/h2&gt;&lt;p&gt;Pronto para diagnóstico&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;cartao&quot;&gt;&lt;h2&gt;Temperatura&lt;/h2&gt;&lt;p&gt;Pronto para diagnóstico&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;cartao&quot;&gt;&lt;h2&gt;Escudo térmico&lt;/h2&gt;&lt;p&gt;Pronto para diagnóstico&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;cartao&quot;&gt;&lt;h2&gt;Paraquedas&lt;/h2&gt;&lt;p&gt;Pronto para diagnóstico&lt;/p&gt;&lt;/article&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><pre>body { margin: 0; padding: 24px; background: #0e1b2a; color: #e7f0f8; font: 16px/1.65 system-ui, sans-serif; }
+main { max-width: 920px; margin: auto; }
+h1 { font-size: 28px; line-height: 1.2; }
+h2 { font-size: 22px; }
+p { color: #bdcddd; }
+a { color: #79e3ef; }
+button { padding: 10px 16px; border: 1px solid #79e3ef; border-radius: 5px; background: #79e3ef; color: #0c2630; font: inherit; cursor: pointer; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+input { font: inherit; padding: 8px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #425469; }
+label { display: inline-block; margin: 8px 0; }
+.cartao { box-sizing: border-box; background: #192e40; padding: 20px; border: 1px solid #49657c; border-radius: 12px; }
+.cartao h2 { margin-top: 0; }
+.painel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.destaque { grid-column: span 2; }
+@media (max-width: 768px) {
+  .painel { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .painel { grid-template-columns: 1fr; }
+  .destaque { grid-column: auto; }
+}
+</pre><pre>// Este desafio não necessita de JavaScript.
+</pre></details></section><section id="etapa-8"><h3>8. Recuperar as comunicações</h3><p><strong>Objetivo:</strong> Selecionar elementos, associar eventos e atualizar textContent.</p><p><strong>Sebenta:</strong> capítulo 16 e 17, pp. 104–117. <strong>Tempo:</strong> 30 minutos, provisório.</p><p><strong>Pré-requisitos:</strong> Aprendizagens das etapas anteriores.</p><p><strong>Enunciado:</strong> Seleciona #ligar e #estado. Associa um evento de clique ao botão para alterar a mensagem para «Ligação estabelecida». O texto deve mudar apenas depois do clique.</p><p><strong>Erro frequente:</strong> Esquecer # no seletor ou executar a função ao associar o evento.</p><p><strong>Extensão:</strong> Depois da ligação, altera também o texto do botão e apresenta a hora do diagnóstico. Explica por que o código usa uma função.</p><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener">addEventListener</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent">textContent</a></p><details><summary>Pistas graduais</summary><ol><li>O HTML define o botão; JavaScript associa-lhe uma ação.</li><li>querySelector encontra o elemento. addEventListener recebe o nome do evento e uma função.</li><li>No evento click de #ligar, atribui a #estado.textContent a mensagem pedida.</li></ol></details><details><summary>Solução de referência e explicação</summary><p>Selecionar elementos, associar eventos e atualizar textContent. A solução é um exemplo possível; os validadores aceitam outras formas de obter o comportamento exigido.</p><pre>&lt;!doctype html&gt;
+&lt;html lang=&quot;pt-PT&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Aurora · terminal&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Comunicações&lt;/h1&gt;
+    &lt;article class=&quot;cartao&quot;&gt;
+      &lt;h2&gt;Canal de ligação&lt;/h2&gt;&lt;p id=&quot;estado&quot;&gt;Sem ligação&lt;/p&gt;
+      &lt;button id=&quot;ligar&quot;&gt;Ligar comunicações&lt;/button&gt;
+    &lt;/article&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><pre>body { margin: 0; padding: 24px; background: #0e1b2a; color: #e7f0f8; font: 16px/1.65 system-ui, sans-serif; }
+main { max-width: 920px; margin: auto; }
+h1 { font-size: 28px; line-height: 1.2; }
+h2 { font-size: 22px; }
+p { color: #bdcddd; }
+a { color: #79e3ef; }
+button { padding: 10px 16px; border: 1px solid #79e3ef; border-radius: 5px; background: #79e3ef; color: #0c2630; font: inherit; cursor: pointer; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+input { font: inherit; padding: 8px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #425469; }
+label { display: inline-block; margin: 8px 0; }
+.cartao { box-sizing: border-box; background: #192e40; padding: 20px; border: 1px solid #49657c; border-radius: 12px; }
+.cartao h2 { margin-top: 0; }
+</pre><pre>const botao = document.querySelector(&quot;#ligar&quot;);
+const estado = document.querySelector(&quot;#estado&quot;);
+botao.addEventListener(&quot;click&quot;, function () {
+  estado.textContent = &quot;Ligação estabelecida&quot;;
+});
+</pre></details></section><section id="etapa-9"><h3>9. Recuperar avisos e detalhes</h3><p><strong>Objetivo:</strong> Relacionar classes CSS, estado da interface e condições JavaScript.</p><p><strong>Sebenta:</strong> capítulo 17, pp. 110–117. <strong>Tempo:</strong> 30 minutos, provisório.</p><p><strong>Pré-requisitos:</strong> Aprendizagens das etapas anteriores.</p><p><strong>Enunciado:</strong> Usa classList para alternar a classe escondido em #detalhes. Atualiza o botão entre «Mostrar detalhes» e «Ocultar detalhes». O segundo clique deve repor o estado inicial.</p><p><strong>Erro frequente:</strong> Alterar a classe sem atualizar o texto do comando.</p><p><strong>Extensão:</strong> Acrescenta aria-expanded e mantém o seu valor sincronizado. Cria também um aviso com texto e ícone.</p><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/classList">classList</a></p><details><summary>Pistas graduais</summary><ol><li>A classe escondido controla a visibilidade.</li><li>classList.toggle alterna uma classe; classList.contains permite consultar o estado.</li><li>No clique, alterna escondido e usa if/else para atualizar textContent do botão.</li></ol></details><details><summary>Solução de referência e explicação</summary><p>Relacionar classes CSS, estado da interface e condições JavaScript. A solução é um exemplo possível; os validadores aceitam outras formas de obter o comportamento exigido.</p><pre>&lt;!doctype html&gt;
+&lt;html lang=&quot;pt-PT&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Aurora · terminal&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Diagnóstico detalhado&lt;/h1&gt;
+    &lt;article class=&quot;cartao&quot;&gt;
+      &lt;h2&gt;Escudo térmico&lt;/h2&gt;
+      &lt;button id=&quot;alternar&quot;&gt;Mostrar detalhes&lt;/button&gt;
+      &lt;p id=&quot;detalhes&quot; class=&quot;escondido&quot;&gt;Inspeção concluída. Escudo disponível.&lt;/p&gt;
+    &lt;/article&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><pre>body { margin: 0; padding: 24px; background: #0e1b2a; color: #e7f0f8; font: 16px/1.65 system-ui, sans-serif; }
+main { max-width: 920px; margin: auto; }
+h1 { font-size: 28px; line-height: 1.2; }
+h2 { font-size: 22px; }
+p { color: #bdcddd; }
+a { color: #79e3ef; }
+button { padding: 10px 16px; border: 1px solid #79e3ef; border-radius: 5px; background: #79e3ef; color: #0c2630; font: inherit; cursor: pointer; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+input { font: inherit; padding: 8px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #425469; }
+label { display: inline-block; margin: 8px 0; }
+.cartao { box-sizing: border-box; background: #192e40; padding: 20px; border: 1px solid #49657c; border-radius: 12px; }
+.cartao h2 { margin-top: 0; }
+.escondido { display: none; }
+</pre><pre>const botao = document.querySelector(&quot;#alternar&quot;);
+const detalhes = document.querySelector(&quot;#detalhes&quot;);
+botao.addEventListener(&quot;click&quot;, () =&gt; {
+  detalhes.classList.toggle(&quot;escondido&quot;);
+  if (detalhes.classList.contains(&quot;escondido&quot;)) {
+    botao.textContent = &quot;Mostrar detalhes&quot;;
+  } else {
+    botao.textContent = &quot;Ocultar detalhes&quot;;
+  }
+});
+</pre></details></section><section id="etapa-10"><h3>10. Autorizar a reentrada</h3><p><strong>Objetivo:</strong> Usar booleanos, condições e eventos para manter estados coerentes.</p><p><strong>Sebenta:</strong> capítulo 16 e 17, pp. 104–117. <strong>Tempo:</strong> 40 minutos, provisório.</p><p><strong>Pré-requisitos:</strong> Aprendizagens das etapas anteriores.</p><p><strong>Enunciado:</strong> Programa os três campos: o botão fica desativado se faltar algum requisito. Quando todos estiverem confirmados, o clique apresenta «Reentrada autorizada». Voltar a desmarcar qualquer requisito deve bloquear o botão.</p><p><strong>Erro frequente:</strong> Usar || quando todos os requisitos são necessários ou não recalcular ao desmarcar.</p><p><strong>Extensão:</strong> Explica no diário uma condição verdadeira e uma falsa. Adiciona mensagens para os requisitos ainda em falta.</p><p><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement/disabled">disabled</a> · <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling">Condições JavaScript</a></p><details><summary>Pistas graduais</summary><ol><li>Cada checkbox tem uma propriedade checked. O botão tem uma propriedade disabled.</li><li>Associa change aos três campos. Recalcula a condição com &amp;&amp; ou every().</li><li>O botão deve ter disabled = !(energia.checked &amp;&amp; escudo.checked &amp;&amp; rota.checked). Associa um clique para atualizar a mensagem.</li></ol></details><details><summary>Solução de referência e explicação</summary><p>Usar booleanos, condições e eventos para manter estados coerentes. A solução é um exemplo possível; os validadores aceitam outras formas de obter o comportamento exigido.</p><pre>&lt;!doctype html&gt;
+&lt;html lang=&quot;pt-PT&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Aurora · terminal&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Preparar a reentrada&lt;/h1&gt;
+    &lt;label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;energia&quot;&gt; Energia confirmada&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;escudo&quot;&gt; Escudo confirmado&lt;/label&gt;&lt;br&gt;
+    &lt;label&gt;&lt;input type=&quot;checkbox&quot; id=&quot;rota&quot;&gt; Rota confirmada&lt;/label&gt;&lt;br&gt;
+    &lt;button id=&quot;reentrar&quot; disabled&gt;Autorizar reentrada&lt;/button&gt;
+    &lt;p id=&quot;mensagem&quot;&gt;A aguardar verificações.&lt;/p&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><pre>body { margin: 0; padding: 24px; background: #0e1b2a; color: #e7f0f8; font: 16px/1.65 system-ui, sans-serif; }
+main { max-width: 920px; margin: auto; }
+h1 { font-size: 28px; line-height: 1.2; }
+h2 { font-size: 22px; }
+p { color: #bdcddd; }
+a { color: #79e3ef; }
+button { padding: 10px 16px; border: 1px solid #79e3ef; border-radius: 5px; background: #79e3ef; color: #0c2630; font: inherit; cursor: pointer; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+input { font: inherit; padding: 8px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #425469; }
+label { display: inline-block; margin: 8px 0; }
+</pre><pre>const energia = document.querySelector(&quot;#energia&quot;);
+const escudo = document.querySelector(&quot;#escudo&quot;);
+const rota = document.querySelector(&quot;#rota&quot;);
+const botao = document.querySelector(&quot;#reentrar&quot;);
+function verificar() {
+  const pronto = energia.checked &amp;&amp; escudo.checked &amp;&amp; rota.checked;
+  botao.disabled = !pronto;
+}
+energia.addEventListener(&quot;change&quot;, verificar);
+escudo.addEventListener(&quot;change&quot;, verificar);
+rota.addEventListener(&quot;change&quot;, verificar);
+botao.addEventListener(&quot;click&quot;, function () {
+  document.querySelector(&quot;#mensagem&quot;).textContent = &quot;Reentrada autorizada&quot;;
+});
+verificar();
+</pre></details></section><section id="etapa-11"><h3>11. Integrar e justificar</h3><p><strong>Objetivo:</strong> Transferir conhecimentos, combinar disposições e justificar decisões.</p><p><strong>Sebenta:</strong> capítulo 18, pp. 118–120. <strong>Tempo:</strong> 40 minutos, provisório.</p><p><strong>Pré-requisitos:</strong> Aprendizagens das etapas anteriores.</p><p><strong>Enunciado:</strong> Acrescenta um sétimo cartão .cartao.reserva. Mantém Grid no painel e usa Flexbox dentro desse cartão. Programa #testar para atualizar #resultado para «Reserva operacional». Regista no diário uma comparação entre Flexbox e Grid.</p><p><strong>Erro frequente:</strong> Criar o cartão fora do painel ou aplicar Flexbox ao contentor errado.</p><p><strong>Extensão:</strong> Reconstrói o mesmo conjunto com Flexbox e com Grid. Compara alinhamento, quebra de linha e controlo das colunas.</p><p><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Grid_layout/Common_grid_layouts">Combinar Flexbox e Grid</a></p><details><summary>Pistas graduais</summary><ol><li>Reutiliza a classe cartao e acrescenta uma classe específica para a reserva.</li><li>O contentor pode ser Grid e um dos seus cartões pode ser um contentor Flexbox.</li><li>Cria article.cartao.reserva dentro de .painel, aplica display: flex à reserva e associa o clique ao botão.</li></ol></details><details><summary>Solução de referência e explicação</summary><p>Transferir conhecimentos, combinar disposições e justificar decisões. A solução é um exemplo possível; os validadores aceitam outras formas de obter o comportamento exigido.</p><pre>&lt;!doctype html&gt;
+&lt;html lang=&quot;pt-PT&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Aurora · terminal&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Consola de recuperação&lt;/h1&gt;
+    &lt;div class=&quot;painel&quot;&gt;
+      &lt;article class=&quot;cartao destaque&quot;&gt;&lt;h2&gt;Energia&lt;/h2&gt;&lt;p&gt;Pronto para diagnóstico&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;cartao&quot;&gt;&lt;h2&gt;Comunicações&lt;/h2&gt;&lt;p&gt;Pronto para diagnóstico&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;cartao&quot;&gt;&lt;h2&gt;Navegação&lt;/h2&gt;&lt;p&gt;Pronto para diagnóstico&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;cartao&quot;&gt;&lt;h2&gt;Temperatura&lt;/h2&gt;&lt;p&gt;Pronto para diagnóstico&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;cartao&quot;&gt;&lt;h2&gt;Escudo térmico&lt;/h2&gt;&lt;p&gt;Pronto para diagnóstico&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;cartao&quot;&gt;&lt;h2&gt;Paraquedas&lt;/h2&gt;&lt;p&gt;Pronto para diagnóstico&lt;/p&gt;&lt;/article&gt;
+      &lt;article class=&quot;cartao reserva&quot;&gt;&lt;h2&gt;Reserva de emergência&lt;/h2&gt;&lt;p&gt;Canal independente&lt;/p&gt;&lt;/article&gt;
+    &lt;/div&gt;
+    &lt;button id=&quot;testar&quot;&gt;Testar reserva&lt;/button&gt;
+    &lt;p id=&quot;resultado&quot;&gt;Por testar&lt;/p&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><pre>body { margin: 0; padding: 24px; background: #0e1b2a; color: #e7f0f8; font: 16px/1.65 system-ui, sans-serif; }
+main { max-width: 920px; margin: auto; }
+h1 { font-size: 28px; line-height: 1.2; }
+h2 { font-size: 22px; }
+p { color: #bdcddd; }
+a { color: #79e3ef; }
+button { padding: 10px 16px; border: 1px solid #79e3ef; border-radius: 5px; background: #79e3ef; color: #0c2630; font: inherit; cursor: pointer; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+input { font: inherit; padding: 8px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #425469; }
+label { display: inline-block; margin: 8px 0; }
+.cartao { box-sizing: border-box; background: #192e40; padding: 20px; border: 1px solid #49657c; border-radius: 12px; }
+.cartao h2 { margin-top: 0; }
+.painel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.destaque { grid-column: span 2; }
+@media (max-width: 768px) {
+  .painel { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .painel { grid-template-columns: 1fr; }
+  .destaque { grid-column: auto; }
+}
+.reserva { display: flex; flex-direction: column; justify-content: space-between; gap: 12px; }
+</pre><pre>document.querySelector(&quot;#testar&quot;).addEventListener(&quot;click&quot;, () =&gt; {
+  document.querySelector(&quot;#resultado&quot;).textContent = &quot;Reserva operacional&quot;;
+});
+</pre></details></section><section id="etapa-12"><h3>12. Regresso e relatório</h3><p><strong>Objetivo:</strong> Explicar decisões, documentar a resolução de problemas e preparar a entrega.</p><p><strong>Sebenta:</strong> capítulo 22, pp. 133–134. <strong>Tempo:</strong> 20 minutos, provisório.</p><p><strong>Pré-requisitos:</strong> Aprendizagens das etapas anteriores.</p><p><strong>Enunciado:</strong> Constrói um relatório com título principal e três secções: uma decisão técnica, um erro corrigido e documentação consultada. Cada secção deve ter um título e um parágrafo. Inclui uma ligação externa para uma fonte que utilizaste.</p><p><strong>Erro frequente:</strong> Descrever o resultado sem explicar uma decisão concreta.</p><p><strong>Extensão:</strong> Exporta o progresso e pede a um colega que verifique um dos teus painéis. A qualidade da reflexão deve ser apreciada pelo professor.</p><p><a href="https://developer.mozilla.org/en-US/docs/Glossary/Semantics">Organização semântica</a></p><details><summary>Pistas graduais</summary><ol><li>Organiza o relatório com section, h2 e p.</li><li>Uma reflexão útil identifica uma alteração concreta e explica o seu motivo.</li><li>Cria três section com h2 e p e uma ligação a com href HTTPS. Usa exemplos do teu próprio trabalho.</li></ol></details><details><summary>Solução de referência e explicação</summary><p>Explicar decisões, documentar a resolução de problemas e preparar a entrega. A solução é um exemplo possível; os validadores aceitam outras formas de obter o comportamento exigido.</p><pre>&lt;!doctype html&gt;
+&lt;html lang=&quot;pt-PT&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Aurora · terminal&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main&gt;
+    &lt;h1&gt;Relatório de missão&lt;/h1&gt;
+    &lt;section&gt;&lt;h2&gt;Decisão técnica&lt;/h2&gt;&lt;p&gt;Usei Grid para controlar as colunas e Flexbox para alinhar comandos.&lt;/p&gt;&lt;/section&gt;
+    &lt;section&gt;&lt;h2&gt;Erro corrigido&lt;/h2&gt;&lt;p&gt;O contorno não aparecia porque faltava o estilo solid.&lt;/p&gt;&lt;/section&gt;
+    &lt;section&gt;&lt;h2&gt;Documentação&lt;/h2&gt;&lt;p&gt;Consultei a MDN para interpretar o modelo de caixa.&lt;/p&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS&quot;&gt;Referência CSS da MDN&lt;/a&gt;&lt;/section&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><pre>body { margin: 0; padding: 24px; background: #0e1b2a; color: #e7f0f8; font: 16px/1.65 system-ui, sans-serif; }
+main { max-width: 920px; margin: auto; }
+h1 { font-size: 28px; line-height: 1.2; }
+h2 { font-size: 22px; }
+p { color: #bdcddd; }
+a { color: #79e3ef; }
+button { padding: 10px 16px; border: 1px solid #79e3ef; border-radius: 5px; background: #79e3ef; color: #0c2630; font: inherit; cursor: pointer; }
+button:disabled { opacity: .45; cursor: not-allowed; }
+input { font: inherit; padding: 8px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #425469; }
+label { display: inline-block; margin: 8px 0; }
+</pre><pre>// Este desafio não necessita de JavaScript.
+</pre></details></section><h2>Limites e decisões técnicas</h2><ul><li>Sem contas: o progresso é local ao navegador. O JSON pode ser alterado manualmente e não constitui prova de avaliação.</li><li>A área do professor exige palavra-passe. No pacote dos alunos, as soluções e este guia são distribuídos cifrados com AES-GCM, com chave derivada por PBKDF2. O desbloqueio é temporário e os materiais são retirados do ecrã ao bloquear. Sendo uma aplicação local, um utilizador com conhecimentos técnicos ainda pode modificar os ficheiros ou a lógica da interface; esta proteção não transforma a atividade num sistema de exames seguro.</li><li>O código corre num iframe com sandbox allow-scripts e origem opaca, sem acesso direto ao armazenamento da aplicação. Os recursos de rede e os formulários externos são bloqueados por CSP.</li><li>Scripts e manipuladores inline no HTML são removidos na pré-visualização. O JavaScript deve ser escrito no separador script.js. As imagens na pré-visualização aceitam data URLs ou blobs; a biblioteca abre documentação fora do iframe.</li><li>As verificações comunicam por MessageChannel privado. Não constituem um sistema de exame resistente a manipulação intencional de APIs no contexto do aluno.</li><li>O parser Acorn insere guardas em ciclos e funções para interromper loops e recursão acidentais após 20 000 operações monitorizadas. Isto não é uma garantia contra toda a exaustão de recursos, código gerado dinamicamente ou operações nativas pesadas. O limite de tempo de resposta também não consegue, sozinho, interromper uma thread bloqueada.</li><li>As verificações CSS observam o estilo calculado e as dimensões; não são validadores completos de sintaxe ou acessibilidade. A verificação do relatório confirma estrutura, não qualidade.</li><li>O modo 2D conserva as atividades. A Terra 3D usa uma textura ilustrada original e não um mapa científico.</li><li>Sem Internet: o index.html principal abre diretamente e inclui bibliotecas, sebenta, conteúdos e música. A versão com servidor ou alojamento é opcional. A gravação de páginas locais varia entre navegadores; utilizar a exportação JSON para conservar o trabalho.</li></ul><h2>Editar e manter</h2><p>Editar src/challenges.js para alterar conteúdos. Preservar os ids e os seletores pedidos nos desafios; se os alterar, atualizar src/lesson-checks.js. Editar src/rubric.json para adaptar pesos de referência e atualizar esta página. Após alterações, executar a preparação para reconstruir dist. Ver README.md para instruções.</p><h2>Recursos e licenças</h2><p>Three.js: MIT. CodeMirror: MIT. Acorn: MIT. Fontes: Segoe UI/Arial e Consolas disponíveis no sistema, sem redistribuição. Terra, escotilha e cápsula final: desenho e geometria originais deste projeto. Som: sintetizado pelo navegador. Música «Órbita tranquila»: composição generativa original deste projeto, com Web Audio. Sebenta: documento fornecido pelo professor, incluído para a atividade; confirmar os direitos de distribuição antes de tornar o site público. Sem associação oficial a SpaceX.</p><section><h2>Consola de bordo animada</h2><p>Os quatro ecrãs apresentam telemetria simulada: voo orbital, horizonte artificial, ambiente e energia, órbita e sinal. Os valores oscilam suavemente. Estes instrumentos não alteram a avaliação nem o progresso.</p><p>Luz de cabine alterna a iluminação; Fixar leituras suspende a telemetria; Autoteste executa uma breve verificação cenográfica. Recolher painel dá mais espaço ao editor. As preferências incluem movimento reduzido e modo 2D.</p><p>Exploração pedagógica: identificar os cartões, comparar a grelha dos instrumentos com os comandos em Flexbox e observar como os eventos dos botões alteram classes e conteúdos no DOM.</p></section></body></html>

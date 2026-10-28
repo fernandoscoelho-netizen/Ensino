@@ -1,0 +1,42 @@
+[
+  [
+    "HTML e semântica",
+    3,
+    "Documento, hierarquia, listas, ligações e imagens adequados."
+  ],
+  [
+    "Tabelas e formulários",
+    2,
+    "Cabeçalhos de dados e etiquetas corretamente associados."
+  ],
+  [
+    "CSS e cartões",
+    3,
+    "Classes reutilizáveis, modelo de caixa e apresentação legível."
+  ],
+  [
+    "Flexbox",
+    2,
+    "Contentor, eixos, distribuição, quebra e itens compreendidos."
+  ],
+  [
+    "Grid",
+    2,
+    "Colunas, frações, espaçamento e destaque bem aplicados."
+  ],
+  [
+    "Responsividade",
+    2,
+    "Comportamento verificado em 1024, 768 e 375 px."
+  ],
+  [
+    "JavaScript",
+    3,
+    "Eventos, DOM e condições com estados consistentes."
+  ],
+  [
+    "Correção, documentação e reflexão",
+    3,
+    "Identifica erros, adapta fontes e explica decisões concretas."
+  ]
+]

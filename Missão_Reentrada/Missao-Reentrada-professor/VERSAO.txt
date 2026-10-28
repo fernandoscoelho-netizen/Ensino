@@ -1,0 +1,8 @@
+MISSÃO REENTRADA — CONSOLA DE BORDO
+Versão de 28 de outubro de 2026
+
+Instrumentos digitais e analógicos animados; vista Three.js; comandos da cabine.
+Identificação do aluno e exportação; área Professor protegida por palavra-passe.
+Os valores dos instrumentos são simulados.
+
+Extrair para uma pasta nova e abrir index.html. Manter a pasta dist ao lado.

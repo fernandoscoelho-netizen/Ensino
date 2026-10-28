@@ -1,0 +1,8 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {randomBytes,pbkdf2Sync,createCipheriv} from 'node:crypto';import {readFile} from 'node:fs/promises';import {unlockTeacherVault} from '../src/teacher-auth.js';
+const password='PalavraPasseDeTeste!2026',payload={version:1,guide:'Guia privado para teste',solutions:{1:{html:'<h1>Teste privado</h1>',css:'',js:''}}};
+function fixture(){const salt=randomBytes(16),iv=randomBytes(12),iterations=100000,key=pbkdf2Sync(password,salt,iterations,32,'sha256'),cipher=createCipheriv('aes-256-gcm',key,iv);const data=Buffer.concat([cipher.update(JSON.stringify(payload)),cipher.final(),cipher.getAuthTag()]);return{version:1,algorithm:'AES-GCM',kdf:'PBKDF2',iterations,salt:salt.toString('base64'),iv:iv.toString('base64'),data:data.toString('base64')};}
+test('a palavra-passe certa desbloqueia os materiais',async()=>assert.deepEqual(await unlockTeacherVault(password,fixture()),payload));
+test('uma palavra-passe errada é recusada',async()=>assert.rejects(()=>unlockTeacherVault('errada',fixture())));
+test('alterar os dados cifrados é detetado',async()=>{const vault=fixture(),bytes=Buffer.from(vault.data,'base64');bytes[0]^=1;vault.data=bytes.toString('base64');await assert.rejects(()=>unlockTeacherVault(password,vault));});
+test('configuração inválida é recusada',async()=>assert.rejects(()=>unlockTeacherVault(password,{...fixture(),iterations:1})));
+test('os desafios públicos não contêm soluções',async()=>{const text=await readFile(new URL('../dist/challenges.js',import.meta.url),'utf8');assert(!/"solution"\s*:/.test(text));});

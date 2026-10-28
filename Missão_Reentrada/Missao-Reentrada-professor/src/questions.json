@@ -1,0 +1,1061 @@
+{
+  "version": 1,
+  "questions": [
+    {
+      "id": "m01-q01",
+      "lesson": 1,
+      "prompt": "Onde se define o texto apresentado no separador do navegador?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "No elemento title, dentro de head."
+        },
+        {
+          "id": "b",
+          "text": "No elemento h1, dentro de body."
+        },
+        {
+          "id": "c",
+          "text": "No atributo lang de html."
+        }
+      ],
+      "correct": "a",
+      "explanation": "title identifica o documento no separador. h1 é um título visível no conteúdo da página.",
+      "reference": "Sebenta · capítulo 2, pp. 8–11"
+    },
+    {
+      "id": "m01-q02",
+      "lesson": 1,
+      "prompt": "Qual é a função de <meta charset=\"UTF-8\">?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Definir a largura dos cartões."
+        },
+        {
+          "id": "b",
+          "text": "Indicar a codificação dos caracteres."
+        },
+        {
+          "id": "c",
+          "text": "Traduzir automaticamente a página."
+        }
+      ],
+      "correct": "b",
+      "explanation": "A codificação permite interpretar os caracteres do documento, incluindo acentos e cedilhas.",
+      "reference": "Sebenta · capítulo 2, pp. 8–11"
+    },
+    {
+      "id": "m01-q03",
+      "lesson": 1,
+      "prompt": "Qual destas linhas identifica corretamente o idioma português europeu?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "<html language=\"portugues\">"
+        },
+        {
+          "id": "b",
+          "text": "<head lang=\"europa\">"
+        },
+        {
+          "id": "c",
+          "text": "<html lang=\"pt-PT\">"
+        }
+      ],
+      "correct": "c",
+      "explanation": "O atributo lang do elemento html identifica o idioma principal do documento. pt-PT especifica português de Portugal.",
+      "reference": "Sebenta · capítulo 2, pp. 8–11"
+    },
+    {
+      "id": "m01-q04",
+      "lesson": 1,
+      "prompt": "Qual é o papel de <!doctype html>?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Indicar que o documento utiliza HTML moderno e ativar o modo de padrões."
+        },
+        {
+          "id": "b",
+          "text": "Inserir um título principal."
+        },
+        {
+          "id": "c",
+          "text": "Ligar o ficheiro CSS."
+        }
+      ],
+      "correct": "a",
+      "explanation": "A declaração doctype ajuda o navegador a interpretar o documento em modo de padrões. Não apresenta conteúdo visível.",
+      "reference": "Sebenta · capítulo 2, pp. 8–11"
+    },
+    {
+      "id": "m02-q01",
+      "lesson": 2,
+      "prompt": "Qual é a estrutura adequada a três procedimentos que têm uma ordem?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "<p><li>Um</li></p>"
+        },
+        {
+          "id": "b",
+          "text": "<ol><li>Um</li><li>Dois</li><li>Três</li></ol>"
+        },
+        {
+          "id": "c",
+          "text": "<img src=\"procedimentos\">"
+        }
+      ],
+      "correct": "b",
+      "explanation": "ol representa uma lista ordenada e cada procedimento fica num li.",
+      "reference": "Sebenta · capítulo 3 e 6, pp. 12–28"
+    },
+    {
+      "id": "m02-q02",
+      "lesson": 2,
+      "prompt": "Para que serve o atributo alt de uma imagem?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Para fornecer uma alternativa textual adequada ao conteúdo e ao contexto."
+        },
+        {
+          "id": "b",
+          "text": "Para definir a largura da imagem."
+        },
+        {
+          "id": "c",
+          "text": "Para tornar a imagem uma ligação."
+        }
+      ],
+      "correct": "a",
+      "explanation": "alt fornece uma alternativa textual. Para uma imagem informativa, descreve a informação relevante. Imagens puramente decorativas podem ter alt vazio.",
+      "reference": "Sebenta · capítulo 3 e 6, pp. 12–28"
+    },
+    {
+      "id": "m02-q03",
+      "lesson": 2,
+      "prompt": "Que ligação tem um texto mais descritivo?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "<a href=\"manual.html\">Aqui</a>"
+        },
+        {
+          "id": "b",
+          "text": "<a href=\"manual.html\">Clica</a>"
+        },
+        {
+          "id": "c",
+          "text": "<a href=\"manual.html\">Consultar procedimentos de emergência</a>"
+        }
+      ],
+      "correct": "c",
+      "explanation": "Um texto descritivo permite compreender o destino da ligação, inclusive fora do contexto visual imediato.",
+      "reference": "Sebenta · capítulo 3 e 6, pp. 12–28"
+    },
+    {
+      "id": "m02-q04",
+      "lesson": 2,
+      "prompt": "Que elemento representa uma secção temática, normalmente com título?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "section"
+        },
+        {
+          "id": "b",
+          "text": "br"
+        },
+        {
+          "id": "c",
+          "text": "strong"
+        }
+      ],
+      "correct": "a",
+      "explanation": "section agrupa conteúdo com um tema próprio. Um título ajuda a identificar essa secção.",
+      "reference": "Sebenta · capítulo 3 e 6, pp. 12–28"
+    },
+    {
+      "id": "m03-q01",
+      "lesson": 3,
+      "prompt": "Como associas esta etiqueta ao campo?\n<label for=\"operador\">Operador</label>",
+      "choices": [
+        {
+          "id": "a",
+          "text": "<input name=\"pessoa\">"
+        },
+        {
+          "id": "b",
+          "text": "<input id=\"operador\">"
+        },
+        {
+          "id": "c",
+          "text": "<input class=\"operador\">"
+        }
+      ],
+      "correct": "b",
+      "explanation": "O valor de for coincide com o id do campo. name é útil para identificar dados enviados e class para selecionar estilos.",
+      "reference": "Sebenta · capítulo 4 e 5, pp. 29–42"
+    },
+    {
+      "id": "m03-q02",
+      "lesson": 3,
+      "prompt": "Qual é a combinação adequada para cabeçalhos e dados numa tabela?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "th para cabeçalhos e td para dados."
+        },
+        {
+          "id": "b",
+          "text": "td para cabeçalhos e title para dados."
+        },
+        {
+          "id": "c",
+          "text": "h1 em todas as células."
+        }
+      ],
+      "correct": "a",
+      "explanation": "th representa uma célula de cabeçalho e td uma célula de dados. thead e tbody organizam as zonas da tabela.",
+      "reference": "Sebenta · capítulo 4 e 5, pp. 29–42"
+    },
+    {
+      "id": "m03-q03",
+      "lesson": 3,
+      "prompt": "O que indica required num campo de formulário?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Que o campo deve ocupar toda a largura."
+        },
+        {
+          "id": "b",
+          "text": "Que o campo é automaticamente guardado."
+        },
+        {
+          "id": "c",
+          "text": "Que o campo precisa de um valor válido antes do envio normal do formulário."
+        }
+      ],
+      "correct": "c",
+      "explanation": "required participa na validação do formulário pelo navegador. Não guarda dados nem substitui validação num servidor.",
+      "reference": "Sebenta · capítulo 4 e 5, pp. 29–42"
+    },
+    {
+      "id": "m03-q04",
+      "lesson": 3,
+      "prompt": "Quando é apropriado utilizar uma tabela HTML?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Para alinhar os botões do menu."
+        },
+        {
+          "id": "b",
+          "text": "Para relacionar sistemas e respetivos valores em linhas e colunas."
+        },
+        {
+          "id": "c",
+          "text": "Para criar o fundo da cápsula."
+        }
+      ],
+      "correct": "b",
+      "explanation": "As tabelas representam dados tabulares. A disposição geral da interface pode ser feita com CSS, incluindo Flexbox e Grid.",
+      "reference": "Sebenta · capítulo 4 e 5, pp. 29–42"
+    },
+    {
+      "id": "m04-q01",
+      "lesson": 4,
+      "prompt": "Que propriedade cria espaço entre o conteúdo do cartão e a sua borda?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "padding"
+        },
+        {
+          "id": "b",
+          "text": "margin"
+        },
+        {
+          "id": "c",
+          "text": "gap"
+        }
+      ],
+      "correct": "a",
+      "explanation": "padding cria espaço interior. margin afasta a caixa de outras caixas; gap cria espaço entre itens de determinados contentores.",
+      "reference": "Sebenta · capítulo 11 e 12, pp. 73–81"
+    },
+    {
+      "id": "m04-q02",
+      "lesson": 4,
+      "prompt": "Com width: 200px; padding: 20px; border: 2px solid; e box-sizing: content-box, qual é a largura da caixa, sem margem?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "200 px"
+        },
+        {
+          "id": "b",
+          "text": "224 px"
+        },
+        {
+          "id": "c",
+          "text": "244 px"
+        }
+      ],
+      "correct": "c",
+      "explanation": "A largura soma conteúdo, padding dos dois lados e bordas: 200 + 40 + 4 = 244 px.",
+      "reference": "Sebenta · capítulo 11 e 12, pp. 73–81"
+    },
+    {
+      "id": "m04-q03",
+      "lesson": 4,
+      "prompt": "O que muda ao aplicar box-sizing: border-box?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A margem passa a fazer parte de width."
+        },
+        {
+          "id": "b",
+          "text": "width passa a incluir conteúdo, padding e borda."
+        },
+        {
+          "id": "c",
+          "text": "O padding deixa de existir."
+        }
+      ],
+      "correct": "b",
+      "explanation": "border-box inclui padding e borda nas dimensões definidas. A margem continua fora da largura da caixa.",
+      "reference": "Sebenta · capítulo 11 e 12, pp. 73–81"
+    },
+    {
+      "id": "m04-q04",
+      "lesson": 4,
+      "prompt": "Porque é útil uma classe .cartao?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Permite aplicar o mesmo conjunto de estilos a vários cartões."
+        },
+        {
+          "id": "b",
+          "text": "Garante que todos os cartões têm o mesmo id."
+        },
+        {
+          "id": "c",
+          "text": "Executa automaticamente JavaScript."
+        }
+      ],
+      "correct": "a",
+      "explanation": "Uma classe pode ser reutilizada em vários elementos. Cada id, por sua vez, deve identificar um elemento único no documento.",
+      "reference": "Sebenta · capítulo 11 e 12, pp. 73–81"
+    },
+    {
+      "id": "m05-q01",
+      "lesson": 5,
+      "prompt": "Onde aplicas display: flex para organizar três cartões irmãos?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Apenas ao título de cada cartão."
+        },
+        {
+          "id": "b",
+          "text": "Ao contentor-pai dos três cartões."
+        },
+        {
+          "id": "c",
+          "text": "Ao ficheiro JavaScript."
+        }
+      ],
+      "correct": "b",
+      "explanation": "Os filhos diretos do contentor tornam-se itens flex. Aplicar Flexbox a outro nível organiza outros elementos.",
+      "reference": "Sebenta · capítulo 13, pp. 82–89"
+    },
+    {
+      "id": "m05-q02",
+      "lesson": 5,
+      "prompt": "Num contentor com flex-direction: column, em que direção atua justify-content?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Ao longo do eixo principal, que neste caso é vertical."
+        },
+        {
+          "id": "b",
+          "text": "Sempre na horizontal."
+        },
+        {
+          "id": "c",
+          "text": "Só nas margens exteriores."
+        }
+      ],
+      "correct": "a",
+      "explanation": "justify-content atua no eixo principal. Com column esse eixo é vertical; align-items atua no eixo transversal.",
+      "reference": "Sebenta · capítulo 13, pp. 82–89"
+    },
+    {
+      "id": "m05-q03",
+      "lesson": 5,
+      "prompt": "Qual é o efeito de flex-wrap: wrap?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Obriga todos os itens a manterem-se numa linha."
+        },
+        {
+          "id": "b",
+          "text": "Cria sempre três colunas de igual largura."
+        },
+        {
+          "id": "c",
+          "text": "Permite que os itens passem para novas linhas quando necessário."
+        }
+      ],
+      "correct": "c",
+      "explanation": "wrap permite várias linhas. Cada linha flex distribui o seu espaço de forma independente.",
+      "reference": "Sebenta · capítulo 13, pp. 82–89"
+    },
+    {
+      "id": "m05-q04",
+      "lesson": 5,
+      "prompt": "Qual destas propriedades pertence normalmente a um item flex?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "justify-content"
+        },
+        {
+          "id": "b",
+          "text": "flex: 1"
+        },
+        {
+          "id": "c",
+          "text": "flex-direction"
+        }
+      ],
+      "correct": "b",
+      "explanation": "flex define o comportamento de crescimento, redução e base de um item. justify-content e flex-direction são propriedades do contentor.",
+      "reference": "Sebenta · capítulo 13, pp. 82–89"
+    },
+    {
+      "id": "m06-q01",
+      "lesson": 6,
+      "prompt": "O que define grid-template-columns: repeat(3, 1fr)?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Três linhas fixas de 1 px."
+        },
+        {
+          "id": "b",
+          "text": "Três colunas que repartem o espaço disponível em frações iguais."
+        },
+        {
+          "id": "c",
+          "text": "Um cartão que ocupa três páginas."
+        }
+      ],
+      "correct": "b",
+      "explanation": "repeat(3, 1fr) repete três faixas de coluna. 1fr representa uma fração do espaço disponível da grelha.",
+      "reference": "Sebenta · capítulo 14, pp. 90–96"
+    },
+    {
+      "id": "m06-q02",
+      "lesson": 6,
+      "prompt": "Que regra permite destacar um cartão em duas colunas?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "grid-column: span 2"
+        },
+        {
+          "id": "b",
+          "text": "flex-wrap: 2"
+        },
+        {
+          "id": "c",
+          "text": "padding: two"
+        }
+      ],
+      "correct": "a",
+      "explanation": "grid-column: span 2 faz o item ocupar duas faixas de coluna da grelha. Deve ser revisto quando a grelha muda.",
+      "reference": "Sebenta · capítulo 14, pp. 90–96"
+    },
+    {
+      "id": "m06-q03",
+      "lesson": 6,
+      "prompt": "Qual é a distinção mais útil entre Flexbox e Grid?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Grid serve apenas para imagens."
+        },
+        {
+          "id": "b",
+          "text": "Flexbox nunca permite várias linhas."
+        },
+        {
+          "id": "c",
+          "text": "Flexbox organiza principalmente numa dimensão; Grid controla linhas e colunas em conjunto."
+        }
+      ],
+      "correct": "c",
+      "explanation": "Os dois sistemas podem ser combinados. Flexbox permite quebra de linha, mas cada linha gere o espaço independentemente.",
+      "reference": "Sebenta · capítulo 14, pp. 90–96"
+    },
+    {
+      "id": "m06-q04",
+      "lesson": 6,
+      "prompt": "As colunas não aparecem, apesar de existir grid-template-columns. O que pode faltar no contentor?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "display: grid"
+        },
+        {
+          "id": "b",
+          "text": "text-align: center"
+        },
+        {
+          "id": "c",
+          "text": "border-radius: 8px"
+        }
+      ],
+      "correct": "a",
+      "explanation": "grid-template-columns define faixas de uma grelha. O contentor precisa de utilizar Grid para essa disposição ser aplicada.",
+      "reference": "Sebenta · capítulo 14, pp. 90–96"
+    },
+    {
+      "id": "m07-q01",
+      "lesson": 7,
+      "prompt": "Quando se aplica @media (max-width: 768px)?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Apenas a ecrãs exatamente com 768 px."
+        },
+        {
+          "id": "b",
+          "text": "Quando a largura da área de visualização é até 768 px, inclusive."
+        },
+        {
+          "id": "c",
+          "text": "Apenas a computadores de secretária."
+        }
+      ],
+      "correct": "b",
+      "explanation": "A condição max-width estabelece um limite máximo inclusivo. O ponto de quebra deve ser adequado ao conteúdo.",
+      "reference": "Sebenta · capítulo 15, pp. 97–102"
+    },
+    {
+      "id": "m07-q02",
+      "lesson": 7,
+      "prompt": "A grelha passa a uma coluna, mas um cartão mantém span 2. O que pode acontecer?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "O cartão desaparece sempre."
+        },
+        {
+          "id": "b",
+          "text": "O HTML deixa de ser válido automaticamente."
+        },
+        {
+          "id": "c",
+          "text": "Pode ser criada uma coluna implícita, prejudicando a disposição pretendida."
+        }
+      ],
+      "correct": "c",
+      "explanation": "Um span que não cabe na grelha explícita pode criar faixas implícitas. Ajusta o destaque na media query mais estreita.",
+      "reference": "Sebenta · capítulo 15, pp. 97–102"
+    },
+    {
+      "id": "m07-q03",
+      "lesson": 7,
+      "prompt": "Como verificas melhor se o painel é responsivo?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Testando várias larguras e observando leitura, comandos e deslocamento horizontal."
+        },
+        {
+          "id": "b",
+          "text": "Mudando apenas a cor de fundo."
+        },
+        {
+          "id": "c",
+          "text": "Verificando apenas que existe uma media query no código."
+        }
+      ],
+      "correct": "a",
+      "explanation": "A presença de uma media query não garante um resultado adequado. É necessário observar o comportamento em diferentes larguras.",
+      "reference": "Sebenta · capítulo 15, pp. 97–102"
+    },
+    {
+      "id": "m07-q04",
+      "lesson": 7,
+      "prompt": "Qual é a função da meta viewport neste projeto?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Aumentar a resolução da Terra 3D."
+        },
+        {
+          "id": "b",
+          "text": "Indicar ao navegador móvel como ajustar a área de visualização à largura do dispositivo."
+        },
+        {
+          "id": "c",
+          "text": "Substituir todas as regras CSS responsivas."
+        }
+      ],
+      "correct": "b",
+      "explanation": "width=device-width e initial-scale=1.0 ajudam o navegador móvel a utilizar a largura adequada. O CSS continua a definir a disposição.",
+      "reference": "Sebenta · capítulo 15, pp. 97–102"
+    },
+    {
+      "id": "m08-q01",
+      "lesson": 8,
+      "prompt": "Qual seletor encontra o elemento com id=\"ligar\"?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "document.querySelector(\"#ligar\")"
+        },
+        {
+          "id": "b",
+          "text": "document.querySelector(\".ligar\")"
+        },
+        {
+          "id": "c",
+          "text": "document.querySelector(\"ligar\")"
+        }
+      ],
+      "correct": "a",
+      "explanation": "# seleciona um id, ponto seleciona uma classe e um nome sem prefixo seleciona um tipo de elemento.",
+      "reference": "Sebenta · capítulo 16 e 17, pp. 104–117"
+    },
+    {
+      "id": "m08-q02",
+      "lesson": 8,
+      "prompt": "O que faz addEventListener(\"click\", funcao)?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Executa a função apenas durante a escrita do HTML."
+        },
+        {
+          "id": "b",
+          "text": "Associa a função a futuros eventos de clique."
+        },
+        {
+          "id": "c",
+          "text": "Muda automaticamente o texto do botão."
+        }
+      ],
+      "correct": "b",
+      "explanation": "A função é registada como resposta ao evento. As alterações pretendidas devem estar programadas nessa função.",
+      "reference": "Sebenta · capítulo 16 e 17, pp. 104–117"
+    },
+    {
+      "id": "m08-q03",
+      "lesson": 8,
+      "prompt": "Qual destas linhas muda o texto de um elemento guardado na variável estado?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "estado.valueOf = \"Ligado\";"
+        },
+        {
+          "id": "b",
+          "text": "estado.text = \"Ligado\";"
+        },
+        {
+          "id": "c",
+          "text": "estado.textContent = \"Ligado\";"
+        }
+      ],
+      "correct": "c",
+      "explanation": "textContent permite ler ou substituir o conteúdo textual de um elemento.",
+      "reference": "Sebenta · capítulo 16 e 17, pp. 104–117"
+    },
+    {
+      "id": "m08-q04",
+      "lesson": 8,
+      "prompt": "O erro Cannot read properties of null apareceu após querySelector. Qual deve ser uma das primeiras verificações?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Confirmar o seletor, o id e se o elemento já existe no DOM."
+        },
+        {
+          "id": "b",
+          "text": "Acrescentar mais sombras ao botão."
+        },
+        {
+          "id": "c",
+          "text": "Mudar o nome do navegador."
+        }
+      ],
+      "correct": "a",
+      "explanation": "querySelector devolve null quando não encontra o elemento. Confirma o seletor e o momento de execução do script.",
+      "reference": "Sebenta · capítulo 16 e 17, pp. 104–117"
+    },
+    {
+      "id": "m09-q01",
+      "lesson": 9,
+      "prompt": "O que faz classList.toggle(\"escondido\")?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Apaga todo o elemento do documento."
+        },
+        {
+          "id": "b",
+          "text": "Adiciona a classe se não existir e remove-a se já existir."
+        },
+        {
+          "id": "c",
+          "text": "Desativa permanentemente o botão."
+        }
+      ],
+      "correct": "b",
+      "explanation": "toggle alterna a presença da classe. O CSS associado à classe determina o seu efeito visual.",
+      "reference": "Sebenta · capítulo 17, pp. 110–117"
+    },
+    {
+      "id": "m09-q02",
+      "lesson": 9,
+      "prompt": "Se .escondido { display: none; }, o que acontece ao remover essa classe?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Deixa de ser aplicada essa regra; a visibilidade depende das restantes regras."
+        },
+        {
+          "id": "b",
+          "text": "O elemento torna-se obrigatoriamente flex."
+        },
+        {
+          "id": "c",
+          "text": "O texto é enviado ao servidor."
+        }
+      ],
+      "correct": "a",
+      "explanation": "A remoção de uma classe retira as regras que dependem dela. Outras regras ainda podem afetar a apresentação.",
+      "reference": "Sebenta · capítulo 17, pp. 110–117"
+    },
+    {
+      "id": "m09-q03",
+      "lesson": 9,
+      "prompt": "Para que serve classList.contains(\"escondido\")?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Para criar um novo ficheiro CSS."
+        },
+        {
+          "id": "b",
+          "text": "Para ocultar diretamente a página."
+        },
+        {
+          "id": "c",
+          "text": "Para consultar se a classe está presente."
+        }
+      ],
+      "correct": "c",
+      "explanation": "contains devolve um booleano, útil numa condição que atualiza o texto ou outro estado da interface.",
+      "reference": "Sebenta · capítulo 17, pp. 110–117"
+    },
+    {
+      "id": "m09-q04",
+      "lesson": 9,
+      "prompt": "O botão mostra detalhes, mas mantém o texto «Mostrar detalhes». O que falta?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Atualizar o texto do comando de acordo com o estado."
+        },
+        {
+          "id": "b",
+          "text": "Substituir todos os parágrafos por imagens."
+        },
+        {
+          "id": "c",
+          "text": "Acrescentar uma tabela."
+        }
+      ],
+      "correct": "a",
+      "explanation": "A ação disponível deve corresponder ao texto do botão. Depois de abrir, a ação seguinte será ocultar os detalhes.",
+      "reference": "Sebenta · capítulo 17, pp. 110–117"
+    },
+    {
+      "id": "m10-q01",
+      "lesson": 10,
+      "prompt": "Qual expressão exige que os três requisitos sejam verdadeiros?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "energia || escudo || rota"
+        },
+        {
+          "id": "b",
+          "text": "energia && escudo && rota"
+        },
+        {
+          "id": "c",
+          "text": "energia = escudo = rota"
+        }
+      ],
+      "correct": "b",
+      "explanation": "&& representa E lógico: todos os requisitos têm de ser verdadeiros. || representa OU e = atribui um valor.",
+      "reference": "Sebenta · capítulo 16 e 17, pp. 104–117"
+    },
+    {
+      "id": "m10-q02",
+      "lesson": 10,
+      "prompt": "Se pronto é false, que valor deve receber botao.disabled?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "true"
+        },
+        {
+          "id": "b",
+          "text": "false"
+        },
+        {
+          "id": "c",
+          "text": "\"pronto\""
+        }
+      ],
+      "correct": "a",
+      "explanation": "disabled true bloqueia o botão. A expressão botao.disabled = !pronto mantém essa relação.",
+      "reference": "Sebenta · capítulo 16 e 17, pp. 104–117"
+    },
+    {
+      "id": "m10-q03",
+      "lesson": 10,
+      "prompt": "Depois de autorizar, o aluno desmarca o escudo. O que deve acontecer?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "O botão mantém-se sempre ativo."
+        },
+        {
+          "id": "b",
+          "text": "Todos os campos desaparecem."
+        },
+        {
+          "id": "c",
+          "text": "A condição é recalculada e o botão volta a ficar desativado."
+        }
+      ],
+      "correct": "c",
+      "explanation": "A interface deve acompanhar o estado atual. Por isso, a verificação é associada às alterações dos três campos.",
+      "reference": "Sebenta · capítulo 16 e 17, pp. 104–117"
+    },
+    {
+      "id": "m10-q04",
+      "lesson": 10,
+      "prompt": "Que propriedade indica se uma checkbox está marcada?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "textContent"
+        },
+        {
+          "id": "b",
+          "text": "checked"
+        },
+        {
+          "id": "c",
+          "text": "background"
+        }
+      ],
+      "correct": "b",
+      "explanation": "checked é um valor booleano. Pode ser consultado para compor a condição de autorização.",
+      "reference": "Sebenta · capítulo 16 e 17, pp. 104–117"
+    },
+    {
+      "id": "m11-q01",
+      "lesson": 11,
+      "prompt": "É possível um cartão ser item Grid e contentor Flexbox ao mesmo tempo?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Sim: a relação com o pai e a organização dos seus filhos são níveis diferentes."
+        },
+        {
+          "id": "b",
+          "text": "Não: Grid e Flexbox são incompatíveis."
+        },
+        {
+          "id": "c",
+          "text": "Só se todos os elementos forem tabelas."
+        }
+      ],
+      "correct": "a",
+      "explanation": "O pai pode posicionar o cartão com Grid enquanto o cartão organiza os seus próprios filhos com Flexbox.",
+      "reference": "Sebenta · capítulo 18, pp. 118–120"
+    },
+    {
+      "id": "m11-q02",
+      "lesson": 11,
+      "prompt": "Ao acrescentar um novo cartão, qual abordagem favorece a manutenção?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Copiar todas as regras para um novo id."
+        },
+        {
+          "id": "b",
+          "text": "Reutilizar .cartao e acrescentar uma classe específica quando necessário."
+        },
+        {
+          "id": "c",
+          "text": "Escrever todo o CSS dentro de JavaScript."
+        }
+      ],
+      "correct": "b",
+      "explanation": "A classe comum conserva a consistência. Uma classe específica permite acrescentar diferenças sem repetir todo o estilo.",
+      "reference": "Sebenta · capítulo 18, pp. 118–120"
+    },
+    {
+      "id": "m11-q03",
+      "lesson": 11,
+      "prompt": "Qual é uma justificação técnica adequada para a disposição deste painel?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Escolhi Grid porque o nome é mais curto."
+        },
+        {
+          "id": "b",
+          "text": "Escolhi Flexbox porque nunca é necessário testar."
+        },
+        {
+          "id": "c",
+          "text": "Usei Grid para coordenar colunas e Flexbox para distribuir comandos dentro do cartão."
+        }
+      ],
+      "correct": "c",
+      "explanation": "A justificação relaciona o problema de disposição com as capacidades das ferramentas. Outras escolhas podem ser adequadas se forem fundamentadas.",
+      "reference": "Sebenta · capítulo 18, pp. 118–120"
+    },
+    {
+      "id": "m11-q04",
+      "lesson": 11,
+      "prompt": "Porque deve o novo comando de reserva ser testado depois de integrado?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Para confirmar que altera o elemento certo e preserva o funcionamento do painel."
+        },
+        {
+          "id": "b",
+          "text": "Apenas para aumentar o número de cliques."
+        },
+        {
+          "id": "c",
+          "text": "Porque classes CSS executam funções automaticamente."
+        }
+      ],
+      "correct": "a",
+      "explanation": "Uma alteração pode afetar seletores, estados e disposição. O teste confirma o comportamento no contexto final.",
+      "reference": "Sebenta · capítulo 18, pp. 118–120"
+    },
+    {
+      "id": "m12-q01",
+      "lesson": 12,
+      "prompt": "Qual reflexão apresenta uma evidência concreta de aprendizagem?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "O site ficou bom."
+        },
+        {
+          "id": "b",
+          "text": "Corrigi o seletor de titulo para #titulo porque o elemento era identificado por id."
+        },
+        {
+          "id": "c",
+          "text": "Gostei das cores."
+        }
+      ],
+      "correct": "b",
+      "explanation": "A reflexão identifica um problema, a correção e a razão técnica, permitindo apreciar a compreensão.",
+      "reference": "Sebenta · capítulo 22, pp. 133–134"
+    },
+    {
+      "id": "m12-q02",
+      "lesson": 12,
+      "prompt": "Para continuar a missão noutro computador, que exportação deve ser importada?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "O ficheiro JSON de progresso."
+        },
+        {
+          "id": "b",
+          "text": "Apenas uma captura de ecrã."
+        },
+        {
+          "id": "c",
+          "text": "Só o ficheiro estilo.css."
+        }
+      ],
+      "correct": "a",
+      "explanation": "O JSON inclui código, progresso, diário e respostas guardadas. O ZIP destina-se sobretudo à entrega dos ficheiros de código.",
+      "reference": "Sebenta · capítulo 22, pp. 133–134"
+    },
+    {
+      "id": "m12-q03",
+      "lesson": 12,
+      "prompt": "O que deve acompanhar uma referência consultada?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "Só o nome do navegador."
+        },
+        {
+          "id": "b",
+          "text": "Uma frase copiada sem contexto."
+        },
+        {
+          "id": "c",
+          "text": "A identificação da fonte e uma explicação de como ajudou a resolver o problema."
+        }
+      ],
+      "correct": "c",
+      "explanation": "Identificar a fonte e a adaptação realizada demonstra utilização consciente da documentação.",
+      "reference": "Sebenta · capítulo 22, pp. 133–134"
+    },
+    {
+      "id": "m12-q04",
+      "lesson": 12,
+      "prompt": "A validação automática concluiu que a estrutura do relatório está completa. O que ainda deve ser apreciado pelo professor?",
+      "choices": [
+        {
+          "id": "a",
+          "text": "A qualidade das explicações, a autonomia e a compreensão das decisões."
+        },
+        {
+          "id": "b",
+          "text": "Nada: uma estrutura válida garante toda a aprendizagem."
+        },
+        {
+          "id": "c",
+          "text": "A velocidade com que o aluno escolheu uma cor."
+        }
+      ],
+      "correct": "a",
+      "explanation": "Os testes automáticos verificam requisitos definidos. A qualidade da reflexão e a compreensão precisam de apreciação humana.",
+      "reference": "Sebenta · capítulo 22, pp. 133–134"
+    }
+  ]
+}
