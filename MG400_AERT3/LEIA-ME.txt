@@ -1,0 +1,34 @@
+MG400 AERT3 - Simulador para alunos
+Edição de 11 de novembro de 2026
+
+COMO COMEÇAR
+1. Se recebeste o ZIP, extrai primeiro todos os ficheiros.
+2. Abre MG400_AERT3.html no Google Chrome ou Microsoft Edge atualizado.
+3. Aguarda o carregamento do modelo. Escolhe um dos 14 desafios.
+
+O HTML contém o simulador, os blocos, o modelo 3D, o logótipo da escola e o manual. Não necessita de instalação, servidor, conta ChatGPT ou Internet para as atividades. O navegador deve suportar WebGL e mapas de importação de módulos.
+
+COMO TRABALHAR
+- Explorar articulações: altera J1 a J4 e observa as coordenadas.
+- Posicionar ferramenta: escolhe XYZR e a trajetória MovJ, MovL ou Jump.
+- Desafios guiados: lê a ficha, prevê, testa e regista a reflexão.
+- Programar por blocos: constrói a sequência, executa ou avança Um passo.
+- Consulta o Manual do aluno em PDF dentro da página ou o PDF incluído neste pacote.
+
+COMO ENTREGAR AO PROFESSOR
+Dá um nome ao trabalho e carrega em Guardar trabalho.
+Entrega o ficheiro .mg400.json na plataforma indicada pelo professor.
+Esse ficheiro conserva o programa, as posições e as reflexões.
+Para retomar, usa Abrir trabalho no simulador.
+
+A gravação automática de ficheiros HTML locais depende do navegador. Guarda sempre o trabalho num ficheiro antes de fechar ou mudar de computador.
+
+SOBRE ESTA EXPORTAÇÃO
+É uma cópia autónoma da plataforma, com um projeto inicial limpo.
+Não inclui trabalhos pessoais nem sessões de utilizador.
+O endereço e o código QR apresentados no manual referem-se à edição web; para este pacote, abre o HTML incluído.
+Os links externos de referências e créditos precisam de Internet.
+
+Simulação cinemática educativa, sem ligação a hardware.
+As verificações de colisão são simplificadas e não validam a segurança de um robô físico.
+Os créditos e as licenças do modelo, Three.js e Blockly estão acessíveis dentro do simulador.
