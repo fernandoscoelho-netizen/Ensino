@@ -1,0 +1,16 @@
+MISSÃO REENTRADA — TERRA E CÁPSULA EXTERIOR
+
+Modelo exterior da cápsula Aurora: geometria e texturas originais, Fernando Coelho, com apoio de IA, sob CC BY-NC 4.0 na medida dos direitos detidos pelo autor. Casco curvo, escotilha, janelas, propulsores, escudo térmico e tronco de serviço com painéis e aletas. Interpretação educativa sem afiliação ou aprovação da SpaceX.
+
+Terra: NASA Earth Observatory — Blue Marble: Next Generation, January 2004.
+Fonte: https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-map/
+Imagem: https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-base/january/world.200401.3x5400x2700.jpg
+Crédito: NASA Earth Observatory; Blue Marble data courtesy of Reto Stockli (NASA/GSFC).
+Tratamento local: redução para 4096×2048, compressão e ajuste visual dos oceanos. Textura incorporada no JavaScript para abertura direta e cópia local para a alternativa 2D. Mantém o estatuto e condições de utilização da NASA, fora da licença CC BY-NC dos materiais próprios.
+Condições: https://www.nasa.gov/nasa-brand-center/images-and-media/
+
+Referências visuais consultadas: apresentação NASA de Crew Dragon https://www.youtube.com/watch?v=mE_hCTfMdng e fotografia SpaceX https://commons.wikimedia.org/wiki/File:SpaceX_Dragon_v2_(Crew)_interior_(16763231836).jpg . A fotografia não é incluída no jogo.
+
+Nuvens, atmosfera e movimento: ilustração local; não são meteorologia, telemetria ou trajetórias reais. O enquadramento não representa distâncias astronómicas à escala.
+
+Three.js 0.180.0 e addons RoomEnvironment e RoundedBoxGeometry: MIT. Ver LICENCAS.txt. Não são usadas imagens ou modelos de jogos nem pedidos a CDN.
