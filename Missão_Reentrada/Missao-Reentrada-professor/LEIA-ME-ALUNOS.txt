@@ -15,3 +15,19 @@ Autoteste verifica os instrumentos cenográficos.
 Recolher painel dá mais espaço para trabalhar no código.
 Preferências permite reduzir movimento e utilizar modo 2D.
 O progresso real depende da validação dos desafios.
+
+AUTORIA, UTILIZAÇÃO E PRIVACIDADE
+© 2026 Fernando Coelho. Jogo e sebenta criados com apoio de IA.
+Materiais próprios: CC BY-NC 4.0. Bibliotecas com licenças próprias.
+Usar nome curto ou código combinado com o professor e a turma; número opcional.
+1 — IA como tutor: pedir explicações e pistas, escrever e explicar o próprio código.
+Não é necessário criar uma conta de IA. O jogo não inclui um assistente de IA.
+Privacidade e créditos permite consultar os avisos, exportar, corrigir a identificação
+e apagar o registo local desta atividade. Apagar não elimina ficheiros exportados.
+Entregar apenas pelo canal escolar indicado. Não publicar relatórios identificados.
+
+MUDAR TELEMETRIA
+O botão ao lado de Recolher painel alterna os instrumentos originais
+e o novo painel de orientação, tendências e recursos.
+As leituras são simuladas e a troca não altera os desafios concluídos.
+A Terra e a cápsula exterior apresentam agora maior detalhe em Three.js.

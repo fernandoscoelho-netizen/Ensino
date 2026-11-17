@@ -73,3 +73,27 @@ O guião opcional tests/browser-check.mjs requer Playwright instalado e um naveg
 - 19 testes técnicos voltaram a passar. Repetidos na interface: recusa de senha incorreta, desbloqueio correto e novo bloqueio ao fechar, sem soluções retidas no diálogo. Nenhum aviso ou erro de consola observado neste teste.
 - A animação é pausada quando a consola fica fora da área visível, ao ocultar a página e durante a identificação inicial. A lógica foi implementada; a ocultação real do separador não foi reproduzida pelo navegador integrado.
 - O teste da aplicação clássica foi feito em HTTP local. Mantém-se a limitação já registada de confirmação direta de file:// no navegador integrado.
+
+## Autoria, utilização, IA e RGPD — 15 de novembro de 2026
+
+- Informação anterior à identificação observada no navegador: autoria, apoio de IA, armazenamento local, exportação e ligação ao aviso completo. Não há checkbox de consentimento nem aceitação obrigatória de termos.
+- Identificação com código TESTE-RGPD e turma TURMA-QA, sem número; texto principal e editor medidos a 18 px.
+- Exportação JSON efetivamente descarregada. Comando de apagamento executado apenas sobre estes dados de teste, após guardar uma cópia.
+- Após apagar e recarregar: nome e turma vazios, aluno por identificar, zero sistemas recuperados. A gravação não recriou os dados anteriores.
+- Página local de informações aberta e verificada: âmbito, direitos, contacto genérico de EPD, PDF do agrupamento, CC BY-NC 4.0, terceiros e sinalética 1 — IA como tutor.
+- Página de informações e formulário verificados a 375 px sem deslocamento horizontal da página; campos a 18 px e dentro do diálogo. Preferências temporárias de largura repostas no final.
+- 19 testes técnicos aprovados; nenhum erro ou aviso observado na consola na verificação.
+- O PDF institucional foi lido integralmente e as páginas 2, 4 e 5 foram verificadas visualmente. Preservado sem alterações.
+- Falta confirmação institucional do fundamento jurídico específico e dos critérios de conservação das entregas. Esta revisão não equivale a uma certificação RGPD.
+- Verificação do protocolo file:// mantém a limitação previamente documentada. A mesma versão clássica foi testada em HTTP local.
+
+## Visual anterior, Terra/cápsula e dois conjuntos de telemetria — 15 de novembro de 2026
+
+- Reposto o enquadramento anterior escolhido pelo utilizador. O interior explorável foi retirado da aplicação.
+- Terra com textura NASA local de 4096 px, atmosfera e camada ilustrativa de nuvens. Cápsula exterior com nova geometria curva, escotilha, janelas, propulsores, escudo térmico, painéis e aletas; também presente na abertura.
+- Painel original conservado e painel avançado acrescentado. Botão Mudar telemetria imediatamente ao lado de Recolher painel.
+- Confirmados no navegador: alternância nos dois sentidos, painel anterior acessível, mesmas leituras de altitude nas duas apresentações, preferência conservada após recarregar e entrar, fixação das leituras conservada ao mudar de painel e ao recolher/expandir, retoma e autoteste concluído. O progresso pedagógico permaneceu 0/12 durante estes testes de apresentação.
+- Novo painel com orientação em três eixos, gráficos de amostras da sessão, energia, tensão, pressão e temperatura. Valores e históricos cenográficos; não são telemetria real nem resultados de avaliação.
+- Vista a 375 px verificada sem deslocamento horizontal da página e com os botões adjacentes. Cartões e leituras dentro das respetivas áreas. O tamanho do texto principal e do editor continua em 18 px por predefinição.
+- 19 testes técnicos aprovados. A preparação verifica ausência de imports externos na versão clássica. Recursos NASA e bibliotecas com créditos próprios.
+- Abertura file:// mantém a limitação previamente registada do navegador integrado; verificação da versão clássica feita em HTTP local.

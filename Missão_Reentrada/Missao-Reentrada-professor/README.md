@@ -52,7 +52,7 @@ Ao abrir, a missão pede nome e turma, com número opcional. Os dados ficam no p
 
 ## Ambiente 3D
 
-A abertura apresenta uma aproximação à cápsula Aurora em Three.js durante cerca de quatro segundos, com opção Saltar animação. O cabeçalho inclui estrelas em movimento, a Terra, estrutura de cabine e instrumentos associados ao progresso. O botão Vista exterior mostra o modelo 3D da cápsula. Movimento reduzido e modo 2D continuam disponíveis. Todas as geometrias e texturas são locais e originais.
+A abertura apresenta uma aproximação à cápsula Aurora em Three.js durante cerca de quatro segundos, com opção Saltar animação. O cabeçalho inclui estrelas em movimento, a Terra, estrutura de cabine e instrumentos associados ao progresso. O botão Vista exterior mostra a cápsula Aurora com o planeta ao fundo. Movimento reduzido e modo 2D continuam disponíveis. Todas as geometrias e texturas são locais e originais.
 
 ## Distribuição e palavra-passe do professor
 
@@ -68,8 +68,32 @@ O novo painel apresenta altitude, velocidade orbital, variação vertical, horiz
 - Fixar leituras / Retomar leituras: suspende ou retoma a telemetria e os gráficos.
 - Autoteste: executa uma sequência cenográfica curta e apresenta o resultado.
 - Recolher / Expandir painel: libera espaço para o laboratório.
-- Vista exterior / Vista da cabine: alterna a cápsula e a estrutura de observação em Three.js.
+- Vista exterior / Vista da cabine: alterna a cápsula exterior e a vista espacial original em Three.js.
 
 As animações pausam fora da área visível e quando a página está oculta. Reduzir movimento mantém os instrumentos estáticos; o modo 2D conserva o painel. O progresso real continua ligado apenas à validação dos desafios. O desenho é original e inspirado em instrumentação espacial, sem afiliação à SpaceX.
 
 Para atualizar, extrair o pacote dos alunos para uma pasta nova. Não juntar os ficheiros antigos do pacote completo à distribuição dos alunos.
+
+## Autoria, IA e proteção de dados — 15 de novembro de 2026
+
+Fernando Coelho é o autor pedagógico do jogo e da sebenta, criados com apoio de IA. Os materiais próprios são disponibilizados sob CC BY-NC 4.0; as licenças de terceiros mantêm-se. Ver docs/AUTORIA-E-LICENCA.txt. A licença não abrange dados pessoais nem licencia automaticamente o trabalho original dos alunos.
+
+A entrada apresenta informação antes da identificação, aceita nome curto ou código e turma, com número opcional. O nível pedagógico indicado é 1 — IA como tutor, com ferramentas externas apenas quando autorizadas pela escola; não existe um modelo de IA integrado. Não é obrigatório criar uma conta de IA.
+
+Privacidade e créditos, no rodapé, permite consultar o aviso, exportar, corrigir a identificação e apagar os dados desta atividade no navegador. O apagamento exige confirmação e não atinge ficheiros exportados ou entregas. O progresso só é gravado após a identificação desta sessão. Não existe eliminação automática, servidor de dados, publicidade ou análise de utilização.
+
+A cópia local do PDF institucional está em docs/rgpd-agrupamento.pdf e é distribuída em dist/docs. O contacto de EPD é apresentado de forma genérica, ligado à página oficial. A análise em docs/ANALISE-UTILIZACAO-E-RGPD.md identifica os pontos que dependem de confirmação institucional, incluindo fundamento jurídico e conservação das entregas.
+
+O texto e o editor começam em 18 px, com controlos proporcionais e opções de ajuste. Os ZIP individuais contêm apenas esta atividade.
+
+## Visual anterior com Terra e cápsula mais realistas
+
+Mantido o painel e o enquadramento escolhidos pelo utilizador. A Terra utiliza imagem NASA Blue Marble de 4096 px, camada de nuvens ilustrativas e atmosfera. A cápsula exterior foi remodelada em Three.js: casco curvo, janelas, escotilha, grupos de propulsores, escudo térmico, painéis solares no tronco e aletas. A abertura também utiliza este modelo. Os recursos são locais. Ver docs/RECURSOS-3D.txt.
+
+O modelo é uma representação educativa original; não representa uma nave certificada nem uma simulação física. Não é apresentado o interior explorável da versão rejeitada.
+
+## Dois conjuntos de telemetria
+
+Mudar telemetria, ao lado de Recolher painel, alterna entre os instrumentos originais e o novo painel avançado com orientação em três eixos, histórico de altitude/velocidade e recursos de bordo. Os dois partilham os mesmos valores simulados. A escolha é guardada no progresso; ficheiros antigos continuam a funcionar e usam o painel original por predefinição.
+
+Fixar leituras, iluminação, autoteste e recolher/expandir funcionam nos dois conjuntos. A troca não altera o código, as respostas, as etapas concluídas ou a identificação. Os gráficos apresentam as amostras da sessão visual; não são um histórico real da nave e não são exportados como resultados pedagógicos.

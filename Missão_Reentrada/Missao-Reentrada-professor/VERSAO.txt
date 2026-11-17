@@ -1,8 +1,8 @@
-MISSÃO REENTRADA — CONSOLA DE BORDO
-Versão de 28 de outubro de 2026
+MISSÃO REENTRADA — Fernando Coelho
+15 de novembro de 2026 — TERRA, CÁPSULA E TELEMETRIA
 
-Instrumentos digitais e analógicos animados; vista Three.js; comandos da cabine.
-Identificação do aluno e exportação; área Professor protegida por palavra-passe.
-Os valores dos instrumentos são simulados.
+Visual anterior mantido; Terra com textura NASA e cápsula exterior detalhada em Three.js.
+Painel original e telemetria avançada, alternáveis em Mudar telemetria.
+Créditos, privacidade, identificação e palavra-passe docente preservados.
 
-Extrair para uma pasta nova e abrir index.html. Manter a pasta dist ao lado.
+Extrair numa pasta nova e abrir index.html. Manter dist ao lado.

@@ -1,0 +1,23 @@
+MISSÃO REENTRADA — AUTORIA E LICENÇA
+
+© 2026 Fernando Coelho.
+Autoria pedagógica: Fernando Coelho. Jogo e sebenta criados com apoio de IA.
+
+Por indicação expressa do autor, os materiais próprios do projeto, incluindo os conteúdos pedagógicos, o código original, as ilustrações e a composição sonora, são disponibilizados sob Creative Commons Atribuição–NãoComercial 4.0 Internacional (CC BY-NC 4.0), na medida dos direitos que o autor detenha.
+
+Resumo e ligação à licença: https://creativecommons.org/licenses/by-nc/4.0/deed.pt
+Texto jurídico: https://creativecommons.org/licenses/by-nc/4.0/legalcode.pt
+
+É permitida a partilha e adaptação para fins não comerciais, com atribuição de crédito, ligação à licença e indicação de alterações, sem restrições adicionais aos direitos concedidos. As exceções legais mantêm-se.
+
+Atribuição sugerida: “Missão REENTRADA / Sebenta Web — HTML, CSS e JavaScript, Fernando Coelho, com apoio de IA, CC BY-NC 4.0.”
+
+As bibliotecas de terceiros mantêm as suas licenças: ver LICENCAS.txt. A política RGPD do agrupamento e os sítios externos não são abrangidos por esta declaração. A licença do jogo não abrange dados pessoais nem licencia automaticamente os elementos originais dos trabalhos dos alunos.
+
+A palavra-passe docente organiza o acesso pedagógico às soluções e às ferramentas. Não acrescenta uma restrição de licença aos materiais próprios. O pacote do professor inclui os materiais e o código-fonte em formato editável.
+
+Sinalética: adaptação gráfica original da escala fornecida pelo professor; nível pedagógico escolhido para esta atividade: 1 — IA como tutor. Não é uma certificação oficial.
+
+Sem afiliação ou aprovação da SpaceX.
+
+Atualização do ambiente 3D: textura da Terra NASA Earth Observatory / Reto Stockli (NASA/GSFC), com estatuto e condições de utilização próprios, fora da declaração CC BY-NC sobre os materiais originais. Ver RECURSOS-3D.txt.

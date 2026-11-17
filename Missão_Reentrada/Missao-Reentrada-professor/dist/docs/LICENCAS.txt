@@ -618,3 +618,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+========== Recurso visual da Terra ==========
+NASA Earth Observatory — Blue Marble: Next Generation, base map January 2004.
+Blue Marble data courtesy of Reto Stockli (NASA/GSFC). Redução, compressão e ajuste visual dos oceanos. Condições de utilização e fontes em RECURSOS-3D.txt. Recurso não relicenciado sob CC BY-NC.
