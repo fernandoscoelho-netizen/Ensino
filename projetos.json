@@ -1,0 +1,378 @@
+{
+  "gerado": "2026-11-26T21:24:29+00:00",
+  "pastas": [
+    {
+      "pasta": "CTE-Online-AERT3",
+      "ficheiros": [
+        {
+          "nome": "CTE-Online-Instrucoes.pdf",
+          "caminho": "CTE-Online-AERT3/CTE-Online-Instrucoes.pdf",
+          "tamanho": 6378218
+        },
+        {
+          "nome": "LEIA-ME.md",
+          "caminho": "CTE-Online-AERT3/LEIA-ME.md",
+          "tamanho": 4269
+        }
+      ],
+      "principal": "CTE-Online-AERT3/Jogo/cte-online-aert3.html",
+      "paginas": [
+        "CTE-Online-AERT3/Jogo/cte-online-aert3.html",
+        "CTE-Online-AERT3/codigo/src/corpo.html",
+        "CTE-Online-AERT3/missao-web/missao-web.html"
+      ]
+    },
+    {
+      "pasta": "CTE-Online-AERT3 v1",
+      "ficheiros": [
+        {
+          "nome": "LEIA-ME.md",
+          "caminho": "CTE-Online-AERT3 v1/LEIA-ME.md",
+          "tamanho": 3802
+        }
+      ],
+      "principal": "CTE-Online-AERT3 v1/codigo/src/corpo.html",
+      "paginas": [
+        "CTE-Online-AERT3 v1/codigo/src/corpo.html",
+        "CTE-Online-AERT3 v1/jogo/cte-online-aert3.html",
+        "CTE-Online-AERT3 v1/missao-web/missao-web.html"
+      ]
+    },
+    {
+      "pasta": "CTE_AERT3",
+      "ficheiros": [
+        {
+          "nome": "Jogo_CTE_AERT3.html",
+          "caminho": "CTE_AERT3/Jogo_CTE_AERT3.html",
+          "tamanho": 9735386
+        },
+        {
+          "nome": "LEIA-ME.md",
+          "caminho": "CTE_AERT3/LEIA-ME.md",
+          "tamanho": 11383
+        },
+        {
+          "nome": "VERIFICACAO.md",
+          "caminho": "CTE_AERT3/VERIFICACAO.md",
+          "tamanho": 6060
+        },
+        {
+          "nome": "codigo-fonte/index.html",
+          "caminho": "CTE_AERT3/codigo-fonte/index.html",
+          "tamanho": 434
+        },
+        {
+          "nome": "jogo/index.html",
+          "caminho": "CTE_AERT3/jogo/index.html",
+          "tamanho": 534
+        }
+      ],
+      "principal": "CTE_AERT3/Jogo_CTE_AERT3.html",
+      "paginas": [
+        "CTE_AERT3/Jogo_CTE_AERT3.html",
+        "CTE_AERT3/codigo-fonte/index.html",
+        "CTE_AERT3/jogo/index.html"
+      ]
+    },
+    {
+      "pasta": "CTE_Explorar",
+      "ficheiros": [
+        {
+          "nome": "Guia_Professor_CTE_Online_Interface_Aberta.pdf",
+          "caminho": "CTE_Explorar/Guia_Professor_CTE_Online_Interface_Aberta.pdf",
+          "tamanho": 3980752
+        },
+        {
+          "nome": "cte-online-alunos.html",
+          "caminho": "CTE_Explorar/cte-online-alunos.html",
+          "tamanho": 486574
+        },
+        {
+          "nome": "cte-online-professor.html",
+          "caminho": "CTE_Explorar/cte-online-professor.html",
+          "tamanho": 492269
+        }
+      ],
+      "principal": "CTE_Explorar/cte-online-alunos.html",
+      "paginas": [
+        "CTE_Explorar/cte-online-alunos.html",
+        "CTE_Explorar/cte-online-professor.html"
+      ]
+    },
+    {
+      "pasta": "Codigo_em_Jogo",
+      "ficheiros": [
+        {
+          "nome": "Codigo_em_Jogo_Guia.pdf",
+          "caminho": "Codigo_em_Jogo/Codigo_em_Jogo_Guia.pdf",
+          "tamanho": 2380890
+        },
+        {
+          "nome": "Código em Jogo (offline).html",
+          "caminho": "Codigo_em_Jogo/Código em Jogo (offline).html",
+          "tamanho": 1312018
+        },
+        {
+          "nome": "Código em Jogo (professor).html",
+          "caminho": "Codigo_em_Jogo/Código em Jogo (professor).html",
+          "tamanho": 272510
+        },
+        {
+          "nome": "Código em Jogo.html",
+          "caminho": "Codigo_em_Jogo/Código em Jogo.html",
+          "tamanho": 277893
+        }
+      ],
+      "principal": "Codigo_em_Jogo/Código em Jogo (offline).html",
+      "paginas": [
+        "Codigo_em_Jogo/Código em Jogo (offline).html",
+        "Codigo_em_Jogo/Código em Jogo (professor).html",
+        "Codigo_em_Jogo/Código em Jogo.html"
+      ]
+    },
+    {
+      "pasta": "Codigo_em_Jogo_v2",
+      "ficheiros": [
+        {
+          "nome": "Codigo_em_Jogo_EVIDENCIAS_v2.html",
+          "caminho": "Codigo_em_Jogo_v2/Codigo_em_Jogo_EVIDENCIAS_v2.html",
+          "tamanho": 158568
+        },
+        {
+          "nome": "Codigo_em_Jogo_v2.html",
+          "caminho": "Codigo_em_Jogo_v2/Codigo_em_Jogo_v2.html",
+          "tamanho": 153762
+        },
+        {
+          "nome": "LEIA-ME.md",
+          "caminho": "Codigo_em_Jogo_v2/LEIA-ME.md",
+          "tamanho": 5242
+        },
+        {
+          "nome": "manual.pdf",
+          "caminho": "Codigo_em_Jogo_v2/manual.pdf",
+          "tamanho": 600621
+        }
+      ],
+      "principal": "Codigo_em_Jogo_v2/Codigo_em_Jogo_EVIDENCIAS_v2.html",
+      "paginas": [
+        "Codigo_em_Jogo_v2/Codigo_em_Jogo_EVIDENCIAS_v2.html",
+        "Codigo_em_Jogo_v2/Codigo_em_Jogo_v2.html"
+      ]
+    },
+    {
+      "pasta": "Estaleiro_WEB",
+      "ficheiros": [
+        {
+          "nome": "Estaleiro_Web_Aluno.html",
+          "caminho": "Estaleiro_WEB/Estaleiro_Web_Aluno.html",
+          "tamanho": 889692
+        },
+        {
+          "nome": "Estaleiro_Web_Guia_do_Professor.pdf",
+          "caminho": "Estaleiro_WEB/Estaleiro_Web_Guia_do_Professor.pdf",
+          "tamanho": 4321380
+        },
+        {
+          "nome": "Estaleiro_Web_Professor.html",
+          "caminho": "Estaleiro_WEB/Estaleiro_Web_Professor.html",
+          "tamanho": 889709
+        }
+      ],
+      "principal": "Estaleiro_WEB/Estaleiro_Web_Aluno.html",
+      "paginas": [
+        "Estaleiro_WEB/Estaleiro_Web_Aluno.html",
+        "Estaleiro_WEB/Estaleiro_Web_Professor.html"
+      ]
+    },
+    {
+      "pasta": "LPPR OPO simulador python",
+      "ficheiros": [
+        {
+          "nome": "Ficha Técnica — Torre Python LPPR.pdf",
+          "caminho": "LPPR OPO simulador python/Ficha Técnica — Torre Python LPPR.pdf",
+          "tamanho": 253548
+        },
+        {
+          "nome": "Manual de Exploração — Torre Python LPPR.pdf",
+          "caminho": "LPPR OPO simulador python/Manual de Exploração — Torre Python LPPR.pdf",
+          "tamanho": 706206
+        },
+        {
+          "nome": "torre_python_lppr_v7.html",
+          "caminho": "LPPR OPO simulador python/torre_python_lppr_v7.html",
+          "tamanho": 397584
+        }
+      ],
+      "principal": "LPPR OPO simulador python/torre_python_lppr_v7.html",
+      "paginas": [
+        "LPPR OPO simulador python/torre_python_lppr_v7.html"
+      ]
+    },
+    {
+      "pasta": "MG400_AERT3",
+      "ficheiros": [
+        {
+          "nome": "LEIA-ME.txt",
+          "caminho": "MG400_AERT3/LEIA-ME.txt",
+          "tamanho": 1933
+        },
+        {
+          "nome": "MG400_AERT3.html",
+          "caminho": "MG400_AERT3/MG400_AERT3.html",
+          "tamanho": 8567129
+        },
+        {
+          "nome": "Manual_MG400_AERT3.pdf",
+          "caminho": "MG400_AERT3/Manual_MG400_AERT3.pdf",
+          "tamanho": 294246
+        }
+      ],
+      "principal": "MG400_AERT3/MG400_AERT3.html",
+      "paginas": [
+        "MG400_AERT3/MG400_AERT3.html"
+      ]
+    },
+    {
+      "pasta": "Missao-Web-EscolaDigital",
+      "ficheiros": [
+        {
+          "nome": "Guia-de-utilizacao-Missao-Web.pdf",
+          "caminho": "Missao-Web-EscolaDigital/Guia-de-utilizacao-Missao-Web.pdf",
+          "tamanho": 80278
+        },
+        {
+          "nome": "dist/index.html",
+          "caminho": "Missao-Web-EscolaDigital/dist/index.html",
+          "tamanho": 6058
+        }
+      ],
+      "principal": "Missao-Web-EscolaDigital/dist/index.html",
+      "paginas": [
+        "Missao-Web-EscolaDigital/dist/index.html"
+      ]
+    },
+    {
+      "pasta": "Missao_Web_PortalEscola",
+      "ficheiros": [
+        {
+          "nome": "Missao-Web-PortalEscola-Guia-do-professor.pdf",
+          "caminho": "Missao_Web_PortalEscola/Missao-Web-PortalEscola-Guia-do-professor.pdf",
+          "tamanho": 193552
+        },
+        {
+          "nome": "Missão Web_Portal da Escola.html",
+          "caminho": "Missao_Web_PortalEscola/Missão Web_Portal da Escola.html",
+          "tamanho": 115688
+        }
+      ],
+      "principal": "Missao_Web_PortalEscola/Missão Web_Portal da Escola.html",
+      "paginas": [
+        "Missao_Web_PortalEscola/Missão Web_Portal da Escola.html"
+      ]
+    },
+    {
+      "pasta": "Missão_Reentrada",
+      "ficheiros": [
+        {
+          "nome": "Missao-Reentrada-alunos/index.html",
+          "caminho": "Missão_Reentrada/Missao-Reentrada-alunos/index.html",
+          "tamanho": 9427
+        },
+        {
+          "nome": "Missao-Reentrada-alunos/dist/index.html",
+          "caminho": "Missão_Reentrada/Missao-Reentrada-alunos/dist/index.html",
+          "tamanho": 9395
+        },
+        {
+          "nome": "Missao-Reentrada-professor/index.html",
+          "caminho": "Missão_Reentrada/Missao-Reentrada-professor/index.html",
+          "tamanho": 9427
+        },
+        {
+          "nome": "Missao-Reentrada-professor/dist/index.html",
+          "caminho": "Missão_Reentrada/Missao-Reentrada-professor/dist/index.html",
+          "tamanho": 9395
+        },
+        {
+          "nome": "Missao-Reentrada-professor/src/index.html",
+          "caminho": "Missão_Reentrada/Missao-Reentrada-professor/src/index.html",
+          "tamanho": 9395
+        }
+      ],
+      "principal": "Missão_Reentrada/Missao-Reentrada-alunos/index.html",
+      "paginas": [
+        "Missão_Reentrada/Missao-Reentrada-alunos/LEIA-ME.html",
+        "Missão_Reentrada/Missao-Reentrada-alunos/index.html",
+        "Missão_Reentrada/Missao-Reentrada-alunos/dist/index.html",
+        "Missão_Reentrada/Missao-Reentrada-alunos/dist/runner.html",
+        "Missão_Reentrada/Missao-Reentrada-alunos/dist/docs/informacoes.html",
+        "Missão_Reentrada/Missao-Reentrada-professor/LEIA-ME.html",
+        "Missão_Reentrada/Missao-Reentrada-professor/index.html",
+        "Missão_Reentrada/Missao-Reentrada-professor/dist/index.html",
+        "Missão_Reentrada/Missao-Reentrada-professor/dist/runner.html",
+        "Missão_Reentrada/Missao-Reentrada-professor/dist/docs/informacoes.html",
+        "Missão_Reentrada/Missao-Reentrada-professor/docs/guia-professor.html",
+        "Missão_Reentrada/Missao-Reentrada-professor/src/index.html",
+        "Missão_Reentrada/Missao-Reentrada-professor/src/runner.html"
+      ]
+    },
+    {
+      "pasta": "Portal_PAP",
+      "ficheiros": [
+        {
+          "nome": "Portal da minha PAP — Prompt.md",
+          "caminho": "Portal_PAP/Portal da minha PAP — Prompt.md",
+          "tamanho": 17314
+        },
+        {
+          "nome": "Portal-da-minha-PAP-Guia.pdf",
+          "caminho": "Portal_PAP/Portal-da-minha-PAP-Guia.pdf",
+          "tamanho": 3875171
+        },
+        {
+          "nome": "Portal-da-minha-PAP.html",
+          "caminho": "Portal_PAP/Portal-da-minha-PAP.html",
+          "tamanho": 345783
+        }
+      ],
+      "principal": "Portal_PAP/Portal-da-minha-PAP.html",
+      "paginas": [
+        "Portal_PAP/Portal-da-minha-PAP.html"
+      ]
+    },
+    {
+      "pasta": "Programação",
+      "ficheiros": [
+        {
+          "nome": "Manual_UC00245_Desenvolver_algoritmos_v4.pdf",
+          "caminho": "Programação/Manual_UC00245_Desenvolver_algoritmos_v4.pdf",
+          "tamanho": 12145804
+        },
+        {
+          "nome": "simulador-programacao-offline-v4.html",
+          "caminho": "Programação/simulador-programacao-offline-v4.html",
+          "tamanho": 1930686
+        }
+      ],
+      "principal": "Programação/simulador-programacao-offline-v4.html",
+      "paginas": [
+        "Programação/simulador-programacao-offline-v4.html"
+      ]
+    },
+    {
+      "pasta": "Training Station",
+      "ficheiros": [
+        {
+          "nome": "Estação de Treino Cobot2.html",
+          "caminho": "Training Station/Estação de Treino Cobot2.html",
+          "tamanho": 1031551
+        }
+      ],
+      "principal": "Training Station/Estação de Treino Cobot2.html",
+      "paginas": [
+        "Training Station/Estação de Treino Cobot2.html"
+      ]
+    }
+  ]
+}

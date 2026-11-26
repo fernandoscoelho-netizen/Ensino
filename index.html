@@ -459,7 +459,7 @@ async function fetchInfo(repo,branch,path){
    (normalmente o índice do próprio repositório) não criam fichas automáticas.
    Os títulos vêm do info.txt da pasta (1.ª linha = título, restantes = descrição);
    sem info.txt, o nome do ficheiro ou da pasta é escrito com maiúscula e acentos. */
-async function discover(repo,tree,known,branch){
+async function discover(repo,tree,known,branch,manifestInfos){
   const paths=new Set(tree.filter(f=>f.type==='blob').map(f=>f.path));
   const result=known.map(p=>({...p,repo}));
   const seen=new Set(result.map(p=>p.path));
@@ -481,6 +481,7 @@ async function discover(repo,tree,known,branch){
   const perTop={}; found.forEach(f=>{ perTop[f.top]=(perTop[f.top]||0)+1; });
   const infos={};
   await Promise.all([...new Set(found.map(f=>f.top))].filter(t=>perTop[t]===1).map(async t=>{
+    if(manifestInfos){ infos[t]=manifestInfos[t]||null; return; }
     const info=[...paths].find(x=>x.toLowerCase()===(t+'/info.txt').toLowerCase());
     if(info) infos[t]=await fetchInfo(repo,branch,info);
   }));
@@ -501,25 +502,48 @@ let syncing=false;
 /* A última lista lida do GitHub fica guardada neste navegador. Sem isto, quando o GitHub
    recusa pedidos (limite de 60 consultas por hora em cada rede), a página mostrava só o
    catálogo incluído e faltavam projetos. */
-const CACHE_KEY='biblioteca-fc:projetos', CACHE_MAX=30*60*1000;
+const CACHE_KEY='biblioteca-fc:projetos';
 const hhmm=t=>new Date(t).toLocaleTimeString('pt-PT',{hour:'2-digit',minute:'2-digit'});
 function readCache(){ try{ const c=JSON.parse(localStorage.getItem(CACHE_KEY)); return c&&Array.isArray(c.projects)&&c.projects.length?c:null; }catch(e){ return null; } }
 function saveCache(){ try{ localStorage.setItem(CACHE_KEY,JSON.stringify({time:Date.now(),projects})); }catch(e){} }
-async function syncProjects(){
+/* Repositórios lidos sempre. «Atualizar» procura também repositórios novos na API. */
+const REPOS=['Ensino','historia','ceuropeu','Jogos_IA','torre-python'];
+/* projetos.json: gerado pela GitHub Action de cada repositório a cada publicação e lido
+   do GitHub Pages, sem gastar consultas à API do GitHub. */
+async function readManifest(repo){
+  const r=await fetch('https://'+owner+'.github.io/'+encodeURIComponent(repo)+'/projetos.json?t='+Date.now(),{cache:'no-store'});
+  if(!r.ok) throw new Error('sem projetos.json');
+  const m=await r.json(); if(!m||!Array.isArray(m.pastas)) throw new Error('projetos.json inválido');
+  const files=new Set(), infos={};
+  for(const p of m.pastas){
+    (p.paginas||[]).forEach(x=>files.add(x)); (p.ficheiros||[]).forEach(f=>files.add(f.caminho));
+    infos[p.pasta]=p.titulo?{title:p.titulo,desc:p.descricao||''}:null;
+  }
+  return {tree:[...files].map(path=>({type:'blob',path})),infos};
+}
+async function syncProjects(manual){
+  manual=manual===true;
   if(syncing) return; syncing=true;
   const button=$('#refresh'), status=$('#syncStatus'); button.disabled=true;
-  status.textContent='A procurar projetos nos repositórios públicos…';
+  status.textContent='A procurar projetos nos repositórios…';
   try{
-    const repos=[]; for(let page=1;;page++){ const batch=await githubJSON('https://api.github.com/users/'+owner+'/repos?per_page=100&type=owner&page='+page); repos.push(...batch); if(batch.length<100) break; }
-    const discovered=[], failed=[], trees={}; let inactive=0;
-    // Pequenos grupos evitam pedidos excessivos ao GitHub.
-    const active=repos.filter(r=>!r.archived);
-    for(let i=0;i<active.length;i+=3){ await Promise.all(active.slice(i,i+3).map(async repo=>{
-      try{ const data=await githubJSON('https://api.github.com/repos/'+owner+'/'+encodeURIComponent(repo.name)+'/git/trees/'+encodeURIComponent(repo.default_branch)+'?recursive=1');
-        if(data.truncated) throw new Error('Lista incompleta');
-        trees[repo.name]=new Set(data.tree.filter(f=>f.type==='blob').map(f=>f.path)); repo.tree=data.tree; }
-      catch(err){ failed.push(repo.name); discovered.push(...projects.filter(p=>p.repo===repo.name)); }
-    })); }
+    const repos=REPOS.map(name=>({name,default_branch:'main',has_pages:true}));
+    if(manual){ try{ const list=await githubJSON('https://api.github.com/users/'+owner+'/repos?per_page=100&type=owner');
+      for(const r of list) if(!r.archived&&!repos.some(x=>x.name===r.name)) repos.push({name:r.name,default_branch:r.default_branch,has_pages:r.has_pages}); }catch(e){} }
+    const discovered=[], failed=[], trees={}; let inactive=0, limited=false;
+    await Promise.all(repos.map(async repo=>{
+      try{ const m=await readManifest(repo.name); repo.tree=m.tree; repo.infos=m.infos; }
+      catch(e){
+        // Sem projetos.json: só «Atualizar» consulta a API; ao abrir a página usa-se o catálogo.
+        if(!manual){ failed.push(repo.name); return; }
+        try{ const data=await githubJSON('https://api.github.com/repos/'+owner+'/'+encodeURIComponent(repo.name)+'/git/trees/'+encodeURIComponent(repo.default_branch)+'?recursive=1');
+          if(data.truncated) throw new Error('Lista incompleta'); repo.tree=data.tree; }
+        catch(err){ if(/GitHub (403|429)/.test(err.message)) limited=true; failed.push(repo.name); return; }
+      }
+      trees[repo.name]=new Set(repo.tree.filter(f=>f.type==='blob').map(f=>f.path));
+    }));
+    // Repositórios sem lista: ficam as fichas do catálogo.
+    for(const r of failed) discovered.push(...initialProjects.filter(p=>p.repo===r).map(p=>({...p})));
     // Cada ficha do catálogo fica no seu repositório; se o projeto mudou de repositório, segue-o.
     const assigned={};
     for(const p of initialProjects){
@@ -527,26 +551,27 @@ async function syncProjects(){
       const home=trees[p.repo]?.has(p.path)?p.repo:Object.keys(trees).find(r=>trees[r].has(p.path));
       if(home) (assigned[home]=assigned[home]||[]).push(p);
     }
-    await Promise.all(active.filter(r=>trees[r.name]).map(async repo=>{
-      const found=await discover(repo.name,repo.tree,assigned[repo.name]||[],repo.default_branch);
+    await Promise.all(repos.filter(r=>trees[r.name]).map(async repo=>{
+      const found=await discover(repo.name,repo.tree,assigned[repo.name]||[],repo.default_branch,repo.infos);
       discovered.push(...found); if(found.length&&!repo.has_pages) inactive++;
     }));
-    projects=discovered.sort((a,b)=>a.repo.localeCompare(b.repo,'pt')||byTitle(a,b)); updateMenus(); if(!failed.length) saveCache();
-    const novos=projects.filter(p=>p.auto).length;
-    status.textContent='Lista atualizada às '+new Date().toLocaleTimeString('pt-PT',{hour:'2-digit',minute:'2-digit'})+'.'+(novos?' '+novos+(novos===1?' projeto novo detetado.':' projetos novos detetados.'):'')+(failed.length?' Não foi possível verificar: '+failed.join(', ')+'.':'')+(inactive?' Ativa o GitHub Pages em '+inactive+' repositório(s) para abrir os respetivos projetos online.':'');
+    projects=discovered.sort((a,b)=>a.repo.localeCompare(b.repo,'pt')||byTitle(a,b)); updateMenus(); saveCache();
+    const novos=projects.filter(p=>p.auto).length, sem=failed.filter(r=>!initialProjects.some(p=>p.repo===r));
+    status.textContent='Lista atualizada às '+hhmm(Date.now())+'.'+(novos?' '+novos+(novos===1?' projeto novo detetado.':' projetos novos detetados.'):'')
+      +(manual&&sem.length?' Não foi possível verificar: '+sem.join(', ')+'.':'')
+      +(manual&&limited?' O GitHub limita as consultas a 60 por hora em cada rede; alguns repositórios foram mostrados a partir do catálogo.':'')
+      +(inactive?' Ativa o GitHub Pages em '+inactive+' repositório(s) para abrir os respetivos projetos online.':'');
   }catch(err){
-    const c=readCache(), limit=/GitHub (403|429)/.test(err.message);
-    status.textContent=(limit?'O GitHub limita as consultas a 60 por hora em cada rede e o limite foi atingido. ':'Não foi possível consultar o GitHub agora. ')
-      +(c?'Mostro a lista guardada às '+hhmm(c.time)+'.':'Mostro a lista incluída na página.')+' Tenta «Atualizar» mais tarde.';
+    const c=readCache();
+    status.textContent='Não foi possível atualizar a lista agora. '+(c?'Mostro a lista guardada às '+hhmm(c.time)+'.':'Mostro a lista incluída na página.');
   }
   finally{ syncing=false; button.disabled=false; }
 }
-$('#refresh').addEventListener('click',syncProjects);
+$('#refresh').addEventListener('click',()=>syncProjects(true));
 (function start(){
   const c=readCache();
   if(c){ projects=c.projects; updateMenus(); }
-  if(c&&Date.now()-c.time<CACHE_MAX){ $('#syncStatus').textContent='Lista atualizada às '+hhmm(c.time)+'. Usa «Atualizar» para procurar projetos novos.'; return; }
-  syncProjects();
+  syncProjects(false);
 })();
 
 /* ============================================================
