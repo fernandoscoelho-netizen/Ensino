@@ -24,9 +24,18 @@ def ler_info(caminho):
         return {}
     while linhas and not linhas[0]:
         linhas.pop(0)
+    # linha opcional «Abrir: caminho/da/pagina.html» escolhe a página que o cartão abre
+    abrir = None
+    for l in list(linhas):
+        m = re.match(r"^(abrir|abre|principal)\s*:\s*(.+)$", l, re.I)
+        if m:
+            abrir = m.group(2).strip().strip("/")
+            linhas.remove(l)
     if not linhas:
-        return {}
+        return {"abrir": abrir} if abrir else {}
     info = {"titulo": linhas[0]}
+    if abrir:
+        info["abrir"] = abrir
     resto = " ".join(l for l in linhas[1:] if l).strip()
     if resto:
         info["descricao"] = resto
@@ -68,9 +77,16 @@ for pasta in sorted(os.listdir(RAIZ)):
                 "caminho": f"{pasta}/{nome_rel}",
                 "tamanho": os.path.getsize(os.path.join(atual, nome)),
             })
-    entrada = {"pasta": pasta, **ler_info(os.path.join(caminho, "info.txt")), "ficheiros": ficheiros}
+    info = ler_info(os.path.join(caminho, "info.txt"))
+    abrir = info.pop("abrir", None)
+    escolhida = f"{pasta}/{abrir}" if abrir and os.path.isfile(os.path.join(RAIZ, pasta, abrir)) else None
+    if escolhida:
+        ficheiros = [f for f in ficheiros if f["caminho"] != escolhida]
+        ficheiros.insert(0, {"nome": abrir, "caminho": escolhida,
+                             "tamanho": os.path.getsize(os.path.join(RAIZ, escolhida)), "principal": True})
+    entrada = {"pasta": pasta, **info, "ficheiros": ficheiros}
     if paginas:
-        entrada["principal"] = principal(pasta, paginas)
+        entrada["principal"] = escolhida or principal(pasta, paginas)
         entrada["paginas"] = paginas
     pastas.append(entrada)
 

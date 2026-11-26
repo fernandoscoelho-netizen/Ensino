@@ -475,6 +475,8 @@ async function discover(repo,tree,known,branch,manifestInfos){
     // Uma pasta já representada por uma ficha não cria versões duplicadas.
     if(known.some(p=>p.path.slice(0,p.path.lastIndexOf('/'))===dir)) continue;
     if(known.some(p=>p.path.includes('/')&&p.path.split('/')[0]===path.split('/')[0])) continue;
+    const chosen=manifestInfos?.[path.split('/')[0]]?.open;
+    if(chosen&&chosen!==path) continue;
     found.push({path,file,dir,top:path.split('/')[0]}); seen.add(path);
   }
   // info.txt na pasta do projeto (só quando a pasta tem um único projeto)
@@ -517,7 +519,8 @@ async function readManifest(repo){
   const files=new Set(), infos={};
   for(const p of m.pastas){
     (p.paginas||[]).forEach(x=>files.add(x)); (p.ficheiros||[]).forEach(f=>files.add(f.caminho));
-    infos[p.pasta]=p.titulo?{title:p.titulo,desc:p.descricao||''}:null;
+    const escolhido=(p.ficheiros||[]).find(f=>f.principal);   // «Abrir: …» no info.txt
+    infos[p.pasta]=p.titulo||escolhido?{title:p.titulo||'',desc:p.descricao||'',open:escolhido?.caminho}:null;
   }
   return {tree:[...files].map(path=>({type:'blob',path})),infos};
 }
