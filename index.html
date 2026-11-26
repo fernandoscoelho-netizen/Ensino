@@ -288,7 +288,14 @@ let projects=[
   {repo:'Jogos_IA',title:'Guardiões do Tempo 7 — Jogo 2',path:'Guardioes_do_Tempo7/Jogo2/index.html',topic:'História',tipo:'Exploração',nivel:'História · 7.º ano',tec:['p5.js','Bootstrap'],desc:'Das sociedades recoletoras às primeiras civilizações.'},
   {repo:'Jogos_IA',title:'Vestígios Históricos',path:'Vestigios_Historicos/index.html',topic:'História',tipo:'Exploração',nivel:'História · 7.º ano',tec:['p5.js','Bootstrap'],desc:'Expedição do Paleolítico ao Neolítico para descobrir vestígios.'},
   {repo:'Jogos_IA',title:'Largo da Sé, 1756',path:'Pao_por_Deus/Largo_da_SE_1756/Largo da Sé, 1756.html',topic:'História',tipo:'Exploração 3D',nivel:'Pão-por-Deus',tec:['Three.js'],desc:'Cena 3D da Lisboa de 1756, ligada à tradição do Pão-por-Deus.'},
-  {repo:'Jogos_IA',title:'Lisboa em Azulejo 3D',path:'Pao_por_Deus/Lisboa_em_Azulejo_3D_offline.html',topic:'História',tipo:'Exploração 3D',nivel:'Pão-por-Deus',tec:['Three.js','Bootstrap'],desc:'Lisboa antiga contada em azulejo, num cenário 3D.'}
+  {repo:'Jogos_IA',title:'Lisboa em Azulejo 3D',path:'Pao_por_Deus/Lisboa_em_Azulejo_3D_offline.html',topic:'História',tipo:'Exploração 3D',nivel:'Pão-por-Deus',tec:['Three.js','Bootstrap'],desc:'Lisboa antiga contada em azulejo, num cenário 3D.'},
+  {repo:'ceuropeu',title:'Carvão e Aço: a Missão Schuman',path:'carvao_aco/index.html',topic:'Europa',tipo:'Escape room',nivel:'Clube Europeu',tec:['Three.js'],desc:'Na Sala do Relógio, em Paris, resolve 7 enigmas em 40 minutos para abrir o cofre com a Declaração Schuman.'},
+  {repo:'ceuropeu',title:'Parlamento Europeu 3D',path:'Parlamento_Europeu_3D/index.html',topic:'Europa',tipo:'Exploração 3D',nivel:'Clube Europeu',tec:['Three.js'],desc:'Visita virtual ao hemiciclo de Estrasburgo: grupos políticos, deputados, votações e um quiz.'},
+  {repo:'historia',title:'Egito Antigo',path:'egito_antigo/Abrir_Egito_Antigo.html',topic:'História',tipo:'Exploração 3D',nivel:'História · 7.º ano',tec:[],desc:'Pirâmides, templos e a vida nas margens do Nilo, para explorar em 3D: quem construiu, como se vivia e no que se acreditava.'},
+  {repo:'historia',title:'As Primeiras Civilizações',path:'1as_civilizacoes/viagem-primeiras-civilizacoes.html',topic:'História',tipo:'Viagem interativa',nivel:'História · 7.º ano',tec:[],desc:'Uma viagem em 3D pela Mesopotâmia, pelo Egito, pelos Hebreus e pelos Fenícios: as cidades, a escrita, as leis e as rotas que mudaram o mundo.'},
+  {repo:'historia',title:'Pelos Caminhos do Nilo',path:'caminhos_nilo/pelos-caminhos-do-nilo-3d.html',topic:'História',tipo:'Viagem interativa',nivel:'História · 7.º ano',tec:[],desc:'Uma viagem pelo rio que deu vida ao Egito: a cheia, as aldeias, os templos e os tesouros guardados nos museus.'},
+  {repo:'historia',title:'Repórter do Século XX',path:'9ano/Reporter_Seculo_XX_9ano_TemaI.html',topic:'História',tipo:'Reportagem',nivel:'História · 9.º ano',tec:[],desc:'Pega no bloco de notas e na câmara: investiga, entrevista e conta as notícias de um século que mudou o mundo.'},
+  {repo:'historia',title:'Vestígios Históricos',path:'vestigios_historicos/vestigios-historicos.html',topic:'História',tipo:'Exploração 3D',nivel:'História · 7.º ano',tec:[],desc:'Uma expedição em 3D pela Pré-História: investiga 24 vestígios, das pegadas fósseis às antas, e constrói o teu caderno de campo.'}
 ];
 // Ligações extra de cada ficha (título → [nome, caminho no mesmo repositório])
 const extras={
@@ -430,25 +437,56 @@ const excludedFile=/(^|[ _-])(guia|readme|leia-me|le-me|notas|professor|creditos
 function guessTopic(t){
   return /europa|europeu|schuman|\bue\b/i.test(t)?'Europa':/rob[oô]|cobot|wro|bra[cç]o|dobot|arduino/i.test(t)?'Robótica':/histor|tempo|1914|1756|vest[ií]gio|azulejo/i.test(t)?'História':/web|c[oó]digo|program|python/i.test(t)?'Programação':/cte|tecnolog/i.test(t)?'Tecnologia':'Outros';
 }
-function discover(repo,tree){
-  const known=initialProjects.filter(p=>p.repo===repo);
+/* Nomes: palavras que nos nomes das pastas/ficheiros aparecem sem acentos ou maiúsculas */
+const WORDS={historia:'história',historico:'histórico',historicos:'históricos',historicas:'históricas',vestigios:'vestígios',vestigio:'vestígio',civilizacoes:'civilizações',civilizacao:'civilização',guardioes:'guardiões',missao:'missão',missoes:'missões',reporter:'repórter',seculo:'século',carvao:'carvão',aco:'aço',programacao:'programação',estacao:'estação',pao:'pão',sao:'são',ue:'UE',eu:'UE',cte:'CTE',pap:'PAP',lppr:'LPPR',wro:'WRO',ia:'IA','3d':'3D','2d':'2D',bd:'BD',teac:'TEAC',nilo:'Nilo',egito:'Egito',europa:'Europa',lisboa:'Lisboa',porto:'Porto',schuman:'Schuman',deus:'Deus',python:'Python',lab:'Lab',web:'Web',i:'I',ii:'II',iii:'III',iv:'IV',xx:'XX',xix:'XIX',xxi:'XXI'};
+function prettyName(raw){
+  let t=String(raw).replace(/\.html?$/i,'').replace(/([a-zà-ÿ])([A-Z])/g,'$1 $2').replace(/[_\-.]+/g,' ').replace(/\s+/g,' ').trim();
+  t=t.replace(/\b(\d+)\s*ano\b/gi,'$1.º ano').replace(/^1as\b/i,'Primeiras').replace(/\b(1[0-9]{3}) (1[0-9]{3})\b/g,'$1–$2');
+  t=t.split(' ').map(w=>WORDS[w.toLowerCase()]??w).join(' ');
+  return t.charAt(0).toUpperCase()+t.slice(1);
+}
+function readInfo(txt){
+  const lines=String(txt||'').replace(/\r/g,'').split('\n').map(l=>l.trim()).filter(Boolean);
+  return lines.length?{title:lines[0],desc:lines.slice(1).join(' ')}:null;
+}
+async function fetchInfo(repo,branch,path){
+  try{ const r=await fetch('https://raw.githubusercontent.com/'+owner+'/'+encodeURIComponent(repo)+'/'+encodeURIComponent(branch)+'/'+enc(path)); return r.ok?readInfo(await r.text()):null; }
+  catch(e){ return null; }
+}
+/* Só se leem os projetos dentro das pastas: as páginas na raiz de cada repositório
+   (normalmente o índice do próprio repositório) não criam fichas automáticas.
+   Os títulos vêm do info.txt da pasta (1.ª linha = título, restantes = descrição);
+   sem info.txt, o nome do ficheiro ou da pasta é escrito com maiúscula e acentos. */
+async function discover(repo,tree,known,branch){
   const paths=new Set(tree.filter(f=>f.type==='blob').map(f=>f.path));
-  const result=known.filter(p=>paths.has(p.path)).map(p=>({...p}));
+  const result=known.map(p=>({...p,repo}));
   const seen=new Set(result.map(p=>p.path));
   const extraPaths=new Set(known.flatMap(p=>(extras[p.title]||[]).map(([,x])=>x)));
   const htmlFiles=tree.filter(f=>f.type==='blob'&&/\.html?$/i.test(f.path)&&!excludedDirectory.test(f.path));
   const indexDirs=new Set(htmlFiles.filter(f=>/\/index\.html?$/i.test(f.path)).map(f=>f.path.slice(0,f.path.lastIndexOf('/'))));
+  const found=[];
   for(const f of htmlFiles){
     const path=f.path, file=path.split('/').pop(), dir=path.includes('/')?path.slice(0,path.lastIndexOf('/')):'';
-    if(!dir&&/^index\.html?$/i.test(file)&&repo==='Ensino') continue;
+    if(!dir) continue;
     if(seen.has(path)||extraPaths.has(path)||excludedFile.test(file)) continue;
     if(!/^index\.html?$/i.test(file)&&indexDirs.has(dir)) continue;
     // Uma pasta já representada por uma ficha não cria versões duplicadas.
     if(known.some(p=>p.path.slice(0,p.path.lastIndexOf('/'))===dir)) continue;
-    if(dir&&known.some(p=>p.path.includes('/')&&p.path.split('/')[0]===path.split('/')[0])) continue;
-    const raw=/^index\.html?$/i.test(file)?(dir||repo):file.replace(/\.html?$/i,'');
-    const title=raw.replace(/[_/]+/g,' · ').replace(/-/g,' ').trim();
-    result.push({repo,title,path,topic:guessTopic(title+' '+repo),tipo:'Projeto',nivel:'',tec:[],desc:'',auto:true}); seen.add(path);
+    if(known.some(p=>p.path.includes('/')&&p.path.split('/')[0]===path.split('/')[0])) continue;
+    found.push({path,file,dir,top:path.split('/')[0]}); seen.add(path);
+  }
+  // info.txt na pasta do projeto (só quando a pasta tem um único projeto)
+  const perTop={}; found.forEach(f=>{ perTop[f.top]=(perTop[f.top]||0)+1; });
+  const infos={};
+  await Promise.all([...new Set(found.map(f=>f.top))].filter(t=>perTop[t]===1).map(async t=>{
+    const info=[...paths].find(x=>x.toLowerCase()===(t+'/info.txt').toLowerCase());
+    if(info) infos[t]=await fetchInfo(repo,branch,info);
+  }));
+  for(const f of found){
+    const info=infos[f.top];
+    const raw=/^index\.html?$/i.test(f.file)?f.dir.split('/').pop():f.file;
+    const title=info?.title||prettyName(raw);
+    result.push({repo,title,path:f.path,topic:guessTopic(title+' '+f.path+' '+repo),tipo:'Projeto',nivel:'',tec:[],desc:info?.desc||'',auto:true});
   }
   return result;
 }
@@ -464,15 +502,26 @@ async function syncProjects(){
   status.textContent='A procurar projetos nos repositórios públicos…';
   try{
     const repos=[]; for(let page=1;;page++){ const batch=await githubJSON('https://api.github.com/users/'+owner+'/repos?per_page=100&type=owner&page='+page); repos.push(...batch); if(batch.length<100) break; }
-    const discovered=[], failed=[]; let inactive=0;
+    const discovered=[], failed=[], trees={}; let inactive=0;
     // Pequenos grupos evitam pedidos excessivos ao GitHub.
-    for(let i=0;i<repos.length;i+=3){ await Promise.all(repos.slice(i,i+3).map(async repo=>{
-      if(repo.archived) return;
+    const active=repos.filter(r=>!r.archived);
+    for(let i=0;i<active.length;i+=3){ await Promise.all(active.slice(i,i+3).map(async repo=>{
       try{ const data=await githubJSON('https://api.github.com/repos/'+owner+'/'+encodeURIComponent(repo.name)+'/git/trees/'+encodeURIComponent(repo.default_branch)+'?recursive=1');
         if(data.truncated) throw new Error('Lista incompleta');
-        const found=discover(repo.name,data.tree); discovered.push(...found); if(found.length&&!repo.has_pages) inactive++; }
+        trees[repo.name]=new Set(data.tree.filter(f=>f.type==='blob').map(f=>f.path)); repo.tree=data.tree; }
       catch(err){ failed.push(repo.name); discovered.push(...projects.filter(p=>p.repo===repo.name)); }
     })); }
+    // Cada ficha do catálogo fica no seu repositório; se o projeto mudou de repositório, segue-o.
+    const assigned={};
+    for(const p of initialProjects){
+      if(failed.includes(p.repo)) continue;
+      const home=trees[p.repo]?.has(p.path)?p.repo:Object.keys(trees).find(r=>trees[r].has(p.path));
+      if(home) (assigned[home]=assigned[home]||[]).push(p);
+    }
+    await Promise.all(active.filter(r=>trees[r.name]).map(async repo=>{
+      const found=await discover(repo.name,repo.tree,assigned[repo.name]||[],repo.default_branch);
+      discovered.push(...found); if(found.length&&!repo.has_pages) inactive++;
+    }));
     projects=discovered.sort((a,b)=>a.repo.localeCompare(b.repo,'pt')||byTitle(a,b)); updateMenus();
     const novos=projects.filter(p=>p.auto).length;
     status.textContent='Lista atualizada às '+new Date().toLocaleTimeString('pt-PT',{hour:'2-digit',minute:'2-digit'})+'.'+(novos?' '+novos+(novos===1?' projeto novo detetado.':' projetos novos detetados.'):'')+(failed.length?' Não foi possível verificar: '+failed.join(', ')+'.':'')+(inactive?' Ativa o GitHub Pages em '+inactive+' repositório(s) para abrir os respetivos projetos online.':'');
