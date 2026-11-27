@@ -1760,28 +1760,31 @@ function pdfBuild(pages){const W=595.28,H=841.89;let objs=['<< /Type /Catalog /P
  let out='%PDF-1.4\n',offs=[];objs.forEach((o,k)=>{offs.push(out.length);out+=`${k+1} 0 obj\n${o}\nendobj\n`});const x=out.length;
  out+=`xref\n0 ${objs.length+1}\n0000000000 65535 f \n`+offs.map(n=>String(n).padStart(10,'0')+' 00000 n \n').join('')+`trailer\n<< /Size ${objs.length+1} /Root 1 0 R >>\nstartxref\n${x}\n%%EOF`;return out}
 function reportPDF(){const H=841.89,pages=[];let pg,y;const a=st.aluno||{};
+ /* uma única folha A4: cabeçalho, resumo, regras e os 39 níveis em linhas compactas */
  const T=(x,yy,t,sz=9,b=0,col='0.1 0.13 0.25')=>pg.push(`BT /${b?'F2':'F1'} ${sz} Tf ${col} rg ${x.toFixed(1)} ${(H-yy).toFixed(1)} Td (${pdfEnc(t)}) Tj ET`);
  const Rf=(x,yy,w,h,col)=>pg.push(`${col} rg ${x} ${(H-yy-h).toFixed(1)} ${w} ${h} re f`);
- const fit=(t,n)=>t.length>n?t.slice(0,n-1)+'…':t;
+ const fit=(t,n)=>t.length>n?t.slice(0,n-1)+'…':t,grey='0.4 0.43 0.55';
  const MN=Object.fromEntries(MODS.map(m=>[m[0],m[1]]));
- const cols=[[40,'Nº'],[62,'Módulo'],[128,'Desafio'],[318,'Estado'],[370,'Pontos'],[410,'Dica'],[440,'Parte sol.'],[488,'Solução'],[525,'Concluído']];
- const head=()=>{Rf(40,y,515,16,'0.21 0.32 0.88');cols.forEach(([x,t])=>T(x+2,y+11,t,8,1,'1 1 1'));y+=18};
- const newPage=()=>{pg=[];pages.push(pg);y=40};
- newPage();
- Rf(0,0,595.28,70,'0.21 0.32 0.88');T(40,32,'DocaCode · Folha de validação dos desafios',17,1,'1 1 1');T(40,52,'HTML, CSS e JavaScript · baseada na sebenta «Criação de Páginas Web»',9,0,'0.87 0.9 1');
- y=92;T(40,y,'Aluno: '+(a.nome||'(sem nome)'),11,1);T(330,y,'Turma: '+(a.turma||'—'),11,0);T(450,y,'Nº: '+(a.num||'—'),11,0);
- y+=16;const now=new Date();T(40,y,'Emitida em '+now.toLocaleString('pt-PT'),9,0,'0.4 0.43 0.55');
+ pg=[];pages.push(pg);
+ Rf(0,0,595.28,54,'0.21 0.32 0.88');T(40,27,'DocaCode · Folha de validação dos desafios',15,1,'1 1 1');T(40,43,'HTML, CSS e JavaScript · baseada na sebenta «Criação de Páginas Web»',8.5,0,'0.87 0.9 1');
+ y=74;T(40,y,'Aluno: '+fit(a.nome||'(sem nome)',40),10.5,1);T(330,y,'Turma: '+fit(a.turma||'—',14),10,0);T(460,y,'Nº: '+fit(a.num||'—',8),10,0);
+ y+=13;T(40,y,'Emitida em '+new Date().toLocaleString('pt-PT'),8,0,grey);
  const dn=st.done.filter(Boolean).length,hs=st.used.filter(u=>u.h).length,ps=st.used.filter(u=>u.p).length,ss=st.used.filter(u=>u.s).length,tot=totPts(),G=grade();
- y+=22;Rf(40,y,515,46,'0.95 0.96 1');
- [['Classificação final',fmtP(tot)+' / 200'],['Desafios concluídos',dn+' / '+L.length],['Pontos 1–34',fmtP(G.base)],['Recuperados (extra)','+'+fmtP(G.rec)],['Dicas usadas',String(hs)],['Soluções parte/total',ps+' / '+ss]].forEach(([k,v],j)=>{T(48+j*86,y+16,k,7.5,0,'0.4 0.43 0.55');T(48+j*86,y+34,v,12,1)});
- y+=62;T(40,y,'Regras: níveis 1–28 valem 5 pontos (140) e níveis 29–34 valem 10 (60), num total de 200. Dica −25% · parte da solução −50% ·',8,0,'0.4 0.43 0.55');y+=11;T(40,y,'solução completa −80% do valor do nível. Os desafios extra (35–39) valem até 10 pontos cada e só recuperam pontos perdidos, até 200.',8,0,'0.4 0.43 0.55');y+=14;
- head();
- L.forEach((l,i)=>{if(y>800){newPage();head()}const u=st.used[i],d=st.done[i];if(i%2)Rf(40,y-2,515,15,'0.97 0.975 0.99');
-  T(42,y+9,String(i+1),8.5,1);T(64,y+9,fit(MN[l.m]||l.m,12),8);T(130,y+9,fit(l.t,34),8.5);
-  T(320,y+9,d?'Concluído':'Por fazer',8,d?1:0,d?'0.07 0.48 0.23':'0.55 0.57 0.66');T(372,y+9,d?(EXTRA(i)?'+':'')+fmtP(lvPts(i))+'/'+VAL(i):'—',8.5,1);
-  T(414,y+9,u.h?'Sim':'—',8);T(450,y+9,u.p?'Sim':'—',8);T(494,y+9,u.s?'Sim':'—',8);T(527,y+9,d?(st.times[i]||'').slice(0,17):'',7);y+=15});
+ y+=9;Rf(40,y,515,40,'0.95 0.96 1');
+ [['Classificação final',fmtP(tot)+' / 200'],['Desafios concluídos',dn+' / '+L.length],['Pontos 1–34',fmtP(G.base)],['Recuperados (extra)','+'+fmtP(G.rec)],['Dicas usadas',String(hs)],['Soluções parte/total',ps+' / '+ss]].forEach(([k,v],j)=>{T(48+j*86,y+14,k,7,0,grey);T(48+j*86,y+31,v,j?11:12,1,j?'0.1 0.13 0.25':'0.21 0.32 0.88')});
+ y+=52;T(40,y,'Regras: níveis 1–28 valem 5 pontos (140) e níveis 29–34 valem 10 (60), num total de 200. Dica −25% · parte da solução −50% · solução completa −80%',7,0,grey);
+ y+=9;T(40,y,'do valor do nível. Os desafios extra (35–39) valem até 10 pontos cada e só recuperam pontos perdidos com ajudas, sem passar dos 200.',7,0,grey);
+ y+=7;const cols=[[40,'Nº'],[60,'Módulo'],[126,'Desafio'],[304,'Estado'],[352,'Pontos'],[398,'Dica'],[428,'Parte sol.'],[472,'Solução'],[510,'Concluído']];
+ Rf(40,y,515,14,'0.21 0.32 0.88');cols.forEach(([x,t])=>T(x+2,y+10,t,7.5,1,'1 1 1'));y+=15;
+ const RH=13;
+ L.forEach((l,i)=>{const u=st.used[i],d=st.done[i];if(i%2)Rf(40,y-1,515,RH,'0.965 0.97 0.99');
+  if(i===28||i===34)Rf(40,y-1.5,515,.8,'0.55 0.6 0.8');
+  const yb=y+8.6;T(42,yb,String(i+1),7.5,1);T(62,yb,fit(MN[l.m]||l.m,16),7);T(128,yb,fit(l.t,40),7.5);
+  T(306,yb,d?'Concluído':'Por fazer',7,d?1:0,d?'0.07 0.48 0.23':'0.55 0.57 0.66');T(354,yb,d?(EXTRA(i)?'+':'')+fmtP(lvPts(i))+' / '+VAL(i):'— / '+VAL(i),7.5,d?1:0);
+  T(400,yb,u.h?'Sim':'—',7);T(430,yb,u.p?'Sim':'—',7);T(474,yb,u.s?'Sim':'—',7);T(512,yb,d?(st.times[i]||'').slice(0,17):'',6.5);y+=RH});
+ y+=6;Rf(40,y,515,18,'0.95 0.96 1');T(46,y+12.5,`Níveis 1–34: ${fmtP(G.base)} · recuperados nos extra: +${fmtP(G.rec)} · Classificação final: ${fmtP(tot)} / 200`,8.5,1);
  let hsh=0;const sig=JSON.stringify([a.nome,st.score,st.used.map(u=>[u.h,u.p,u.s])]);for(const c of sig)hsh=(hsh*31+c.charCodeAt(0))>>>0;
- y+=18;if(y>790){newPage()}T(40,y,'Código de verificação: '+hsh.toString(36).toUpperCase(),8,1,'0.4 0.43 0.55');T(330,y,'Assinatura do professor: ______________________',8,0,'0.4 0.43 0.55');
+ y+=40;T(40,y,'Código de verificação: '+hsh.toString(36).toUpperCase(),8,1,grey);T(300,y,'Assinatura do professor: ______________________________',8,0,grey);
  return pdfBuild(pages)}
 let DLNS=null;try{if(window.claude&&typeof window.claude.use==='function')window.claude.use('downloads').then(n=>{DLNS=n}).catch(()=>{})}catch(e){}
 $('#pdfB').onclick=()=>{if(!st.aluno||!st.aluno.nome){openId();toast('Primeiro escreve o teu nome para a folha de validação.');return}
