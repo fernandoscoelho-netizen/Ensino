@@ -62,7 +62,7 @@ kbd{border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-size:12p
 .mod{display:grid;grid-template-columns:92px minmax(0,1fr);align-items:center;gap:8px}
 .mod small{display:flex;justify-content:space-between;font-size:11.5px;font-weight:700;color:var(--muted)}
 .mod small span{font-weight:600;color:#9aa1bd}
-.mod[data-m=CSS] small{color:#0e7c86}.mod[data-m=JS] small{color:#a1620b}.mod[data-m=HTML] small{color:var(--blue)}
+.mod[data-m=CSS] small{color:#0e7c86}.mod[data-m=DOM] small{color:#7c3aed}.mod[data-m=ZI] small{color:#0f766e}.mod[data-m=DES] small{color:#b42318}.mod[data-m=JS] small{color:#a1620b}.mod[data-m=HTML] small{color:var(--blue)}
 .chips{display:flex;gap:3px}
 .lv{flex:1;height:30px;border-radius:7px;border:1px solid var(--line);background:#f5f6fb;font-weight:700;font-size:12px;color:var(--muted);cursor:pointer;padding:0;position:relative;line-height:1}
 .lv b{position:absolute;left:0;right:0;bottom:1px;font-size:6.5px;letter-spacing:-.5px;color:#e0a200}
@@ -77,6 +77,33 @@ kbd{border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-size:12p
 .learn{background:#f3f5fd;border:1px solid #e4e8f8;border-radius:11px;padding:9px 11px;font-size:13px;color:#2c3557}
 .learn summary{cursor:pointer;font-weight:700;font-size:12.5px;color:var(--blue);margin-bottom:3px}.learn:not([open]) summary{margin:0}
 .hint{background:#fff7e6;border-color:#f6e2b4;color:#6b4a07}
+.box{margin-top:7px;border-radius:9px;padding:7px 9px;font-size:12.5px;line-height:1.45;border:1px solid}
+.box b{display:block;font-size:12px;margin-bottom:2px}
+.box.tip{background:#ecfdf3;border-color:#c6efd6;color:#14532d}
+.box.warn{background:#fff4f2;border-color:#fbd2cb;color:#7a1d0d}
+.box.try{background:#f3efff;border-color:#ddd3fb;color:#3b1f86}
+.kind{margin-left:auto;background:#1c2448;color:#fff;border-radius:999px;padding:2px 9px;font-size:11px;font-weight:700}
+.quiz{background:#fffaf0;border:1px solid #f6e2b4;border-radius:11px;padding:9px 11px;font-size:13px;color:#3a3216}
+.quiz pre{background:#141a33;color:#e6eaff;border-radius:8px;padding:7px 9px;margin:6px 0;font:12px/1.5 'JetBrains Mono',monospace;white-space:pre-wrap}
+.quiz .qq{margin-top:3px}
+.quiz .opts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:7px}
+.quiz .opts button{min-height:36px;border:1px solid #e3d3a8;background:#fff;border-radius:9px;font-weight:600;font-size:12.5px;cursor:pointer;color:#3a3216;padding:4px 8px}
+.quiz .opts button:hover:not(:disabled){background:#fff3d6}
+.quiz .opts button.bad{background:#fde7e4;border-color:#f5b5ab;color:#9b1c0c;text-decoration:line-through}
+.quiz .opts button.right{background:#e7f6ec;border-color:#9fd8b3;color:#137a3a}
+.quiz .why{margin:7px 0 0;font-size:12.5px}.quiz .why.m{color:#8a6d1f}
+.ctl{position:fixed;left:432px;top:150px;z-index:6;padding:10px 12px;width:290px;display:flex;flex-direction:column;gap:7px}
+.ctl>b{font-size:13px}.ctl>small{color:var(--muted);font-size:11.5px;margin-top:-4px}
+#ctlB{display:flex;flex-direction:column;gap:6px}
+#ctlB label{display:grid;grid-template-columns:80px minmax(0,1fr);gap:6px;align-items:center;font-size:12px;font-weight:600;color:#3a4366}
+#ctlB input,#ctlB select{height:32px;border:1px solid var(--line);border-radius:8px;padding:0 8px;font:inherit;font-weight:500;min-width:0}
+#ctlB input[type=checkbox]{height:18px;width:18px}
+#ctlB .pb{height:38px;border:0;border-radius:9px;background:var(--green);color:#fff;font-weight:700;cursor:pointer;box-shadow:0 2px 0 #13843f}
+#ctlB .pb:active{transform:translateY(2px);box-shadow:none}
+#ctlB small{color:var(--muted)}
+.vp{display:flex;gap:5px;align-items:center;font-size:12px;font-weight:600;color:#3a4366}.vp span{flex:1}
+.vp button{height:32px;border:1px solid var(--line);background:#fff;border-radius:8px;font-weight:600;cursor:pointer;padding:0 8px}
+.vp button.on{background:var(--blue);color:#fff;border-color:var(--blue)}
 .obj{list-style:none;margin:0;padding:0;display:grid;gap:5px;font-size:13px}
 .obj li{display:flex;gap:8px;align-items:flex-start;color:#3a4366}
 .obj li i{flex:none;width:18px;height:18px;border-radius:50%;border:2px solid #c9d0e6;margin-top:1px;display:grid;place-items:center}
@@ -166,7 +193,8 @@ td.r{text-align:right}
 .tl{display:flex;justify-content:space-between;position:relative;margin-top:10px}
 .tl:before,.tl .fill{content:'';position:absolute;left:20px;right:20px;top:15px;height:3px;background:#dfe4f3;border-radius:3px}
 .tl .fill{right:auto;background:var(--blue);transition:width .6s}
-.step{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;flex:1;text-align:center;background:none;border:0;cursor:pointer;padding:0;line-height:1.2}
+.step{position:relative;display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11px;flex:1;text-align:center;background:none;border:0;cursor:pointer;padding:0;line-height:1.2;min-width:0}
+.tl.many .step{font-size:9.5px;letter-spacing:-.2px}
 .step .d{width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid #cfd6ee;display:grid;place-items:center;color:#9aa3c4;font-weight:700;font-size:12px}
 .step.fin .d{background:var(--blue);border-color:var(--blue);color:#fff}
 .step.cur .d{border-color:var(--blue);color:var(--blue);box-shadow:0 0 0 5px rgba(53,82,224,.15)}
@@ -201,6 +229,7 @@ td.r{text-align:right}
  .kpis{position:static;flex-wrap:wrap;padding:0 12px 10px}.kpi{flex:1 1 150px}
  .coder,.track{position:static;width:auto;margin:12px}.coder{max-height:none}.track{height:auto;flex-direction:column}.ship{width:auto}
  .tl{overflow-x:auto}
+ .ctl{position:static;width:auto;margin:12px}
 }
 </style>
 </head>
@@ -231,6 +260,7 @@ td.r{text-align:right}
  </div>
  <div class="cbody" id="cbody">
   <div class="mission"><div class="diff" id="mDiff"></div><h2 id="mTitle"></h2><p id="mStory"></p></div>
+  <div class="quiz" id="mQuiz" hidden></div>
   <details class="learn" id="mLearnD" open><summary>Aprende</summary><div id="mLearn"></div></details>
   <div class="learn hint" id="mHint" hidden></div>
   <ul class="obj" id="goals"></ul>
@@ -243,6 +273,8 @@ td.r{text-align:right}
  <div class="done" id="done" hidden><p><b id="doneT">Nível concluído!</b><span id="doneS"></span></p><button id="nextB">Próximo nível →</button></div>
  <div class="cfoot"><button id="hintB">Dica</button><button id="solB">Ver solução</button><button id="resetB">Repor</button><button id="runB" class="primary">Construir ▸</button></div>
 </section>
+
+<section class="ctl card" id="ctl" hidden aria-label="Painel da página"><b>Painel da página</b><small>Os botões e campos do teu HTML aparecem aqui. Experimenta-os!</small><div id="ctlB"></div></section>
 
 <div class="zoom card">
  <button id="zIn" aria-label="Aproximar"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg></button>
@@ -358,7 +390,7 @@ const Z1S='<h1>Parque Tejo Norte</h1>\n<div class="armazem">Armazém Norte</div>
 const Z2B=PARQ+sty('.armazem { width: 100%; height: 160px; }','.docas { display: flex; gap: 16px; }');
 const Z2S=PARQ+sty('.armazem { width: 100%; height: 160px; }','.docas { display: flex; gap: 16px; }','.parque { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }');
 
-const L=[
+const L0=[
 /* ---------------- HTML ---------------- */
 {m:'HTML',step:'Cais',t:'Abrir o primeiro cais',diff:1,
  story:'O camião TRK-2131 da Atlântica Frio chegou ao portão, mas os Cais 1 e 2 estão ocupados. Abre um cais novo no pátio.',
@@ -518,16 +550,192 @@ const L=[
  blocks:['<script>','chegadas.sort((a, b) => a.prioridade - b.prioridade);','function criarCamiao(matricula) {',"const c = document.createElement('div');","c.className = 'camiao';",'c.textContent = matricula;','return c;','}','for (const t of chegadas) {',"const livre = [...document.querySelectorAll('.cais')].find(c => !c.querySelector('.camiao'));",'if (livre) {','livre.appendChild(criarCamiao(t.matricula));','} else {',"document.querySelector('.fila').appendChild(criarCamiao(t.matricula));",'}',SC],
  goals:[['O código ordena com sort',(r,c)=>/\.sort\s*\(/.test(jsPart(c))],['Os cais livres recebem o TRK-3002 e o TRK-3004, por esta ordem',(r,c,it,x)=>{if(!x.ran)return false;const d=all(r,'.docas .cais .camiao').map(e=>e.textContent.trim());return JSON.stringify(d)===JSON.stringify(['TRK-2131','TRK-3002','TRK-2140','TRK-3004'])}],['A fila tem o TRK-3001 e depois o TRK-3003',(r,c,it,x)=>x.ran&&JSON.stringify(ofText(r,'.fila .camiao'))===JSON.stringify(['TRK-3001','TRK-3003'])]]}
 ];
-L.forEach((l,i)=>{if(!l.start)l.start=L[i-1].sol});
-const MODS=[['HTML','HTML','Construir'],['CSS','CSS','Organizar'],['ZI','Zona industrial','Expandir'],['JS','JavaScript','Automatizar']];
+L0.forEach((l,i)=>{l.id='o'+(i+1);if(!l.start)l.start=L0[i-1].sol});
+/* ---------- novos níveis (sebenta "Criação de Páginas Web") ---------- */
+const VOIDT=/^(br|hr|img|input|meta|link|area|base|col|embed|source|track|wbr)$/i;
+const nestOK=c=>{const h=htmlPart(c).replace(/<!--[\s\S]*?-->/g,'').replace(/<style[\s\S]*?<\/style>/gi,'');const s=[];for(const m of h.matchAll(/<(\/?)([a-zA-Z][\w-]*)[^>]*?(\/?)>/g)){const t=m[2].toLowerCase();if(VOIDT.test(t)||m[3])continue;if(!m[1])s.push(t);else if(s.pop()!==t)return false}return s.length===0};
+const noInline=c=>!/\sstyle\s*=/i.test(htmlPart(c).replace(/<style[\s\S]*?<\/style>/gi,''));
+const txtOf=(r,s)=>{const e=r.querySelector(s);return e?e.textContent:''};
+const OLC='\n<ol class="carga">\n  <li>Secretárias</li>\n  <li>Cadeiras</li>\n  <li>Monitores</li>\n</ol>';
+const AV0='\n<p class="aviso">Velocidade máxima <strong>10 km/h</p></strong>';
+const AV1='\n<p class="aviso">Velocidade máxima <strong>10 km/h</strong><br>Peões: <em>atenção</em> aos empilhadores</p>';
+const TB0='\n<table class="quadro">\n  <!-- falta o título da tabela -->\n  <thead>\n    <tr><th>Cais</th><th>Manhã</th><th>Tarde</th></tr>\n  </thead>\n  <tbody>\n    <tr><td>Cais 1</td><td>TRK-2104</td><td>TRK-2131</td></tr>\n    <!-- Cais 2: em manutenção o dia todo -->\n  </tbody>\n</table>';
+const TB1='\n<table class="quadro">\n  <caption>Turnos dos cais</caption>\n  <thead>\n    <tr><th scope="col">Cais</th><th scope="col">Manhã</th><th scope="col">Tarde</th></tr>\n  </thead>\n  <tbody>\n    <tr><td>Cais 1</td><td>TRK-2104</td><td>TRK-2131</td></tr>\n    <tr><td>Cais 2</td><td colspan="2">Manutenção</td></tr>\n  </tbody>\n</table>';
+const CAIS1='\n<div class="cais">\n  <div class="camiao">TRK-2131</div>\n</div>';
+const FORM0='\n<form class="portaria">\n  <label for="matricula">Matrícula</label>\n  <input id="matricula" name="matricula" type="text">\n\n  <!-- 1. A matrícula é obrigatória (required) e tem placeholder -->\n  <!-- 2. Paletes: label + input type="number" de 1 a 33 -->\n  <!-- 3. Tipo de carga: label + select com 3 opções -->\n  <!-- 4. Botão do tipo submit -->\n</form>';
+const FORM1='\n<form class="portaria">\n  <label for="matricula">Matrícula</label>\n  <input id="matricula" name="matricula" type="text" placeholder="TRK-0000" required>\n  <label for="paletes">Paletes</label>\n  <input id="paletes" name="paletes" type="number" min="1" max="33">\n  <label for="carga">Carga</label>\n  <select id="carga" name="carga">\n    <option value="seca">Carga seca</option>\n    <option value="frio">Frio</option>\n    <option value="perigosa">Perigosa</option>\n  </select>\n  <button type="submit">Entrar</button>\n</form>';
+const SEM0='<div class="topo">Portaria\n  <h1>Centro Tejo</h1>\n</div>\n<div class="menu">\n  <a href="#cargas">Cargas</a>\n  <a href="#saida">Saída</a>\n</div>\n<div class="principal">\n  <div class="zona">\n    <div class="palete"></div>\n    <div class="palete"></div>\n    <div class="palete"></div>\n  </div>\n  <div class="empilhador" id="EMP-07"></div>\n</div>\n<div class="rodape" id="saida">Saída de camiões</div>';
+const SEM1='<header>Portaria\n  <h1>Centro Tejo</h1>\n</header>\n<nav aria-label="Vias do parque">\n  <a href="#cargas">Cargas</a>\n  <a href="#saida">Saída</a>\n</nav>\n<main id="cargas">\n  <div class="zona">\n    <div class="palete"></div>\n    <div class="palete"></div>\n    <div class="palete"></div>\n  </div>\n  <div class="empilhador" id="EMP-07"></div>\n</main>\n<footer id="saida">Saída de camiões</footer>';
+const ZSEL='\n<div class="zona">\n  <div class="palete" id="P1">P1</div>\n  <div class="palete" id="P2">P2</div>\n  <div class="palete urgente">P3</div>\n  <div class="palete">P4</div>\n</div>';
+const SEL=a=>S6+ZSEL+sty(a,'.palete { background: royalblue; }','#P2 { background: orange; }','.palete { background: seagreen; }');
+const BOX=b=>H1+'\n<div class="docas">\n'+'  <div class="cais"></div>\n'.repeat(5)+'</div>'+sty('.docas { display: flex; gap: 10px; }',`.cais { width: 120px; padding: 0 10px; border: 4px solid gold; box-sizing: ${b}; }`);
+const WRAPH=H1+'\n<div class="espera">\n'+[...Array(10)].map((_,i)=>`  <div class="camiao">TRK-31${String(i+1).padStart(2,'0')}</div>`).join('\n')+'\n</div>\n<div class="posto">\n  <div class="empilhador" id="EMP-01"></div>\n  <div class="empilhador" id="EMP-02"></div>\n  <div class="empilhador" id="EMP-03"></div>\n</div>';
+const RESPH=H1+'\n<div class="lotes">\n  <div class="armazem">Lote A</div>\n  <div class="armazem">Lote B</div>\n  <div class="armazem">Lote C</div>\n</div>';
+const RA='.lotes .armazem { width: auto; height: 120px; }';
+const CONT="  const itens = document.querySelectorAll('.estante li');\n  const cadeiras = itens[0].dataset.qtd;   // \"40\" (é texto!)\n  const monitores = itens[1].dataset.qtd;  // \"12\"\n";
+const VAG="  const lotacao = 6;\n  const ocupados = document.querySelectorAll('.camiao').length;\n  console.log('Ocupados:', ocupados);\n\n";
+const VAG1="  function calcularVagas(lotacao, ocupados) {\n    return lotacao - ocupados;\n  }\n\n  const vagas = calcularVagas(lotacao, ocupados);\n  const placa = document.querySelector('h1');\n  if (vagas > 0) {\n    placa.textContent = 'Vagas: ' + vagas;\n  } else {\n    placa.textContent = 'Lotado';\n  }\n";
+const GBE=()=>JB().replace('<h1>','<h1 id="estado">');
+const ABR="  const botao = document.getElementById('abrir');\n\n  function abrirPortao() {\n    const c = document.createElement('div');\n    c.className = 'camiao';\n    c.textContent = 'TRK-2190';\n    document.getElementById('livre').appendChild(c);\n  }\n\n";
+const LUZ0="  const docas = document.querySelector('.docas');\n  const botao = document.getElementById('luzes');\n\n  botao.addEventListener('click', () => {\n";
+const FB=()=>H1+D4+FORM1+'\n<p id="msg" role="status">À espera de check-in</p>'+sty(R.doc,R.gr,R.tir);
+const SUB0="  const form = document.querySelector('.portaria');\n  const msg = document.getElementById('msg');\n\n  form.addEventListener('submit', (e) => {\n";
+const SUB1="    e.preventDefault();\n    const matricula = document.getElementById('matricula').value.trim();\n    if (matricula === '') {\n      msg.textContent = 'Indica a matrícula';\n      return;\n    }\n    const c = document.createElement('div');\n    c.className = 'camiao';\n    c.textContent = matricula;\n    document.getElementById('livre').appendChild(c);\n    msg.textContent = 'Bem-vindo, ' + matricula + '! Segue para o cais livre.';\n";
+const js_=c=>jsPart(c).replace(/\/\/[^\n]*/g,'');
+const N={
+aviso:{id:'n-aviso',m:'HTML',step:'Avisos',t:'Placas de segurança',diff:2,kind:'Encontra o erro',
+ story:'O encarregado afixou um aviso à entrada do cais, mas o código tem um erro: as tags fecham pela ordem errada. Corrige-o e completa o aviso com uma segunda linha.',
+ learn:'Um parágrafo <code>&lt;p&gt;</code> vira uma placa no pátio. Dentro do texto, <code>&lt;strong&gt;</code> marca o que é <b>importante</b> (aparece a negrito), <code>&lt;em&gt;</code> dá <i>ênfase</i> (itálico) e <code>&lt;br&gt;</code> muda de linha. O <code>&lt;br&gt;</code> é um elemento vazio: não tem tag de fecho.',
+ warn:'O último que abres é o primeiro que fechas. <code>&lt;p&gt;… &lt;strong&gt;…&lt;/p&gt;&lt;/strong&gt;</code> está errado; o certo é <code>&lt;/strong&gt;&lt;/p&gt;</code>. O navegador tenta adivinhar, mas nem sempre acerta.',
+ hint:'Troca a ordem do fecho para <code>&lt;/strong&gt;&lt;/p&gt;</code> e, antes de <code>&lt;/p&gt;</code>, junta <code>&lt;br&gt;Peões: &lt;em&gt;atenção&lt;/em&gt; aos empilhadores</code>.',
+ start:S3+AV0,sol:S3+AV1,blocks:['<p class="aviso">','Velocidade máxima','<strong>10 km/h</strong>','<br>','Peões: <em>atenção</em> aos empilhadores','</p>'],
+ goals:[['As tags fecham pela ordem certa',(r,c)=>nestOK(c)],['O limite "10 km/h" está dentro de <strong>',r=>all(r,'p strong').some(s=>/10/.test(s.textContent))],['O aviso tem uma 2.ª linha (<br>) com uma palavra em <em>',r=>has(r,'p br')&&has(r,'p em')]]},
+ol:{id:'n-ol',m:'HTML',step:'Ordem',t:'A ordem de carga',diff:2,
+ story:'O TRK-2131 tem de ser carregado por uma ordem certa: primeiro as Secretárias (as mais pesadas), depois as Cadeiras e no fim os Monitores. Indica a sequência ao empilhador com uma lista numerada.',
+ learn:'Há dois tipos de lista. <code>&lt;ul&gt;</code> é uma lista <b>sem ordem</b>: na estante tanto faz a posição. <code>&lt;ol&gt;</code> é uma lista <b>ordenada</b>: cada <code>&lt;li&gt;</code> recebe um número. Aqui, <code>&lt;ol class="carga"&gt;</code> põe as paletes numa fila, numeradas pela ordem de carga.',
+ tip:'Escolhe a lista pelo significado: se a ordem importa (passos, rankings, sequências), usa <code>&lt;ol&gt;</code>.',
+ hint:'<code>&lt;ol class="carga"&gt;</code>, três <code>&lt;li&gt;</code> (Secretárias, Cadeiras, Monitores) e <code>&lt;/ol&gt;</code>.',
+ start:S3+UL+'\n<!-- Ordem de carga: Secretárias, Cadeiras, Monitores -->\n',sol:S3+UL+OLC,blocks:['<ol class="carga">','<li>Secretárias</li>','<li>Cadeiras</li>','<li>Monitores</li>','</ol>','<ul class="carga">','</ul>'],
+ goals:[['Existe uma lista ordenada <ol class="carga">',r=>has(r,'ol.carga')],['A ordem de carga tem pelo menos 3 itens',r=>all(r,'ol.carga li').length>=3],['As Secretárias são as primeiras a entrar',r=>{const l=r.querySelector('ol.carga li');return!!l&&/secret/i.test(l.textContent)}],['A estante continua a ser uma lista <ul>',r=>has(r,'ul.estante')]]},
+tab:{id:'n-tab',m:'HTML',step:'Tabela',t:'O quadro de turnos',diff:3,kind:'Completa o código',
+ story:'A chefe de turno quer um quadro no pátio com os horários dos cais. A tabela já está começada: falta o título, falta dizer que os cabeçalhos são de coluna e falta o Cais 2, que está em manutenção o dia todo.',
+ learn:'<code>&lt;table&gt;</code> cria uma tabela; <code>&lt;caption&gt;</code> é o título; <code>&lt;thead&gt;</code> e <code>&lt;tbody&gt;</code> separam o cabeçalho dos dados. Cada <code>&lt;tr&gt;</code> é uma linha, <code>&lt;th&gt;</code> uma célula de cabeçalho e <code>&lt;td&gt;</code> uma célula de dados. <code>colspan="2"</code> faz uma célula ocupar duas colunas.',
+ tip:'<code>scope="col"</code> nos <code>&lt;th&gt;</code> diz aos leitores de ecrã que aquele cabeçalho é de uma coluna. Usa tabelas para dados, nunca para paginar o site.',
+ hint:'Junta <code>&lt;caption&gt;Turnos dos cais&lt;/caption&gt;</code>, <code>scope="col"</code> em cada <code>&lt;th&gt;</code> e a linha <code>&lt;tr&gt;&lt;td&gt;Cais 2&lt;/td&gt;&lt;td colspan="2"&gt;Manutenção&lt;/td&gt;&lt;/tr&gt;</code>.',
+ start:S6+TB0,sol:S6+TB1,blocks:['<caption>Turnos dos cais</caption>','<th scope="col">Cais</th>','<tr>','<td>Cais 2</td>','<td colspan="2">Manutenção</td>','</tr>'],
+ goals:[['A tabela tem título (<caption>)',r=>all(r,'table caption').some(c=>c.textContent.trim().length>2)],['Os <th> do cabeçalho têm scope="col"',r=>{const t=all(r,'thead th');return t.length>=3&&t.every(h=>h.getAttribute('scope')==='col')}],['Há pelo menos 2 linhas de dados no <tbody>',r=>all(r,'tbody tr').length>=2],['Uma célula ocupa 2 colunas (colspan="2")',r=>has(r,'td[colspan="2"]')]]},
+form:{id:'n-form',m:'HTML',step:'Form',t:'O quiosque da portaria',diff:3,kind:'Completa o código',
+ story:'Os motoristas fazem o check-in num quiosque na portaria. Constrói o formulário: matrícula (obrigatória), número de paletes e tipo de carga, com um botão para entrar.',
+ learn:'<code>&lt;form&gt;</code> agrupa campos. Cada campo tem um <code>&lt;label for="id"&gt;</code> ligado ao <code>id</code> do campo. <code>&lt;input type="number" min="1" max="33"&gt;</code> só aceita números nesse intervalo, <code>&lt;select&gt;</code> com <code>&lt;option&gt;</code> dá uma lista de escolha e <code>required</code> torna o campo obrigatório. O <code>name</code> é o nome com que o valor é enviado.',
+ warn:'<code>required</code> é um atributo booleano: basta escrevê-lo, sem valor. E o <code>for</code> do label tem de ser igual ao <code>id</code> do campo, letra por letra.',
+ hint:'Na matrícula junta <code>placeholder="TRK-0000" required</code>. Depois: label + <code>&lt;input id="paletes" type="number" min="1" max="33"&gt;</code>, label + <code>&lt;select id="carga"&gt;</code> com 3 <code>&lt;option&gt;</code> e <code>&lt;button type="submit"&gt;Entrar&lt;/button&gt;</code>.',
+ start:H1+CAIS1+FORM0,sol:H1+CAIS1+FORM1,blocks:['<label for="paletes">Paletes</label>','<input id="paletes" name="paletes" type="number" min="1" max="33">','<label for="carga">Carga</label>','<select id="carga" name="carga">','<option>Carga seca</option>','<option>Frio</option>','<option>Perigosa</option>','</select>','<button type="submit">Entrar</button>'],
+ goals:[['A matrícula é obrigatória (required)',r=>has(r,'#matricula[required]')],['Há um campo numérico de 1 a 33 para as paletes',r=>has(r,'input[type="number"][min="1"][max="33"]')],['Há um <select> com 3 tipos de carga',r=>all(r,'select option').length>=3],['Cada campo tem um <label for> ligado ao seu id',r=>{const f=all(r,'form input,form select,form textarea').filter(e=>e.type!=='submit');const l=all(r,'label');return f.length>=3&&f.every(x=>x.id&&l.some(q=>q.htmlFor===x.id))}],['O formulário tem um botão do tipo submit',r=>has(r,'form button[type="submit"],form input[type="submit"]')]]},
+sem:{id:'n-sem',m:'HTML',step:'Zonas',t:'As zonas do parque',diff:3,kind:'Modifica o exemplo',
+ story:'O mapa do parque foi feito só com <div>, e ninguém percebe o que é cada zona. Usa as tags semânticas: portaria (header), vias (nav), zona de operações (main) e saída (footer). E repara: uma das placas de direção aponta para uma zona que não existe.',
+ learn:'As tags <b>semânticas</b> dizem o que cada parte é: <code>&lt;header&gt;</code> cabeçalho, <code>&lt;nav&gt;</code> navegação, <code>&lt;main&gt;</code> conteúdo principal, <code>&lt;footer&gt;</code> rodapé (há também <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code> e <code>&lt;aside&gt;</code>). Um link <code>&lt;a href="#cargas"&gt;</code> salta para o elemento com <code>id="cargas"</code>: aqui vira uma placa de direção.',
+ tip:'Dá ao <code>&lt;nav&gt;</code> um <code>aria-label</code> (por exemplo "Vias do parque"): os leitores de ecrã anunciam-no assim.',
+ hint:'Troca <code>&lt;div class="topo"&gt;</code> por <code>&lt;header&gt;</code>, "menu" por <code>&lt;nav aria-label="Vias do parque"&gt;</code>, "principal" por <code>&lt;main id="cargas"&gt;</code> e "rodape" por <code>&lt;footer id="saida"&gt;</code>. Não te esqueças das tags de fecho!',
+ start:SEM0,sol:SEM1,blocks:['<header>','</header>','<nav aria-label="Vias do parque">','</nav>','<main id="cargas">','</main>','<footer id="saida">','</footer>'],
+ goals:[['Usas <header>, <nav>, <main> e <footer>',r=>['header','nav','main','footer'].every(t=>has(r,t))],['Já não há <div> a fazer de topo, menu, principal ou rodapé',r=>!has(r,'div.topo,div.menu,div.principal,div.rodape')],['As placas do <nav> levam a zonas que existem',r=>{const a=all(r,'nav a');return a.length>=2&&a.every(x=>{const h=x.getAttribute('href')||'';return h[0]==='#'&&h.length>1&&!!r.querySelector('#'+CSS.escape(h.slice(1)))})}],['O <nav> tem aria-label',r=>has(r,'nav[aria-label]')]]},
+sel:{id:'n-sel',m:'CSS',step:'Seletores',t:'Quem manda na cor?',diff:3,kind:'Qual será o resultado?',
+ story:'Quatro paletes, quatro regras de CSS, e ninguém se entende. Primeiro prevê a cor de P1 e P2. Depois corrige a regra da palete urgente (P3), que devia estar vermelha e não está.',
+ learn:'Seletores: <code>div</code> (elemento), <code>.palete</code> (classe, com ponto), <code>#P2</code> (id, com cardinal), <code>.zona .palete</code> (descendente). Quando duas regras chocam, ganha a mais <b>específica</b>: id &gt; classe &gt; elemento. Com a mesma especificidade, ganha a <b>última</b> (é a cascata).',
+ warn:'O HTML diz <code>class="palete urgente"</code>, por isso o seletor é <code>.urgente</code>, não <code>#urgente</code>. Mas cuidado: um <code>.urgente</code> no topo perde para o <code>.palete</code> que vem depois. Usa <code>.palete.urgente</code>, que é mais específico.',
+ hint:'Muda a primeira regra para <code>.palete.urgente { background: crimson; }</code>.',
+ quiz:{q:'Antes de mexeres: de que cor ficam as paletes <b>P1</b> e <b>P2</b>?',opts:['P1 azul e P2 laranja','P1 verde e P2 laranja','P1 e P2 verdes','P1 verde e P2 azul'],ok:1,why:'O id <code>#P2</code> é mais específico do que a classe, por isso P2 fica laranja. Entre as duas regras <code>.palete</code> ganha a última: P1 fica verde.'},
+ start:SEL('#urgente { background: crimson; }'),sol:SEL('.palete.urgente { background: crimson; }'),blocks:['.palete.urgente { background: crimson; }','.urgente { background: crimson; }','#urgente { background: crimson; }'],
+ goals:[['A palete urgente (P3) fica vermelha (crimson)',r=>{const u=all(r,'.palete.urgente');return u.length>0&&u.every(e=>bgOf(e)==='rgb(220, 20, 60)')}],['P1 continua verde e P2 laranja',r=>{const a=r.querySelector('#P1'),b=r.querySelector('#P2');return!!a&&!!b&&bgOf(a)==='rgb(46, 139, 87)'&&bgOf(b)==='rgb(255, 165, 0)'}],['Não usaste style="" no HTML',(r,c)=>noInline(c)]]},
+box:{id:'n-box',m:'CSS',step:'Box model',t:'Quanto mede um cais?',diff:3,kind:'Qual será o resultado?',
+ story:'O projetista desenhou 5 cais de 120px com padding e moldura amarela e jura que cabem nos 720px da fachada. Mas saem do pátio! Faz as contas e corrige.',
+ learn:'Cada elemento é uma caixa: <b>conteúdo</b> + <code>padding</code> (espaço de dentro) + <code>border</code> (moldura) + <code>margin</code> (espaço de fora). Com <code>box-sizing: content-box</code>, o <code>width</code> mede só o conteúdo e o padding e a border somam-se por fora. Com <code>box-sizing: border-box</code>, o <code>width</code> já inclui padding e border.',
+ tip:'Muitos sites começam com <code>* { box-sizing: border-box; }</code>: assim, o tamanho que escreves é o tamanho que vês.',
+ hint:'Troca <code>box-sizing: content-box</code> por <code>box-sizing: border-box</code>.',
+ quiz:{q:'Com <code>box-sizing: content-box</code>, qual é a largura total de cada cais?<pre>width: 120px;\npadding: 0 10px;\nborder: 4px solid gold;</pre>',opts:['120px','130px','140px','148px'],ok:3,why:'120 de conteúdo + 10 + 10 de padding + 4 + 4 de border = <b>148px</b>. Cinco cais e quatro espaços de 10px dão 780px, mais do que os 720px da fachada.'},
+ start:BOX('content-box'),sol:BOX('border-box'),blocks:['box-sizing: border-box;','box-sizing: content-box;','padding: 0 10px;','border: 4px solid gold;'],
+ goals:[['Os 5 cais cabem na fachada (720px)',(r,c,it)=>cais(it).length>=5&&cais(it).every(d=>d.x+d.w<=LOT.w+1)],['Cada cais mede 120px no total, já com a moldura',(r,c,it)=>cais(it).length>=5&&cais(it).every(d=>Math.abs(d.w-120)<1.5)],['Os cais continuam encostados à parede',(r,c,it)=>cais(it).length>=5&&cais(it).every(d=>d.y<6)]]},
+wrap:{id:'n-wrap',m:'CSS',step:'Wrap',t:'O parque de espera',diff:4,kind:'Corrige o código',
+ story:'Chegaram 10 camiões ao mesmo tempo e a fila sai do pátio. Faz a fila quebrar em várias linhas. E arruma os 3 empilhadores numa coluna encostada à direita, junto às tomadas.',
+ learn:'No flexbox, <code>flex-wrap: wrap</code> deixa os filhos passarem para a linha seguinte quando não cabem. <code>flex-direction: column</code> põe-nos uns por baixo dos outros. <code>align-items</code> alinha no outro eixo: numa coluna, <code>align-items: flex-end</code> encosta tudo à direita.',
+ tip:'<code>justify-content</code> trabalha no eixo principal (o da <code>flex-direction</code>) e <code>align-items</code> no eixo cruzado. Se mudas a direção, os dois trocam de papel.',
+ hint:'<code>.espera { display: flex; flex-wrap: wrap; gap: 20px; }</code> e <code>.posto { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; margin-top: 20px; }</code>',
+ start:WRAPH+sty('.espera { display: flex; gap: 20px; }','.espera .camiao { flex: none; margin: 0; }','.posto { display: flex; gap: 12px; margin-top: 20px; }'),
+ sol:WRAPH+sty('.espera { display: flex; flex-wrap: wrap; gap: 20px; }','.espera .camiao { flex: none; margin: 0; }','.posto { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; margin-top: 20px; }'),
+ blocks:['flex-wrap: wrap;','flex-direction: column;','align-items: flex-end;','justify-content: flex-end;'],
+ goals:[['Os 10 camiões cabem no pátio (flex-wrap)',(r,c,it)=>{const t=it.filter(i=>i.type==='camiao');return t.length>=10&&t.every(i=>i.x+i.w<=LOT.w+1)}],['Os camiões ficam em 2 filas ou mais',(r,c,it)=>new Set(it.filter(i=>i.type==='camiao').map(i=>Math.round(i.y))).size>=2],['Os empilhadores ficam em coluna (flex-direction)',(r,c,it)=>{const f=it.filter(i=>i.type==='empilhador');return f.length>=3&&new Set(f.map(i=>Math.round(i.x))).size===1&&new Set(f.map(i=>Math.round(i.y))).size>=3}],['A coluna fica encostada à direita (align-items)',(r,c,it)=>{const f=it.filter(i=>i.type==='empilhador');return f.length>=3&&f.every(i=>i.x+i.w>=LOT.w-4)}]]},
+resp:{id:'n-resp',m:'CSS',step:'Responsivo',t:'O pátio no telemóvel',diff:4,kind:'Corrige o código',resp:true,ui:true,
+ story:'Os operadores também veem o pátio no telemóvel. Com 3 colunas fixas, num ecrã de 360px os lotes ficam esmagados. Usa mobile first: 1 coluna por defeito e 3 colunas a partir de 600px. Usa os botões 📱 e 💻 para mudar a largura do ecrã.',
+ learn:'Uma <b>media query</b> aplica CSS só a certos ecrãs: <code>@media (min-width: 600px) { … }</code> só vale a partir de 600px de largura. Em <b>mobile first</b> escreves primeiro o CSS do telemóvel e depois acrescentas regras para ecrãs maiores com <code>min-width</code>. No jogo, o pátio faz de ecrã.',
+ tip:'Numa página real, junta sempre <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code> no <code>&lt;head&gt;</code> e <code>img { max-width: 100%; }</code> para as imagens não saírem do ecrã.',
+ hint:'Em <code>.lotes</code> põe <code>grid-template-columns: 1fr;</code> e acrescenta no fim: <code>@media (min-width: 600px) { .lotes { grid-template-columns: repeat(3, 1fr); } }</code>',
+ start:RESPH+sty('.lotes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }',RA),
+ sol:RESPH+sty('.lotes { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 40px; }',RA,'@media (min-width: 600px) {','  .lotes { grid-template-columns: repeat(3, 1fr); }','}'),
+ blocks:['grid-template-columns: 1fr;','@media (min-width: 600px) {','.lotes { grid-template-columns: repeat(3, 1fr); }','}','@media (max-width: 600px) {'],
+ goals:[['No telemóvel (360px), um lote por linha',()=>atW(360,it=>{const a=it.filter(i=>i.type==='armazem');return a.length>=3&&new Set(a.map(i=>Math.round(i.x))).size===1&&new Set(a.map(i=>Math.round(i.y))).size>=3})],['No computador (720px), os 3 lotes lado a lado',()=>atW(720,it=>{const a=it.filter(i=>i.type==='armazem');return a.length>=3&&new Set(a.map(i=>Math.round(i.x))).size>=3&&new Set(a.map(i=>Math.round(i.y))).size===1})],['Mobile first: usas @media (min-width: …)',(r,c)=>/@media[^{]*min-width/i.test(c)]]},
+contas:{id:'n-contas',m:'JS',step:'Operadores',t:'As contas do stock',diff:3,js:true,kind:'Corrige o código',
+ story:'A placa devia mostrar quantas cadeiras e monitores há na estante (40 + 12), mas mostra "Stock: 4012". Prevê porquê e corrige o código.',
+ learn:'Variáveis: <code>const</code> para valores que não mudam e <code>let</code> para os que mudam. Há <b>texto</b> (<code>"40"</code>), <b>números</b> (<code>40</code>) e <b>booleanos</b> (<code>true</code>/<code>false</code>). O <code>+</code> soma números, mas junta texto. <code>Number("40")</code> converte texto em número. <code>console.log()</code> mostra valores na consola.',
+ warn:'Os valores lidos da página (<code>dataset</code>, <code>.value</code>, <code>textContent</code>) são sempre texto. Converte-os antes de fazer contas.',
+ hint:'<code>let total = Number(cadeiras) + Number(monitores);</code>',
+ quiz:{q:'O que aparece na consola?<pre>const a = "40";\nconst b = 12;\nconsole.log(a + b);</pre>',opts:['52','4012','40 12','Dá erro'],ok:1,why:'Quando um dos lados do <code>+</code> é texto, o <code>+</code> junta (concatena) em vez de somar: "40" + 12 dá "4012".'},
+ start:JB()+scr(CONT+"  let total = cadeiras + monitores;\n  console.log('Total:', total);\n  document.querySelector('h1').textContent = 'Stock: ' + total;\n"),
+ sol:JB()+scr(CONT+"  let total = Number(cadeiras) + Number(monitores);\n  console.log('Total:', total);\n  document.querySelector('h1').textContent = 'Stock: ' + total;\n"),
+ blocks:['<script>','let total = Number(cadeiras) + Number(monitores);','let total = cadeiras + monitores;',"console.log('Total:', total);","document.querySelector('h1').textContent = 'Stock: ' + total;",SC],
+ goals:[['A placa mostra "Stock: 52" (e não 4012)',(r,c,it,x)=>x.ran&&all(r,'h1').some(h=>/\b52\b/.test(h.textContent)&&!/4012/.test(h.textContent))],['Convertes o texto em número (Number ou parseInt)',(r,c)=>/Number\s*\(|parseInt\s*\(|parseFloat\s*\(/.test(js_(c))]]},
+vagas:{id:'n-vagas',m:'JS',step:'Decidir',t:'Há vagas no parque?',diff:4,js:true,kind:'Completa o código',expose:['calcularVagas'],
+ story:'O parque tem 6 lugares. Escreve uma função que calcula as vagas livres e, conforme o resultado, põe na placa "Vagas: N" ou "Lotado".',
+ learn:'Uma função pode receber <b>parâmetros</b> e devolver um resultado com <code>return</code>: <code>function calcularVagas(lotacao, ocupados) { return lotacao - ocupados; }</code>. <code>if (condição) { … } else { … }</code> escolhe um de dois caminhos. Compara com <code>&gt;</code>, <code>&lt;</code>, <code>===</code> (igual) ou <code>!==</code> (diferente), e junta condições com <code>&amp;&amp;</code> (e), <code>||</code> (ou) e <code>!</code> (não).',
+ warn:'<code>=</code> guarda um valor; <code>===</code> compara. <code>if (vagas = 0)</code> não compara nada: põe 0 em vagas!',
+ hint:'Cria a função com <code>return lotacao - ocupados;</code>, depois <code>const vagas = calcularVagas(lotacao, ocupados);</code> e um <code>if (vagas &gt; 0) { … } else { … }</code> que muda o <code>textContent</code> da placa.',
+ start:JB()+scr(VAG+"  // 1. Cria a função calcularVagas(lotacao, ocupados) que devolve (return) as vagas livres\n  // 2. Guarda o resultado numa constante vagas\n  // 3. Se houver vagas, a placa diz \"Vagas: N\"; senão, diz \"Lotado\"\n\n"),sol:JB()+scr(VAG+VAG1),
+ blocks:['<script>','function calcularVagas(lotacao, ocupados) {','return lotacao - ocupados;','}','const vagas = calcularVagas(lotacao, ocupados);',"const placa = document.querySelector('h1');",'if (vagas > 0) {',"placa.textContent = 'Vagas: ' + vagas;",'} else {',"placa.textContent = 'Lotado';",'}',SC],
+ goals:[['Existe a função calcularVagas, com return',(r,c,it,x)=>/return/.test(js_(c))&&typeof x.fn.calcularVagas==='function'],['A função faz bem as contas (6 lugares e 6 ocupados dá 0)',(r,c,it,x)=>{const f=x.fn.calcularVagas;try{return typeof f==='function'&&f(6,6)===0&&f(10,4)===6}catch(e){return false}}],['Usas if e else',(r,c)=>/\bif\s*\(/.test(js_(c))&&/\belse\b/.test(js_(c))],['A placa mostra "Vagas: 3"',(r,c,it,x)=>x.ran&&all(r,'h1').some(h=>/Vagas:\s*3\b/.test(h.textContent))]]},
+getid:{id:'n-getid',m:'DOM',step:'getElementById',t:'O painel não responde',diff:3,js:true,kind:'Encontra o erro',
+ story:'O código que devia escrever "Portão aberto" na placa dá erro. Há dois erros clássicos escondidos em duas linhas. Executa, lê a consola e corrige-os.',
+ learn:'<code>document.getElementById(\'estado\')</code> encontra o elemento com <code>id="estado"</code>: recebe <b>só o nome</b>, sem <code>#</code>. Já <code>querySelector(\'#estado\')</code> recebe um seletor de CSS, por isso leva <code>#</code>. Se o elemento não for encontrado, o resultado é <code>null</code> e a linha seguinte dá erro.',
+ warn:'O JavaScript distingue maiúsculas: <code>textcontent</code> não é o mesmo que <code>textContent</code>. Com o nome errado não dá erro, simplesmente não acontece nada.',
+ hint:'<code>getElementById(\'estado\')</code> (sem #) e <code>estado.textContent</code> (com C maiúsculo).',
+ start:GBE()+scr("  const estado = document.getElementById('#estado');\n  estado.textcontent = 'Portão aberto';\n"),sol:GBE()+scr("  const estado = document.getElementById('estado');\n  estado.textContent = 'Portão aberto';\n"),
+ blocks:['<script>',"const estado = document.getElementById('estado');","estado.textContent = 'Portão aberto';","const estado = document.querySelector('#estado');",SC],
+ goals:[['getElementById recebe o id sem #',(r,c)=>/getElementById\(\s*['"`][^#'"`]/.test(js_(c))&&!/getElementById\(\s*['"`]#/.test(js_(c))||(/querySelector\(\s*['"`]#estado/.test(js_(c))&&!/getElementById/.test(js_(c)))],['textContent está bem escrito',(r,c)=>/\.textContent\b/.test(js_(c))&&!/\.textcontent\b/.test(js_(c))],['A placa diz "Portão aberto"',(r,c,it,x)=>x.ran&&all(r,'h1').some(h=>/port[aã]o aberto/i.test(h.textContent))],['A consola não mostra erros',(r,c,it,x)=>x.ran&&!x.err]]},
+click:{id:'n-click',m:'DOM',step:'Clique',t:'O botão do portão',diff:4,js:true,ui:true,kind:'Completa o código',snap:r=>!!r.querySelector('#livre .camiao'),act:[['press','#abrir']],
+ story:'Instalaram um botão para abrir o portão ao TRK-2190. A função já está escrita, mas não está ligada ao botão. Liga-a ao clique, carrega em Executar e depois carrega no botão "Abrir portão" do painel da página.',
+ learn:'<code>elemento.addEventListener(\'click\', funcao)</code> diz ao navegador: "quando clicarem aqui, corre esta função". Passa o <b>nome</b> da função, sem parênteses: com parênteses, ela corria logo, antes de alguém clicar.',
+ warn:'<code>addEventListener(\'click\', abrirPortao())</code> está errado: o camião entra logo ao executar. O certo é <code>addEventListener(\'click\', abrirPortao)</code>.',
+ tip:'Na sebenta viste também <code>onclick="..."</code> no HTML. Funciona, mas o <code>addEventListener</code> separa o HTML do JavaScript e é a forma recomendada.',
+ hint:'<code>botao.addEventListener(\'click\', abrirPortao);</code>',
+ start:JB()+'\n<button id="abrir">Abrir portão</button>'+scr(ABR+"  // Liga a função ao clique do botão (sem parênteses!)\n\n"),sol:JB()+'\n<button id="abrir">Abrir portão</button>'+scr(ABR+"  botao.addEventListener('click', abrirPortao);\n"),
+ blocks:['<script>',"botao.addEventListener('click', abrirPortao);","botao.addEventListener('click', abrirPortao());",SC],
+ goals:[['Ligas a função ao clique com addEventListener',(r,c)=>/addEventListener\(\s*['"`]click/.test(js_(c))],['Antes do clique, o cais livre continua vazio',(r,c,it,x)=>x.ran&&x.snaps.length>0&&x.snaps[0]===false],['Depois de carregares no botão, o TRK-2190 entra no cais livre',(r,c,it,x)=>x.ran&&x.clicks>0&&/2190/.test(txtOf(r,'#livre'))]]},
+toggle:{id:'n-toggle',m:'DOM',step:'Toggle',t:'As luzes dos cais',diff:4,js:true,ui:true,kind:'Completa o código',snap:r=>{const d=r.querySelector('.docas');return!!d&&d.classList.contains('realce')},act:[['press','#luzes'],['press','#luzes']],
+ story:'De noite, os motoristas precisam de ver os cais. O botão "Luzes dos cais" tem de acender as luzes e, no clique seguinte, apagá-las. Completa a função e experimenta no painel da página.',
+ learn:'<code>elemento.classList.toggle(\'realce\')</code> junta a classe se ela não estiver lá e tira-a se estiver: é um interruptor. O CSS faz o resto: <code>.docas.realce .cais { background: gold; }</code>. Também há <code>classList.add</code>, <code>classList.remove</code> e <code>classList.contains</code>.',
+ try:'Esconde e mostra o empilhador com o mesmo botão: <code>const emp = document.getElementById(\'EMP-07\'); emp.hidden = !emp.hidden;</code>',
+ hint:'Dentro da função: <code>docas.classList.toggle(\'realce\');</code>',
+ start:JB('.docas.realce .cais { background: gold; }')+'\n<button id="luzes">Luzes dos cais</button>'+scr(LUZ0+"    // Liga e desliga a classe \"realce\" nas docas\n\n  });\n"),
+ sol:JB('.docas.realce .cais { background: gold; }')+'\n<button id="luzes">Luzes dos cais</button>'+scr(LUZ0+"    docas.classList.toggle('realce');\n    console.log('Luzes:', docas.classList.contains('realce'));\n  });\n"),
+ blocks:['<script>',"docas.classList.toggle('realce');","docas.classList.add('realce');","console.log('Luzes:', docas.classList.contains('realce'));",SC],
+ goals:[['Usas classList.toggle',(r,c)=>/classList\.toggle\s*\(/.test(js_(c))],['O 1.º clique acende as luzes dos cais',(r,c,it,x)=>x.ran&&x.clicks>0&&x.snaps.slice(1).includes(true)],['O clique seguinte apaga-as outra vez',(r,c,it,x)=>{const s=x.snaps,i=s.indexOf(true,1);return x.ran&&i>0&&s.slice(i+1).includes(false)}]]},
+submit:{id:'n-submit',m:'DOM',step:'Submit',t:'Check-in na portaria',diff:5,js:true,ui:true,kind:'Completa o código',
+ snap:r=>({v:(r.querySelector('#matricula')||{}).value||'',n:r.querySelectorAll('#livre .camiao').length,m:txtOf(r,'#msg')}),
+ act:[['fill','#matricula','TRK-5005'],['press','button[type="submit"]'],['fill','#matricula','   '],['press','button[type="submit"]']],
+ story:'O quiosque da portaria já tem o formulário. Falta o código: ao enviar, o camião entra no cais livre e a placa dá as boas-vindas. Testa duas vezes no painel da página: com TRK-5005 e só com espaços.',
+ learn:'O evento <code>submit</code> acontece quando se envia o formulário. Por defeito a página recarrega, por isso começa com <code>e.preventDefault()</code>. <code>campo.value</code> lê o que foi escrito e <code>.trim()</code> tira os espaços do início e do fim. <code>return</code> sai da função mais cedo.',
+ warn:'<code>required</code> aceita um campo só com espaços! É por isso que se valida também no JavaScript com <code>.value.trim() === \'\'</code>.',
+ tip:'<code>role="status"</code> na mensagem faz os leitores de ecrã anunciarem a mudança de texto.',
+ hint:'Dentro do submit: <code>e.preventDefault();</code>, lê a matrícula com <code>.value.trim()</code>, se for <code>\'\'</code> escreve "Indica a matrícula" em <code>msg</code> e faz <code>return</code>; senão cria o camião em <code>#livre</code>.',
+ start:FB()+scr(SUB0+"    // 1. Impede o envio normal (a página recarregava!)\n    // 2. Lê a matrícula com .value.trim()\n    // 3. Se estiver vazia, pede-a na mensagem e sai (return)\n    // 4. Senão, cria o camião no cais livre e dá as boas-vindas\n\n  });\n"),sol:FB()+scr(SUB0+SUB1+"  });\n"),
+ blocks:['<script>','e.preventDefault();',"const matricula = document.getElementById('matricula').value.trim();","if (matricula === '') {","msg.textContent = 'Indica a matrícula';",'return;','}',"const c = document.createElement('div');","c.className = 'camiao';",'c.textContent = matricula;',"document.getElementById('livre').appendChild(c);","msg.textContent = 'Bem-vindo, ' + matricula + '!';",SC],
+ goals:[['O submit usa e.preventDefault()',(r,c,it,x)=>x.ran&&x.submits>0&&x.prevented&&/preventDefault/.test(js_(c))],['Usas .value.trim()',(r,c)=>/\.value\.trim\(\)/.test(js_(c))],['Com TRK-5005, o camião entra no cais livre',(r,c,it,x)=>x.ran&&x.submits>0&&/5005/.test(txtOf(r,'#livre'))],['Só com espaços, nenhum camião entra e a placa pede a matrícula',(r,c,it,x)=>{const s=x.snaps;return x.ran&&s.some((q,i)=>i>0&&q&&q.v.length>0&&!q.v.trim()&&s[i-1]&&q.n===s[i-1].n&&/matr/i.test(q.m))}]]}
+};
+const O=i=>L0[i-1];
+[17,18,21].forEach(i=>O(i).m='JS');[19,20,22,23,24].forEach(i=>O(i).m='DES');
+Object.assign(O(1),{tip:'Indenta o código: cada elemento que está dentro de outro leva 2 espaços a mais. Fica muito mais fácil ver onde abre e fecha.'});
+Object.assign(O(2),{warn:'O último que abres é o primeiro que fechas: o <code>&lt;/div&gt;</code> do camião vem antes do <code>&lt;/div&gt;</code> do cais.'});
+Object.assign(O(3),{tip:'Os títulos vão de <code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code>. Usa um só <code>&lt;h1&gt;</code> por página e não saltes níveis (h1 → h2 → h3).'});
+Object.assign(O(5),{warn:'Um <code>id</code> não se pode repetir na página. Para vários elementos iguais usa <code>class</code>.'});
+Object.assign(O(7),{tip:'O CSS pode estar num atributo <code>style=""</code> (inline), num <code>&lt;style&gt;</code> (interno, como aqui) ou num ficheiro ligado com <code>&lt;link rel="stylesheet" href="estilos.css"&gt;</code> (externo, o melhor para um site inteiro).',warn:'Esquecer o <code>;</code> ou a <code>}</code> faz o navegador ignorar a regra seguinte. Usa F12 para ver o CSS que está a ser aplicado.'});
+Object.assign(O(8),{warn:'<code>display: flex</code> vai no <b>contentor</b> (<code>.docas</code>), não em cada cais.'});
+Object.assign(O(10),{try:'Muda para <code>repeat(3, 44px)</code>: 8 paletes em 3 colunas deixam 2 sozinhas na última fila.'});
+Object.assign(O(17),{tip:'Numa página real, o <code>&lt;script&gt;</code> fica no fim do <code>&lt;body&gt;</code>, para os elementos já existirem quando o código corre. No navegador, F12 abre a consola.'});
+Object.assign(O(18),{warn:'Se o seletor não encontrar nada, o resultado é <code>null</code> e o <code>appendChild</code> dá erro. Confirma o id na consola.'});
+const L=[O(1),O(2),O(3),N.aviso,O(4),N.ol,O(5),O(6),N.tab,N.form,N.sem,
+ O(7),N.sel,O(8),O(9),N.box,O(10),O(11),O(12),O(13),O(14),N.wrap,N.resp,
+ O(17),N.contas,N.vagas,O(18),O(21),
+ N.getid,N.click,N.toggle,N.submit,
+ O(15),O(16),
+ O(19),O(20),O(22),O(23),O(24)];
+L.forEach(l=>{l.pad=/left:\s*600px/.test(l.sol);if(l.quiz&&!l.qg){l.qg=1;l.goals.unshift(['Respondeste a "Qual será o resultado?"',(r,c,it,x)=>x.quiz])}});
+const MODS=[['HTML','HTML','Construir'],['CSS','CSS','Organizar'],['JS','JavaScript','Programar'],['DOM','DOM e eventos','Interagir'],['ZI','Zona industrial','Projeto'],['DES','Desafios extra','Desafiar']];
 
 /* =====================================================================
    ESTADO
    ===================================================================== */
-const KEY='docacode-3d-v2';
-let st={lv:0,done:L.map(()=>false),code:L.map(l=>l.start),times:L.map(()=>''),stars:L.map(()=>0),used:L.map(()=>({h:0,s:0})),mode:'code',xp:0};
-try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.code&&s.code.length===L.length)st=Object.assign(st,s)}catch(e){}
-const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+const KEY='docacode-3d-v3';
+let st={lv:0,done:L.map(()=>false),code:L.map(l=>l.start),times:L.map(()=>''),stars:L.map(()=>0),used:L.map(()=>({h:0,s:0})),quiz:L.map(()=>false),mode:'code',xp:0};
+try{let s=JSON.parse(localStorage.getItem(KEY)),ids=null;if(s&&s.ids)ids=s.ids;else{s=JSON.parse(localStorage.getItem('docacode-3d-v2'));if(s&&s.code&&s.code.length===24)ids=s.code.map((_,i)=>'o'+(i+1))}
+ if(s&&ids){st.mode=s.mode||'code';st.xp=s.xp||0;ids.forEach((id,j)=>{const i=L.findIndex(l=>l.id===id);if(i<0)return;['done','code','times','stars','used','quiz'].forEach(k=>{if(s[k]&&s[k][j]!=null)st[k][i]=s[k][j]})});const li=L.findIndex(l=>l.id===ids[s.lv]);st.lv=li<0?0:li}}catch(e){}
+const save=()=>{try{st.ids=L.map(l=>l.id);localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
 const hist=L.map((l,i)=>({a:[st.code[i]],i:0}));
 let ran=false,lines=[];
 
@@ -538,7 +746,8 @@ const LOT={x:40,w:720,h:600};
 const host=$('#layout'),sh=host.attachShadow({mode:'open'});
 sh.innerHTML=`<style>:host{all:initial}
 #patio{position:relative;display:block;width:720px;min-height:${LOT.h}px;font:13px/1.25 Inter,sans-serif;color:#1f2f86}
-#patio *{box-sizing:border-box}
+:where(#patio *){box-sizing:border-box}
+#patio.cq{container-type:inline-size}
 .cais{width:110px;height:140px;flex:none;display:flow-root}
 .camiao,.camião{width:60px;height:120px;margin:12px auto 0}
 .palete{display:inline-block;vertical-align:top;width:44px;height:44px;margin:4px;font-size:9px;overflow:hidden}
@@ -548,22 +757,45 @@ sh.innerHTML=`<style>:host{all:initial}
 .armazem{width:200px;height:120px;font-size:0}
 ul.estante{list-style:none;margin:10px 0 0 auto;padding:0;width:300px;height:54px}
 ul.estante li{display:none}
-h1,h2{position:absolute;left:0;right:0;top:0;margin:0;font-size:20px;line-height:1;text-align:center;color:#1f2f86}</style><div id="patio"></div>`;
+h1,h2{position:absolute;left:0;right:0;top:0;margin:0;font-size:20px;line-height:1;text-align:center;color:#1f2f86}
+p{width:fit-content;max-width:340px;margin:10px 0;padding:6px 10px;background:#ffd84d;border:3px solid #1b1e2b;color:#1b1e2b;font-weight:600;line-height:1.35}
+table{border-collapse:collapse;margin:12px 0 0 auto;background:#fff;color:#1f2f86;font-size:12px}
+th,td{border:1px solid #9aa3c0;padding:4px 8px;text-align:left}
+th{background:#1f2f86;color:#fff}
+caption{font-weight:800;padding:5px;background:#e6eafb;color:#1f2f86}
+form{display:grid;grid-template-columns:auto 1fr;gap:6px 8px;align-items:center;width:300px;margin:12px 0 0 auto;padding:10px;background:#1c2448;color:#e6eaff;font-size:12px}
+form button{grid-column:1/-1}
+form input,form select{font:inherit;height:24px;min-width:0}
+ol{list-style:none;display:flex;gap:12px;margin:14px 0;padding:0}
+ol li{width:56px;height:56px;font-size:9px;flex:none}
+header,nav,main,footer,section,article,aside{display:block;padding:10px;margin:0 0 10px}
+header,footer{min-height:50px}main{min-height:170px}
+nav{display:flex;gap:24px;min-height:50px;align-items:center}
+nav a{display:inline-block;padding:4px 8px}
+button{font:inherit;padding:6px 12px}</style><div id="patio"></div>`;
 const patio=sh.getElementById('patio');
+let vpW=720,docL=[];
+sh.addEventListener('submit',e=>{ctx.submits++;ctx.prevented=e.defaultPrevented;ctx.lastSubmit=performance.now();if(!e.defaultPrevented&&ran){logs.push(['e','O formulário foi enviado e a página ia recarregar! Usa e.preventDefault() no evento submit.']);paintConsole()}e.preventDefault();setTimeout(()=>refresh(),40)});
 function sanitize(n){n.querySelectorAll('script,iframe,object,embed,link,meta,base,frame,frameset').forEach(e=>e.remove());n.querySelectorAll('*').forEach(e=>{for(const a of [...e.attributes])if(/^on/i.test(a.name)||/^\s*javascript:/i.test(a.value))e.removeAttribute(a.name)})}
-const typeOf=e=>{const c=e.classList,t=e.tagName;if(c.contains('cais'))return'cais';if(c.contains('camiao')||c.contains('camião'))return'camiao';if(c.contains('palete'))return'palete';if(c.contains('empilhador'))return'empilhador';if(c.contains('armazem')||c.contains('armazém'))return'armazem';if(t==='UL'&&c.contains('estante'))return'estante';if(t==='H1'||t==='H2')return'placa';return'area'};
-let timers=[],logs=[],ctx={ran:false,base:0,added:0,mutations:0,quiet:true},lastMut=0;
+const typeOf=e=>{const c=e.classList,t=e.tagName;if(c.contains('cais'))return'cais';if(c.contains('camiao')||c.contains('camião'))return'camiao';if(c.contains('palete'))return'palete';if(c.contains('empilhador'))return'empilhador';if(c.contains('armazem')||c.contains('armazém'))return'armazem';if(t==='UL'&&c.contains('estante'))return'estante';if(t==='H1'||t==='H2')return'placa';if(t==='P')return'aviso';if(t==='TABLE')return'tabela';if(t==='FORM')return'quiosque';if(t==='OL')return'carga';if(t==='A')return'sinal';if(t==='BUTTON')return'botao';if(t==='NAV')return'via';return'area'};
+let timers=[],logs=[],ctx=mkCtx(false),lastMut=0;
+function mkCtx(ran){return{ran,base:0,added:0,mutations:0,quiet:true,clicks:0,snaps:[],submits:0,prevented:false,lastSubmit:0,fn:{},err:false,quiz:false}}
 function clearTimers(){timers.forEach(t=>{clearTimeout(t);clearInterval(t)});timers=[]}
 const show=v=>typeof v==='string'?v:(v instanceof Element?'<'+v.tagName.toLowerCase()+(v.className?' class="'+v.className+'"':'')+'>':(()=>{try{return JSON.stringify(v)}catch(e){return String(v)}})());
-function logErr(e){logs.push(['e',(e&&e.name==='SyntaxError'?'Erro de sintaxe: ':'Erro: ')+(e&&e.message||e)]);paintConsole()}
+function logErr(e){ctx.err=true;const m=String(e&&e.message||e);logs.push(['e',(e&&e.name==='SyntaxError'?'Erro de sintaxe: ':'Erro: ')+m]);if(/null|undefined/.test(m)&&/propert|reading|setting/i.test(m))logs.push(['e','Dica: um elemento não foi encontrado (null). Confirma o id ou o seletor: getElementById não leva #.']);paintConsole()}
 function runJS(src){
- let made=0;
+ let made=0;const lv=L[st.lv];
  const D={querySelector:s=>patio.querySelector(s),querySelectorAll:s=>patio.querySelectorAll(s),getElementById:id=>patio.querySelector('#'+CSS.escape(id)),
-  createElement:t=>{if(++made>400)throw new Error('Criaste mais de 400 elementos. Será um ciclo sem fim?');return document.createElement(String(t))},body:patio};
- const con={log:(...a)=>{logs.push(['',a.map(show).join(' ')]);paintConsole()},warn:(...a)=>{logs.push(['',a.map(show).join(' ')]);paintConsole()},error:(...a)=>{logs.push(['e',a.map(show).join(' ')]);paintConsole()}};
+  getElementsByClassName:c=>patio.getElementsByClassName(c),getElementsByTagName:t=>patio.getElementsByTagName(t),
+  createElement:t=>{if(++made>400)throw new Error('Criaste mais de 400 elementos. Será um ciclo sem fim?');return document.createElement(String(t))},body:patio,documentElement:patio,
+  addEventListener:(t,f,o)=>{if(/^(DOMContentLoaded|load)$/.test(t)){sT(f,0);return}patio.addEventListener(t,f,o);docL.push([t,f,o])},removeEventListener:(t,f,o)=>patio.removeEventListener(t,f,o)};
+ const con={log:(...a)=>{logs.push(['',a.map(show).join(' ')]);paintConsole()},warn:(...a)=>{logs.push(['',a.map(show).join(' ')]);paintConsole()},error:(...a)=>{ctx.err=true;logs.push(['e',a.map(show).join(' ')]);paintConsole()}};
  const sT=(f,ms,...a)=>{const id=setTimeout(()=>{try{f(...a)}catch(e){logErr(e)}},Math.max(30,+ms||0));timers.push(id);return id};
  const sI=(f,ms,...a)=>{let n=0;const id=setInterval(()=>{if(++n>120){clearInterval(id);logs.push(['e','O relógio correu 120 vezes e foi parado. Esqueceste o clearInterval?']);paintConsole();return}try{f(...a)}catch(e){logErr(e);clearInterval(id)}},Math.max(100,+ms||0));timers.push(id);return id};
- try{new Function('document','console','patio','setTimeout','setInterval','clearTimeout','clearInterval','window',src)(D,con,patio,sT,sI,clearTimeout,clearInterval,undefined)}catch(e){logErr(e)}
+ const al=m=>{logs.push(['','🔔 alert: '+show(m)]);paintConsole();toast(String(m))};
+ const W={alert:al,setTimeout:sT,setInterval:sI,clearTimeout,clearInterval,document:D,console:con};
+ const ex=(lv.expose||[]).map(n=>`try{__x.${n}=typeof ${n}==='function'?${n}:undefined}catch(e){}`).join('');
+ try{new Function('document','console','patio','setTimeout','setInterval','clearTimeout','clearInterval','window','alert','__x',src+'\n;'+ex)(D,con,patio,sT,sI,clearTimeout,clearInterval,W,al,ctx.fn)}catch(e){logErr(e)}
 }
 const mo=new MutationObserver(()=>{if(!building){ctx.mutations++;lastMut=performance.now();schedule()}});
 mo.observe(patio,{childList:true,subtree:true,characterData:true,attributes:true});
@@ -571,17 +803,22 @@ let building=false,schT=0,quietT=0;
 function schedule(){clearTimeout(schT);schT=setTimeout(refresh,60);clearTimeout(quietT);quietT=setTimeout(refresh,1700)}
 function build(code,exec){
  clearTimers();logs=[];building=true;
- const tpl=document.createElement('template');tpl.innerHTML=htmlPart(code);sanitize(tpl.content);
+ docL.forEach(([t,f,o])=>patio.removeEventListener(t,f,o));docL=[];
+ const lv=L[st.lv];let h=htmlPart(code);
+ if(lv.resp)h=h.replace(/@media\b([^{]*)\{/gi,(m,q)=>'@container '+q.replace(/^\s*(only\s+)?(screen|all|print)\s*(and\s*)?/i,'')+'{');
+ patio.classList.toggle('cq',!!lv.resp);patio.style.width=lv.resp?vpW+'px':'';
+ const tpl=document.createElement('template');tpl.innerHTML=h;sanitize(tpl.content);
  patio.replaceChildren(tpl.content);
- ctx={ran:exec,base:patio.querySelectorAll('.palete').length,added:0,mutations:0,quiet:true};
- if(exec){const js=jsPart(code);if(js.trim())runJS(js)}
+ patio.querySelectorAll('form').forEach(f=>{f.submit=()=>{logs.push(['e','form.submit() envia sem passar pelo evento submit. Usa um botão type="submit".']);paintConsole()}});
+ ctx=mkCtx(exec);ctx.base=patio.querySelectorAll('.palete').length;
+ if(exec){const js=jsPart(code);if(js.trim())runJS(js);if(lv.snap)try{ctx.snaps.push(lv.snap(patio))}catch(e){}}
  mo.takeRecords();building=false;lastMut=performance.now();
 }
 function measure(){
  const b=patio.getBoundingClientRect(),out=[];
  for(const e of patio.querySelectorAll('*')){
   if(/^(STYLE|BR|LI|SCRIPT)$/.test(e.tagName))continue;
-  if(e.parentElement&&e.parentElement.closest('.camiao,.camião,.palete,.empilhador,.armazem,h1,h2'))continue;
+  if(e.parentElement&&e.parentElement.closest('.camiao,.camião,.palete,.empilhador,.armazem,h1,h2,p,table,form,ol,a,button'))continue;
   const r=e.getBoundingClientRect(),cs=getComputedStyle(e);
   if(cs.display==='none')continue;
   const it={e,type:typeOf(e),x:r.left-b.left,y:r.top-b.top,w:r.width,h:r.height,bg:rgb(cs.backgroundColor)?hex(cs.backgroundColor):null,color:hex(cs.color)};
@@ -590,6 +827,8 @@ function measure(){
  }
  return out;
 }
+
+function atW(w,fn){const old=patio.style.width;building=true;patio.style.width=w+'px';try{return fn(measure())}finally{patio.style.width=old;mo.takeRecords();building=false}}
 
 /* =====================================================================
    MOTOR 3D (three.js)
@@ -987,6 +1226,32 @@ const easeBack=t=>{const c=1.5;return 1+(c+1)*Math.pow(t-1,3)+c*Math.pow(t-1,2)}
 function spawn(o,kind,extra={}){moving.push(Object.assign({o,kind,t0:performance.now()+(extra.delay||0),dur:{rise:1600,dock:1300,paint:900,swing:1000,drive:2600,drop:750,forklift:1800,rack:1400}[kind]},extra));
  if(kind==='rise'||kind==='dock'||kind==='rack')o.scale.y=.001;if(kind==='paint')o.scale.x=.001;if(kind==='swing')o.rotation.x=-1.5}
 function dust(x,z,r,delay=0){setTimeout(()=>{for(let i=0;i<Math.min(60,10+r/6);i++){const a=Math.random()*Math.PI*2,m=new T.Mesh(GS,new T.MeshBasicMaterial({color:'#d9d2c3',transparent:true,opacity:.55,depthWrite:false}));const s=6+Math.random()*10;m.scale.set(s,s*.7,s);const rr=r*(.4+Math.random()*.6);m.position.set(x+Math.cos(a)*rr,3+Math.random()*6,z+Math.sin(a)*rr);m.userData={dust:1,v:new T.Vector3(Math.cos(a)*(.5+Math.random()),.25+Math.random()*.35,Math.sin(a)*(.5+Math.random())),t:0,s};fx.add(m)}},delay)}
+const DTX=new Map();
+function domTex(el){
+ const r=el.getBoundingClientRect(),W=r.width,H=r.height;if(W<4||H<4)return null;
+ const key=el.outerHTML+'|'+[...el.querySelectorAll('input,select,textarea')].map(i=>i.value+(i.checked?1:0)).join('|')+'|'+Math.round(W)+'x'+Math.round(H);
+ if(DTX.has(key))return DTX.get(key);
+ const k=Math.min(3,2048/Math.max(W,H)),c=document.createElement('canvas');c.width=Math.ceil(W*k);c.height=Math.ceil(H*k);const g=c.getContext('2d');g.scale(k,k);
+ const fnt=cs=>`${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} Inter, Arial, sans-serif`;
+ const bx=e=>{const q=e.getBoundingClientRect();return[q.left-r.left,q.top-r.top,q.width,q.height]};
+ const text=(n,cs)=>{g.font=fnt(cs);g.fillStyle=cs.color;g.textBaseline='middle';const rg=document.createRange(),s=n.textContent;for(const m of s.matchAll(/\S+/g)){rg.setStart(n,m.index);rg.setEnd(n,m.index+m[0].length);const q=rg.getBoundingClientRect();if(!q.width)continue;g.fillText(m[0],q.left-r.left,q.top-r.top+q.height/2);if(/underline/.test(cs.textDecorationLine))g.fillRect(q.left-r.left,q.bottom-r.top-2,q.width,1)}};
+ const paint=e=>{const cs=getComputedStyle(e);if(cs.display==='none')return;const[x,y,w,h]=bx(e);
+  if(rgb(cs.backgroundColor)){g.fillStyle=cs.backgroundColor;g.fillRect(x,y,w,h)}
+  for(const[sd,bw,bc]of[['t',cs.borderTopWidth,cs.borderTopColor],['b',cs.borderBottomWidth,cs.borderBottomColor],['l',cs.borderLeftWidth,cs.borderLeftColor],['r',cs.borderRightWidth,cs.borderRightColor]]){const v=parseFloat(bw)||0;if(!v||!rgb(bc))continue;g.fillStyle=bc;if(sd==='t')g.fillRect(x,y,w,v);else if(sd==='b')g.fillRect(x,y+h-v,w,v);else if(sd==='l')g.fillRect(x,y,v,h);else g.fillRect(x+w-v,y,v,h)}
+  const t=e.tagName;
+  if(t==='INPUT'||t==='SELECT'||t==='TEXTAREA'){const ty=(e.type||'').toLowerCase();
+   if(ty==='checkbox'||ty==='radio'){g.fillStyle='#fff';g.fillRect(x,y,w,h);g.strokeStyle='#6c7496';g.strokeRect(x+.5,y+.5,w-1,h-1);if(e.checked){g.fillStyle='#3552e0';g.fillRect(x+3,y+3,w-6,h-6)}return}
+   if(ty==='submit'||ty==='button'){g.fillStyle='#3552e0';g.fillRect(x,y,w,h);g.font=fnt(cs);g.fillStyle='#fff';g.textBaseline='middle';g.textAlign='center';g.fillText(e.value||'Enviar',x+w/2,y+h/2);g.textAlign='left';return}
+   if(!rgb(cs.backgroundColor)){g.fillStyle='#fff';g.fillRect(x,y,w,h)}g.strokeStyle=e.required&&!e.value.trim()?'#e5484d':'#8a93ad';g.lineWidth=1.5;g.strokeRect(x+.75,y+.75,w-1.5,h-1.5);
+   let v=t==='SELECT'?((e.selectedOptions&&e.selectedOptions[0]||{}).textContent||''):e.value,ph=false;if(!v&&e.placeholder){v=e.placeholder;ph=true}
+   g.font=fnt(cs);g.fillStyle=ph?'#9aa1bd':'#1b1e2b';g.textBaseline='middle';g.fillText(v,x+5,y+h/2,Math.max(4,w-(t==='SELECT'?20:12)));if(t==='SELECT')g.fillText('▾',x+w-13,y+h/2);
+   if(e.required){g.fillStyle='#e5484d';g.fillText('*',x+w-(t==='SELECT'?24:9),y+h/2)}return}
+  for(const n of e.childNodes){if(n.nodeType===1){if(!/^(SCRIPT|STYLE|BR|TEMPLATE)$/.test(n.tagName))paint(n)}else if(n.nodeType===3&&n.textContent.trim())text(n,cs)}};
+ paint(el);
+ const tx=new T.CanvasTexture(c);tx.encoding=T.sRGBEncoding;tx.anisotropy=8;
+ if(DTX.size>60){DTX.forEach(v=>v.dispose());DTX.clear()}DTX.set(key,tx);return tx;
+}
+const SEMT={header:'#0e9f8a',main:'#3552e0',footer:'#64748b',section:'#7c3aed',article:'#d97706',aside:'#db2777'};
 function draw3D(items){
  disposeGroup(userG);
  const docks=items.filter(i=>i.type==='cais').sort((a,b)=>a.x-b.x||a.y-b.y);docks.forEach((d,i)=>d.num=3+i);
@@ -1010,7 +1275,7 @@ function draw3D(items){
     label(fl,lab,12,W/2,.9,it.y+H-14,{fg:wall?'#ffd34d':'#ff8a8a',fs:56,w:800},'ground');
     const nk=isNew('C'+rk+wall+busy);
     if(nk)spawn(fl,'paint');
-    if(wall){const d=dock(Math.max(30,W-26),lab,busy);d.position.set(X,0,it.y);userG.add(d);if(nk){spawn(d,'dock',{delay:150});dust(X,it.y+12,W*.5,150)}}
+    if(wall){const d=dock(Math.max(30,W-26),lab,busy);d.position.set(X,0,it.y);userG.add(d);if(it.bg){const dw=Math.max(30,W-26),dh=Math.min(98,dw*1.05);B(d,dw+30,4,1.2,M(it.bg,{emissive:it.bg,emissiveIntensity:1.6}),0,14+dh+5,12.4,{nc:1});for(const sx of [-1,1]){const lm=new T.Mesh(GS,M(it.bg,{emissive:it.bg,emissiveIntensity:2}));lm.scale.set(7,7,7);lm.position.set(sx*(dw/2+8),14+dh+8,14);d.add(lm)}}if(nk){spawn(d,'dock',{delay:150});dust(X,it.y+12,W*.5,150)}}
     else{const w=label(userG,'⚠ Longe da parede!',14,X,40,Z,{fg:'#fff',bg:'#e5484d',fs:52},'front');moving.push({o:w,bob:true,y:40})}
     break}
    case'camiao':{
@@ -1037,21 +1302,70 @@ function draw3D(items){
     for(const s of [-1,1])B(g,2,10,2,mSteel,s*w*.35,-12,-1);
     if(isNew('H'+txt+it.color+Math.round(it.tx)))spawn(g,'swing');
     break}
+   case'aviso':case'tabela':{
+    const tx=domTex(it.e);if(!tx)break;const tb=it.type==='tabela',sc=tb?1.6:1.45,SW=W*sc,SH=H*sc,base=tb?22:26,g=new T.Group();g.position.set(X,0,it.y+H/2);userG.add(g);
+    for(const sx of [-1,1])B(g,tb?5:3.5,base+SH*.4,tb?5:3.5,tb?mDark:mSteel,sx*SW*.34,0,-2.5,{g:GC8});
+    B(g,SW+(tb?10:5),SH+(tb?10:5),3,M(tb?'#1c2448':'#1b1e2b'),0,base-(tb?5:2.5),-2);
+    if(tb)B(g,SW+16,4,10,M('#3552e0'),0,base+SH+5,-2);
+    const p=plane(g,SW,SH,new T.MeshBasicMaterial({map:tx,toneMapped:false}),0,base+SH/2,.1);p.userData.ownMat=true;
+    if(isNew((tb?'TB':'AV')+tx.uuid+rk))spawn(g,'swing');break}
+   case'quiosque':{
+    const tx=domTex(it.e);if(!tx)break;const g=new T.Group();g.position.set(X,0,it.y+H/2);userG.add(g);
+    B(g,W+20,H+52,34,M('#e9edf7'),0,0,-19);B(g,W+40,6,50,M('#3552e0'),0,H+52,-17);B(g,W+22,10,36,M('#2a3ca6'),0,0,-19);
+    B(g,W+8,H+8,2,mDark,0,20,-1.2);
+    const p=plane(g,W,H,new T.MeshBasicMaterial({map:tx,toneMapped:false}),0,24+H/2,.1);p.userData.ownMat=true;
+    label(g,'Portaria · Check-in',10,0,H+42,.4,{fg:'#fff',bg:'#2a3ca6',fs:48});
+    B(g,12,44,12,mYellow,-(W/2+34),0,0);
+    const arm=new T.Group();arm.position.set(-(W/2+34),40,0);g.add(arm);
+    for(let i=0;i<8;i++)B(arm,20,4,4,i%2?mWhite:M('#e5484d'),-(i*20+10),-2,0);
+    if(ctx.lastSubmit&&now-ctx.lastSubmit<3600)moving.push({o:arm,kind:'boom',t0:ctx.lastSubmit,dur:3600});
+    if(isNew('K'+rk))spawn(g,'rise');break}
+   case'carga':{
+    const b=patio.getBoundingClientRect(),lis=all(it.e,'li'),fl=new T.Group();fl.position.set(X-W/2,0,0);userG.add(fl);
+    plane(fl,W,H+8,M('#f2b705',{transparent:true,opacity:.16}),W/2,.6,Z,-Math.PI/2);
+    label(fl,'<ol> Ordem de carga',10,46,.9,it.y+H+12,{fg:'#ffd34d',fs:48,w:700},'ground');
+    lis.forEach((li,i)=>{const q=li.getBoundingClientRect();if(q.width<3)return;const lx=LOT.x+q.left-b.left+q.width/2,lz=q.top-b.top+q.height/2,cs=getComputedStyle(li),bg=rgb(cs.backgroundColor)?hex(cs.backgroundColor):null;
+     const p=pallet(userG,q.width-4,q.height-4,bg,Math.min(34,Math.max(16,q.width*.55)),li.textContent.trim());p.position.set(lx,0,lz);
+     label(p,String(i+1),24,0,62,0,{fg:'#1b1e2b',bg:'#ffd84d',fs:64,w:900,minW:96,border:'#1b1e2b'});
+     if(isNew('OL'+i+li.textContent+Math.round(lx)+'|'+Math.round(lz))){p.position.y=170;moving.push({o:p,kind:'drop',from:new T.Vector3(lx,170,lz),to:new T.Vector3(lx,0,lz),t0:now+i*320,dur:800})}});
+    if(isNew('OLZ'+rk))spawn(fl,'paint');break}
+   case'sinal':{
+    const txt=(it.e.textContent.trim()||'link').slice(0,22),href=it.e.getAttribute('href')||'';let ok=false;
+    try{ok=href[0]==='#'&&href.length>1&&!!patio.querySelector('#'+CSS.escape(href.slice(1)))}catch(e){}
+    const good=ok||/^https?:/i.test(href),g=new T.Group();g.position.set(X,0,Z);userG.add(g);
+    B(g,3.5,70,3.5,mSteel,0,0,0,{g:GC8});
+    label(g,(good?'➜ ':'? ')+txt,21,0,78,2,{fg:'#fff',bg:good?'#127a3e':'#e5484d',fs:56,w:800,border:'#ffffff'});
+    if(isNew('SG'+txt+good+rk))spawn(g,'swing');break}
+   case'via':{
+    const fl=new T.Group();fl.position.set(X-W/2,0,0);userG.add(fl);
+    plane(fl,W,H,M('#4a5165'),W/2,.62,Z,-Math.PI/2);
+    for(let x=10;x<W-24;x+=34)plane(fl,18,3,M('#f7f8fc'),x+9,.7,Z,-Math.PI/2);
+    const al=it.e.getAttribute('aria-label'),nm='<nav>'+(al?' '+al:'');label(fl,nm.slice(0,34),10,nm.length*3.2+4,.9,it.y+H+9,{fg:'#dfe6ff',fs:48,w:700},'ground');
+    if(isNew('NV'+rk))spawn(fl,'paint');break}
+   case'botao':{
+    const g=new T.Group();g.position.set(X,0,Z);userG.add(g);
+    B(g,30,44,20,M('#2a2f45'),0,0,0);B(g,34,4,24,M('#3b4466'),0,44,0);
+    B(g,16,5,16,M('#22b35a',{emissive:'#16a34a',emissiveIntensity:.6}),0,48,0,{g:GC});
+    label(g,(it.e.textContent.trim()||'Botão').slice(0,24),10,0,68,0,{fg:'#fff',bg:'#1c2448',fs:48});
+    if(isNew('BT'+rk))spawn(g,'rise');break}
    default:{
     const cl=it.e.className&&typeof it.e.className==='string'?it.e.className:'';
     const fl=new T.Group();fl.position.set(X-W/2,0,0);userG.add(fl);
     if(/docas/.test(cl)){plane(fl,W,H,M('#3552e0',{transparent:true,opacity:.05}),W/2,.65,Z,-Math.PI/2);break}
-    const isFila=/fila/.test(cl),isLote=/lote/.test(cl);
-    plane(fl,W,H,it.bg?M(it.bg,{transparent:true,opacity:.45}):M(isFila?'#f2b705':isLote?'#cbd5e1':'#5b7bff',{transparent:true,opacity:isFila?.18:.16}),W/2,.6+(isLote?0:.05),Z,-Math.PI/2);
-    const dm=M(isFila?'#ffd34d':isLote?'#f1f5f9':'#b9c8ff');
+    const isFila=/fila/.test(cl),isLote=/lote/.test(cl),tg=it.e.tagName.toLowerCase(),sem=SEMT[tg];
+    plane(fl,W,H,it.bg?M(it.bg,{transparent:true,opacity:.45}):sem?M(sem,{transparent:true,opacity:.42}):M(isFila?'#f2b705':isLote?'#cbd5e1':'#5b7bff',{transparent:true,opacity:isFila?.18:.16}),W/2,.6+(isLote?0:.05),Z,-Math.PI/2);
+    const dm=M(sem?shade2(sem,1.55):isFila?'#ffd34d':isLote?'#f1f5f9':'#b9c8ff');
     for(let x=0;x<W;x+=18)plane(fl,Math.min(10,W-x),2,dm,x+5,.75,it.y,-Math.PI/2),plane(fl,Math.min(10,W-x),2,dm,x+5,.75,it.y+H,-Math.PI/2);
     for(let z=0;z<H;z+=18)plane(fl,2,Math.min(10,H-z),dm,0,.75,it.y+z+5,-Math.PI/2),plane(fl,2,Math.min(10,H-z),dm,W,.75,it.y+z+5,-Math.PI/2);
-    const nm=/zona/.test(cl)?(isFila?'Fila de espera':'Zona de descarga'):isLote?'Lote':(ownText(it.e)||(cl?'.'+cl:'<'+it.e.tagName.toLowerCase()+'>'));
-    label(fl,nm.slice(0,30),10,(nm.length*3.2)+4,.9,it.y+H+9,{fg:isFila?'#ffd34d':isLote?'#f1f5f9':'#dfe6ff',fs:48,w:700},'ground');
+    const nm=sem?'<'+tg+'>'+(ownText(it.e)?' '+ownText(it.e):''):/zona/.test(cl)?(isFila?'Fila de espera':'Zona de descarga'):isLote?'Lote':(ownText(it.e)||(cl?'.'+cl:'<'+it.e.tagName.toLowerCase()+'>'));
+    label(fl,nm.slice(0,30),sem?14:10,(nm.length*(sem?4.5:3.2))+4,.9,it.y+H+(sem?-10:9),{fg:sem?'#ffffff':isFila?'#ffd34d':isLote?'#f1f5f9':'#dfe6ff',fs:48,w:700},'ground');
     if(isNew('Z'+rk+cl))spawn(fl,'paint');
    }
   }
  }
+ if(L[st.lv].resp&&vpW<LOT.w){const w=LOT.w-vpW;plane(userG,w,LOT.h,M('#0f1428',{transparent:true,opacity:.5,depthWrite:false}),LOT.x+vpW+w/2,1.4,LOT.h/2,-Math.PI/2);
+  B(userG,3,2,LOT.h,M('#e5484d',{emissive:'#e5484d',emissiveIntensity:.8}),LOT.x+vpW,0,LOT.h/2,{nc:1});
+  label(userG,'Ecrã de '+vpW+'px · fora do ecrã',16,LOT.x+vpW+w/2,1.6,LOT.h/2,{fg:'#fff',fs:56,w:800},'ground')}
  prevK=keys;
 }
 
@@ -1099,6 +1413,7 @@ function loop(now){
   else if(m.kind==='paint')m.o.scale.x=Math.max(.001,ease(k));
   else if(m.kind==='swing')m.o.rotation.x=-1.5*(1-easeBack(k));
   else if(m.kind==='drop'){const e=k<.7?(k/.7)**2:1-Math.sin((k-.7)/.3*Math.PI)*.06;m.o.position.lerpVectors(m.from,m.to,Math.min(1,e))}
+  else if(m.kind==='boom'){const u=Math.max(0,Math.min(1,k/.15,(1-k)/.15));m.o.rotation.z=-1.35*u}
   else if(m.kind==='drive'){m.o.position.lerpVectors(m.from,m.to,ease(k));if(k>0&&k<1&&m.wheels)m.wheels.forEach(w=>w.rotation.x+=(m.rev?.14:-.14)*(1-k))}
  }
  for(const c of [...fx.children]){const d=c.userData;d.t+=dt;c.position.add(d.v);d.v.multiplyScalar(.95);const g=1+d.t/500;c.scale.set(d.s*g,d.s*.7*g,d.s*g);c.material.opacity=Math.max(0,.55*(1-d.t/1400));if(d.t>1400){fx.remove(c);c.material.dispose()}}
@@ -1165,12 +1480,15 @@ $('#mods').addEventListener('click',e=>{const b=e.target.closest('.lv');if(b&&!b
 function go(i){
  st.lv=i;const l=L[i];save();ran=false;prevK=new Set();
  $('#lvlTag').textContent=`Nível ${i+1} de ${L.length}`;
- $('#mTitle').textContent=l.t;$('#mStory').textContent=l.story;$('#mLearn').innerHTML=l.learn;
- $('#mDiff').innerHTML='Dificuldade '+[1,2,3,4,5].map(n=>`<i class="${n<=l.diff?'on':''}"></i>`).join('');
+ $('#mTitle').textContent=l.t;$('#mStory').textContent=l.story;
+ const bx=(c,ic,t,h)=>h?`<div class="box ${c}"><b>${ic} ${t}</b>${h}</div>`:'';
+ $('#mLearn').innerHTML=l.learn+bx('tip','💡','Boa prática',l.tip)+bx('warn','⚠️','Atenção: erro frequente',l.warn)+bx('try','🧪','Experimenta tu',l.try);
+ $('#mDiff').innerHTML='Dificuldade '+[1,2,3,4,5].map(n=>`<i class="${n<=l.diff?'on':''}"></i>`).join('')+(l.kind?`<span class="kind">${l.kind}</span>`:'');
+ vpW=l.resp?360:720;ctlSig='';drawQuiz();
  $('#mHint').hidden=true;$('#mHint').innerHTML=l.hint;$('#mLearnD').open=!st.done[i];
  $('#runB').textContent=l.js?'Executar ▸':'Construir ▸';
  $('#con').hidden=!l.js;logs=[];paintConsole();
- pad.visible=i>=12&&l.m!=='ZI';
+ pad.visible=!!l.pad;
  ta.value=st.code[i];paintEditor();setMode(st.mode);drawLevels();
  update(false,true);$('#cbody').scrollTop=0;
 }
@@ -1191,7 +1509,7 @@ let lastItems=[];
 function refresh(refit){
  const l=L[st.lv],code=st.code[st.lv];
  const items=measure();lastItems=items;
- ctx.added=patio.querySelectorAll('.palete').length-ctx.base;ctx.quiet=performance.now()-lastMut>1500;ctx.ran=ran;
+ ctx.added=patio.querySelectorAll('.palete').length-ctx.base;ctx.quiet=performance.now()-lastMut>1500;ctx.ran=ran;ctx.quiz=!!st.quiz[st.lv];
  draw3D(items);
  const maxY=Math.max(0,...items.filter(i=>i.type!=='placa').map(i=>i.y+i.h));lastMaxY=maxY;
  if(refit)fit(maxY);
@@ -1208,7 +1526,7 @@ function refresh(refit){
  if(ok&&!st.done[st.lv])win();
  $('#done').hidden=!ok;
  if(ok){const last=st.lv===L.length-1;$('#doneT').textContent=last?'Jogo concluído!':`Nível ${st.lv+1} concluído`;$('#doneS').innerHTML=`<span class="stars">${starsHTML(st.stars[st.lv])}</span> <small>${st.stars[st.lv]===3?'Perfeito, sem ajudas.':'Repete sem dicas nem solução para ganhar 3 estrelas.'}</small>`;$('#nextB').hidden=last}
- panels(items,ok);
+ panels(items,ok);drawCtl();
 }
 function win(){
  const i=st.lv,u=st.used[i],stars=u.s?1:u.h?2:3,xp=stars*40+L[i].diff*20;
@@ -1216,6 +1534,33 @@ function win(){
  ['#k1','#k2','#k3'].forEach((k,j)=>setTimeout(()=>{$(k).classList.add('pulse');setTimeout(()=>$(k).classList.remove('pulse'),700)},j*150));
  toast(`Nível ${i+1} concluído · +${xp} XP`);
 }
+function drawQuiz(){const l=L[st.lv],q=l.quiz,b=$('#mQuiz');if(!q){b.hidden=true;b.innerHTML='';return}b.hidden=false;const dn=st.quiz[st.lv];
+ b.innerHTML=`<b>🤔 Qual será o resultado?</b><div class="qq">${q.q}</div><div class="opts">${q.opts.map((o,j)=>`<button data-j="${j}" class="${dn&&j===q.ok?'right':''}" ${dn?'disabled':''}>${esc(o)}</button>`).join('')}</div>${dn?`<p class="why">✓ ${q.why}</p>`:'<p class="why m" id="qMsg">Escolhe uma resposta antes de mexer no código.</p>'}`}
+function answer(j,b){const q=L[st.lv].quiz;if(!q)return;if(j===q.ok){st.quiz[st.lv]=true;save();drawQuiz();refresh()}else{if(b)b.classList.add('bad');const m=$('#qMsg');if(m)m.textContent='Ainda não. Lê outra vez a caixa "Aprende" e tenta de novo.'}}
+$('#mQuiz').addEventListener('click',e=>{const b=e.target.closest('button[data-j]');if(b&&!b.disabled)answer(+b.dataset.j,b)});
+function press(el){if(typeof el==='string')el=patio.querySelector(el);if(!el)return;ctx.clicks++;const f=el.form;
+ if(f&&el.type==='submit'&&!f.checkValidity()){const bad=[...f.elements].filter(x=>x.willValidate&&!x.checkValidity()).map(x=>x.id||x.name).join(', ');toast('O formulário não foi enviado: falta preencher '+bad+' (required).')}
+ el.click();setTimeout(()=>{const l=L[st.lv];if(l.snap)try{ctx.snaps.push(l.snap(patio))}catch(e){}refresh()},60)}
+function fillIn(el,v){if(typeof el==='string')el=patio.querySelector(el);if(!el)return;if(el.type==='checkbox'||el.type==='radio')el.checked=!!v;else el.value=v;el.dispatchEvent(new Event('input',{bubbles:true}));el.dispatchEvent(new Event('change',{bubbles:true}))}
+let ctlSig='',ctlEls=[];
+function drawCtl(){
+ const l=L[st.lv],box=$('#ctl');
+ if(!l.ui){box.hidden=true;ctlSig='';return}
+ const els=[...patio.querySelectorAll('button,input,select,textarea')],sig=st.lv+'|'+vpW+'|'+els.map(e=>e.outerHTML).join('');
+ box.hidden=false;if(sig===ctlSig)return;ctlSig=sig;ctlEls=els;
+ const lab=e=>{if(e.id){const q=[...patio.querySelectorAll('label')].find(x=>x.htmlFor===e.id);if(q)return q.textContent.trim()}return e.name||''};
+ let h='';
+ if(l.resp)h+=`<div class="vp"><span>Largura do ecrã</span><button data-vp="360" class="${vpW===360?'on':''}">📱 360px</button><button data-vp="720" class="${vpW===720?'on':''}">💻 720px</button></div>`;
+ h+=els.map((e,k)=>{const t=e.tagName;
+  if(t==='BUTTON'||(t==='INPUT'&&/^(submit|button|reset)$/.test(e.type)))return`<button class="pb" data-k="${k}">${esc(e.textContent.trim()||e.value||'Botão')}</button>`;
+  if(t==='SELECT')return`<label>${esc(lab(e))}<select data-k="${k}">${[...e.options].map((o,j)=>`<option value="${j}" ${o.selected?'selected':''}>${esc(o.textContent)}</option>`).join('')}</select></label>`;
+  if(e.type==='checkbox'||e.type==='radio')return`<label>${esc(lab(e))}<input type="checkbox" data-k="${k}" ${e.checked?'checked':''}></label>`;
+  return`<label>${esc(lab(e))}<input data-k="${k}" type="${e.type==='number'?'number':'text'}" value="${esc(e.value)}" placeholder="${esc(e.placeholder||'')}"></label>`}).join('');
+ if(!els.length&&!l.resp)h+='<small>Ainda não há botões nem campos na página.</small>';
+ $('#ctlB').innerHTML=h;
+}
+$('#ctl').addEventListener('click',e=>{const v=e.target.closest('[data-vp]');if(v){vpW=+v.dataset.vp;update(false,true);return}const b=e.target.closest('button.pb');if(b){if(L[st.lv].js&&!ran){toast('Primeiro carrega em Executar ▸ para o JavaScript ficar à escuta.');return}press(ctlEls[+b.dataset.k])}});
+$('#ctl').addEventListener('input',e=>{const x=e.target.closest('[data-k]');if(!x||x.tagName==='BUTTON')return;const el=ctlEls[+x.dataset.k];if(!el)return;if(x.tagName==='SELECT'){el.selectedIndex=+x.value;el.dispatchEvent(new Event('change',{bubbles:true}))}else if(x.type==='checkbox')fillIn(el,x.checked);else fillIn(el,x.value)});
 $('#nextB').onclick=()=>{if(st.lv<L.length-1)go(st.lv+1)};
 let tt=0;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),2600)}
 const clock=()=>new Date().toLocaleTimeString('pt-PT',{hour:'2-digit',minute:'2-digit'});
@@ -1251,7 +1596,7 @@ function panels(items,ok){
  $('#trackT').textContent='Percurso · '+MODS.find(m=>m[0]===mod)[1];
  $('#trackS').textContent=`${idx.filter(i=>st.done[i]).length} de ${idx.length} missões`;
  const doneIn=idx.filter(i=>st.done[i]).length;
- $('#tl').innerHTML=`<i class="fill" style="width:calc((100% - 40px) * ${Math.min(1,doneIn/(idx.length-1))})"></i>`+idx.map(i=>`<button class="step ${st.done[i]?'fin':''} ${i===st.lv?'cur':''}" data-i="${i}" ${unlocked(i)?'':'disabled'} title="${esc(L[i].t)}"><span class="d">${st.done[i]?'✓':i+1}</span>${esc(L[i].step)}<small>${st.done[i]?'★'.repeat(st.stars[i]):i===st.lv?'Em curso':''}</small></button>`).join('');
+ $('#tl').classList.toggle('many',idx.length>10);$('#tl').innerHTML=`<i class="fill" style="width:calc((100% - 40px) * ${Math.min(1,doneIn/(idx.length-1))})"></i>`+idx.map(i=>`<button class="step ${st.done[i]?'fin':''} ${i===st.lv?'cur':''}" data-i="${i}" ${unlocked(i)?'':'disabled'} title="${esc(L[i].t)}"><span class="d">${st.done[i]?'✓':i+1}</span>${esc(L[i].step)}<small>${st.done[i]?'★'.repeat(st.stars[i]):i===st.lv?'Em curso':''}</small></button>`).join('');
  $('#empTxt').textContent=items.some(i=>i.type==='empilhador')?'EMP-07 em serviço no pátio':'A carregar TRK-2104 no Cais 1';
 }
 $('#tl').addEventListener('click',e=>{const b=e.target.closest('.step');if(b&&!b.disabled)go(+b.dataset.i)});
@@ -1288,7 +1633,7 @@ function start(){
  go(Math.min(st.lv,L.length-1));
  requestAnimationFrame(loop);
  const ro=new ResizeObserver(()=>{sizeCam();fit(lastMaxY)});ro.observe(cv);
- window.__dc={L,go,loadCode,execute,refresh,st:()=>st,ctx:()=>ctx,goals:()=>[...document.querySelectorAll('#goals li')].map(li=>li.className==='ok'?1:0)};
+ window.__dc={domTex,L,go,loadCode,execute,refresh,answer,press,fill:fillIn,vp:w=>{vpW=w;update(false,true)},st:()=>st,ctx:()=>ctx,goals:()=>[...document.querySelectorAll('#goals li')].map(li=>li.className==='ok'?1:0)};
 }
 (document.fonts&&document.fonts.ready?Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,1500))]):Promise.resolve()).then(start);
 }
