@@ -45,20 +45,29 @@ kbd{border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-size:12p
 .user{display:flex;align-items:center;gap:10px;height:46px;padding:0 16px 0 6px;white-space:nowrap}
 .user b{display:block;font-size:13.5px;line-height:1.2}.user small{color:var(--muted);font-size:12px}
 /* KPIs */
-.kpis{position:fixed;top:68px;left:16px;display:flex;gap:12px;z-index:5}
-.kpi{display:flex;gap:12px;align-items:center;padding:12px 18px 12px 12px;min-width:200px;transition:transform .3s}
+.kpis{display:flex;gap:8px;min-width:0}
+.kpi{display:flex;gap:9px;align-items:center;height:46px;padding:0 12px 0 7px;min-width:0;transition:transform .3s}
+.kpi>div>small:last-child{display:none}
 .kpi.pulse{transform:translateY(-3px);box-shadow:0 12px 30px rgba(53,82,224,.22)}
-.kpi .ic{width:42px;height:42px;border-radius:11px;background:#eef1fd;color:var(--blue);display:grid;place-items:center;flex:none}
-.kpi small{color:var(--muted);font-size:12px;display:block;line-height:1.2}
-.kpi strong{white-space:nowrap;font-size:25px;font-weight:700;letter-spacing:-.02em;line-height:1.15}
-.kpi .row{display:flex;align-items:baseline;gap:8px}
+.kpi .ic{width:32px;height:32px;border-radius:9px;background:#eef1fd;color:var(--blue);display:grid;place-items:center;flex:none}
+.kpi small{color:var(--muted);font-size:11px;display:block;line-height:1.15;white-space:nowrap}
+.kpi strong{white-space:nowrap;font-size:17px;font-weight:700;letter-spacing:-.02em;line-height:1.15}
+.kpi .row{display:flex;align-items:baseline;gap:6px}
+.kpi .up{font-size:11px}
 .up{color:var(--green);font-size:12px;font-weight:600;white-space:nowrap}
 /* consola */
-.coder{position:fixed;left:16px;top:150px;bottom:16px;width:400px;display:flex;flex-direction:column;z-index:5;overflow:hidden}
+.coder{position:fixed;left:16px;top:68px;bottom:16px;width:400px;display:flex;flex-direction:column;z-index:5;overflow:hidden}
 .chead{padding:12px 14px 10px;border-bottom:1px solid var(--line)}
 .ctitle{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:13px;margin-bottom:8px}
 .ctitle span:last-child{font-weight:600;color:var(--muted);font-size:12px}
 .mods{display:grid;gap:6px}
+.modtabs{display:flex;flex-wrap:wrap;gap:4px}
+.mt{border:1px solid var(--line);background:#f5f6fb;border-radius:999px;height:26px;padding:0 9px;font-size:11.5px;font-weight:700;color:var(--muted);cursor:pointer}
+.mt span{font-weight:600;color:#9aa1bd;margin-left:2px}
+.mt.cur{border-color:#c9d3f7;color:var(--blue)}
+.mt.on{background:var(--blue);border-color:var(--blue);color:#fff}.mt.on span{color:#dfe5ff}
+.mod[data-m] .chips{width:100%}
+.mods .mod{grid-template-columns:1fr}
 .mod{display:grid;grid-template-columns:92px minmax(0,1fr);align-items:center;gap:8px}
 .mod small{display:flex;justify-content:space-between;font-size:11.5px;font-weight:700;color:var(--muted)}
 .mod small span{font-weight:600;color:#9aa1bd}
@@ -123,14 +132,14 @@ kbd{border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-size:12p
 .ed textarea:focus-visible{box-shadow:inset 0 0 0 2px #5b78f0;border-radius:0 11px 11px 0}
 .h-t{color:#82a6ff}.h-a{color:#d3a4ff}.h-s{color:#a3e59a}.h-c{color:#68739c;font-style:italic}.h-p{color:#ff9fc4}.h-k{color:#ffcf73}
 .blocks{display:flex;flex-direction:column;gap:8px;flex:1 0 auto}
-.pal{display:flex;flex-wrap:wrap;gap:6px;padding:8px;background:#f5f6fb;border:1px dashed #cdd4ec;border-radius:11px}
+.pal{display:flex;flex-wrap:wrap;gap:6px;padding:8px;max-height:190px;overflow-y:auto;background:#f5f6fb;border:1px dashed #cdd4ec;border-radius:11px}
 .pal small{width:100%;color:var(--muted);font-size:12px}
-.blk{border:0;cursor:grab;background:#1c2448;color:#e6eaff;border-radius:7px;padding:5px 9px;font:12px/1.3 'JetBrains Mono',monospace;text-align:left;white-space:pre;box-shadow:0 2px 0 #0d1330}
+.blk{border:0;cursor:grab;background:#1c2448;color:#e6eaff;border-radius:7px;padding:5px 9px;font:12px/1.3 'JetBrains Mono',monospace;text-align:left;white-space:pre-wrap;word-break:break-word;max-width:100%;box-shadow:0 2px 0 #0d1330}
 .blk:active{cursor:grabbing}
-.ws{min-height:170px;background:#141a33;border-radius:11px;padding:8px;display:flex;flex-direction:column;gap:3px;border:1px solid #232b52}
+.ws{min-height:170px;max-height:340px;overflow-y:auto;background:#141a33;border-radius:11px;padding:8px;display:flex;flex-direction:column;gap:3px;border:1px solid #232b52}
 .ws .empty{color:#7883ad;font-size:13px;margin:auto;text-align:center}
 .ln{display:flex;align-items:center;gap:6px;background:#1d2547;border-radius:6px;padding:2px 4px 2px 8px;cursor:grab;font:12px/20px 'JetBrains Mono',monospace;color:#e6eaff}
-.ln code{flex:1;white-space:pre;overflow:hidden;font-size:12px}
+.ln code{flex:1;white-space:pre-wrap;word-break:break-word;overflow-wrap:anywhere;font-size:12px;padding:2px 0}
 .ln.mark{box-shadow:0 -3px 0 #ffcf73}.ws.mark-end{box-shadow:inset 0 -3px 0 #ffcf73}
 .ln .x{border:0;background:transparent;color:#8d97c4;cursor:pointer;width:26px;height:22px;border-radius:5px}
 .ln .x:hover{background:#2b3563;color:#fff}
@@ -141,7 +150,25 @@ kbd{border:1px solid var(--line);border-radius:6px;padding:1px 7px;font-size:12p
 .done{background:linear-gradient(135deg,#3552e0,#2236a8);color:#fff;border-radius:12px;padding:10px 14px;margin:0 14px 4px;display:flex;gap:12px;align-items:center}
 .done p{margin:0;font-size:13px;flex:1}.done b{display:block;font-size:15px}
 .done button{border:0;background:#fff;color:var(--blue);font-weight:700;border-radius:9px;height:40px;padding:0 14px;cursor:pointer;white-space:nowrap}
-.cfoot{display:flex;gap:6px;padding:10px 14px;border-top:1px solid var(--line)}
+.cfoot{display:flex;gap:6px;padding:10px 14px;border-top:1px solid var(--line);position:relative}
+.cfoot small{font-size:10.5px;color:#a1620b;font-weight:700}
+.solw{position:relative;display:flex}
+.solm{position:absolute;bottom:48px;left:0;width:260px;padding:8px;display:flex;flex-direction:column;gap:6px;z-index:20;box-shadow:0 10px 30px rgba(28,40,96,.22)}
+.solm button{height:auto!important;padding:9px 10px!important;text-align:left;display:flex;justify-content:space-between;gap:8px}
+.solm button b{color:#b42318}
+.solm small{color:var(--muted)!important;font-weight:500!important;font-size:11px!important}
+.pts{font-size:12.5px;color:#3a4366;margin:-1px 0 5px}.pts b{color:var(--blue)}
+.who{display:flex;gap:6px;margin:6px 0 2px}
+.who button{flex:1;height:30px;border:1px solid var(--line);background:#fff;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 8px}
+.who button:hover{background:#f5f6fb}
+pre.solpart{background:#141a33;color:#e6eaff;border-radius:8px;padding:7px 9px;margin:6px 0 0;font:12px/1.5 'JetBrains Mono',monospace;white-space:pre-wrap;word-break:break-word}
+.idm{position:fixed;inset:0;background:rgba(15,20,40,.45);display:grid;place-items:center;z-index:50;padding:16px}
+.idm form{width:min(500px,100%);max-height:calc(100vh - 32px);overflow:auto;padding:20px;display:flex;flex-direction:column;gap:10px}
+.idm h2{margin:0;font-size:20px}.idm p{margin:0;color:var(--muted);font-size:13px}
+.idm label{display:flex;flex-direction:column;gap:4px;font-size:12.5px;font-weight:600;color:#3a4366}
+.idm input{height:40px;border:1px solid var(--line);border-radius:9px;padding:0 10px;font:inherit}
+.idm .row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.idm button{height:44px;border:0;border-radius:10px;background:var(--blue);color:#fff;font-weight:700;font-size:15px;cursor:pointer;margin-top:4px}
 .cfoot button{height:40px;border-radius:10px;border:1px solid var(--line);background:#fff;font-weight:600;font-size:13px;padding:0 12px;cursor:pointer}
 .cfoot button:hover{background:#f5f6fb}
 .cfoot .primary{margin-left:auto;background:var(--blue);border-color:var(--blue);color:#fff;padding:0 16px}
@@ -154,6 +181,10 @@ button:focus-visible,input:focus-visible{outline:2px solid #5b78f0;outline-offse
 .zoom hr{border:0;border-top:1px solid var(--line);margin:2px 4px;width:30px}
 /* painel lateral */
 .side{position:fixed;right:16px;top:68px;width:312px;bottom:238px;overflow:auto;z-index:5;padding:14px}
+.side,.fleet,.zoom{background:rgba(255,255,255,.74);-webkit-backdrop-filter:blur(10px) saturate(1.25);backdrop-filter:blur(10px) saturate(1.25)}
+.zoom button{background:transparent}
+.chg{animation:chg 1s ease}
+@keyframes chg{0%{color:var(--blue)}100%{color:inherit}}
 .dc{display:flex;gap:12px;align-items:center}
 .dc .pic{width:52px;height:44px;border-radius:10px;background:#eef1fd;display:grid;place-items:center;flex:none}
 .dc small{color:var(--blue);font-weight:700;font-size:11px;display:block}
@@ -162,7 +193,7 @@ button:focus-visible,input:focus-visible{outline:2px solid #5b78f0;outline-offse
 .pill{display:inline-block;padding:3px 9px;border-radius:999px;font-size:11.5px;font-weight:600;white-space:nowrap}
 .pill.g{background:#e5f6ea;color:#137a3a}.pill.b{background:#e8edfd;color:#2c46c9}.pill.a{background:#fdf1dc;color:#9a6206}.pill.r{background:#fde8e8;color:#b42318}.pill.n{background:#eef0f6;color:#59617f}
 .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.st{background:#f6f7fc;border-radius:10px;padding:8px 10px;font-size:12px;color:var(--muted)}
+.st{background:rgba(240,243,251,.72);border-radius:10px;padding:8px 10px;font-size:12px;color:var(--muted)}
 .st b{display:block;color:var(--ink);font-size:18px;letter-spacing:-.01em}
 .st b small{font-size:12px;color:var(--muted);font-weight:500}
 .bar{height:5px;background:#e3e7f3;border-radius:9px;margin-top:5px;overflow:hidden}
@@ -170,18 +201,18 @@ button:focus-visible,input:focus-visible{outline:2px solid #5b78f0;outline-offse
 .bar.g i{background:#22b35a}
 .side h4{margin:14px 0 6px;font-size:12.5px}
 .inv{display:grid;gap:2px}
-.inv div{display:grid;grid-template-columns:26px minmax(0,1fr) auto auto;gap:8px;align-items:center;font-size:12.5px;padding:5px 0;border-bottom:1px solid #f0f2f8}
+.inv div{display:grid;grid-template-columns:26px minmax(0,1fr) auto auto;gap:8px;align-items:center;font-size:12.5px;padding:5px 0;border-bottom:1px solid rgba(220,226,240,.7)}
 .inv .q{font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
 .fl{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;gap:8px}
 .fl .bar{width:60px;margin:0}
 /* tabela */
 .fleet{position:fixed;right:16px;bottom:16px;width:400px;height:210px;z-index:5;padding:10px 12px;display:flex;flex-direction:column;gap:6px}
-.tabs{display:flex;gap:3px;background:#f1f3fa;border-radius:10px;padding:3px;align-self:flex-start}
+.tabs{display:flex;gap:3px;background:rgba(232,236,247,.8);border-radius:10px;padding:3px;align-self:flex-start}
 .tabs button{border:0;background:transparent;border-radius:8px;height:30px;padding:0 12px;font-weight:600;font-size:12.5px;color:var(--muted);cursor:pointer}
 .tabs button.on{background:#fff;color:var(--ink);box-shadow:0 1px 4px rgba(28,40,96,.12)}
 .tbl{overflow:auto;flex:1}
 table{width:100%;border-collapse:collapse;font-size:12.5px}
-td{padding:6px 4px;border-bottom:1px solid #f0f2f8;vertical-align:middle;white-space:nowrap}
+td{padding:6px 4px;border-bottom:1px solid rgba(220,226,240,.7);vertical-align:middle;white-space:nowrap}
 td b{display:block;font-size:12.5px}td small{color:var(--muted);font-size:11px}
 td.r{text-align:right}
 .dotc{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;background:var(--blue)}
@@ -217,49 +248,71 @@ td.r{text-align:right}
 .wxp{display:inline-block;background:#eef1fd;color:var(--blue);font-weight:800;border-radius:999px;padding:5px 14px;font-size:15px}
 .wtip{font-size:13px;margin:10px 0 18px!important}
 .wbtns{display:flex;gap:8px;justify-content:center}.wbtns button{height:44px;border-radius:11px;padding:0 18px;font-weight:700;cursor:pointer;border:1px solid var(--line);background:#fff}.wbtns .primary{background:var(--blue);border-color:var(--blue);color:#fff}
-.help{position:fixed;left:432px;top:156px;z-index:4;font-size:12px;color:#55608a;background:rgba(255,255,255,.75);border-radius:999px;padding:5px 12px;backdrop-filter:blur(4px)}
+.help{position:fixed;left:432px;top:70px;z-index:4;font-size:12px;color:#55608a;background:rgba(255,255,255,.75);border-radius:999px;padding:5px 12px;backdrop-filter:blur(4px)}
 @media (prefers-reduced-motion:reduce){.toast,.kpi{transition:none}.wcard,.wcard .stars i{animation:none}}
 @media (max-width:1560px){.ship{display:none}}
-@media (max-width:1320px){.kpi{min-width:0}.search{flex-basis:260px}.user div{display:none}}
+@media (max-width:1320px){.user div{display:none}.live span{display:none}}
+@media (max-width:1240px){.kpi .up{display:none}.wh small{display:none}}
 @media (max-width:1180px){.side,.fleet,.zoom,.help{display:none}.track{right:16px}.coder{bottom:150px}.track{left:16px}.wh small{display:none}}
 @media (max-width:860px){
  body{overflow:auto}
  .stage{position:relative;height:58vh;margin-top:0}
- .top{position:static;flex-wrap:wrap;padding:10px 12px}.search{order:5;flex:1 1 100%}.wh,.user{display:none}
- .kpis{position:static;flex-wrap:wrap;padding:0 12px 10px}.kpi{flex:1 1 150px}
+ .top{position:static;flex-wrap:wrap;padding:10px 12px}.wh,.user,.live,.iconbtn{display:none}
+ .kpis{order:5;flex:1 1 100%;flex-wrap:wrap}.kpi{flex:1 1 140px}.kpi .up{display:inline}
  .coder,.track{position:static;width:auto;margin:12px}.coder{max-height:none}.track{height:auto;flex-direction:column}.ship{width:auto}
  .tl{overflow-x:auto}
  .ctl{position:static;width:auto;margin:12px}
 }
+.armed{background:#fff4d6!important;border-color:#e0a200!important;color:#7a5200!important;box-shadow:0 0 0 3px rgba(224,162,0,.25)}
+#mHint{scroll-margin-top:8px}
+#mHint.flash{animation:hflash 1.2s ease}
+@keyframes hflash{0%{box-shadow:0 0 0 4px rgba(224,162,0,.55)}100%{box-shadow:0 0 0 0 rgba(224,162,0,0)}}
+.idm .comp{margin:0;padding:0;list-style:none;display:grid;gap:6px}
+.idm .comp li{font-size:12.5px;color:#3a4366;background:#f3f5fc;border-radius:9px;padding:7px 10px;line-height:1.35}
+.idm .comp b{display:inline-block;min-width:96px;color:var(--blue)}
+.idm .sc{font-size:12px!important;background:#fff8e6;border-radius:9px;padding:8px 10px;color:#6b5310!important}
+.intro{position:fixed;inset:0;z-index:40;display:flex;align-items:flex-end;justify-content:center;padding:0 20px 13vh;background:radial-gradient(ellipse at 50% 40%,rgba(10,16,40,0) 35%,rgba(10,16,40,.5));cursor:pointer;transition:opacity .45s}
+.intro.out{opacity:0;pointer-events:none}
+.ibox{display:grid;text-align:center;color:#fff;text-shadow:0 2px 16px rgba(8,12,40,.55)}
+.ibox>div{grid-area:1/1;transition:opacity .5s,transform .5s}
+.ibox .b{opacity:0;transform:translateY(10px)}.intro.s2 .a{opacity:0;transform:translateY(-10px)}.intro.s2 .b{opacity:1;transform:none}
+.ibox small{font-weight:800;letter-spacing:.22em;text-transform:uppercase;font-size:13px;opacity:.9}
+.ibox h1{margin:6px 0 4px;font-size:clamp(26px,4vw,44px);letter-spacing:-.02em;line-height:1.05}
+.ibox p{margin:0;font-size:clamp(14px,1.6vw,18px);opacity:.95}
+.intro .skip{position:absolute;right:20px;bottom:20px;height:38px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.6);background:rgba(255,255,255,.18);color:#fff;font-weight:700;cursor:pointer;backdrop-filter:blur(6px)}
+.top,.coder,.side,.fleet,.track,.zoom,.help{transition:opacity .5s}
+body.intro-on .top,body.intro-on .coder,body.intro-on .side,body.intro-on .fleet,body.intro-on .track,body.intro-on .zoom,body.intro-on .help,body.intro-on .ctl{opacity:0;pointer-events:none}
 </style>
 </head>
 <body>
 <div class="stage" id="stage"><canvas id="gl" aria-label="Vista 3D do centro de distribuição"></canvas><div class="glfail card" id="glFail" hidden><b>O teu browser não conseguiu iniciar o 3D (WebGL).</b><br>Experimenta outro browser ou ativa a aceleração gráfica.</div></div>
+<div class="intro" id="intro"><div class="ibox"><div class="a"><small>DocaCode</small><h1>Zona Industrial do Porto Seco</h1><p>Armazéns, cais e camiões a toda a hora.</p></div><div class="b"><small>Centro Tejo · AR-02</small><h1>Este é o teu armazém</h1><p>Aqui, cada linha de HTML, CSS e JavaScript constrói algo a sério.</p></div></div><button class="skip" type="button">Saltar ▸</button></div>
 <div class="help">Arrasta para mover · roda para zoom · botão direito para rodar</div>
 
 <header class="top">
  <div class="logo"><svg width="30" height="30" viewBox="0 0 32 32"><path d="M16 2l12 7v14l-12 7-12-7V9z" fill="#3552e0"/><path d="M16 2l12 7-12 7L4 9z" fill="#6f88f5"/><path d="M11 14l-3 3 3 3M21 14l3 3-3 3" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>DocaCode</div>
- <label class="search card"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" placeholder="Procurar cais, camiões, empilhadores, paletes…" aria-label="Procurar"><kbd>/</kbd></label>
+ <div class="kpis" aria-label="Indicadores do centro">
+ <div class="kpi card" id="k1"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg></span><div><small>Stock em armazém</small><div class="row"><strong id="kStock">3 310</strong><span class="up" id="kStockD">↑ +35</span></div><small>paletes · AR-02</small></div></div>
+ <div class="kpi card" id="k2"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M2 6h12v10H2zM14 9h4l4 4v3h-8z"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></span><div><small>Camiões no local</small><div class="row"><strong id="kTrucks">2</strong><span class="up" id="kTrucksD">↑ +0</span></div><small id="kTrucksS">1 a chegar · AR-02</small></div></div>
+ <div class="kpi card" id="k3"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><small>Entregas a horas</small><div class="row"><strong id="kOtd">92.4%</strong><span class="up" id="kOtdD">↑ +0.0%</span></div><small>últimos 30 dias · AR-02</small></div></div>
+</div>
  <div class="spacer"></div>
  <div class="wh card"><span class="tag">AR-02</span><div><b>Centro Tejo</b><small id="whSub">62% cheio · 2/2 cais ocupados</small></div><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6c7496" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></div>
  <div class="live"><i></i>Live <span id="clock">15:20</span></div>
  <button class="iconbtn card" aria-label="Notificações"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 16V11a6 6 0 0112 0v5l2 2H4zM10 21h4"/></svg><span class="dot"></span></button>
- <div class="user card"><span class="avatar"><svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="18" fill="#dfe5fb"/><circle cx="18" cy="14" r="6.5" fill="#6d4c3d"/><path d="M6 32c2-7 7-10 12-10s10 3 12 10" fill="#2a3a9c"/></svg></span><div><b>Jogador 1 <span id="starT" style="color:#e0a200;font-size:12px">★ 0</span></b><div class="xp"><span id="rank">Estagiário de operações</span><div class="bar"><i id="xpB" style="width:0%"></i></div><span id="xpT">0 XP</span></div></div></div>
+ <div class="user card" id="userB" role="button" tabindex="0" title="Alterar identificação" style="cursor:pointer"><span class="avatar"><svg width="36" height="36" viewBox="0 0 36 36"><circle cx="18" cy="18" r="18" fill="#dfe5fb"/><circle cx="18" cy="14" r="6.5" fill="#6d4c3d"/><path d="M6 32c2-7 7-10 12-10s10 3 12 10" fill="#2a3a9c"/></svg></span><div><b><span id="userN">Jogador</span> <span id="starT" style="color:#e0a200;font-size:12px">★ 0</span></b><div class="xp"><span id="rank">Estagiário de operações</span><div class="bar"><i id="xpB" style="width:0%"></i></div><span id="xpT">0 / 200</span></div></div></div>
 </header>
 
-<section class="kpis">
- <div class="kpi card" id="k1"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg></span><div><small>Stock em armazém</small><div class="row"><strong id="kStock">3 310</strong><span class="up" id="kStockD">↑ +35</span></div><small>paletes · AR-02</small></div></div>
- <div class="kpi card" id="k2"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M2 6h12v10H2zM14 9h4l4 4v3h-8z"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg></span><div><small>Camiões no local</small><div class="row"><strong id="kTrucks">2</strong><span class="up" id="kTrucksD">↑ +0</span></div><small id="kTrucksS">1 a chegar · AR-02</small></div></div>
- <div class="kpi card" id="k3"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><small>Entregas a horas</small><div class="row"><strong id="kOtd">92.4%</strong><span class="up" id="kOtdD">↑ +0.0%</span></div><small>últimos 30 dias · AR-02</small></div></div>
-</section>
+
 
 <section class="coder card" id="coder" aria-label="Consola de construção">
  <div class="chead">
   <div class="ctitle"><span>Consola de construção</span><span id="lvlTag">Nível 1</span></div>
+  <div class="who"><button id="whoB" title="Identificação do aluno">👤 <span id="whoN">Identifica-te</span></button><button id="pdfB" title="Descarregar a folha de validação em PDF">📄 Folha de validação</button></div>
   <div class="mods" id="mods"></div>
  </div>
  <div class="cbody" id="cbody">
-  <div class="mission"><div class="diff" id="mDiff"></div><h2 id="mTitle"></h2><p id="mStory"></p></div>
+  <div class="mission"><div class="diff" id="mDiff"></div><h2 id="mTitle"></h2><div class="pts" id="mPts"></div><p id="mStory"></p></div>
   <div class="quiz" id="mQuiz" hidden></div>
   <details class="learn" id="mLearnD" open><summary>Aprende</summary><div id="mLearn"></div></details>
   <div class="learn hint" id="mHint" hidden></div>
@@ -271,7 +324,7 @@ td.r{text-align:right}
   <div class="status" id="status"></div>
  </div>
  <div class="done" id="done" hidden><p><b id="doneT">Nível concluído!</b><span id="doneS"></span></p><button id="nextB">Próximo nível →</button></div>
- <div class="cfoot"><button id="hintB">Dica</button><button id="solB">Ver solução</button><button id="resetB">Repor</button><button id="runB" class="primary">Construir ▸</button></div>
+ <div class="cfoot"><button id="hintB">Dica</button><span class="solw"><button id="solB">Solução ▾</button><div class="solm card" id="solM" hidden><button id="solP">Ver parte da solução <b>−50%</b></button><button id="solF">Ver solução completa e avançar <b>−80%</b></button><small>Níveis 1–28 valem 5 pontos e 29–34 valem 10 (total 200). As ajudas descontam no valor deste desafio. Os desafios extra recuperam pontos perdidos.</small></div></span><button id="resetB">Repor</button><button id="runB" class="primary">Construir ▸</button></div>
 </section>
 
 <section class="ctl card" id="ctl" hidden aria-label="Painel da página"><b>Painel da página</b><small>Os botões e campos do teu HTML aparecem aqui. Experimenta-os!</small><div id="ctlB"></div></section>
@@ -294,13 +347,13 @@ td.r{text-align:right}
  <div class="stats">
   <div class="st">Stock em armazém<b id="sStock">3 310 <small>/ 4 200</small></b><div class="bar"><i id="sStockB" style="width:79%"></i></div></div>
   <div class="st">Cais de carga<b id="sBays">2 <small>/ 2 ocupados</small></b><div class="bar g"><i id="sBaysB" style="width:100%"></i></div></div>
-  <div class="st">Saídas hoje<b>21 <small>camiões</small></b></div>
+  <div class="st">Saídas hoje<b id="sOut">21 <small>camiões</small></b></div>
   <div class="st">Arrumações hoje<b id="sPut">35 <small>paletes</small></b></div>
  </div>
  <h4>Inventário</h4>
  <div class="inv" id="inv"></div>
  <h4 class="fl"><span>Frota de empilhadores</span><small style="color:var(--muted);font-weight:500">2/4 a trabalhar</small></h4>
- <div class="fl"><span><b>EMP-03</b> <small style="color:var(--muted)" id="empTxt">A carregar TRK-2104 no Cais 1</small></span><div class="bar g"><i style="width:68%"></i></div></div>
+ <div class="fl"><span><b>EMP-03</b> <small style="color:var(--muted)" id="empTxt">A carregar TRK-2104 no Cais 1</small></span><div class="bar g"><i id="empB" style="width:68%"></i></div></div>
 </aside>
 
 <section class="fleet card" aria-label="Cais, empilhadores e camiões">
@@ -313,6 +366,9 @@ td.r{text-align:right}
  </section>
 
 <div class="toast" id="toast"></div>
+<div class="idm" id="idm" hidden><form class="card" id="idf"><h2>Bem-vindo ao Centro Tejo</h2><p>Vais construir e pôr a funcionar um armazém da zona industrial escrevendo código a sério, ligado à sebenta «Criação de Páginas Web».</p>
+<ul class="comp"><li><b>HTML</b> estrutura e significado: elementos e atributos, listas, tabelas, formulários e tags semânticas.</li><li><b>CSS</b> cores e seletores, modelo de caixa, flexbox, grid, posicionamento e páginas responsivas.</li><li><b>JavaScript</b> variáveis, condições, ciclos, funções e temporizadores.</li><li><b>DOM e eventos</b> encontrar elementos, reagir a cliques e validar formulários.</li></ul>
+<p class="sc"><b>Classificação em 200 pontos.</b> Os níveis 1–28 valem 5 pontos e os níveis 29–34 valem 10. Dica −25%, parte da solução −50%, solução completa −80%. Os desafios extra (35–39) recuperam pontos perdidos. No fim descarregas a folha de validação em PDF.</p><label>Nome<input id="idN" autocomplete="name" required></label><div class="row2"><label>Turma<input id="idT" placeholder="ex.: 2.º TEAC"></label><label>Número<input id="idNum" inputmode="numeric"></label></div><button type="submit">Começar</button></form></div>
 <div id="layout"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/three@0.147.0/build/three.min.js"></script>
@@ -358,17 +414,33 @@ const D3='\n<div class="docas">\n'+cx('TRK-2131')+'\n'+cx('TRK-2152')+'\n  <div 
 const D4=D3.replace(/\n<\/div>$/,'\n  <div class="cais" id="livre"></div>\n</div>');
 const R={pal:'.palete { background: royalblue; }',doc:'.docas { display: flex; gap: 20px; }',gr:'.grande { width: 130px; height: 230px; }',tir:'.tir { width: 70px; height: 210px; }',
  grid:'.zona { display: grid; grid-template-columns: repeat(4, 44px); gap: 6px; }',h1:'h1 { color: #e0531f; text-align: left; }',
- nth:'.zona .palete:nth-child(even) { background: orange; }',abs:'#EMP-07 { position: absolute; left: 600px; top: 500px; }',jc:'.docas { justify-content: space-between; }'};
-const S6=S3+ULQ+EMP;
-const S7=S6+zona(3)+sty(R.pal);
-const S8=H1+D2+ULQ+EMP+zona(3)+sty(R.pal,R.doc);
-const S9=H1+D3+ULQ+EMP+zona(3)+sty(R.pal,R.doc,R.gr,R.tir);
-const S10=H1+D3+ULQ+EMP+zona(8)+sty(R.pal,R.doc,R.gr,R.tir,R.grid);
-const S11=H1+D3+ULQ+EMP+zona(8)+sty(R.pal,R.doc,R.gr,R.tir,R.grid,R.h1);
-const S12=H1+D3+ULQ+EMP+zona(8)+sty(R.pal,R.doc,R.gr,R.tir,R.grid,R.h1,R.nth);
-const S13=H1+D3+ULQ+EMP+zona(8)+sty(R.pal,R.doc,R.gr,R.tir,R.grid,R.h1,R.nth,R.abs);
-const S14=H1+D3+ULQ+EMP+zona(8)+sty(R.pal,R.doc,R.gr,R.tir,R.grid,R.h1,R.nth,R.abs,R.jc);
-const JB=(...extra)=>H1+D4+ULQ+EMP+zona(8)+sty(R.pal,R.doc,R.gr,R.tir,R.grid,R.h1,R.nth,R.abs,R.jc,...extra);
+ nth:'.zona .palete:nth-child(even) { background: orange; }',abs:'#EMP-07 { position: absolute; left: 620px; top: 580px; }',grid8:'.zona { display: grid; grid-template-columns: repeat(8, 44px); gap: 6px; }',jc:'.docas { justify-content: space-between; }'};
+const OLC='\n<ol class="carga">\n  <li>Secretárias</li>\n  <li>Cadeiras</li>\n  <li>Monitores</li>\n</ol>';
+const AV0='\n<p class="aviso">Velocidade máxima <strong>10 km/h</p></strong>';
+const AV1='\n<p class="aviso">Velocidade máxima <strong>10 km/h</strong><br>Peões: <em>atenção</em> aos empilhadores</p>';
+const TB0='\n<table class="quadro">\n  <!-- falta o título da tabela -->\n  <thead>\n    <tr><th>Cais</th><th>Manhã</th><th>Tarde</th></tr>\n  </thead>\n  <tbody>\n    <tr><td>Cais 1</td><td>TRK-2104</td><td>TRK-2131</td></tr>\n    <!-- Cais 2: em manutenção o dia todo -->\n  </tbody>\n</table>';
+const TB1='\n<table class="quadro">\n  <caption>Turnos dos cais</caption>\n  <thead>\n    <tr><th scope="col">Cais</th><th scope="col">Manhã</th><th scope="col">Tarde</th></tr>\n  </thead>\n  <tbody>\n    <tr><td>Cais 1</td><td>TRK-2104</td><td>TRK-2131</td></tr>\n    <tr><td>Cais 2</td><td colspan="2">Manutenção</td></tr>\n  </tbody>\n</table>';
+const CAIS1='\n<div class="cais">\n  <div class="camiao">TRK-2131</div>\n</div>';
+const FORM0='\n<form class="portaria">\n  <label for="matricula">Matrícula</label>\n  <input id="matricula" name="matricula" type="text">\n\n  <!-- 1. A matrícula é obrigatória (required) e tem placeholder -->\n  <!-- 2. Paletes: label + input type="number" de 1 a 33 -->\n  <!-- 3. Tipo de carga: label + select com 3 opções -->\n  <!-- 4. Botão do tipo submit -->\n</form>';
+const FORM1='\n<form class="portaria">\n  <label for="matricula">Matrícula</label>\n  <input id="matricula" name="matricula" type="text" placeholder="TRK-0000" required>\n  <label for="paletes">Paletes</label>\n  <input id="paletes" name="paletes" type="number" min="1" max="33">\n  <label for="carga">Carga</label>\n  <select id="carga" name="carga">\n    <option value="seca">Carga seca</option>\n    <option value="frio">Frio</option>\n    <option value="perigosa">Perigosa</option>\n  </select>\n  <button type="submit">Entrar</button>\n</form>';
+const CAIS2='\n<div class="cais">\n  <div class="camiao">TRK-2152</div>\n</div>';
+const IND=x=>x.replace(/\n/g,'\n  ');
+const HDR='\n<header>Portaria</header>\n<nav aria-label="Vias do parque">\n  <a href="#cargas">Cargas</a>\n  <a href="#saida">Saída</a>\n</nav>';
+const FTR='\n<footer id="saida">Saída de camiões</footer>';
+function PAGE(dock,zonaH,css,o={}){return(o.h1||H1)+HDR+'\n<main id="cargas">'+IND(dock+AV1+ULQ+OLC+EMP+TB1+(zonaH||''))+'\n</main>'+FORM1+FTR+(css&&css.length?sty(...css):'')}
+const A4=S3+AV1,A5=A4+UL,A6=A5+OLC,A7=A6+EMP,A8=A4+ULQ+OLC+EMP,A9=A8+TB1,A10=A9+FORM1;
+const SEMD=H1+'\n<div class="topo">Portaria</div>\n<div class="menu">\n  <a href="#cargas">Cargas</a>\n  <a href="#saida">Saída</a>\n</div>\n<div class="principal">'+IND(CAIS1+AV1+ULQ+OLC+EMP+TB1)+'\n</div>'+FORM1+'\n<div class="rodape" id="saida">Saída de camiões</div>';
+const P11=PAGE(CAIS1);
+const S6=A8;
+const S7=PAGE(CAIS1,zona(3),[R.pal]);
+const S8=PAGE(D2,zona(3),[R.pal,R.doc]);
+const S9=PAGE(D3,zona(3),[R.pal,R.doc,R.gr,R.tir]);
+const S10=PAGE(D3,zona(8),[R.pal,R.doc,R.gr,R.tir,R.grid]);
+const S11=PAGE(D3,zona(8),[R.pal,R.doc,R.gr,R.tir,R.grid,R.h1]);
+const S12=PAGE(D3,zona(8),[R.pal,R.doc,R.gr,R.tir,R.grid,R.h1,R.nth]);
+const S13=PAGE(D3,zona(8),[R.pal,R.doc,R.gr,R.tir,R.grid,R.h1,R.nth,R.abs]);
+const S14=PAGE(D3,zona(8),[R.pal,R.doc,R.gr,R.tir,R.grid,R.h1,R.nth,R.abs,R.jc]);
+const JB=(...extra)=>PAGE(D4,zona(8),[R.pal,R.doc,R.gr,R.tir,R.grid,R.h1,R.nth,R.abs,R.jc,...extra]);
 const ENC="  const encomendas = [\n    { produto: 'Cadeiras', urgente: true },\n    { produto: 'Monitores', urgente: false },\n    { produto: 'Teclados', urgente: false },\n    { produto: 'Luvas', urgente: true },\n  ];\n";
 const PES="  const encomendas = [\n    { produto: 'Cadeiras', peso: 320 },\n    { produto: 'Monitores', peso: 640 },\n    { produto: 'Teclados', peso: 120 },\n    { produto: 'Servidores', peso: 910 },\n    { produto: 'Luvas', peso: 80 },\n    { produto: 'Secretárias', peso: 560 },\n  ];\n";
 const J1="  const placa = document.querySelector('h1');\n  placa.textContent = 'Centro Tejo · Aberto 24h';\n";
@@ -380,7 +452,7 @@ const J6=PES+"  const pesadas = encomendas.filter(e => e.peso > 500);\n  const z
 const J7="  const zona = document.querySelector('.zona');\n  let chegadas = 0;\n  const relogio = setInterval(() => {\n    const p = document.createElement('div');\n    p.className = 'palete';\n    zona.appendChild(p);\n    chegadas++;\n    console.log('Palete', chegadas, 'descarregada');\n    if (chegadas === 6) {\n      clearInterval(relogio);\n    }\n  }, 500);\n";
 const RUSH="  const chegadas = [\n    { matricula: 'TRK-3001', prioridade: 2 },\n    { matricula: 'TRK-3002', prioridade: 1 },\n    { matricula: 'TRK-3003', prioridade: 3 },\n    { matricula: 'TRK-3004', prioridade: 1 },\n  ];\n";
 const J8=RUSH+"  chegadas.sort((a, b) => a.prioridade - b.prioridade);\n\n  function criarCamiao(matricula) {\n    const c = document.createElement('div');\n    c.className = 'camiao';\n    c.textContent = matricula;\n    return c;\n  }\n\n  for (const t of chegadas) {\n    const livre = [...document.querySelectorAll('.cais')]\n      .find(c => !c.querySelector('.camiao'));\n    if (livre) {\n      livre.appendChild(criarCamiao(t.matricula));\n    } else {\n      document.querySelector('.fila').appendChild(criarCamiao(t.matricula));\n    }\n  }\n";
-const NIGHT='<h1>Centro Tejo · Turno da noite</h1>\n<div class="docas">\n'+cx('TRK-2131')+'\n'+cx('')+'\n'+cx('TRK-2140')+'\n'+cx('')+'\n</div>\n<div class="zona fila"></div>'+sty('.docas { display: flex; justify-content: space-between; }','.fila { display: flex; gap: 30px; min-height: 150px; margin-top: 40px; }');
+const NIGHT=PAGE('\n<div class="docas">\n'+cx('TRK-2131')+'\n'+cx('')+'\n'+cx('TRK-2140')+'\n'+cx('')+'\n</div>','\n<div class="zona fila"></div>',['.docas { display: flex; justify-content: space-between; }','.fila { display: flex; gap: 30px; min-height: 150px; margin-top: 40px; }'],{h1:'<h1>Centro Tejo · Turno da noite</h1>'});
 const ofText=(r,s)=>all(r,s).map(e=>e.textContent.trim());
 const atWall=(d,items)=>d.y<6||items.some(a=>a.type==='armazem'&&Math.abs(d.y-(a.y+a.h))<6&&d.x<a.x+a.w-4&&d.x+d.w>a.x+4);
 const frontOf=(a,items)=>items.filter(d=>d.type==='cais'&&Math.abs(d.y-(a.y+a.h))<6&&d.x<a.x+a.w-4&&d.x+d.w>a.x+4);
@@ -439,7 +511,7 @@ const L0=[
  story:'Chegou o TRK-2152 e abriste outro cais, mas ficou atrás do primeiro, longe da parede: o camião não consegue descarregar. Põe os cais lado a lado, encostados à fachada.',
  learn:'Os <code>&lt;div&gt;</code> empilham-se uns por baixo dos outros. Com <code>display: flex</code> num contentor, os filhos ficam <b>lado a lado</b>; <code>gap</code> é o espaço entre eles. Ex.: <code>.docas { display: flex; gap: 20px; }</code>',
  hint:'Envolve os dois cais num <code>&lt;div class="docas"&gt;</code> e no &lt;style&gt; acrescenta <code>.docas { display: flex; gap: 20px; }</code>',
- start:S7.replace('</div>\n<ul','</div>\n<div class="cais">\n  <div class="camiao">TRK-2152</div>\n</div>\n<ul'),sol:S8,
+ start:PAGE(CAIS1+CAIS2,zona(3),[R.pal]),sol:S8,
  blocks:['<div class="docas">','</div>','.docas { display: flex; gap: 20px; }','<style>','</style>'],
  goals:[['Há pelo menos 2 cais',(r,c,it)=>cais(it).length>=2],['Todos os cais estão encostados à parede',(r,c,it)=>cais(it).length>=2&&cais(it).every(d=>d.y<6)],['Os cais têm pelo menos 10px de espaço entre si',(r,c,it)=>{const d=cais(it).sort((a,b)=>a.x-b.x);return d.length>=2&&d.every((q,i)=>!i||q.x-(d[i-1].x+d[i-1].w)>=10)}]]},
 {m:'CSS',step:'Tamanhos',t:'Um TIR de 13 metros',diff:3,
@@ -467,11 +539,11 @@ const L0=[
  sol:S12,blocks:[R.nth,'.zona .palete:nth-child(odd) { background: royalblue; }'],
  goals:[['As paletes pares têm uma cor diferente das ímpares',r=>{const p=all(r,'.zona .palete');if(p.length<4)return false;const a=bgOf(p[0]),b=bgOf(p[1]);return a!==b&&p.every((e,i)=>bgOf(e)===(i%2?b:a))}],['O HTML das paletes não foi alterado (sem style="")',(r,c)=>!/<div class="palete"[^>]*style=/i.test(c)]]},
 {m:'CSS',step:'Posição',t:'Estacionar no posto de carga',diff:4,
- story:'A bateria do EMP-07 está a acabar. Estaciona-o exatamente no posto de carga verde, que fica a 600px da esquerda e 500px do topo do pátio.',
+ story:'A bateria do EMP-07 está a acabar. Estaciona-o exatamente no posto de carga verde, que fica a 620px da esquerda e 580px do topo do pátio.',
  learn:'<code>position: absolute</code> tira um elemento do fluxo normal e deixa-te pô-lo onde quiseres com <code>left</code> e <code>top</code>, medidos a partir do canto do pátio. <code>#EMP-07</code> seleciona pelo id.',
- hint:'<code>#EMP-07 { position: absolute; left: 600px; top: 500px; }</code>',
- sol:S13,blocks:[R.abs,'#EMP-07 { position: absolute; }','#EMP-07 { left: 600px; }','#EMP-07 { top: 500px; }'],
- goals:[['O empilhador usa position: absolute',r=>{const e=r.querySelector('#EMP-07');return e&&getComputedStyle(e).position==='absolute'}],['O EMP-07 está no posto de carga (±10px)',(r,c,it)=>it.some(i=>i.type==='empilhador'&&Math.abs(i.x-600)<=10&&Math.abs(i.y-500)<=10)]]},
+ hint:'<code>#EMP-07 { position: absolute; left: 620px; top: 580px; }</code>',
+ sol:S13,blocks:[R.abs,'#EMP-07 { position: absolute; }','#EMP-07 { left: 620px; }','#EMP-07 { top: 580px; }'],
+ goals:[['O empilhador usa position: absolute',r=>{const e=r.querySelector('#EMP-07');return e&&getComputedStyle(e).position==='absolute'}],['O EMP-07 está no posto de carga (±10px)',(r,c,it)=>it.some(i=>i.type==='empilhador'&&Math.abs(i.x-620)<=10&&Math.abs(i.y-580)<=10)]]},
 {m:'CSS',step:'Alinhar',t:'Espalhar os cais pela fachada',diff:4,
  story:'Os cais estão todos encostados à esquerda e os camiões grandes não conseguem manobrar. Distribui os cais por toda a largura da fachada.',
  learn:'Num contentor flex, <code>justify-content</code> controla a distribuição ao longo da linha: <code>flex-start</code>, <code>center</code>, <code>space-between</code> (espaço igual entre todos, com as pontas encostadas) ou <code>space-evenly</code>.',
@@ -556,18 +628,8 @@ const VOIDT=/^(br|hr|img|input|meta|link|area|base|col|embed|source|track|wbr)$/
 const nestOK=c=>{const h=htmlPart(c).replace(/<!--[\s\S]*?-->/g,'').replace(/<style[\s\S]*?<\/style>/gi,'');const s=[];for(const m of h.matchAll(/<(\/?)([a-zA-Z][\w-]*)[^>]*?(\/?)>/g)){const t=m[2].toLowerCase();if(VOIDT.test(t)||m[3])continue;if(!m[1])s.push(t);else if(s.pop()!==t)return false}return s.length===0};
 const noInline=c=>!/\sstyle\s*=/i.test(htmlPart(c).replace(/<style[\s\S]*?<\/style>/gi,''));
 const txtOf=(r,s)=>{const e=r.querySelector(s);return e?e.textContent:''};
-const OLC='\n<ol class="carga">\n  <li>Secretárias</li>\n  <li>Cadeiras</li>\n  <li>Monitores</li>\n</ol>';
-const AV0='\n<p class="aviso">Velocidade máxima <strong>10 km/h</p></strong>';
-const AV1='\n<p class="aviso">Velocidade máxima <strong>10 km/h</strong><br>Peões: <em>atenção</em> aos empilhadores</p>';
-const TB0='\n<table class="quadro">\n  <!-- falta o título da tabela -->\n  <thead>\n    <tr><th>Cais</th><th>Manhã</th><th>Tarde</th></tr>\n  </thead>\n  <tbody>\n    <tr><td>Cais 1</td><td>TRK-2104</td><td>TRK-2131</td></tr>\n    <!-- Cais 2: em manutenção o dia todo -->\n  </tbody>\n</table>';
-const TB1='\n<table class="quadro">\n  <caption>Turnos dos cais</caption>\n  <thead>\n    <tr><th scope="col">Cais</th><th scope="col">Manhã</th><th scope="col">Tarde</th></tr>\n  </thead>\n  <tbody>\n    <tr><td>Cais 1</td><td>TRK-2104</td><td>TRK-2131</td></tr>\n    <tr><td>Cais 2</td><td colspan="2">Manutenção</td></tr>\n  </tbody>\n</table>';
-const CAIS1='\n<div class="cais">\n  <div class="camiao">TRK-2131</div>\n</div>';
-const FORM0='\n<form class="portaria">\n  <label for="matricula">Matrícula</label>\n  <input id="matricula" name="matricula" type="text">\n\n  <!-- 1. A matrícula é obrigatória (required) e tem placeholder -->\n  <!-- 2. Paletes: label + input type="number" de 1 a 33 -->\n  <!-- 3. Tipo de carga: label + select com 3 opções -->\n  <!-- 4. Botão do tipo submit -->\n</form>';
-const FORM1='\n<form class="portaria">\n  <label for="matricula">Matrícula</label>\n  <input id="matricula" name="matricula" type="text" placeholder="TRK-0000" required>\n  <label for="paletes">Paletes</label>\n  <input id="paletes" name="paletes" type="number" min="1" max="33">\n  <label for="carga">Carga</label>\n  <select id="carga" name="carga">\n    <option value="seca">Carga seca</option>\n    <option value="frio">Frio</option>\n    <option value="perigosa">Perigosa</option>\n  </select>\n  <button type="submit">Entrar</button>\n</form>';
-const SEM0='<div class="topo">Portaria\n  <h1>Centro Tejo</h1>\n</div>\n<div class="menu">\n  <a href="#cargas">Cargas</a>\n  <a href="#saida">Saída</a>\n</div>\n<div class="principal">\n  <div class="zona">\n    <div class="palete"></div>\n    <div class="palete"></div>\n    <div class="palete"></div>\n  </div>\n  <div class="empilhador" id="EMP-07"></div>\n</div>\n<div class="rodape" id="saida">Saída de camiões</div>';
-const SEM1='<header>Portaria\n  <h1>Centro Tejo</h1>\n</header>\n<nav aria-label="Vias do parque">\n  <a href="#cargas">Cargas</a>\n  <a href="#saida">Saída</a>\n</nav>\n<main id="cargas">\n  <div class="zona">\n    <div class="palete"></div>\n    <div class="palete"></div>\n    <div class="palete"></div>\n  </div>\n  <div class="empilhador" id="EMP-07"></div>\n</main>\n<footer id="saida">Saída de camiões</footer>';
 const ZSEL='\n<div class="zona">\n  <div class="palete" id="P1">P1</div>\n  <div class="palete" id="P2">P2</div>\n  <div class="palete urgente">P3</div>\n  <div class="palete">P4</div>\n</div>';
-const SEL=a=>S6+ZSEL+sty(a,'.palete { background: royalblue; }','#P2 { background: orange; }','.palete { background: seagreen; }');
+const SEL=a=>PAGE(CAIS1,ZSEL,[a,'.palete { background: royalblue; }','#P2 { background: orange; }','.palete { background: seagreen; }']);
 const BOX=b=>H1+'\n<div class="docas">\n'+'  <div class="cais"></div>\n'.repeat(5)+'</div>'+sty('.docas { display: flex; gap: 10px; }',`.cais { width: 120px; padding: 0 10px; border: 4px solid gold; box-sizing: ${b}; }`);
 const WRAPH=H1+'\n<div class="espera">\n'+[...Array(10)].map((_,i)=>`  <div class="camiao">TRK-31${String(i+1).padStart(2,'0')}</div>`).join('\n')+'\n</div>\n<div class="posto">\n  <div class="empilhador" id="EMP-01"></div>\n  <div class="empilhador" id="EMP-02"></div>\n  <div class="empilhador" id="EMP-03"></div>\n</div>';
 const RESPH=H1+'\n<div class="lotes">\n  <div class="armazem">Lote A</div>\n  <div class="armazem">Lote B</div>\n  <div class="armazem">Lote C</div>\n</div>';
@@ -578,7 +640,7 @@ const VAG1="  function calcularVagas(lotacao, ocupados) {\n    return lotacao - 
 const GBE=()=>JB().replace('<h1>','<h1 id="estado">');
 const ABR="  const botao = document.getElementById('abrir');\n\n  function abrirPortao() {\n    const c = document.createElement('div');\n    c.className = 'camiao';\n    c.textContent = 'TRK-2190';\n    document.getElementById('livre').appendChild(c);\n  }\n\n";
 const LUZ0="  const docas = document.querySelector('.docas');\n  const botao = document.getElementById('luzes');\n\n  botao.addEventListener('click', () => {\n";
-const FB=()=>H1+D4+FORM1+'\n<p id="msg" role="status">À espera de check-in</p>'+sty(R.doc,R.gr,R.tir);
+const FB=()=>JB()+'\n<p id="msg" role="status">À espera de check-in</p>';
 const SUB0="  const form = document.querySelector('.portaria');\n  const msg = document.getElementById('msg');\n\n  form.addEventListener('submit', (e) => {\n";
 const SUB1="    e.preventDefault();\n    const matricula = document.getElementById('matricula').value.trim();\n    if (matricula === '') {\n      msg.textContent = 'Indica a matrícula';\n      return;\n    }\n    const c = document.createElement('div');\n    c.className = 'camiao';\n    c.textContent = matricula;\n    document.getElementById('livre').appendChild(c);\n    msg.textContent = 'Bem-vindo, ' + matricula + '! Segue para o cais livre.';\n";
 const js_=c=>jsPart(c).replace(/\/\/[^\n]*/g,'');
@@ -595,28 +657,28 @@ ol:{id:'n-ol',m:'HTML',step:'Ordem',t:'A ordem de carga',diff:2,
  learn:'Há dois tipos de lista. <code>&lt;ul&gt;</code> é uma lista <b>sem ordem</b>: na estante tanto faz a posição. <code>&lt;ol&gt;</code> é uma lista <b>ordenada</b>: cada <code>&lt;li&gt;</code> recebe um número. Aqui, <code>&lt;ol class="carga"&gt;</code> põe as paletes numa fila, numeradas pela ordem de carga.',
  tip:'Escolhe a lista pelo significado: se a ordem importa (passos, rankings, sequências), usa <code>&lt;ol&gt;</code>.',
  hint:'<code>&lt;ol class="carga"&gt;</code>, três <code>&lt;li&gt;</code> (Secretárias, Cadeiras, Monitores) e <code>&lt;/ol&gt;</code>.',
- start:S3+UL+'\n<!-- Ordem de carga: Secretárias, Cadeiras, Monitores -->\n',sol:S3+UL+OLC,blocks:['<ol class="carga">','<li>Secretárias</li>','<li>Cadeiras</li>','<li>Monitores</li>','</ol>','<ul class="carga">','</ul>'],
- goals:[['Existe uma lista ordenada <ol class="carga">',r=>has(r,'ol.carga')],['A ordem de carga tem pelo menos 3 itens',r=>all(r,'ol.carga li').length>=3],['As Secretárias são as primeiras a entrar',r=>{const l=r.querySelector('ol.carga li');return!!l&&/secret/i.test(l.textContent)}],['A estante continua a ser uma lista <ul>',r=>has(r,'ul.estante')]]},
+ start:A5+'\n<!-- Ordem de carga: Secretárias, Cadeiras, Monitores -->\n',sol:A6,blocks:['<ol class="carga">','<li>Secretárias</li>','<li>Cadeiras</li>','<li>Monitores</li>','</ol>','<ul class="carga">','</ul>'],
+ goals:[['Existe uma lista ordenada <ol class="carga">',r=>has(r,'ol.carga')],['A ordem de carga tem 3 itens',r=>all(r,'ol.carga li').length===3],['A ordem é Secretárias, Cadeiras e Monitores',r=>{const t=all(r,'ol.carga li').map(l=>l.textContent.trim().toLowerCase());return t.length===3&&/^secret/.test(t[0])&&/^cadeira/.test(t[1])&&/^monitor/.test(t[2])}],['A estante continua a ser uma lista <ul>',r=>has(r,'ul.estante')]]},
 tab:{id:'n-tab',m:'HTML',step:'Tabela',t:'O quadro de turnos',diff:3,kind:'Completa o código',
  story:'A chefe de turno quer um quadro no pátio com os horários dos cais. A tabela já está começada: falta o título, falta dizer que os cabeçalhos são de coluna e falta o Cais 2, que está em manutenção o dia todo.',
  learn:'<code>&lt;table&gt;</code> cria uma tabela; <code>&lt;caption&gt;</code> é o título; <code>&lt;thead&gt;</code> e <code>&lt;tbody&gt;</code> separam o cabeçalho dos dados. Cada <code>&lt;tr&gt;</code> é uma linha, <code>&lt;th&gt;</code> uma célula de cabeçalho e <code>&lt;td&gt;</code> uma célula de dados. <code>colspan="2"</code> faz uma célula ocupar duas colunas.',
  tip:'<code>scope="col"</code> nos <code>&lt;th&gt;</code> diz aos leitores de ecrã que aquele cabeçalho é de uma coluna. Usa tabelas para dados, nunca para paginar o site.',
  hint:'Junta <code>&lt;caption&gt;Turnos dos cais&lt;/caption&gt;</code>, <code>scope="col"</code> em cada <code>&lt;th&gt;</code> e a linha <code>&lt;tr&gt;&lt;td&gt;Cais 2&lt;/td&gt;&lt;td colspan="2"&gt;Manutenção&lt;/td&gt;&lt;/tr&gt;</code>.',
- start:S6+TB0,sol:S6+TB1,blocks:['<caption>Turnos dos cais</caption>','<th scope="col">Cais</th>','<tr>','<td>Cais 2</td>','<td colspan="2">Manutenção</td>','</tr>'],
+ start:A8+TB0,sol:A9,blocks:['<caption>Turnos dos cais</caption>','<th scope="col">Cais</th>','<tr>','<td>Cais 2</td>','<td colspan="2">Manutenção</td>','</tr>'],
  goals:[['A tabela tem título (<caption>)',r=>all(r,'table caption').some(c=>c.textContent.trim().length>2)],['Os <th> do cabeçalho têm scope="col"',r=>{const t=all(r,'thead th');return t.length>=3&&t.every(h=>h.getAttribute('scope')==='col')}],['Há pelo menos 2 linhas de dados no <tbody>',r=>all(r,'tbody tr').length>=2],['Uma célula ocupa 2 colunas (colspan="2")',r=>has(r,'td[colspan="2"]')]]},
 form:{id:'n-form',m:'HTML',step:'Form',t:'O quiosque da portaria',diff:3,kind:'Completa o código',
  story:'Os motoristas fazem o check-in num quiosque na portaria. Constrói o formulário: matrícula (obrigatória), número de paletes e tipo de carga, com um botão para entrar.',
  learn:'<code>&lt;form&gt;</code> agrupa campos. Cada campo tem um <code>&lt;label for="id"&gt;</code> ligado ao <code>id</code> do campo. <code>&lt;input type="number" min="1" max="33"&gt;</code> só aceita números nesse intervalo, <code>&lt;select&gt;</code> com <code>&lt;option&gt;</code> dá uma lista de escolha e <code>required</code> torna o campo obrigatório. O <code>name</code> é o nome com que o valor é enviado.',
  warn:'<code>required</code> é um atributo booleano: basta escrevê-lo, sem valor. E o <code>for</code> do label tem de ser igual ao <code>id</code> do campo, letra por letra.',
  hint:'Na matrícula junta <code>placeholder="TRK-0000" required</code>. Depois: label + <code>&lt;input id="paletes" type="number" min="1" max="33"&gt;</code>, label + <code>&lt;select id="carga"&gt;</code> com 3 <code>&lt;option&gt;</code> e <code>&lt;button type="submit"&gt;Entrar&lt;/button&gt;</code>.',
- start:H1+CAIS1+FORM0,sol:H1+CAIS1+FORM1,blocks:['<label for="paletes">Paletes</label>','<input id="paletes" name="paletes" type="number" min="1" max="33">','<label for="carga">Carga</label>','<select id="carga" name="carga">','<option>Carga seca</option>','<option>Frio</option>','<option>Perigosa</option>','</select>','<button type="submit">Entrar</button>'],
+ start:A9+FORM0,sol:A10,blocks:['<label for="paletes">Paletes</label>','<input id="paletes" name="paletes" type="number" min="1" max="33">','<label for="carga">Carga</label>','<select id="carga" name="carga">','<option>Carga seca</option>','<option>Frio</option>','<option>Perigosa</option>','</select>','<button type="submit">Entrar</button>'],
  goals:[['A matrícula é obrigatória (required)',r=>has(r,'#matricula[required]')],['Há um campo numérico de 1 a 33 para as paletes',r=>has(r,'input[type="number"][min="1"][max="33"]')],['Há um <select> com 3 tipos de carga',r=>all(r,'select option').length>=3],['Cada campo tem um <label for> ligado ao seu id',r=>{const f=all(r,'form input,form select,form textarea').filter(e=>e.type!=='submit');const l=all(r,'label');return f.length>=3&&f.every(x=>x.id&&l.some(q=>q.htmlFor===x.id))}],['O formulário tem um botão do tipo submit',r=>has(r,'form button[type="submit"],form input[type="submit"]')]]},
 sem:{id:'n-sem',m:'HTML',step:'Zonas',t:'As zonas do parque',diff:3,kind:'Modifica o exemplo',
- story:'O mapa do parque foi feito só com <div>, e ninguém percebe o que é cada zona. Usa as tags semânticas: portaria (header), vias (nav), zona de operações (main) e saída (footer). E repara: uma das placas de direção aponta para uma zona que não existe.',
+ story:'Tudo o que construíste continua no pátio, mas o mapa do parque foi feito só com <div> e ninguém percebe o que é cada zona. Dá-lhes significado: a portaria em baixo, à esquerda (header), as vias junto à estrada (nav), a zona de cargas com o cais e tudo o que está à volta (main) e a saída (footer). Repara também que uma das placas de direção aponta para uma zona que não existe.',
  learn:'As tags <b>semânticas</b> dizem o que cada parte é: <code>&lt;header&gt;</code> cabeçalho, <code>&lt;nav&gt;</code> navegação, <code>&lt;main&gt;</code> conteúdo principal, <code>&lt;footer&gt;</code> rodapé (há também <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code> e <code>&lt;aside&gt;</code>). Um link <code>&lt;a href="#cargas"&gt;</code> salta para o elemento com <code>id="cargas"</code>: aqui vira uma placa de direção.',
  tip:'Dá ao <code>&lt;nav&gt;</code> um <code>aria-label</code> (por exemplo "Vias do parque"): os leitores de ecrã anunciam-no assim.',
- hint:'Troca <code>&lt;div class="topo"&gt;</code> por <code>&lt;header&gt;</code>, "menu" por <code>&lt;nav aria-label="Vias do parque"&gt;</code>, "principal" por <code>&lt;main id="cargas"&gt;</code> e "rodape" por <code>&lt;footer id="saida"&gt;</code>. Não te esqueças das tags de fecho!',
- start:SEM0,sol:SEM1,blocks:['<header>','</header>','<nav aria-label="Vias do parque">','</nav>','<main id="cargas">','</main>','<footer id="saida">','</footer>'],
+ hint:'Troca <code>&lt;div class="topo"&gt;</code> por <code>&lt;header&gt;</code>, <code>&lt;div class="menu"&gt;</code> por <code>&lt;nav aria-label="Vias do parque"&gt;</code>, <code>&lt;div class="principal"&gt;</code> por <code>&lt;main id="cargas"&gt;</code> e <code>&lt;div class="rodape" id="saida"&gt;</code> por <code>&lt;footer id="saida"&gt;</code>. Troca também as tags de fecho (&lt;/header&gt;, &lt;/nav&gt;, &lt;/main&gt;, &lt;/footer&gt;).',
+ start:SEMD,sol:P11,blocks:['<header>','</header>','<nav aria-label="Vias do parque">','</nav>','<main id="cargas">','</main>','<footer id="saida">','</footer>'],
  goals:[['Usas <header>, <nav>, <main> e <footer>',r=>['header','nav','main','footer'].every(t=>has(r,t))],['Já não há <div> a fazer de topo, menu, principal ou rodapé',r=>!has(r,'div.topo,div.menu,div.principal,div.rodape')],['As placas do <nav> levam a zonas que existem',r=>{const a=all(r,'nav a');return a.length>=2&&a.every(x=>{const h=x.getAttribute('href')||'';return h[0]==='#'&&h.length>1&&!!r.querySelector('#'+CSS.escape(h.slice(1)))})}],['O <nav> tem aria-label',r=>has(r,'nav[aria-label]')]]},
 sel:{id:'n-sel',m:'CSS',step:'Seletores',t:'Quem manda na cor?',diff:3,kind:'Qual será o resultado?',
  story:'Quatro paletes, quatro regras de CSS, e ninguém se entende. Primeiro prevê a cor de P1 e P2. Depois corrige a regra da palete urgente (P3), que devia estar vermelha e não está.',
@@ -625,9 +687,9 @@ sel:{id:'n-sel',m:'CSS',step:'Seletores',t:'Quem manda na cor?',diff:3,kind:'Qua
  hint:'Muda a primeira regra para <code>.palete.urgente { background: crimson; }</code>.',
  quiz:{q:'Antes de mexeres: de que cor ficam as paletes <b>P1</b> e <b>P2</b>?',opts:['P1 azul e P2 laranja','P1 verde e P2 laranja','P1 e P2 verdes','P1 verde e P2 azul'],ok:1,why:'O id <code>#P2</code> é mais específico do que a classe, por isso P2 fica laranja. Entre as duas regras <code>.palete</code> ganha a última: P1 fica verde.'},
  start:SEL('#urgente { background: crimson; }'),sol:SEL('.palete.urgente { background: crimson; }'),blocks:['.palete.urgente { background: crimson; }','.urgente { background: crimson; }','#urgente { background: crimson; }'],
- goals:[['A palete urgente (P3) fica vermelha (crimson)',r=>{const u=all(r,'.palete.urgente');return u.length>0&&u.every(e=>bgOf(e)==='rgb(220, 20, 60)')}],['P1 continua verde e P2 laranja',r=>{const a=r.querySelector('#P1'),b=r.querySelector('#P2');return!!a&&!!b&&bgOf(a)==='rgb(46, 139, 87)'&&bgOf(b)==='rgb(255, 165, 0)'}],['Não usaste style="" no HTML',(r,c)=>noInline(c)]]},
+ goals:[['A palete urgente (P3) fica vermelha (crimson)',r=>{const u=all(r,'.palete.urgente');return u.length>0&&u.every(e=>bgOf(e)==='rgb(220, 20, 60)')}],['P2 continua laranja (a regra do id mantém-se)',r=>{const b=r.querySelector('#P2');return!!b&&bgOf(b)==='rgb(255, 165, 0)'}],['As outras paletes (P1 e P4) continuam com cor, mas não vermelhas',r=>{const o=all(r,'.zona .palete:not(.urgente):not(#P2)');return o.length>0&&o.every(e=>bgSet(e)&&bgOf(e)!=='rgb(220, 20, 60)')}],['Não usaste style="" no HTML',(r,c)=>noInline(c)]]},
 box:{id:'n-box',m:'CSS',step:'Box model',t:'Quanto mede um cais?',diff:3,kind:'Qual será o resultado?',
- story:'O projetista desenhou 5 cais de 120px com padding e moldura amarela e jura que cabem nos 720px da fachada. Mas saem do pátio! Faz as contas e corrige.',
+ story:'No Lote 3, um terreno vazio ao lado do Centro Tejo, o projetista desenhou 5 cais de 120px com padding e moldura amarela e jura que cabem nos 720px da fachada. Mas saem do pátio! Faz as contas e corrige.',
  learn:'Cada elemento é uma caixa: <b>conteúdo</b> + <code>padding</code> (espaço de dentro) + <code>border</code> (moldura) + <code>margin</code> (espaço de fora). Com <code>box-sizing: content-box</code>, o <code>width</code> mede só o conteúdo e o padding e a border somam-se por fora. Com <code>box-sizing: border-box</code>, o <code>width</code> já inclui padding e border.',
  tip:'Muitos sites começam com <code>* { box-sizing: border-box; }</code>: assim, o tamanho que escreves é o tamanho que vês.',
  hint:'Troca <code>box-sizing: content-box</code> por <code>box-sizing: border-box</code>.',
@@ -635,7 +697,7 @@ box:{id:'n-box',m:'CSS',step:'Box model',t:'Quanto mede um cais?',diff:3,kind:'Q
  start:BOX('content-box'),sol:BOX('border-box'),blocks:['box-sizing: border-box;','box-sizing: content-box;','padding: 0 10px;','border: 4px solid gold;'],
  goals:[['Os 5 cais cabem na fachada (720px)',(r,c,it)=>cais(it).length>=5&&cais(it).every(d=>d.x+d.w<=LOT.w+1)],['Cada cais mede 120px no total, já com a moldura',(r,c,it)=>cais(it).length>=5&&cais(it).every(d=>Math.abs(d.w-120)<1.5)],['Os cais continuam encostados à parede',(r,c,it)=>cais(it).length>=5&&cais(it).every(d=>d.y<6)]]},
 wrap:{id:'n-wrap',m:'CSS',step:'Wrap',t:'O parque de espera',diff:4,kind:'Corrige o código',
- story:'Chegaram 10 camiões ao mesmo tempo e a fila sai do pátio. Faz a fila quebrar em várias linhas. E arruma os 3 empilhadores numa coluna encostada à direita, junto às tomadas.',
+ story:'Saímos por um momento para o parque de espera, um lote à parte junto à estrada. Chegaram 10 camiões ao mesmo tempo e a fila sai do lote. Faz a fila quebrar em várias linhas. E arruma os 3 empilhadores numa coluna encostada à direita, junto às tomadas.',
  learn:'No flexbox, <code>flex-wrap: wrap</code> deixa os filhos passarem para a linha seguinte quando não cabem. <code>flex-direction: column</code> põe-nos uns por baixo dos outros. <code>align-items</code> alinha no outro eixo: numa coluna, <code>align-items: flex-end</code> encosta tudo à direita.',
  tip:'<code>justify-content</code> trabalha no eixo principal (o da <code>flex-direction</code>) e <code>align-items</code> no eixo cruzado. Se mudas a direção, os dois trocam de papel.',
  hint:'<code>.espera { display: flex; flex-wrap: wrap; gap: 20px; }</code> e <code>.posto { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; margin-top: 20px; }</code>',
@@ -644,7 +706,7 @@ wrap:{id:'n-wrap',m:'CSS',step:'Wrap',t:'O parque de espera',diff:4,kind:'Corrig
  blocks:['flex-wrap: wrap;','flex-direction: column;','align-items: flex-end;','justify-content: flex-end;'],
  goals:[['Os 10 camiões cabem no pátio (flex-wrap)',(r,c,it)=>{const t=it.filter(i=>i.type==='camiao');return t.length>=10&&t.every(i=>i.x+i.w<=LOT.w+1)}],['Os camiões ficam em 2 filas ou mais',(r,c,it)=>new Set(it.filter(i=>i.type==='camiao').map(i=>Math.round(i.y))).size>=2],['Os empilhadores ficam em coluna (flex-direction)',(r,c,it)=>{const f=it.filter(i=>i.type==='empilhador');return f.length>=3&&new Set(f.map(i=>Math.round(i.x))).size===1&&new Set(f.map(i=>Math.round(i.y))).size>=3}],['A coluna fica encostada à direita (align-items)',(r,c,it)=>{const f=it.filter(i=>i.type==='empilhador');return f.length>=3&&f.every(i=>i.x+i.w>=LOT.w-4)}]]},
 resp:{id:'n-resp',m:'CSS',step:'Responsivo',t:'O pátio no telemóvel',diff:4,kind:'Corrige o código',resp:true,ui:true,
- story:'Os operadores também veem o pátio no telemóvel. Com 3 colunas fixas, num ecrã de 360px os lotes ficam esmagados. Usa mobile first: 1 coluna por defeito e 3 colunas a partir de 600px. Usa os botões 📱 e 💻 para mudar a largura do ecrã.',
+ story:'No Lote 4 vão nascer três armazéns novos, e os operadores acompanham a obra no telemóvel. Com 3 colunas fixas, num ecrã de 360px os lotes ficam esmagados. Usa mobile first: 1 coluna por defeito e 3 colunas a partir de 600px. Usa os botões 📱 e 💻 para mudar a largura do ecrã.',
  learn:'Uma <b>media query</b> aplica CSS só a certos ecrãs: <code>@media (min-width: 600px) { … }</code> só vale a partir de 600px de largura. Em <b>mobile first</b> escreves primeiro o CSS do telemóvel e depois acrescentas regras para ecrãs maiores com <code>min-width</code>. No jogo, o pátio faz de ecrã.',
  tip:'Numa página real, junta sempre <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code> no <code>&lt;head&gt;</code> e <code>img { max-width: 100%; }</code> para as imagens não saírem do ecrã.',
  hint:'Em <code>.lotes</code> põe <code>grid-template-columns: 1fr;</code> e acrescenta no fim: <code>@media (min-width: 600px) { .lotes { grid-template-columns: repeat(3, 1fr); } }</code>',
@@ -719,12 +781,36 @@ Object.assign(O(8),{warn:'<code>display: flex</code> vai no <b>contentor</b> (<c
 Object.assign(O(10),{try:'Muda para <code>repeat(3, 44px)</code>: 8 paletes em 3 colunas deixam 2 sozinhas na última fila.'});
 Object.assign(O(17),{tip:'Numa página real, o <code>&lt;script&gt;</code> fica no fim do <code>&lt;body&gt;</code>, para os elementos já existirem quando o código corre. No navegador, F12 abre a consola.'});
 Object.assign(O(18),{warn:'Se o seletor não encontrar nada, o resultado é <code>null</code> e o <code>appendChild</code> dá erro. Confirma o id na consola.'});
+Object.assign(O(4),{start:A4,sol:A5});Object.assign(O(5),{start:A6,sol:A7});Object.assign(O(6),{start:A7,sol:A8});Object.assign(O(7),{start:P11});
+O(10).story='De volta ao Centro Tejo. '+O(10).story;O(17).story='De volta ao Centro Tejo. '+O(17).story;
+[19,20,22,23].forEach(i=>{O(i).start=O(i).start.replace(R.grid,R.grid8);O(i).sol=O(i).sol.replace(R.grid,R.grid8)});
+N.submit.uiForm=true;
 const L=[O(1),O(2),O(3),N.aviso,O(4),N.ol,O(5),O(6),N.tab,N.form,N.sem,
  O(7),N.sel,O(8),O(9),N.box,O(10),O(11),O(12),O(13),O(14),N.wrap,N.resp,
  O(17),N.contas,N.vagas,O(18),O(21),
  N.getid,N.click,N.toggle,N.submit,
  O(15),O(16),
  O(19),O(20),O(22),O(23),O(24)];
+const KS={'.cais':'cais','.camiao':'camiões','.empilhador':'empilhadores','.armazem':'armazéns','h1':'placas <h1>','h2':'placas <h2>','ul.estante':'estantes','ol':'listas <ol>','table':'tabelas','form':'formulários','p':'avisos <p>','nav':'<nav>','header':'<header>','main':'<main>','footer':'<footer>','.zona':'zonas','.docas':'filas de docas','button':'botões','.lote':'lotes'};
+const parseH=c=>{const t=document.createElement('template');t.innerHTML=htmlPart(c).replace(/<style[\s\S]*?<\/style>/gi,'');return t.content};
+const CONTS={'.cais':'um cais','.docas':'a fila de docas (.docas)','.zona':'uma zona','ul':'uma lista <ul>','ol':'uma lista <ol>','.lote':'um lote','.parque':'o parque','.armazem':'um armazém','header':'o <header>','nav':'o <nav>','main':'o <main>','footer':'o <footer>','form':'o formulário','table':'a tabela','.espera':'a fila de espera','.posto':'o posto','.lotes':'os lotes','.fila':'a fila'};
+const NOMES={'.cais':'O cais','.camiao':'O camião','.empilhador':'O empilhador','.armazem':'O armazém','h1':'A placa <h1>','h2':'A placa <h2>','ul.estante':'A estante','ol':'A lista <ol>','table':'A tabela','form':'O formulário','p':'O aviso <p>','nav':'O <nav>','header':'O <header>','main':'O <main>','footer':'O <footer>','.zona':'A zona','.docas':'A fila de docas','button':'O botão','.lote':'O lote'};
+const CSEL=Object.keys(CONTS).join(',');
+const kindOf=e=>Object.keys(KS).find(k=>e.matches(k));
+const contOf=e=>{const a=e.parentElement&&e.parentElement.closest(CSEL);return a?Object.keys(CONTS).find(k=>a.matches(k)):'raiz'};
+const parMap=f=>{const m={};f.querySelectorAll(Object.keys(KS).join(',')).forEach(e=>{const k=kindOf(e);(m[k]=m[k]||new Set()).add(contOf(e))});return m};
+const where=c=>c==='raiz'?'fora de outros elementos':'dentro de '+CONTS[c];
+function extraIssue(l,c){const f=parseH(c);
+ const bad=f.querySelector('ul > :not(li),ol > :not(li)');if(bad)return'Dentro de <ul> e de <ol> só podem estar itens <li>. Tira o <'+bad.tagName.toLowerCase()+'> de dentro da lista.';
+ for(const k in KS){const n=f.querySelectorAll(k).length,m=l.cap[k];if(n>m)return`Há ${n} ${KS[k]}, mas esta missão só precisa de ${m}. Edita o que já existe em vez de acrescentar outro.`;if(n<m)return`Faltam elementos: esta missão precisa de ${m} ${KS[k]} e só há ${n}.`}
+ for(const e of f.querySelectorAll(Object.keys(KS).join(','))){const k=kindOf(e),p=contOf(e),ok=l.par[k];if(ok&&!ok.has(p))return`${NOMES[k]} está ${where(p)}, mas nesta missão deve ficar ${[...ok].map(where).join(' ou ')}.`}
+ if(f.querySelector('.cais h1,.cais h2,.camiao h1,.camiao h2,.armazem h1'))return'A placa <h1> ficou dentro de um cais ou de um camião. Põe-na fora, no topo.';
+ if(f.querySelector('.cais .cais'))return'Há um cais dentro de outro cais. Fecha o primeiro com </div> antes de abrir o seguinte.';
+ if(f.querySelector('.camiao .camiao,.camiao .cais'))return'Há elementos dentro de um camião. Fecha o camião com </div> logo a seguir à matrícula.';
+ if([...f.querySelectorAll('.cais')].some(d=>d.querySelectorAll('.camiao').length>1))return'Um cais só recebe um camião de cada vez.';
+ if(f.querySelector('.cais > :not(.camiao):not(.camião)'))return'Dentro de um cais só pode estar um camião. Fecha o cais com </div> antes de escrever o elemento seguinte.';
+ return''}
+L.forEach(l=>{const f=parseH(l.sol);l.par=parMap(f);l.cap={};for(const k in KS)l.cap[k]=f.querySelectorAll(k).length;if(!l.capG){l.capG=1;l.goals.push(['Sem elementos repetidos nem fora do sítio',(r,c)=>!extraIssue(l,c)])}});
 L.forEach(l=>{l.pad=/left:\s*600px/.test(l.sol);if(l.quiz&&!l.qg){l.qg=1;l.goals.unshift(['Respondeste a "Qual será o resultado?"',(r,c,it,x)=>x.quiz])}});
 const MODS=[['HTML','HTML','Construir'],['CSS','CSS','Organizar'],['JS','JavaScript','Programar'],['DOM','DOM e eventos','Interagir'],['ZI','Zona industrial','Projeto'],['DES','Desafios extra','Desafiar']];
 
@@ -732,9 +818,19 @@ const MODS=[['HTML','HTML','Construir'],['CSS','CSS','Organizar'],['JS','JavaScr
    ESTADO
    ===================================================================== */
 const KEY='docacode-3d-v3';
-let st={lv:0,done:L.map(()=>false),code:L.map(l=>l.start),times:L.map(()=>''),stars:L.map(()=>0),used:L.map(()=>({h:0,s:0})),quiz:L.map(()=>false),mode:'code',xp:0};
+let st={lv:0,done:L.map(()=>false),code:L.map(l=>l.start),times:L.map(()=>''),stars:L.map(()=>0),used:L.map(()=>({h:0,p:0,s:0})),quiz:L.map(()=>false),score:L.map(()=>0),aluno:null,mode:'code',xp:0};
 try{let s=JSON.parse(localStorage.getItem(KEY)),ids=null;if(s&&s.ids)ids=s.ids;else{s=JSON.parse(localStorage.getItem('docacode-3d-v2'));if(s&&s.code&&s.code.length===24)ids=s.code.map((_,i)=>'o'+(i+1))}
- if(s&&ids){st.mode=s.mode||'code';st.xp=s.xp||0;ids.forEach((id,j)=>{const i=L.findIndex(l=>l.id===id);if(i<0)return;['done','code','times','stars','used','quiz'].forEach(k=>{if(s[k]&&s[k][j]!=null)st[k][i]=s[k][j]})});const li=L.findIndex(l=>l.id===ids[s.lv]);st.lv=li<0?0:li}}catch(e){}
+ if(s&&ids){st.mode=s.mode||'code';st.xp=s.xp||0;ids.forEach((id,j)=>{const i=L.findIndex(l=>l.id===id);if(i<0)return;if(s.aluno)st.aluno=s.aluno;['done','code','times','stars','used','quiz','score'].forEach(k=>{if(s[k]&&s[k][j]!=null)st[k][i]=s[k][j]})});const li=L.findIndex(l=>l.id===ids[s.lv]);st.lv=li<0?0:li;L.forEach((l,i)=>{if(st.done[i]&&!st.score[i])st.score[i]=[0,40,75,100][st.stars[i]]||40})}}catch(e){}
+const PEN={h:.25,p:.5,s:.8};
+const ptsOf=u=>Math.max(0,Math.round(100*(1-(u.h?PEN.h:0)-(u.p?PEN.p:0)-(u.s?PEN.s:0))));
+/* classificação final em 200: níveis HTML/CSS/JS (1–28) valem 5, DOM e Zona industrial (29–34) valem 10;
+   os desafios extra (35–39) valem até 10 cada e só recuperam pontos perdidos com ajudas */
+const EXTRA=i=>L[i].m==='DES';
+const VAL=i=>(L[i].m==='DES'||L[i].m==='DOM'||L[i].m==='ZI')?10:5;
+const fmtP=n=>(Math.round(n*100)/100).toLocaleString('pt-PT');
+const lvPts=i=>VAL(i)*(st.score[i]||0)/100;
+function grade(){let base=0,lost=0,ext=0;L.forEach((l,i)=>{const p=lvPts(i);if(EXTRA(i))ext+=p;else{base+=p;if(st.done[i])lost+=VAL(i)-p}});const rec=Math.min(lost,ext);return{base,lost,ext,rec,total:Math.min(200,base+rec)}}
+const totPts=()=>Math.round(grade().total*100)/100;
 const save=()=>{try{st.ids=L.map(l=>l.id);localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
 const hist=L.map((l,i)=>({a:[st.code[i]],i:0}));
 let ran=false,lines=[];
@@ -742,7 +838,7 @@ let ran=false,lines=[];
 /* =====================================================================
    MOTOR DE LAYOUT (Shadow DOM isolado) + JavaScript do jogador
    ===================================================================== */
-const LOT={x:40,w:720,h:600};
+const LOT={x:40,w:720,h:700};
 const host=$('#layout'),sh=host.attachShadow({mode:'open'});
 sh.innerHTML=`<style>:host{all:initial}
 #patio{position:relative;display:block;width:720px;min-height:${LOT.h}px;font:13px/1.25 Inter,sans-serif;color:#1f2f86}
@@ -755,7 +851,7 @@ sh.innerHTML=`<style>:host{all:initial}
 .zona{padding:8px;min-height:40px}
 .empilhador{width:36px;height:52px;margin:0 0 8px 0}
 .armazem{width:200px;height:120px;font-size:0}
-ul.estante{list-style:none;margin:10px 0 0 auto;padding:0;width:300px;height:54px}
+ul.estante{list-style:none;position:absolute;right:0;top:522px;margin:0;padding:0;width:280px;height:54px}
 ul.estante li{display:none}
 h1,h2{position:absolute;left:0;right:0;top:0;margin:0;font-size:20px;line-height:1;text-align:center;color:#1f2f86}
 p{width:fit-content;max-width:340px;margin:10px 0;padding:6px 10px;background:#ffd84d;border:3px solid #1b1e2b;color:#1b1e2b;font-weight:600;line-height:1.35}
@@ -772,7 +868,18 @@ header,nav,main,footer,section,article,aside{display:block;padding:10px;margin:0
 header,footer{min-height:50px}main{min-height:170px}
 nav{display:flex;gap:24px;min-height:50px;align-items:center}
 nav a{display:inline-block;padding:4px 8px}
-button{font:inherit;padding:6px 12px}</style><div id="patio"></div>`;
+button{font:inherit;padding:6px 12px}
+.aviso{position:absolute;left:440px;top:395px;margin:0}
+ol.carga{position:absolute;left:440px;top:455px;margin:0}
+table.quadro{position:absolute;right:0;top:250px;margin:0}
+form.portaria{position:absolute;left:0;top:470px;margin:0}
+#msg{position:absolute;left:0;top:425px;margin:0}
+.topo,header{position:absolute;left:0;top:415px;width:320px;height:285px;margin:0;padding:8px;min-height:0}
+.menu,nav{position:absolute;left:330px;top:652px;width:390px;height:48px;margin:0;padding:0 10px;display:flex;gap:24px;align-items:center;min-height:0}
+.rodape,footer{position:absolute;left:330px;top:570px;width:150px;height:70px;margin:0;padding:8px;min-height:0}
+.principal,main{padding:0;margin:0;min-height:0}
+.zona{max-width:420px}
+#patio > button{position:absolute;left:490px;top:585px}</style><div id="patio"></div>`;
 const patio=sh.getElementById('patio');
 let vpW=720,docL=[];
 sh.addEventListener('submit',e=>{ctx.submits++;ctx.prevented=e.defaultPrevented;ctx.lastSubmit=performance.now();if(!e.defaultPrevented&&ran){logs.push(['e','O formulário foi enviado e a página ia recarregar! Usa e.preventDefault() no evento submit.']);paintConsole()}e.preventDefault();setTimeout(()=>refresh(),40)});
@@ -849,7 +956,7 @@ if(R3){
  R3.outputEncoding=T.sRGBEncoding;R3.toneMapping=T.ACESFilmicToneMapping;R3.toneMappingExposure=1.0;
  if(T.RoomEnvironment){const pm=new T.PMREMGenerator(R3);window.__env=pm.fromScene(new T.RoomEnvironment(),.04).texture}
  ctr=new T.OrbitControls(cam,cv);ctr.enableDamping=true;ctr.dampingFactor=.08;ctr.screenSpacePanning=true;
- ctr.minPolarAngle=.35;ctr.maxPolarAngle=1.22;ctr.minZoom=.4;ctr.maxZoom=5;ctr.zoomSpeed=1.2;
+ ctr.minPolarAngle=.8;ctr.maxPolarAngle=1.06;ctr.minZoom=.4;ctr.maxZoom=5;ctr.zoomSpeed=1.2;
  ctr.mouseButtons={LEFT:T.MOUSE.PAN,MIDDLE:T.MOUSE.DOLLY,RIGHT:T.MOUSE.ROTATE};
  ctr.touches={ONE:T.TOUCH.PAN,TWO:T.TOUCH.DOLLY_ROTATE};
 }
@@ -1119,6 +1226,53 @@ function buildWorld(){
  const fk=forklift(36,52,'EMP-03',true);world.add(fk);
  const path=[[940,120],[960,170],[1060,170],[1060,120],[960,120]];
  anim.push((t)=>{const n=path.length,T_=14,u=(t/1000%T_)/T_*n,i=Math.floor(u),f=u-i,a=path[i],b=path[(i+1)%n];const x=a[0]+(b[0]-a[0])*f,z=a[1]+(b[1]-a[1])*f;fk.position.set(x,0,z);fk.rotation.y=Math.atan2(b[0]-a[0],b[1]-a[1]);fk.userData.wheels.forEach(w=>w.rotation.x+=.08);fk.userData.carriage.position.y=6+Math.sin(t/600)*4;fk.userData.beacon.visible=Math.floor(t/400)%2===0});
+ // ---------- operários (percursos pedonais livres de objetos) ----------
+ const mWalk=M('#3aa76d',{roughness:.8}),mWalkE=M('#f2f5fb',{roughness:.6});
+ const walkway=(x0,z0,x1,z1)=>{const w=Math.abs(x1-x0)||20,d=Math.abs(z1-z0)||20;const p=plane(world,w,d,mWalk,(x0+x1)/2,.42,(z0+z1)/2,-Math.PI/2);p.receiveShadow=true};
+ // corredor pedonal do pátio (fora do lote do aluno, longe do empilhador e da rota dos camiões)
+ walkway(790,300,1050,300);walkway(790,540,1050,540);walkway(800,290,800,550);walkway(1040,290,1040,550);
+ for(let x=805;x<1040;x+=24)for(const z of [300,540])plane(world,10,16,mWalkE,x,.44,z,-Math.PI/2);
+ // corredor pedonal à esquerda do armazém (duas faixas, uma por sentido)
+ plane(world,60,840,mWalk,-185,.42,230,-Math.PI/2);
+ for(let z=-170;z<640;z+=30)plane(world,2,16,mWalkE,-185,.44,z,-Math.PI/2);
+ function person(vest,o={}){const g=new T.Group();
+  const pants=M('#2b3350',{roughness:.8}),shirt=M(o.shirt||'#3a4a8c',{roughness:.7}),skin=M(o.skin||'#d9a57e',{roughness:.6}),hat=M(o.hat||'#f5c518',{roughness:.35}),ref=M('#eef1f8',{roughness:.3,metalness:.3});
+  const legs=[],arms=[];
+  for(const sx of [-1,1]){const hip=new T.Group();hip.position.set(sx*2.8,19,0);g.add(hip);B(hip,4.2,19,4.6,pants,0,-19,0);B(hip,4.6,2.4,6.6,M('#1c2030'),0,-19,1);legs.push(hip)}
+  B(g,11,15,6.5,shirt,0,18.5,0);B(g,11.6,11,7.1,M(vest,{roughness:.6}),0,21.5,0);B(g,11.8,1.4,7.3,ref,0,24,0);B(g,11.8,1.4,7.3,ref,0,28,0);
+  for(const sx of [-1,1]){const sh=new T.Group();sh.position.set(sx*6.9,32.5,0);g.add(sh);B(sh,3.2,14,3.4,shirt,0,-14,0);B(sh,3,3,3,skin,0,-16.5,0);arms.push(sh)}
+  const hd=new T.Mesh(GS,skin);hd.scale.set(7,8,7);hd.position.y=38;g.add(hd);
+  const hm=new T.Mesh(GS,hat);hm.scale.set(8.4,5.6,8.4);hm.position.y=41.6;g.add(hm);B(g,7,1,3,hat,0,40.2,3.8);
+  g.traverse(m=>{if(m.isMesh)m.castShadow=true});g.userData={legs,arms};return g}
+ const stride=(p,tm,on)=>{const w=on?Math.sin(tm/1000*4.6)*.55:0;const u=p.userData;u.legs[0].rotation.x=w;u.legs[1].rotation.x=-w;u.arms[0].rotation.x=-w*.8;u.arms[1].rotation.x=w*.8};
+ function walker(pts,speed,offs,vest,o={}){const p=person(vest,o);world.add(p);const seg=[];let tot=0;
+  for(let i=0;i<pts.length;i++){const a=pts[i],b=pts[(i+1)%pts.length],l=Math.hypot(b[0]-a[0],b[1]-a[1]);seg.push([a,b,l,tot]);tot+=l}
+  anim.push(tm=>{const d=((tm/1000*speed+offs*tot)%tot+tot)%tot;const s=seg.find(s=>d>=s[3]&&d<s[3]+s[2])||seg[0],f=(d-s[3])/s[2];
+   p.position.set(s[0][0]+(s[1][0]-s[0][0])*f,0,s[0][1]+(s[1][1]-s[0][1])*f);
+   const ty=Math.atan2(s[1][0]-s[0][0],s[1][1]-s[0][1]);let dy=ty-p.rotation.y;dy=Math.atan2(Math.sin(dy),Math.cos(dy));p.rotation.y+=dy*.25;stride(p,tm,true)});return p}
+ // dois operários no corredor do pátio: mesmo sentido e mesma velocidade, por isso nunca se cruzam
+ const yardLoop=[[800,300],[1040,300],[1040,540],[800,540]];
+ walker(yardLoop,30,0,'#f5c518');walker(yardLoop,30,.5,'#ff7a1a',{hat:'#ffffff',shirt:'#2f3b63'});
+ // dois operários à esquerda do armazém: cada um na sua faixa
+ const leftLoop=[[-170,-170],[-170,630],[-200,630],[-200,-170]];
+ walker(leftLoop,28,.1,'#c8f03c',{hat:'#3552e0'});walker(leftLoop,28,.6,'#f5c518',{skin:'#a8714f'});
+ // escada e porta de pessoal ao lado do Cais 1
+ B(world,26,14,16,mConcrete,779,0,8);B(world,26,1,1.6,M('#f2b705'),779,14,16.4,{nc:1});
+ for(let i=0;i<3;i++){B(world,18,14-3.5*(i+1),6,mConcrete,776,0,19+6*i);B(world,18,.8,1.2,M('#f2b705'),776,14-3.5*(i+1),21.6+6*i,{nc:1})}
+ B(world,1.6,28,1.6,M('#f2b705'),766,0,34);B(world,1.6,30,1.6,M('#f2b705'),766,14,6);B(world,1.4,1.4,32,M('#f2b705'),766,32,20,{rx:.45});
+ B(world,21,35,1.2,M('#24349e'),776,14,.7);B(world,16,32,.6,mDark,776,14,1.2);
+ const door=new T.Group();door.position.set(768,14,1.6);world.add(door);B(door,16,32,1.2,M('#e3e8f5',{roughness:.5}),8,0,0);B(door,1.2,2,1.6,mSteel,13.5,15,.8);
+ walkway(766,36,786,226);for(let z=46;z<222;z+=24)plane(world,10,10,mWalkE,776,.44,z,-Math.PI/2);
+ // camionista do Laranjo: desce da cabine, segue pelo corredor e entra no cais pela porta de pessoal
+ const drv=person('#f07a2a',{shirt:'#33415f',hat:'#ffffff'});drv.visible=false;world.add(drv);
+ const KD=[[2,3,[806,11,226],[794,0,226]],[3,4.2,0,[776,0,200]],[4.2,9.6,0,[776,0,36]],[9.6,10.4,0,[776,14,16]],[10.4,10.8,0,[776,14,4]],[10.8,11.3,0,[776,14,-12]],
+  [17,17.5,[776,14,-12],[776,14,4]],[17.5,17.9,0,[776,14,16]],[17.9,18.7,0,[776,0,36]],[18.7,24.1,0,[776,0,200]],[24.1,25.1,0,[794,0,226]],[25.1,26,0,[806,11,226]]];
+ KD.forEach((k,i)=>{if(!k[2])k[2]=KD[i-1][3]});
+ anim.push(tm=>{const t=(tm/1000)%30,open=(t>10.1&&t<11.9)||(t>16.6&&t<17.9);door.rotation.y+=((open?1.45:0)-door.rotation.y)*.12;
+  const k=KD.find(k=>t>=k[0]&&t<k[1]);if(!k){drv.visible=false;return}drv.visible=true;
+  const f=(t-k[0])/(k[1]-k[0]),a=k[2],b=k[3];drv.position.set(a[0]+(b[0]-a[0])*f,a[1]+(b[1]-a[1])*f,a[2]+(b[2]-a[2])*f);
+  const dx=b[0]-a[0],dz=b[2]-a[2];if(Math.abs(dx)+Math.abs(dz)>.1)drv.rotation.y=Math.atan2(dx,dz);stride(drv,tm,true)});
+ window.__drv=drv;
  // parque de camiões
  const pk=[[1300,120,'Serra Verde','#14a38b'],[1300,230,'Atlântica Frio','#2b8be0'],[1300,340,'Nortrans','#e0531f'],[1300,450,'Laranjo','#f07a24']];
  pk.forEach(([x,z,l,c],i)=>{const t=truck(62,240,{label:l,stripe:c,cab:i===2?'#e8ecf6':'#ffffff'});t.position.set(x,0,z);t.rotation.y=-Math.PI/2;world.add(t)});
@@ -1128,12 +1282,23 @@ function buildWorld(){
  fence(WX0-420,1160);fence(1330,1560);
  B(world,40,46,34,M('#ffffff',{roughness:.5}),1360,0,YARD-40);B(world,44,4,38,M('#24349e'),1360,46,YARD-40);B(world,41,14,1,mGlass,1360,24,YARD-22.5);
  const bar=new T.Group();bar.position.set(1170,30,YARD-10);world.add(bar);B(bar,8,30,8,mDark,0,-30,0);const arm=B(bar,140,3,3,M('#e5484d'),70,0,0);for(let i=0;i<4;i++)B(bar,14,3.2,3.2,mWhite,18+i*34,0,0);
- anim.push(t=>{bar.rotation.z=Math.max(0,Math.sin(t/2200))*1.2});
+ plane(world,174,50,new T.MeshStandardMaterial({map:TX.asphalt,roughness:.95}),1245,.3,YARD+24,-Math.PI/2);
+ for(const x of [1200,1290])for(let z=YARD-60;z<YARD+40;z+=26)plane(world,3,12,M('#f7f8fc'),x+45*(x===1200?1:-1)*0,.35,z,-Math.PI/2);
+ const gateTrucks=[];
+ const route=[[2500,YARD+125],[1290,YARD+125],[1290,560],[1200,560],[1200,YARD+125],[-1700,YARD+125]];
+ const segs=[];let tot=0;for(let i=0;i<route.length-1;i++){const a=route[i],b=route[i+1],l=Math.hypot(b[0]-a[0],b[1]-a[1]);segs.push([a,b,l,tot]);tot+=l}
+ [['Atlântica Frio','#2b8be0',0],['Serra Verde','#14a38b',.5]].forEach(([lab,c,ph])=>{const t=truck(60,230,{label:lab,stripe:c});world.add(t);gateTrucks.push(t);
+  anim.push(tm=>{const P_=36000,u=((tm/P_+ph)%1);const dwell=.08;let d;const half=segs[1][3]+segs[1][2]+segs[2][2]*.9;
+   d=u<.5?u/.5*half:u<.5+dwell?half:half+(u-.5-dwell)/(.5-dwell)*(tot-half);
+   const sg=segs.find(q=>d<=q[3]+q[2])||segs[segs.length-1],k=Math.min(1,(d-sg[3])/sg[2]),a=sg[0],b=sg[1];
+   t.position.set(a[0]+(b[0]-a[0])*k,0,a[1]+(b[1]-a[1])*k);t.rotation.y=Math.atan2(b[0]-a[0],b[1]-a[1]);
+   if(u<.5||u>.5+dwell)t.userData.wheels.forEach(w=>w.rotation.x-=.12)})});
+ let barA=0;anim.push(()=>{const near=gateTrucks.some(t=>t.position.x>1120&&t.position.x<1360&&Math.abs(t.position.z-(YARD-10))<170);barA+=((near?1.25:0)-barA)*.06;bar.rotation.z=barA});
  // árvores, candeeiros, pinos
- for(let x=-560;x<1600;x+=95)tree(world,x+(x%2?8:0),YARD+20,.95+((x/95)%3)*.08);
+ for(let x=-560;x<1600;x+=95){if(x>1080&&x<1400)continue;tree(world,x+(x%2?8:0),YARD+20,.95+((x/95)%3)*.08)}
  for(let x=-1400;x<2400;x+=140)tree(world,x,YARD+198,1.0);
  for(let z=-200;z<=600;z+=110)tree(world,-700,z,1.1),tree(world,-620,z+50,.9);
- for(let x=-40;x<1500;x+=260)lamp(world,x,YARD-12,0);
+ for(let x=-40;x<1500;x+=260){if(x>1100&&x<1380)continue;lamp(world,x,YARD-12,0)}
  for(const x of [WX0+20,780])for(const z of [24,60])B(world,7,22,7,mYellow,x,0,z,{g:GC8});
  for(const [x,z,c] of [[-300,220,'#3552e0'],[-256,220,null],[-300,266,null],[-256,266,'#3552e0']])pallet(world,40,40,c,26,'',true).position.set(x,0,z);
  const p1=pin(world,-290,210,36),p2=pin(world,-240,260,36);
@@ -1144,7 +1309,7 @@ function buildWorld(){
  const n3=warehouseModel(440,360,124,{color:'#334155',wall:'#d5dbe3',name:'Armazéns Lusitânia',doors:4});n3.position.set(-1160,0,-110);world.add(n3);
  const n4=warehouseModel(560,340,140,{color:'#24349e',wall:'#dfe6ff',name:'DocaCode · Centro Tejo II',doors:5});n4.position.set(1820,0,-260);world.add(n4);
  plot(world,1880,320,420,300,'Lote 7');plot(world,1180,YARD+390,360,300,'Lote 9');
- for(const [x,z] of [[-520,YARD+172],[-80,YARD+172],[300,YARD+172],[840,YARD+172],[1520,520],[1520,160],[-880,150]])lamp(world,x,z,Math.PI);
+ for(const [x,z] of [[-520,YARD+182],[-80,YARD+182],[300,YARD+182],[840,YARD+182],[1520,520],[1520,160],[-880,150]])lamp(world,x,z,Math.PI);
  [[-900,YARD+780],[-500,YARD+800],[200,YARD+790],[900,YARD+780],[1400,YARD+770],[2100,300],[2200,600],[-1400,-300],[-1500,200]].forEach(([x,z])=>tree(world,x,z,1.2));
  const nt=truck(60,220,{label:'FrioSul',stripe:'#0e7490'});nt.position.set(700,0,YARD+560+120);world.add(nt);
  const nt2=truck(60,220,{label:'Nortrans',stripe:'#b4441c'});nt2.position.set(-120,0,YARD+560+120);world.add(nt2);
@@ -1183,7 +1348,7 @@ function outskirts(){
 
 // posto de carga (nível de position)
 const pad=new T.Group();
-function buildPad(){B(pad,60,1.2,76,M('#22b35a',{roughness:.5}),0,0,0);B(pad,52,1.4,68,M('#16a34a',{roughness:.4}),0,0,0);label(pad,'⚡ Posto de carga',8,0,1.6,46,{fg:'#137a3a',bg:'rgba(255,255,255,.9)',fs:48},'ground');B(pad,10,36,8,M('#2d3350'),24,0,-30);B(pad,6,6,1,mLightG,24,24,-25.5,{nc:1});pad.position.set(LOT.x+600+18,0,500+26);scene.add(pad)}
+function buildPad(){B(pad,60,1.2,76,M('#22b35a',{roughness:.5}),0,0,0);B(pad,52,1.4,68,M('#16a34a',{roughness:.4}),0,0,0);label(pad,'⚡ Posto de carga',8,0,1.6,46,{fg:'#137a3a',bg:'rgba(255,255,255,.9)',fs:48},'ground');B(pad,10,36,8,M('#2d3350'),24,0,-30);B(pad,6,6,1,mLightG,24,24,-25.5,{nc:1});pad.position.set(LOT.x+620+18,0,580+26);scene.add(pad)}
 
 /* ---------- armazém genérico (jogador e vizinhos) ---------- */
 const TXC=new Map();
@@ -1303,7 +1468,7 @@ function draw3D(items){
     if(isNew('H'+txt+it.color+Math.round(it.tx)))spawn(g,'swing');
     break}
    case'aviso':case'tabela':{
-    const tx=domTex(it.e);if(!tx)break;const tb=it.type==='tabela',sc=tb?1.6:1.45,SW=W*sc,SH=H*sc,base=tb?22:26,g=new T.Group();g.position.set(X,0,it.y+H/2);userG.add(g);
+    const tx=domTex(it.e);if(!tx)break;const tb=it.type==='tabela',sc=tb?1.3:1.3,SW=W*sc,SH=H*sc,base=tb?22:26,g=new T.Group();g.position.set(X,0,it.y+H/2);userG.add(g);
     for(const sx of [-1,1])B(g,tb?5:3.5,base+SH*.4,tb?5:3.5,tb?mDark:mSteel,sx*SW*.34,0,-2.5,{g:GC8});
     B(g,SW+(tb?10:5),SH+(tb?10:5),3,M(tb?'#1c2448':'#1b1e2b'),0,base-(tb?5:2.5),-2);
     if(tb)B(g,SW+16,4,10,M('#3552e0'),0,base+SH+5,-2);
@@ -1319,7 +1484,7 @@ function draw3D(items){
     const arm=new T.Group();arm.position.set(-(W/2+34),40,0);g.add(arm);
     for(let i=0;i<8;i++)B(arm,20,4,4,i%2?mWhite:M('#e5484d'),-(i*20+10),-2,0);
     if(ctx.lastSubmit&&now-ctx.lastSubmit<3600)moving.push({o:arm,kind:'boom',t0:ctx.lastSubmit,dur:3600});
-    if(isNew('K'+rk))spawn(g,'rise');break}
+    g.scale.setScalar(.8);if(isNew('K'+rk))spawn(g,'rise');break}
    case'carga':{
     const b=patio.getBoundingClientRect(),lis=all(it.e,'li'),fl=new T.Group();fl.position.set(X-W/2,0,0);userG.add(fl);
     plane(fl,W,H+8,M('#f2b705',{transparent:true,opacity:.16}),W/2,.6,Z,-Math.PI/2);
@@ -1378,7 +1543,7 @@ function fit(maxY){
  if(!R3)return;sizeCam();
  const sr=cv.getBoundingClientRect(),wide=innerWidth>860;
  let L0=sr.left+20,R0=sr.right-20,T0=sr.top+20,B0=sr.bottom-20;
- if(wide){L0=$('#coder').getBoundingClientRect().right+20;T0=$('.kpis').getBoundingClientRect().bottom+20;B0=$('.track').getBoundingClientRect().top-10;const z=$('.zoom');R0=(getComputedStyle(z).display!=='none'?z.getBoundingClientRect().left:sr.right)-16}
+ if(wide){L0=$('#coder').getBoundingClientRect().right+20;T0=$('.top').getBoundingClientRect().bottom+16;B0=$('.track').getBoundingClientRect().top-10;const z=$('.zoom');R0=(getComputedStyle(z).display!=='none'?z.getBoundingClientRect().left:sr.right)-16}
  const yMax=Math.min(LOT.h+30,Math.max(240,(maxY||0)+60));
  const{r,u}=camBasis();
  const pts=[[LOT.x-40,0,0],[LOT.x+LOT.w+80,0,0],[LOT.x+LOT.w+80,0,yMax],[LOT.x-40,0,yMax],[LOT.x-40,WH,0],[LOT.x+LOT.w+80,WH,0]].map(p=>new T.Vector3(...p));
@@ -1399,6 +1564,25 @@ $('#homeB').onclick=()=>fit(lastMaxY);
 $('#rotL').onclick=()=>rotateCam(-.5);$('#rotR').onclick=()=>rotateCam(.5);
 function rotateCam(a){if(!ctr)return;const off=cam.position.clone().sub(ctr.target);off.applyAxisAngle(new T.Vector3(0,1,0),a);cam.position.copy(ctr.target).add(off);cam.lookAt(ctr.target);ctr.update()}
 
+/* ---------- abertura: voo aéreo da zona industrial até ao Centro Tejo (3,5 s) ---------- */
+let INTRO=null;
+function intro(done){
+ const ov=$('#intro');
+ if(!R3||matchMedia('(prefers-reduced-motion: reduce)').matches){ov.hidden=true;done();return}
+ const toT=target.clone(),toZ=cam.zoom;
+ INTRO={t0:performance.now(),dur:window.__introDur||3500,toT,toZ,az1:Math.atan2(DIR.x,DIR.z),po1:Math.acos(DIR.y),fromT:new T.Vector3(toT.x+300,0,toT.z+700),fromZ:Math.max(.12,toZ*.24),stage:0};
+ if(ctr)ctr.enabled=false;document.body.classList.add('intro-on');ov.hidden=false;ov.classList.remove('out');
+ const end=()=>{if(!INTRO)return;INTRO=null;removeEventListener('keydown',end);cam.zoom=toZ;cam.updateProjectionMatrix();target.copy(toT);cam.position.copy(toT).add(DIR.clone().multiplyScalar(3000));cam.lookAt(toT);
+  if(ctr){ctr.enabled=true;ctr.target.copy(toT);ctr.update()}document.body.classList.remove('intro-on');ov.classList.add('out');setTimeout(()=>{ov.hidden=true},450);done()};
+ INTRO.end=end;ov.onclick=end;addEventListener('keydown',end);
+}
+function introStep(now){const I=INTRO,k=window.__introK!=null?window.__introK:Math.min(1,(now-I.t0)/I.dur),e=k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;
+ const az=I.az1+.85*(1-e),po=.3+(I.po1-.3)*e,d=new T.Vector3(Math.sin(po)*Math.sin(az),Math.cos(po),Math.sin(po)*Math.cos(az));
+ const tg=I.fromT.clone().lerp(I.toT,e);cam.position.copy(tg).add(d.multiplyScalar(3000));cam.lookAt(tg);
+ cam.zoom=I.fromZ*Math.pow(I.toZ/I.fromZ,e);cam.updateProjectionMatrix();
+ if(k>.55&&!I.stage){I.stage=1;$('#intro').classList.add('s2')}
+ if(k>=1)I.end()}
+
 /* ---------- ciclo de animação ---------- */
 const ease=t=>1-Math.pow(1-t,3);
 let lastT=performance.now();
@@ -1417,7 +1601,8 @@ function loop(now){
   else if(m.kind==='drive'){m.o.position.lerpVectors(m.from,m.to,ease(k));if(k>0&&k<1&&m.wheels)m.wheels.forEach(w=>w.rotation.x+=(m.rev?.14:-.14)*(1-k))}
  }
  for(const c of [...fx.children]){const d=c.userData;d.t+=dt;c.position.add(d.v);d.v.multiplyScalar(.95);const g=1+d.t/500;c.scale.set(d.s*g,d.s*.7*g,d.s*g);c.material.opacity=Math.max(0,.55*(1-d.t/1400));if(d.t>1400){fx.remove(c);c.material.dispose()}}
- if(ctr){ctr.update();const t=ctr.target,cx=Math.max(-900,Math.min(1900,t.x)),cz=Math.max(-800,Math.min(1500,t.z));if(cx!==t.x||cz!==t.z){const d=new T.Vector3(cx-t.x,0,cz-t.z);t.add(d);cam.position.add(d)}}
+ if(INTRO)introStep(now);
+ else if(ctr){ctr.update();const t=ctr.target,cx=Math.max(-900,Math.min(1900,t.x)),cz=Math.max(-800,Math.min(1500,t.z));if(cx!==t.x||cz!==t.z){const d=new T.Vector3(cx-t.x,0,cz-t.z);t.add(d);cam.position.add(d)}}
  if(R3&&!window.__norender)R3.render(scene,cam);
 }
 
@@ -1473,11 +1658,15 @@ document.querySelectorAll('.modes button').forEach(b=>b.onclick=()=>setMode(b.da
 /* ---------- níveis e progresso ---------- */
 const unlocked=i=>i===0||st.done[i-1]||st.done[i];
 const starsHTML=n=>[0,1,2].map(i=>`<i class="${i<n?'on':''}"></i>`).join('');
+let modSel=null;
 function drawLevels(){
+ const cur=L[st.lv].m,ms=modSel||cur;
+ $('#mods').innerHTML='<div class="modtabs">'+MODS.map(([m,name])=>{const ids=L.map((l,i)=>i).filter(i=>L[i].m===m),dn=ids.filter(i=>st.done[i]).length;return`<button class="mt ${m===ms?'on':''} ${m===cur?'cur':''}" data-mod="${m}">${name} <span>${dn}/${ids.length}</span></button>`}).join('')+'</div>'+MODS.filter(x=>x[0]===ms).map(([m,name,verb])=>{const ids=L.map((l,i)=>i).filter(i=>L[i].m===m);return`<div class="mod" data-m="${m}"><div class="chips">${ids.map(i=>`<button class="lv ${i===st.lv?'on':''} ${st.done[i]?'ok':''}" data-i="${i}" ${unlocked(i)?'':'disabled'} aria-label="Nível ${i+1}: ${esc(L[i].t)}" title="${i+1}. ${esc(L[i].t)}">${i+1}${st.stars[i]?`<b>${'★'.repeat(st.stars[i])}</b>`:''}</button>`).join('')}</div></div>`}).join('');
+ return;
  $('#mods').innerHTML=MODS.map(([m,name,verb])=>{const ids=L.map((l,i)=>i).filter(i=>L[i].m===m),dn=ids.filter(i=>st.done[i]).length;return`<div class="mod" data-m="${m}"><small>${name}<span>${dn}/${ids.length}</span></small><div class="chips">${ids.map(i=>`<button class="lv ${i===st.lv?'on':''} ${st.done[i]?'ok':''}" data-i="${i}" ${unlocked(i)?'':'disabled'} aria-label="Nível ${i+1}: ${esc(L[i].t)}" title="${i+1}. ${esc(L[i].t)}">${i+1}${st.stars[i]?`<b>${'★'.repeat(st.stars[i])}</b>`:''}</button>`).join('')}</div></div>`}).join('');
 }
-$('#mods').addEventListener('click',e=>{const b=e.target.closest('.lv');if(b&&!b.disabled)go(+b.dataset.i)});
-function go(i){
+$('#mods').addEventListener('click',e=>{const t=e.target.closest('.mt');if(t){modSel=t.dataset.mod;drawLevels();return}const b=e.target.closest('.lv');if(b&&!b.disabled){modSel=null;go(+b.dataset.i)}});
+function go(i){if(typeof disarm==='function')disarm();
  st.lv=i;const l=L[i];save();ran=false;prevK=new Set();
  $('#lvlTag').textContent=`Nível ${i+1} de ${L.length}`;
  $('#mTitle').textContent=l.t;$('#mStory').textContent=l.story;
@@ -1485,7 +1674,7 @@ function go(i){
  $('#mLearn').innerHTML=l.learn+bx('tip','💡','Boa prática',l.tip)+bx('warn','⚠️','Atenção: erro frequente',l.warn)+bx('try','🧪','Experimenta tu',l.try);
  $('#mDiff').innerHTML='Dificuldade '+[1,2,3,4,5].map(n=>`<i class="${n<=l.diff?'on':''}"></i>`).join('')+(l.kind?`<span class="kind">${l.kind}</span>`:'');
  vpW=l.resp?360:720;ctlSig='';drawQuiz();
- $('#mHint').hidden=true;$('#mHint').innerHTML=l.hint;$('#mLearnD').open=!st.done[i];
+ $('#mHint').hidden=true;$('#mHint').innerHTML='';armed='';drawPts();$('#mLearnD').open=!st.done[i];
  $('#runB').textContent=l.js?'Executar ▸':'Construir ▸';
  $('#con').hidden=!l.js;logs=[];paintConsole();
  pad.visible=!!l.pad;
@@ -1494,8 +1683,25 @@ function go(i){
 }
 function execute(){if(L[st.lv].js){ran=true;update(true)}else{update(false);fit(lastMaxY)}}
 $('#runB').onclick=execute;
-$('#hintB').onclick=()=>{const h=$('#mHint');h.hidden=!h.hidden;if(!h.hidden&&!st.done[st.lv]){st.used[st.lv].h=1;save()}};
-$('#solB').onclick=()=>{if(!st.done[st.lv]){st.used[st.lv].s=1}loadCode(L[st.lv].sol);toast('Solução carregada. Lê-a com calma e experimenta mudá-la!')};
+let armed='';
+const ARMB={h:'#hintB',p:'#solP',s:'#solF'},ARML={h:'Confirmar dica <small>−25%</small>',p:'Confirmar: ver parte da solução <b>−50%</b>',s:'Confirmar: ver a solução completa <b>−80%</b>'};
+function disarm(){document.querySelectorAll('.armed').forEach(b=>{b.innerHTML=b.dataset.lbl;b.classList.remove('armed')});armed=''}
+function arm(id,msg){if(armed===id){disarm();return true}disarm();armed=id;toast(msg);const b=$(ARMB[id]);b.dataset.lbl=b.innerHTML;b.innerHTML=ARML[id];b.classList.add('armed');setTimeout(()=>{if(armed===id)disarm()},5000);return false}
+function showHelp(){const h=$('#mHint');h.hidden=false;h.classList.remove('flash');void h.offsetWidth;h.classList.add('flash');requestAnimationFrame(()=>h.scrollIntoView({block:'start',behavior:'smooth'}))}
+function useHelp(k){const i=st.lv;if(st.done[i]||st.used[i][k])return;st.used[i][k]=1;save();drawPts()}
+$('#hintB').onclick=()=>{const i=st.lv,h=$('#mHint');if(!st.done[i]&&!st.used[i].h&&!arm('h','A dica tira 25% dos pontos deste desafio. Carrega outra vez em Dica para a ver.'))return;h.innerHTML='<b>💡 Dica</b> '+L[i].hint;showHelp();useHelp('h')};
+$('#solB').onclick=e=>{e.stopPropagation();$('#solM').hidden=!$('#solM').hidden};
+document.addEventListener('click',e=>{if(!e.target.closest('#solM'))$('#solM').hidden=true});
+$('#solP').onclick=()=>{const i=st.lv;if(!st.done[i]&&!st.used[i].p&&!arm('p','Ver parte da solução tira 50% dos pontos. Carrega outra vez para confirmar.'))return;
+ const have=new Set(st.code[i].split('\n').map(x=>x.trim())),miss=L[i].sol.split('\n').filter(x=>x.trim()&&!have.has(x.trim()));
+ const part=miss.slice(0,Math.max(1,Math.ceil(miss.length/2)));
+ const h=$('#mHint');h.innerHTML='<b>🧩 Parte da solução</b> '+(miss.length?`Faltam ${miss.length} linha${miss.length>1?'s':''} em relação à solução. Aqui tens ${part.length===miss.length?'todas':'as primeiras '+part.length}:`+'<pre class="solpart">'+esc(part.join('\n'))+'</pre>':'O teu código já tem todas as linhas da solução: verifica a ordem e onde abre e fecha cada elemento.');useHelp('p');$('#solM').hidden=true;showHelp()};
+$('#solF').onclick=()=>{const i=st.lv;if(!st.done[i]&&!st.used[i].s&&!arm('s','Ver a solução completa tira 80% dos pontos, mas deixa-te avançar. Carrega outra vez para confirmar.'))return;
+ useHelp('s');$('#solM').hidden=true;loadCode(L[i].sol);
+ if(L[i].quiz&&!st.quiz[i]){st.quiz[i]=true;drawQuiz()}
+ if(!st.done[i]){win();refresh()}
+ toast('Solução carregada. Lê-a com calma; podes avançar para o nível seguinte.')};
+
 $('#resetB').onclick=()=>loadCode(L[st.lv].start);
 function paintConsole(){const c=$('#con');if(c.hidden)return;c.innerHTML=logs.length?logs.slice(-60).map(([t,m])=>`<div class="${t}">${t==='e'?'✖ ':'› '}${esc(m)}</div>`).join(''):`<span class="m">${ran?'Código executado sem mensagens.':'A consola mostra o resultado de console.log e os erros.'}</span>`;c.scrollTop=c.scrollHeight}
 
@@ -1519,21 +1725,70 @@ function refresh(refit){
  const s=$('#status');s.className='status';
  const n=items.filter(i=>i.type!=='area').length,out=items.some(i=>i.x+i.w>LOT.w+2||i.y+i.h>LOT.h+2);
  if(!balanced(code)){s.className='status warn';s.textContent='Atenção: o número de <div> e </div> não bate certo. Falta fechar algum?'}
+ else if(extraIssue(l,code)){s.className='status warn';s.textContent=extraIssue(l,code)}
  else if(out){s.className='status warn';s.textContent='Há elementos fora do pátio de construção.'}
  else if(l.js&&!ran)s.textContent='Carrega em Executar (ou Ctrl+Enter) para correr o JavaScript.';
  else if(logs.some(x=>x[0]==='e')){s.className='status err';s.textContent='O JavaScript deu erro. Vê a consola.'}
+ else if(!res.every(Boolean)&&!(l.js&&!ran)){const k=res.findIndex(x=>!x);s.className='status warn';s.textContent='Ainda falta: '+l.goals[k][0]}
  else s.textContent=`Pré-visualização ao vivo · ${n} objeto${n===1?'':'s'} no pátio`;
  if(ok&&!st.done[st.lv])win();
- $('#done').hidden=!ok;
- if(ok){const last=st.lv===L.length-1;$('#doneT').textContent=last?'Jogo concluído!':`Nível ${st.lv+1} concluído`;$('#doneS').innerHTML=`<span class="stars">${starsHTML(st.stars[st.lv])}</span> <small>${st.stars[st.lv]===3?'Perfeito, sem ajudas.':'Repete sem dicas nem solução para ganhar 3 estrelas.'}</small>`;$('#nextB').hidden=last}
+ const ok2=ok||(st.done[st.lv]&&st.used[st.lv].s);$('#done').hidden=!ok2;
+ if(ok2){const last=st.lv===L.length-1;$('#doneT').textContent=last?'Jogo concluído!':`Nível ${st.lv+1} concluído`;$('#doneS').innerHTML=`<span class="stars">${starsHTML(st.stars[st.lv])}</span> <small>${fmtP(lvPts(st.lv))} de ${VAL(st.lv)} pontos${EXTRA(st.lv)?' para recuperar':''} · ${st.stars[st.lv]===3?'perfeito, sem ajudas.':'repete sem ajudas para teres a pontuação toda.'}</small>`;$('#nextB').hidden=last}
  panels(items,ok);drawCtl();
 }
 function win(){
- const i=st.lv,u=st.used[i],stars=u.s?1:u.h?2:3,xp=stars*40+L[i].diff*20;
- st.done[i]=true;st.stars[i]=Math.max(st.stars[i],stars);st.xp+=xp;st.times[i]=clock();save();drawLevels();
+ const i=st.lv,u=st.used[i],stars=u.s?0:u.p?1:u.h?2:3,xp=ptsOf(u),first=!st.done[i];
+ st.done[i]=true;st.stars[i]=Math.max(st.stars[i],stars);st.score[i]=Math.max(st.score[i],xp);if(first||!st.times[i])st.times[i]=new Date().toLocaleString('pt-PT',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});st.xp=totPts();save();drawLevels();drawPts();
  ['#k1','#k2','#k3'].forEach((k,j)=>setTimeout(()=>{$(k).classList.add('pulse');setTimeout(()=>$(k).classList.remove('pulse'),700)},j*150));
- toast(`Nível ${i+1} concluído · +${xp} XP`);
+ toast(`Nível ${i+1} concluído · ${fmtP(VAL(i)*xp/100)} de ${VAL(i)} pontos${EXTRA(i)?' (recuperação)':''} · total ${fmtP(totPts())}/200`);
 }
+function drawPts(){const i=st.lv,u=st.used[i],p=ptsOf(u),b=$('#mPts');if(!b)return;
+ const tags=[u.h?'dica −25%':'',u.p?'parte da solução −50%':'',u.s?'solução −80%':''].filter(Boolean);
+ const ex=EXTRA(i)?' · desafio extra: recupera pontos perdidos':'';
+ b.innerHTML=st.done[i]?`✓ Concluído com <b>${fmtP(lvPts(i))} de ${VAL(i)} pontos</b>${tags.length?' · '+tags.join(' · '):''}${ex}`:`Vale <b>${fmtP(VAL(i)*p/100)} de ${VAL(i)} pontos</b>${tags.length?' · ajudas usadas: '+tags.join(' · '):' · sem ajudas'}${ex}`;
+ $('#hintB').innerHTML='Dica <small>−25%</small>';$('#whoN').textContent=st.aluno&&st.aluno.nome?st.aluno.nome:'Identifica-te';
+ const un=$('#userN');if(un)un.textContent=st.aluno&&st.aluno.nome?st.aluno.nome.split(' ')[0]:'Jogador';}
+/* ---------- identificação do aluno ---------- */
+function openId(){const m=$('#idm'),a=st.aluno||{};$('#idN').value=a.nome||'';$('#idT').value=a.turma||'';$('#idNum').value=a.num||'';m.hidden=false;setTimeout(()=>$('#idN').focus(),50)}
+$('#idf').addEventListener('submit',e=>{e.preventDefault();const nome=$('#idN').value.trim();if(!nome){$('#idN').focus();return}st.aluno={nome,turma:$('#idT').value.trim(),num:$('#idNum').value.trim()};save();$('#idm').hidden=true;drawPts();toast('Olá, '+nome.split(' ')[0]+'! Bom trabalho.')});
+$('#whoB').onclick=openId;$('#userB').onclick=openId;
+/* ---------- folha de validação (PDF) ---------- */
+function pdfEnc(t){let o='';for(const ch of String(t)){let c=ch.charCodeAt(0);const map={8211:150,8212:151,8216:145,8217:146,8220:147,8221:148,8226:149,8230:133,8364:128,8722:45};if(map[c])c=map[c];else if(c>255)c=63;if(c===40||c===41||c===92)o+='\\'+ch;else if(c<32||c>126)o+='\\'+c.toString(8).padStart(3,'0');else o+=String.fromCharCode(c)}return o}
+function pdfBuild(pages){const W=595.28,H=841.89;let objs=['<< /Type /Catalog /Pages 2 0 R >>',null,'<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>','<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>'];const kids=[];
+ for(const pg of pages){const c=pg.join('\n');objs.push(`<< /Length ${c.length} >>\nstream\n${c}\nendstream`);const ci=objs.length;objs.push(`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${W} ${H}] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents ${ci} 0 R >>`);kids.push(objs.length)}
+ objs[1]=`<< /Type /Pages /Kids [${kids.map(k=>k+' 0 R').join(' ')}] /Count ${kids.length} >>`;
+ let out='%PDF-1.4\n',offs=[];objs.forEach((o,k)=>{offs.push(out.length);out+=`${k+1} 0 obj\n${o}\nendobj\n`});const x=out.length;
+ out+=`xref\n0 ${objs.length+1}\n0000000000 65535 f \n`+offs.map(n=>String(n).padStart(10,'0')+' 00000 n \n').join('')+`trailer\n<< /Size ${objs.length+1} /Root 1 0 R >>\nstartxref\n${x}\n%%EOF`;return out}
+function reportPDF(){const H=841.89,pages=[];let pg,y;const a=st.aluno||{};
+ const T=(x,yy,t,sz=9,b=0,col='0.1 0.13 0.25')=>pg.push(`BT /${b?'F2':'F1'} ${sz} Tf ${col} rg ${x.toFixed(1)} ${(H-yy).toFixed(1)} Td (${pdfEnc(t)}) Tj ET`);
+ const Rf=(x,yy,w,h,col)=>pg.push(`${col} rg ${x} ${(H-yy-h).toFixed(1)} ${w} ${h} re f`);
+ const fit=(t,n)=>t.length>n?t.slice(0,n-1)+'…':t;
+ const MN=Object.fromEntries(MODS.map(m=>[m[0],m[1]]));
+ const cols=[[40,'Nº'],[62,'Módulo'],[128,'Desafio'],[318,'Estado'],[370,'Pontos'],[410,'Dica'],[440,'Parte sol.'],[488,'Solução'],[525,'Concluído']];
+ const head=()=>{Rf(40,y,515,16,'0.21 0.32 0.88');cols.forEach(([x,t])=>T(x+2,y+11,t,8,1,'1 1 1'));y+=18};
+ const newPage=()=>{pg=[];pages.push(pg);y=40};
+ newPage();
+ Rf(0,0,595.28,70,'0.21 0.32 0.88');T(40,32,'DocaCode · Folha de validação dos desafios',17,1,'1 1 1');T(40,52,'HTML, CSS e JavaScript · baseada na sebenta «Criação de Páginas Web»',9,0,'0.87 0.9 1');
+ y=92;T(40,y,'Aluno: '+(a.nome||'(sem nome)'),11,1);T(330,y,'Turma: '+(a.turma||'—'),11,0);T(450,y,'Nº: '+(a.num||'—'),11,0);
+ y+=16;const now=new Date();T(40,y,'Emitida em '+now.toLocaleString('pt-PT'),9,0,'0.4 0.43 0.55');
+ const dn=st.done.filter(Boolean).length,hs=st.used.filter(u=>u.h).length,ps=st.used.filter(u=>u.p).length,ss=st.used.filter(u=>u.s).length,tot=totPts(),G=grade();
+ y+=22;Rf(40,y,515,46,'0.95 0.96 1');
+ [['Classificação final',fmtP(tot)+' / 200'],['Desafios concluídos',dn+' / '+L.length],['Pontos 1–34',fmtP(G.base)],['Recuperados (extra)','+'+fmtP(G.rec)],['Dicas usadas',String(hs)],['Soluções parte/total',ps+' / '+ss]].forEach(([k,v],j)=>{T(48+j*86,y+16,k,7.5,0,'0.4 0.43 0.55');T(48+j*86,y+34,v,12,1)});
+ y+=62;T(40,y,'Regras: níveis 1–28 valem 5 pontos (140) e níveis 29–34 valem 10 (60), num total de 200. Dica −25% · parte da solução −50% ·',8,0,'0.4 0.43 0.55');y+=11;T(40,y,'solução completa −80% do valor do nível. Os desafios extra (35–39) valem até 10 pontos cada e só recuperam pontos perdidos, até 200.',8,0,'0.4 0.43 0.55');y+=14;
+ head();
+ L.forEach((l,i)=>{if(y>800){newPage();head()}const u=st.used[i],d=st.done[i];if(i%2)Rf(40,y-2,515,15,'0.97 0.975 0.99');
+  T(42,y+9,String(i+1),8.5,1);T(64,y+9,fit(MN[l.m]||l.m,12),8);T(130,y+9,fit(l.t,34),8.5);
+  T(320,y+9,d?'Concluído':'Por fazer',8,d?1:0,d?'0.07 0.48 0.23':'0.55 0.57 0.66');T(372,y+9,d?(EXTRA(i)?'+':'')+fmtP(lvPts(i))+'/'+VAL(i):'—',8.5,1);
+  T(414,y+9,u.h?'Sim':'—',8);T(450,y+9,u.p?'Sim':'—',8);T(494,y+9,u.s?'Sim':'—',8);T(527,y+9,d?(st.times[i]||'').slice(0,17):'',7);y+=15});
+ let hsh=0;const sig=JSON.stringify([a.nome,st.score,st.used.map(u=>[u.h,u.p,u.s])]);for(const c of sig)hsh=(hsh*31+c.charCodeAt(0))>>>0;
+ y+=18;if(y>790){newPage()}T(40,y,'Código de verificação: '+hsh.toString(36).toUpperCase(),8,1,'0.4 0.43 0.55');T(330,y,'Assinatura do professor: ______________________',8,0,'0.4 0.43 0.55');
+ return pdfBuild(pages)}
+let DLNS=null;try{if(window.claude&&typeof window.claude.use==='function')window.claude.use('downloads').then(n=>{DLNS=n}).catch(()=>{})}catch(e){}
+$('#pdfB').onclick=()=>{if(!st.aluno||!st.aluno.nome){openId();toast('Primeiro escreve o teu nome para a folha de validação.');return}
+ const bytes=Uint8Array.from(reportPDF(),c=>c.charCodeAt(0)&255),name='DocaCode_validacao_'+st.aluno.nome.replace(/[^\wÀ-ÿ]+/g,'_')+'.pdf';
+ const viaLink=()=>{const b=new Blob([bytes],{type:'application/pdf'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),20000);toast('Folha de validação descarregada (PDF).')};
+ if(DLNS){DLNS.save({filename:name,data:bytes}).then(()=>toast('Folha de validação guardada (PDF).')).catch(e=>{const c=e&&e.code;if(c==='declined')toast('Download cancelado.');else if(c==='rate_limited')toast('Já há um pedido de download aberto. Tenta daqui a pouco.');else if(c==='host_unavailable')toast('Esta app não guarda ficheiros: abre o jogo num browser para descarregar o PDF.');else viaLink()})}
+ else viaLink()};
 function drawQuiz(){const l=L[st.lv],q=l.quiz,b=$('#mQuiz');if(!q){b.hidden=true;b.innerHTML='';return}b.hidden=false;const dn=st.quiz[st.lv];
  b.innerHTML=`<b>🤔 Qual será o resultado?</b><div class="qq">${q.q}</div><div class="opts">${q.opts.map((o,j)=>`<button data-j="${j}" class="${dn&&j===q.ok?'right':''}" ${dn?'disabled':''}>${esc(o)}</button>`).join('')}</div>${dn?`<p class="why">✓ ${q.why}</p>`:'<p class="why m" id="qMsg">Escolhe uma resposta antes de mexer no código.</p>'}`}
 function answer(j,b){const q=L[st.lv].quiz;if(!q)return;if(j===q.ok){st.quiz[st.lv]=true;save();drawQuiz();refresh()}else{if(b)b.classList.add('bad');const m=$('#qMsg');if(m)m.textContent='Ainda não. Lê outra vez a caixa "Aprende" e tenta de novo.'}}
@@ -1546,7 +1801,7 @@ let ctlSig='',ctlEls=[];
 function drawCtl(){
  const l=L[st.lv],box=$('#ctl');
  if(!l.ui){box.hidden=true;ctlSig='';return}
- const els=[...patio.querySelectorAll('button,input,select,textarea')],sig=st.lv+'|'+vpW+'|'+els.map(e=>e.outerHTML).join('');
+ const els=[...patio.querySelectorAll('button,input,select,textarea')].filter(e=>l.uiForm||!e.closest('form')),sig=st.lv+'|'+vpW+'|'+els.map(e=>e.outerHTML).join('');
  box.hidden=false;if(sig===ctlSig)return;ctlSig=sig;ctlEls=els;
  const lab=e=>{if(e.id){const q=[...patio.querySelectorAll('label')].find(x=>x.htmlFor===e.id);if(q)return q.textContent.trim()}return e.name||''};
  let h='';
@@ -1570,25 +1825,42 @@ let tab='trucks';
 const INV=[['Painel LED 60×60',1712,'g','Em stock',0],['Cadeira de escritório',174,'g','Em stock',1],['Caixa de cartão (M)',993,'a','Stock baixo',0],['Luvas de nitrilo',5118,'g','Em stock',2]];
 const icoBox='<svg width="24" height="22" viewBox="0 0 24 22"><path d="M12 1l10 5v10l-10 5-10-5V6z" fill="#dba66a"/><path d="M12 1l10 5-10 5L2 6z" fill="#ecc08a"/><path d="M12 11v10" stroke="#c48e52"/></svg>';
 const icoBlue='<svg width="24" height="22" viewBox="0 0 24 22"><path d="M12 1l10 5v10l-10 5-10-5V6z" fill="#3552e0"/><path d="M12 1l10 5-10 5L2 6z" fill="#6f88f5"/></svg>';
-const RANKS=[[0,'Estagiário de operações'],[300,'Operador de cais'],[800,'Chefe de turno'],[1500,'Gestor de armazém'],[2400,'Diretor logístico']];
-function panels(items,ok){
+const RANKS=[[0,'Estagiário de operações'],[40,'Operador de cais'],[90,'Chefe de turno'],[140,'Gestor de armazém'],[180,'Diretor logístico']];
+/* ---------- simulação: os números dos painéis vão mudando ---------- */
+const SIM={stock:0,out:21,put:35,load:4,unl:1,inv:[0,0,0,0],emp:[68,42,23],otd:0};
+function setH(id,h){const e=$('#'+id);if(!e||e.innerHTML===h)return;e.innerHTML=h;e.classList.remove('chg');void e.offsetWidth;e.classList.add('chg')}
+function liveNums(items){
  const trucks=items.filter(i=>i.type==='camiao'),pals=items.filter(i=>i.type==='palete'),docks=items.filter(i=>i.type==='cais');
  const wallD=docks.filter(d=>d.y<6),busy=wallD.filter(d=>d.e.querySelector('.camiao,.camião'));
- const doneN=st.done.filter(Boolean).length,stock=3310+pals.length*12;
- $('#kStock').textContent=fmt(stock);$('#kStockD').textContent='↑ +'+(35+pals.length*12);
+ const doneN=st.done.filter(Boolean).length,stock=3310+pals.length*12+SIM.stock;
+ setH('kStock',fmt(stock));setH('kStockD','↑ +'+(35+pals.length*12+Math.max(0,SIM.put-35)));
  $('#kTrucks').textContent=2+trucks.length;$('#kTrucksD').textContent='↑ +'+trucks.length;
  const waiting=trucks.filter(t=>!t.e.closest('.cais')).length+(trucks.length?0:1);
  $('#kTrucksS').textContent=`${waiting} em espera · AR-02`;
- $('#kOtd').textContent=(92.4+doneN*.3).toFixed(1)+'%';$('#kOtdD').textContent='↑ +'+(doneN*.3).toFixed(1)+'%';
+ const otd=92.4+doneN*.3+SIM.otd;setH('kOtd',otd.toFixed(1)+'%');setH('kOtdD',(otd>=92.4?'↑ +':'↓ ')+(otd-92.4).toFixed(1)+'%');
  const tot=2+wallD.length,occ=2+busy.length;
- $('#whSub').textContent=`${Math.min(99,Math.round(stock/42))}% cheio · ${occ}/${tot} cais ocupados`;
- $('#opsTxt').textContent=`${occ} em cais · ${waiting} em espera · ${pals.length} paletes no pátio`;
- $('#sStock').innerHTML=`${fmt(stock)} <small>/ 4 200</small>`;$('#sStockB').style.width=Math.min(100,stock/42)+'%';
- $('#sBays').innerHTML=`${occ} <small>/ ${tot} ocupados</small>`;$('#sBaysB').style.width=(occ/tot*100)+'%';
- $('#sPut').innerHTML=`${35+pals.length} <small>paletes</small>`;
- $('#inv').innerHTML=INV.map(([n,q,c,t,ic],i)=>`<div><span>${ic===2?icoBlue:icoBox}</span><span>${n}</span><span class="q">${fmt(q+(i===1?pals.length*6:0))}</span><span class="pill ${c}">${t}</span></div>`).join('');
- const rk=RANKS.filter(r=>st.xp>=r[0]).pop(),nx=RANKS.find(r=>r[0]>st.xp);
- $('#rank').textContent=rk[1];$('#xpT').textContent=st.xp+' XP';$('#xpB').style.width=(nx?Math.round((st.xp-rk[0])/(nx[0]-rk[0])*100):100)+'%';
+ setH('whSub',`${Math.min(99,Math.round(stock/42))}% cheio · ${occ}/${tot} cais ocupados`);
+ setH('opsTxt',`${occ} em cais · ${waiting} em espera · ${pals.length} paletes no pátio`);
+ setH('sStock',`${fmt(stock)} <small>/ 4 200</small>`);$('#sStockB').style.width=Math.min(100,stock/42)+'%';
+ setH('sBays',`${occ} <small>/ ${tot} ocupados</small>`);$('#sBaysB').style.width=(occ/tot*100)+'%';
+ setH('sOut',`${SIM.out} <small>camiões</small>`);
+ setH('sPut',`${SIM.put+pals.length} <small>paletes</small>`);
+ $('#inv').innerHTML=INV.map(([n,q0,c,t,ic],i)=>{const q=q0+SIM.inv[i]+(i===1?pals.length*6:0),low=q<[900,120,1000,2500][i];return`<div><span>${ic===2?icoBlue:icoBox}</span><span>${n}</span><span class="q">${fmt(q)}</span><span class="pill ${low?'a':'g'}">${low?'Stock baixo':'Em stock'}</span></div>`}).join('');
+ $('#empB').style.width=SIM.emp[0]+'%';
+ drawTable();
+}
+function simTick(){const r=Math.random;
+ if(r()<.55){SIM.load++;SIM.stock--;SIM.inv[r()*4|0]-=1+(r()*6|0);if(SIM.load>=7){SIM.load=0;SIM.out++;SIM.otd=Math.min(.6,SIM.otd+.05)}}
+ if(r()<.45){SIM.unl++;SIM.stock++;SIM.put++;SIM.inv[r()*4|0]+=2+(r()*8|0);if(SIM.unl>5)SIM.unl=1}
+ SIM.emp[0]=Math.max(6,Math.round(SIM.load/7*100));SIM.emp[1]=Math.max(10,Math.min(95,SIM.emp[1]+Math.round(r()*16-7)));SIM.emp[2]=SIM.emp[2]>=100?20:SIM.emp[2]+3;
+ if(r()<.15)SIM.otd=Math.max(-.4,SIM.otd-.05);
+ liveNums(lastItems)}
+function panels(items,ok){
+ const trucks=items.filter(i=>i.type==='camiao'),pals=items.filter(i=>i.type==='palete'),docks=items.filter(i=>i.type==='cais');
+ const wallD=docks.filter(d=>d.y<6),busy=wallD.filter(d=>d.e.querySelector('.camiao,.camião'));
+ liveNums(items);const tot=2+docks.filter(d=>d.y<6).length;
+ st.xp=totPts();const rk=RANKS.filter(r=>st.xp>=r[0]).pop(),nx=RANKS.find(r=>r[0]>st.xp);
+ st.xp=totPts();$('#rank').textContent=rk[1];$('#xpT').textContent=fmtP(st.xp)+' / 200';$('#xpB').style.width=(nx?Math.round((st.xp-rk[0])/(nx[0]-rk[0])*100):100)+'%';
  $('#starT').textContent='★ '+st.stars.reduce((a,b)=>a+b,0)+'/'+L.length*3;
  $('#tD').textContent=tot;$('#tT').textContent=2+trucks.length;
  drawTable();
@@ -1601,14 +1873,14 @@ function panels(items,ok){
 }
 $('#tl').addEventListener('click',e=>{const b=e.target.closest('.step');if(b&&!b.disabled)go(+b.dataset.i)});
 function drawTable(){
- const items=lastItems,q=$('#q').value.trim().toLowerCase();
+ const items=lastItems,q='';
  const docks=items.filter(i=>i.type==='cais').sort((a,b)=>a.x-b.x);
  let rows=[];
  const F=r=>!q||r.join(' ').toLowerCase().includes(q);
  if(tab==='trucks'){
-  rows=[['TRK-2104','Laranjo','#f07a2a','AR-02 · Cais 1','b','A carregar','4/7']];
+  rows=[['TRK-2104','Laranjo','#f07a2a','AR-02 · Cais 1','b',SIM.load?'A carregar':'A sair',SIM.load+'/7']];
   for(const t of items.filter(i=>i.type==='camiao')){const d=t.e.closest('.cais'),dk=d?docks.find(x=>x.e===d):null,lab=t.e.textContent.trim()||'Sem matrícula';
-   rows.push([lab,'Atlântica Frio','#3552e0',dk?`AR-02 · ${ownText(dk.e)||'Cais '+dk.num}`:'Fila de espera',dk&&dk.y<6?'g':'a',dk&&dk.y<6?'A descarregar':'Em espera','1/5'])}
+   rows.push([lab,'Atlântica Frio','#3552e0',dk?`AR-02 · ${ownText(dk.e)||'Cais '+dk.num}`:'Fila de espera',dk&&dk.y<6?'g':'a',dk&&dk.y<6?'A descarregar':'Em espera',dk&&dk.y<6?SIM.unl+'/5':'—'])}
   rows.push(['TRK-2658','Serra Verde','#14a38b','Parque P2','n','Estacionado','—']);
   $('#tbl').innerHTML=rows.filter(F).map(r=>`<tr><td><b>${esc(r[0])}</b><small>${r[1]}</small></td><td><span class="dotc" style="background:${r[2]}"></span>${esc(r[3])}</td><td><span class="pill ${r[4]}">${r[5]}</span></td><td class="r"><small>${r[6]}</small></td></tr>`).join('');
  }else if(tab==='docks'){
@@ -1616,24 +1888,26 @@ function drawTable(){
   for(const d of docks){const t=d.e.querySelector('.camiao,.camião');rows.push([ownText(d.e)||'Cais '+d.num,d.y<6?'Na fachada':'Longe da parede',d.y<6?(t?'r':'g'):'a',d.y<6?(t?'Ocupado':'Livre'):'Inacessível',t?t.textContent.trim()||'Camião':'—'])}
   $('#tbl').innerHTML=rows.filter(F).map(r=>`<tr><td><b>${esc(r[0])}</b><small>${r[1]}</small></td><td><span class="pill ${r[2]}">${r[3]}</span></td><td class="r">${esc(r[4])}</td></tr>`).join('');
  }else{
-  rows=[['EMP-01','A carregar TRK-2104 · Cais 1','b','A trabalhar',68],['EMP-03','Cais 2 · paletes azuis','b','A trabalhar',42],['EMP-04','Posto de carga','n','A carregar bateria',23]].concat(items.filter(i=>i.type==='empilhador').map(i=>[i.e.id||'Sem id','Pátio de construção','g','Ativo',90]));
+  rows=[['EMP-01','A carregar TRK-2104 · Cais 1','b','A trabalhar',SIM.emp[0]],['EMP-03','Cais 2 · paletes azuis','b','A trabalhar',SIM.emp[1]],['EMP-04','Posto de carga',SIM.emp[2]>=95?'g':'n',SIM.emp[2]>=95?'Disponível':'A carregar bateria',SIM.emp[2]]].concat(items.filter(i=>i.type==='empilhador').map(i=>[i.e.id||'Sem id','Pátio de construção','g','Ativo',90]));
   $('#tbl').innerHTML=rows.filter(F).map(r=>`<tr><td><b>${esc(r[0])}</b><small>${esc(r[1])}</small></td><td><span class="pill ${r[2]}">${r[3]}</span></td><td class="r"><div class="bar g" style="width:60px;display:inline-block"><i style="width:${r[4]}%"></i></div></td></tr>`).join('');
  }
  if(!$('#tbl').innerHTML)$('#tbl').innerHTML='<tr><td><small>Nada encontrado.</small></td></tr>';
 }
 $('#tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;tab=b.dataset.t;document.querySelectorAll('#tabs button').forEach(x=>x.classList.toggle('on',x===b));drawTable()});
-$('#q').addEventListener('input',drawTable);
-document.addEventListener('keydown',e=>{if(e.key==='/'&&document.activeElement!==ta&&document.activeElement!==$('#q')){e.preventDefault();$('#q').focus()}if(e.key==='Escape')$('#win').hidden=true});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')$('#win').hidden=true});
 const tick=()=>{$('#clock').textContent=clock()};tick();setInterval(tick,20000);
+if(!window.__norender)setInterval(()=>{if(!document.hidden)simTick()},3200);
 
 /* ---------- arranque ---------- */
 function start(){
  if(window.__env)envM.forEach(m=>{m.envMap=window.__env;m.needsUpdate=true});
  sizeCam();buildWorld();outskirts();buildPad();
  go(Math.min(st.lv,L.length-1));
+ if(!window.__norender&&(!window.__pdb||window.__intro))intro(()=>openId());else $('#intro').hidden=true;
  requestAnimationFrame(loop);
  const ro=new ResizeObserver(()=>{sizeCam();fit(lastMaxY)});ro.observe(cv);
- window.__dc={domTex,L,go,loadCode,execute,refresh,answer,press,fill:fillIn,vp:w=>{vpW=w;update(false,true)},st:()=>st,ctx:()=>ctx,goals:()=>[...document.querySelectorAll('#goals li')].map(li=>li.className==='ok'?1:0)};
+ window.__view={cam,ctr};
+ window.__dc={reportPDF,useHelp,keys:()=>({KS:Object.keys(KS),CONTS:Object.keys(CONTS)}),issue:c=>extraIssue(L[st.lv],c),domTex,L,go,loadCode,execute,refresh,answer,press,fill:fillIn,vp:w=>{vpW=w;update(false,true)},st:()=>st,ctx:()=>ctx,goals:()=>[...document.querySelectorAll('#goals li')].map(li=>li.className==='ok'?1:0)};
 }
 (document.fonts&&document.fonts.ready?Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,1500))]):Promise.resolve()).then(start);
 }
