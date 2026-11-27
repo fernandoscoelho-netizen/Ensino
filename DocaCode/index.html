@@ -282,6 +282,12 @@ td.r{text-align:right}
 .intro .skip{position:absolute;right:20px;bottom:20px;height:38px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.6);background:rgba(255,255,255,.18);color:#fff;font-weight:700;cursor:pointer;backdrop-filter:blur(6px)}
 .top,.coder,.side,.fleet,.track,.zoom,.help{transition:opacity .5s}
 body.intro-on .top,body.intro-on .coder,body.intro-on .side,body.intro-on .fleet,body.intro-on .track,body.intro-on .zoom,body.intro-on .help,body.intro-on .ctl{opacity:0;pointer-events:none}
+.lockn{margin:6px 0 2px;font-size:12px;font-weight:600;color:#7a5200;background:#fff4d6;border:1px solid #f1d58a;border-radius:9px;padding:6px 9px}
+.mstart{margin:6px 0 0!important;font-size:12px;color:#3a4366;background:#eef2fd;border-radius:9px;padding:6px 9px}
+.mstart b{color:var(--blue)}
+.locked textarea,.locked #hl{opacity:.85}
+.blocks.locked .pal{display:none}.blocks.locked .ln{cursor:default}.blocks.locked .ln .x{display:none}
+button:disabled{opacity:.45;cursor:not-allowed}
 </style>
 </head>
 <body>
@@ -312,7 +318,7 @@ body.intro-on .top,body.intro-on .coder,body.intro-on .side,body.intro-on .fleet
   <div class="mods" id="mods"></div>
  </div>
  <div class="cbody" id="cbody">
-  <div class="mission"><div class="diff" id="mDiff"></div><h2 id="mTitle"></h2><div class="pts" id="mPts"></div><p id="mStory"></p></div>
+  <div class="mission"><div class="diff" id="mDiff"></div><h2 id="mTitle"></h2><div class="pts" id="mPts"></div><div class="lockn" id="lockN" hidden>🔒 Desafio concluído e bloqueado: podes consultar o teu código, mas já não o podes alterar nem repetir.</div><p id="mStory"></p><p class="mstart" id="mStart" hidden></p></div>
   <div class="quiz" id="mQuiz" hidden></div>
   <details class="learn" id="mLearnD" open><summary>Aprende</summary><div id="mLearn"></div></details>
   <div class="learn hint" id="mHint" hidden></div>
@@ -508,7 +514,7 @@ const L0=[
  sol:S7,blocks:['<div class="zona">','<div class="palete"></div>','</div>','<style>','.palete { background: royalblue; }','</style>'],
  goals:[['Existe uma zona (class="zona")',r=>has(r,'.zona')],['Há pelo menos 3 paletes dentro da zona',r=>all(r,'.zona .palete').length>=3],['As paletes têm cor definida em CSS',r=>{const p=all(r,'.zona .palete');return p.length&&p.every(bgSet)}]]},
 {m:'CSS',step:'Flexbox',t:'Cais lado a lado',diff:3,
- story:'Chegou o TRK-2152 e abriste outro cais, mas ficou atrás do primeiro, longe da parede: o camião não consegue descarregar. Põe os cais lado a lado, encostados à fachada.',
+ story:'As paletes da zona voltam a ser as três paletes azuis do nível 12. Chegou o TRK-2152 e abriste outro cais, mas ficou atrás do primeiro, longe da parede: o camião não consegue descarregar. Põe os cais lado a lado, encostados à fachada.',
  learn:'Os <code>&lt;div&gt;</code> empilham-se uns por baixo dos outros. Com <code>display: flex</code> num contentor, os filhos ficam <b>lado a lado</b>; <code>gap</code> é o espaço entre eles. Ex.: <code>.docas { display: flex; gap: 20px; }</code>',
  hint:'Envolve os dois cais num <code>&lt;div class="docas"&gt;</code> e no &lt;style&gt; acrescenta <code>.docas { display: flex; gap: 20px; }</code>',
  start:PAGE(CAIS1+CAIS2,zona(3),[R.pal]),sol:S8,
@@ -580,7 +586,7 @@ const L0=[
  blocks:['<script>',"const novo = document.createElement('div');","novo.className = 'camiao';","novo.textContent = 'TRK-2160';","document.querySelector('#livre').appendChild(novo);",SC],
  goals:[['O código usa createElement e appendChild',(r,c)=>/createElement/.test(jsPart(c))&&/appendChild|append\(/.test(jsPart(c))],['O TRK-2160 está no cais "livre"',(r,c,it,x)=>x.ran&&!!r.querySelector('#livre .camiao')&&/2160/.test(r.querySelector('#livre').textContent)&&!/2160/.test(htmlPart(c))]]},
 {m:'JS',step:'Ciclos',t:'Descarregar 8 paletes de uma vez',diff:3,js:true,
- story:'Um camião trouxe mais 8 paletes. Criá-las uma a uma é lento: usa um ciclo for para as criar todas na zona.',
+ story:'De volta ao Centro Tejo. Um camião trouxe mais 8 paletes. Criá-las uma a uma é lento: usa um ciclo for para as criar todas na zona.',
  learn:'Um ciclo repete código. <code>for (let i = 0; i &lt; 8; i++) { ... }</code> corre 8 vezes: <code>i</code> começa em 0 e sobe 1 de cada vez até 8. Usa <code>console.log(i)</code> para ver o valor na consola.',
  hint:'Dentro do for: cria a palete, <code>p.className = \'palete\'</code> e <code>zona.appendChild(p)</code>.',
  start:JB()+scr("  const zona = document.querySelector('.zona');\n  // Cria 8 paletes com um ciclo for\n\n"),sol:JB()+scr(J3),
@@ -792,6 +798,7 @@ const L=[O(1),O(2),O(3),N.aviso,O(4),N.ol,O(5),O(6),N.tab,N.form,N.sem,
  O(15),O(16),
  O(19),O(20),O(22),O(23),O(24)];
 const KS={'.cais':'cais','.camiao':'camiões','.empilhador':'empilhadores','.armazem':'armazéns','h1':'placas <h1>','h2':'placas <h2>','ul.estante':'estantes','ol':'listas <ol>','table':'tabelas','form':'formulários','p':'avisos <p>','nav':'<nav>','header':'<header>','main':'<main>','footer':'<footer>','.zona':'zonas','.docas':'filas de docas','button':'botões','.lote':'lotes'};
+const HAS=[['.cais','cais','cais'],['.camiao,.camião','camião','camiões'],['.palete','palete','paletes'],['.empilhador','empilhador','empilhadores'],['.armazem','armazém','armazéns'],['h1','placa','placas'],['p','aviso','avisos'],['ul.estante','estante','estantes'],['ol','lista de carga','listas de carga'],['table','quadro','quadros'],['form','quiosque','quiosques'],['nav','placa de direção (nav)','placas de direção (nav)'],['button','botão','botões'],['.lote','lote','lotes']];
 const parseH=c=>{const t=document.createElement('template');t.innerHTML=htmlPart(c).replace(/<style[\s\S]*?<\/style>/gi,'');return t.content};
 const CONTS={'.cais':'um cais','.docas':'a fila de docas (.docas)','.zona':'uma zona','ul':'uma lista <ul>','ol':'uma lista <ol>','.lote':'um lote','.parque':'o parque','.armazem':'um armazém','header':'o <header>','nav':'o <nav>','main':'o <main>','footer':'o <footer>','form':'o formulário','table':'a tabela','.espera':'a fila de espera','.posto':'o posto','.lotes':'os lotes','.fila':'a fila'};
 const NOMES={'.cais':'O cais','.camiao':'O camião','.empilhador':'O empilhador','.armazem':'O armazém','h1':'A placa <h1>','h2':'A placa <h2>','ul.estante':'A estante','ol':'A lista <ol>','table':'A tabela','form':'O formulário','p':'O aviso <p>','nav':'O <nav>','header':'O <header>','main':'O <main>','footer':'O <footer>','.zona':'A zona','.docas':'A fila de docas','button':'O botão','.lote':'O lote'};
@@ -1625,20 +1632,21 @@ ta.addEventListener('keydown',e=>{
 });
 let tmr=0,htmr=0;
 function setCode(v,fromBlocks){
+ if(isLocked()){ta.value=st.code[st.lv];paintEditor();if(fromBlocks){lines=toLines(st.code[st.lv]);drawWS()}lockMsg();return}
  st.code[st.lv]=v;ran=false;if(fromBlocks)ta.value=v;paintEditor();
  clearTimeout(tmr);tmr=setTimeout(()=>update(false),200);
  clearTimeout(htmr);htmr=setTimeout(()=>{const h=hist[st.lv];if(h.a[h.i]!==v){h.a=h.a.slice(0,h.i+1);h.a.push(v);h.i++}save()},600);
 }
 $('#undoB').onclick=()=>{const h=hist[st.lv];if(h.i>0){h.i--;loadCode(h.a[h.i])}};
 $('#redoB').onclick=()=>{const h=hist[st.lv];if(h.i<h.a.length-1){h.i++;loadCode(h.a[h.i])}};
-function loadCode(v){st.code[st.lv]=v;ta.value=v;paintEditor();if(st.mode==='blocks'){lines=toLines(v);drawWS()}ran=false;update(false);save()}
+function loadCode(v){if(isLocked()){lockMsg();return}st.code[st.lv]=v;ta.value=v;paintEditor();if(st.mode==='blocks'){lines=toLines(v);drawWS()}ran=false;update(false);save()}
 
 const pal=$('#pal'),ws=$('#ws');
 const toLines=c=>c.split('\n').map(s=>s.trim()).filter(Boolean);
 function indent(ls){let d=0;return ls.map(l=>{if(/^<\//.test(l)||/^[}\])]/.test(l))d=Math.max(0,d-1);const o='  '.repeat(d)+l;if((/^<([a-z][\w-]*)\b[^>]*>$/i.test(l)&&!/<\//.test(l)&&!/^<(br|img|hr|input)\b/i.test(l))||/[{[(]\s*$/.test(l))d++;return o})}
 function drawPal(){pal.innerHTML='<small>Arrasta um bloco para o código, ou toca nele para o juntar no fim.</small>'+L[st.lv].blocks.map(b=>`<button class="blk" draggable="true" data-code="${esc(b)}">${highlight(b)}</button>`).join('')}
 function drawWS(){ws.innerHTML=lines.length?indent(lines).map((l,i)=>`<div class="ln" draggable="true" data-i="${i}"><code>${highlight(l)}</code><button class="x" data-i="${i}" aria-label="Remover linha">×</button></div>`).join(''):'<p class="empty">Arrasta blocos para aqui</p>'}
-const commitLines=()=>{drawWS();setCode(indent(lines).join('\n')+'\n',true)};
+const commitLines=()=>{if(isLocked()){lines=toLines(st.code[st.lv]);drawWS();lockMsg();return}drawWS();setCode(indent(lines).join('\n')+'\n',true)};
 let drag=null;
 const idxAt=y=>{const ls=[...ws.querySelectorAll('.ln')];for(let i=0;i<ls.length;i++){const r=ls[i].getBoundingClientRect();if(y<r.top+r.height/2)return i}return ls.length};
 const clearMark=()=>{ws.querySelectorAll('.mark').forEach(e=>e.classList.remove('mark'));ws.classList.remove('mark-end')};
@@ -1666,7 +1674,15 @@ function drawLevels(){
  $('#mods').innerHTML=MODS.map(([m,name,verb])=>{const ids=L.map((l,i)=>i).filter(i=>L[i].m===m),dn=ids.filter(i=>st.done[i]).length;return`<div class="mod" data-m="${m}"><small>${name}<span>${dn}/${ids.length}</span></small><div class="chips">${ids.map(i=>`<button class="lv ${i===st.lv?'on':''} ${st.done[i]?'ok':''}" data-i="${i}" ${unlocked(i)?'':'disabled'} aria-label="Nível ${i+1}: ${esc(L[i].t)}" title="${i+1}. ${esc(L[i].t)}">${i+1}${st.stars[i]?`<b>${'★'.repeat(st.stars[i])}</b>`:''}</button>`).join('')}</div></div>`}).join('');
 }
 $('#mods').addEventListener('click',e=>{const t=e.target.closest('.mt');if(t){modSel=t.dataset.mod;drawLevels();return}const b=e.target.closest('.lv');if(b&&!b.disabled){modSel=null;go(+b.dataset.i)}});
-function go(i){if(typeof disarm==='function')disarm();
+/* um desafio concluído fica bloqueado: pode ser consultado, mas não alterado nem repetido */
+const isLocked=()=>!!st.done[st.lv];
+let lmT=0;function lockMsg(){const n=performance.now();if(n-lmT<2500)return;lmT=n;toast('🔒 Este desafio já foi concluído e está bloqueado. Só podes consultar o teu código.')}
+function applyLock(){const lk=isLocked();ta.readOnly=lk;$('#codeMode').classList.toggle('locked',lk);$('#blockMode').classList.toggle('locked',lk);
+ ['#resetB','#hintB','#solB','#undoB','#redoB'].forEach(q=>{const b=$(q);if(b)b.disabled=lk});$('#solM').hidden=true;$('#lockN').hidden=!lk;if(lk)$('#mStart').hidden=true}
+function startSummary(l){const f=parseH(l.start),out=[];
+ for(const[q,a,b]of HAS){const n=f.querySelectorAll(q).length;if(n)out.push(n+' '+(n>1?b:a))}
+ return out}
+function go(i){if(!unlocked(i))return;if(typeof disarm==='function')disarm();
  st.lv=i;const l=L[i];save();ran=false;prevK=new Set();
  $('#lvlTag').textContent=`Nível ${i+1} de ${L.length}`;
  $('#mTitle').textContent=l.t;$('#mStory').textContent=l.story;
@@ -1679,7 +1695,8 @@ function go(i){if(typeof disarm==='function')disarm();
  $('#con').hidden=!l.js;logs=[];paintConsole();
  pad.visible=!!l.pad;
  ta.value=st.code[i];paintEditor();setMode(st.mode);drawLevels();
- update(false,true);$('#cbody').scrollTop=0;
+ update(false,true);$('#cbody').scrollTop=0;applyLock();
+ const ss=startSummary(l);$('#mStart').hidden=!ss.length||isLocked();$('#mStart').innerHTML=ss.length?'<b>Ponto de partida no pátio</b> (é isto que o botão Repor repõe): '+esc(ss.join(', '))+'.':'';
 }
 function execute(){if(L[st.lv].js){ran=true;update(true)}else{update(false);fit(lastMaxY)}}
 $('#runB').onclick=execute;
@@ -1702,7 +1719,7 @@ $('#solF').onclick=()=>{const i=st.lv;if(!st.done[i]&&!st.used[i].s&&!arm('s','V
  if(!st.done[i]){win();refresh()}
  toast('Solução carregada. Lê-a com calma; podes avançar para o nível seguinte.')};
 
-$('#resetB').onclick=()=>loadCode(L[st.lv].start);
+$('#resetB').onclick=()=>{if(isLocked()){lockMsg();return}loadCode(L[st.lv].start);$('#mHint').hidden=true;toast('Código reposto no ponto de partida deste desafio. As ajudas já usadas continuam a contar.')};
 function paintConsole(){const c=$('#con');if(c.hidden)return;c.innerHTML=logs.length?logs.slice(-60).map(([t,m])=>`<div class="${t}">${t==='e'?'✖ ':'› '}${esc(m)}</div>`).join(''):`<span class="m">${ran?'Código executado sem mensagens.':'A consola mostra o resultado de console.log e os erros.'}</span>`;c.scrollTop=c.scrollHeight}
 
 function update(exec,refit){
@@ -1740,6 +1757,7 @@ function win(){
  const i=st.lv,u=st.used[i],stars=u.s?0:u.p?1:u.h?2:3,xp=ptsOf(u),first=!st.done[i];
  st.done[i]=true;st.stars[i]=Math.max(st.stars[i],stars);st.score[i]=Math.max(st.score[i],xp);if(first||!st.times[i])st.times[i]=new Date().toLocaleString('pt-PT',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});st.xp=totPts();save();drawLevels();drawPts();
  ['#k1','#k2','#k3'].forEach((k,j)=>setTimeout(()=>{$(k).classList.add('pulse');setTimeout(()=>$(k).classList.remove('pulse'),700)},j*150));
+applyLock();
  toast(`Nível ${i+1} concluído · ${fmtP(VAL(i)*xp/100)} de ${VAL(i)} pontos${EXTRA(i)?' (recuperação)':''} · total ${fmtP(totPts())}/200`);
 }
 function drawPts(){const i=st.lv,u=st.used[i],p=ptsOf(u),b=$('#mPts');if(!b)return;
@@ -1905,12 +1923,12 @@ if(!window.__norender)setInterval(()=>{if(!document.hidden)simTick()},3200);
 function start(){
  if(window.__env)envM.forEach(m=>{m.envMap=window.__env;m.needsUpdate=true});
  sizeCam();buildWorld();outskirts();buildPad();
- go(Math.min(st.lv,L.length-1));
+ {let k=Math.min(st.lv||0,L.length-1);if(!unlocked(k))k=Math.max(0,st.done.findIndex(d=>!d));go(k)}
  if(!window.__norender&&(!window.__pdb||window.__intro))intro(()=>openId());else $('#intro').hidden=true;
  requestAnimationFrame(loop);
  const ro=new ResizeObserver(()=>{sizeCam();fit(lastMaxY)});ro.observe(cv);
  window.__view={cam,ctr};
- window.__dc={reportPDF,useHelp,keys:()=>({KS:Object.keys(KS),CONTS:Object.keys(CONTS)}),issue:c=>extraIssue(L[st.lv],c),domTex,L,go,loadCode,execute,refresh,answer,press,fill:fillIn,vp:w=>{vpW=w;update(false,true)},st:()=>st,ctx:()=>ctx,goals:()=>[...document.querySelectorAll('#goals li')].map(li=>li.className==='ok'?1:0)};
+ window.__dc={grade,totPts,unlocked,isLocked,items:()=>lastItems.map(i=>i.type+(i.e.id?'#'+i.e.id:'')+(['camiao','cais','palete'].includes(i.type)?'['+(i.e.childNodes[0]&&i.e.childNodes[0].nodeType===3?i.e.childNodes[0].textContent.trim():'')+']':'')),reportPDF,useHelp,keys:()=>({KS:Object.keys(KS),CONTS:Object.keys(CONTS)}),issue:c=>extraIssue(L[st.lv],c),domTex,L,go,loadCode,execute,refresh,answer,press,fill:fillIn,vp:w=>{vpW=w;update(false,true)},st:()=>st,ctx:()=>ctx,goals:()=>[...document.querySelectorAll('#goals li')].map(li=>li.className==='ok'?1:0)};
 }
 (document.fonts&&document.fonts.ready?Promise.race([document.fonts.ready,new Promise(r=>setTimeout(r,1500))]):Promise.resolve()).then(start);
 }
