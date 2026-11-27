@@ -1,5 +1,5 @@
 {
-  "gerado": "2026-11-26T21:24:29+00:00",
+  "gerado": "2026-11-27T17:00:29+00:00",
   "pastas": [
     {
       "pasta": "CTE-Online-AERT3",
@@ -158,6 +158,25 @@
       "paginas": [
         "Codigo_em_Jogo_v2/Codigo_em_Jogo_EVIDENCIAS_v2.html",
         "Codigo_em_Jogo_v2/Codigo_em_Jogo_v2.html"
+      ]
+    },
+    {
+      "pasta": "DocaCode",
+      "ficheiros": [
+        {
+          "nome": "LEIA-ME.md",
+          "caminho": "DocaCode/LEIA-ME.md",
+          "tamanho": 626
+        },
+        {
+          "nome": "index.html",
+          "caminho": "DocaCode/index.html",
+          "tamanho": 133486
+        }
+      ],
+      "principal": "DocaCode/index.html",
+      "paginas": [
+        "DocaCode/index.html"
       ]
     },
     {
