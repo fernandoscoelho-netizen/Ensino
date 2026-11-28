@@ -18,4 +18,9 @@ Jogo educativo em 3D (three.js) para aprender **HTML, CSS e JavaScript** numa zo
 
 Abrir: `index.html`
 
+## Materiais
+
+- **Caderno de missões do aluno** (`DocaCode_Enunciado_Aluno.pdf`, 27 páginas A4): como jogar, ecrã do jogo com legenda, regras e pontuação, um cartão por desafio (missão, «Aprende», boas práticas, erros frequentes, objetivos e espaço para registo), tabela «O meu percurso» e cábula de uma página. Não tem dicas nem soluções.
+- **Manual do professor** (modo de exploração, planificação, avaliação e as soluções comentadas dos 39 desafios): distribuído à parte e não publicado neste repositório, porque contém as soluções e o código do professor.
+
 Limitação conhecida: o progresso fica guardado no navegador (localStorage). Um aluno que apague os dados do navegador recomeça do zero, e quem souber editar o localStorage pode alterá-lo. O código de verificação da folha PDF ajuda a detetar alterações, mas não é uma assinatura segura.

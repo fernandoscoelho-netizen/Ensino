@@ -636,9 +636,9 @@ const L0=[
  goals:[['O código usa filter',(r,c)=>/\.filter\s*\(/.test(jsPart(c))],['Há 3 paletes pesadas: Monitores, Servidores e Secretárias',(r,c,it,x)=>{const p=ofText(r,'.palete.pesada');return x.ran&&p.length===3&&['Monitores','Servidores','Secretárias'].every(n=>p.includes(n))}],['A placa diz quantas são (3)',(r,c,it,x)=>x.ran&&all(r,'h1').some(h=>/\b3\b/.test(h.textContent))]]},
 {m:'JS',step:'Tempo',t:'Descargas cronometradas',diff:5,js:true,
  story:'O tapete rolante descarrega uma palete a cada meio segundo. Simula-o: usa setInterval para criar 6 paletes, uma de cada vez, e para o relógio com clearInterval.',
- learn:'<code>setInterval(função, 500)</code> corre a função a cada 500 milissegundos e devolve um número que identifica o relógio. <code>clearInterval(relogio)</code> pára-o. Sem o parar, o tapete nunca desliga!',
+ learn:'<code>setInterval(função, 500)</code> corre a função a cada 500 milissegundos e devolve um número que identifica o relógio. <code>clearInterval(relogio)</code> para-o. Sem o parar, o tapete nunca desliga!',
  hint:'Guarda o relógio: <code>const relogio = setInterval(() =&gt; { ... }, 500);</code>. Lá dentro cria a palete, soma 1 a um contador e, quando chegar a 6, chama <code>clearInterval(relogio)</code>.',
- start:JB()+scr("  const zona = document.querySelector('.zona');\n  let chegadas = 0;\n  // Cria uma palete a cada 500 ms e pára ao fim de 6\n\n"),sol:JB()+scr(J7),
+ start:JB()+scr("  const zona = document.querySelector('.zona');\n  let chegadas = 0;\n  // Cria uma palete a cada 500 ms e para ao fim de 6\n\n"),sol:JB()+scr(J7),
  blocks:['<script>',"const zona = document.querySelector('.zona');",'let chegadas = 0;','const relogio = setInterval(() => {',"const p = document.createElement('div');","p.className = 'palete';",'zona.appendChild(p);','chegadas++;','if (chegadas === 6) {','clearInterval(relogio);','}','}, 500);',SC],
  goals:[['O código usa setInterval',(r,c)=>/setInterval\s*\(/.test(jsPart(c))],['Chegaram 6 paletes novas, uma de cada vez',(r,c,it,x)=>x.ran&&x.added>=6&&x.mutations>=6],['O tapete parou nas 6 (clearInterval)',(r,c,it,x)=>x.ran&&/clearInterval/.test(jsPart(c))&&x.added===6&&x.quiet]]},
 {m:'JS',step:'Desafio',t:'Desafio final: o plano do turno',diff:5,js:true,
@@ -1780,7 +1780,7 @@ function refresh(refit){
  else s.textContent=`Pré-visualização ao vivo · ${n} objeto${n===1?'':'s'} no pátio`;
  if(ok&&!st.done[st.lv])win();
  const ok2=ok||(st.done[st.lv]&&st.used[st.lv].s);$('#done').hidden=!ok2;
- if(ok2){const last=st.lv===L.length-1;$('#doneT').textContent=last?'Jogo concluído!':`Nível ${st.lv+1} concluído`;$('#doneS').innerHTML=`<span class="stars">${starsHTML(st.stars[st.lv])}</span> <small>${fmtP(lvPts(st.lv))} de ${VAL(st.lv)} pontos${EXTRA(st.lv)?' para recuperar':''} · ${st.stars[st.lv]===3?'perfeito, sem ajudas.':'repete sem ajudas para teres a pontuação toda.'}</small>`;$('#nextB').hidden=last}
+ if(ok2){const last=st.lv===L.length-1;$('#doneT').textContent=last?'Jogo concluído!':`Nível ${st.lv+1} concluído`;$('#doneS').innerHTML=`<span class="stars">${starsHTML(st.stars[st.lv])}</span> <small>${fmtP(lvPts(st.lv))} de ${VAL(st.lv)} pontos${EXTRA(st.lv)?' para recuperar':''} · ${st.stars[st.lv]===3?'perfeito, sem ajudas.':'usaste ajudas. Nos próximos, tenta primeiro sem elas.'}</small>`;$('#nextB').hidden=last}
  panels(items,ok);drawCtl();
 }
 function win(){
