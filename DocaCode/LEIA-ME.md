@@ -10,6 +10,7 @@ Jogo educativo em 3D (three.js) para aprender **HTML, CSS e JavaScript** numa zo
 - Classificação final em **200 pontos**: níveis 1–28 valem 5 pontos (140) e níveis 29–34 valem 10 (60). Dica −25%, parte da solução −50%, solução completa −80% do valor do nível. Os desafios extra (35–39) valem até 10 pontos cada e só recuperam pontos perdidos com ajudas, até 200.
 - Validação rigorosa: elementos repetidos, ordem errada, elementos fora do contentor certo ou HTML inválido não dão o desafio como concluído, e o aluno vê qual é o objetivo que falta.
 - Desafios concluídos ficam bloqueados (só consulta) e não é possível saltar para níveis ainda fechados. Cada nível mostra o «ponto de partida no pátio», que é o que o botão Repor repõe.
+- Ficha do jogador (cartão no topo): alterar identificação, descarregar a folha de validação e «Recomeçar tudo» (apaga a classificação; pede o código do professor).
 - Folha de validação em PDF, numa só página A4, com a classificação, os pontos por nível, as ajudas usadas e um código de verificação.
 - Cenário vivo: camiões a entrar e sair pelo portão, operários em corredores pedonais, camionista a entrar no cais, painéis com números a mudar.
 - Estrelas e patentes; o progresso fica guardado no navegador.
