@@ -1,5 +1,5 @@
 {
-  "gerado": "2026-11-27T21:25:39+00:00",
+  "gerado": "2026-11-28T12:13:19+00:00",
   "pastas": [
     {
       "pasta": "CTE-Online-AERT3",
@@ -166,12 +166,12 @@
         {
           "nome": "LEIA-ME.md",
           "caminho": "DocaCode/LEIA-ME.md",
-          "tamanho": 2629
+          "tamanho": 2805
         },
         {
           "nome": "index.html",
           "caminho": "DocaCode/index.html",
-          "tamanho": 227498
+          "tamanho": 233376
         }
       ],
       "principal": "DocaCode/index.html",
