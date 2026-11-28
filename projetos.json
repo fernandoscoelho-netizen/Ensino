@@ -1,5 +1,5 @@
 {
-  "gerado": "2026-11-28T12:13:19+00:00",
+  "gerado": "2026-11-28T13:21:02+00:00",
   "pastas": [
     {
       "pasta": "CTE-Online-AERT3",
@@ -164,14 +164,19 @@
       "pasta": "DocaCode",
       "ficheiros": [
         {
+          "nome": "DocaCode_Enunciado_Aluno.pdf",
+          "caminho": "DocaCode/DocaCode_Enunciado_Aluno.pdf",
+          "tamanho": 2468632
+        },
+        {
           "nome": "LEIA-ME.md",
           "caminho": "DocaCode/LEIA-ME.md",
-          "tamanho": 2805
+          "tamanho": 3400
         },
         {
           "nome": "index.html",
           "caminho": "DocaCode/index.html",
-          "tamanho": 233376
+          "tamanho": 233380
         }
       ],
       "principal": "DocaCode/index.html",
